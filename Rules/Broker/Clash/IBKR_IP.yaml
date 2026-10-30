@@ -1,0 +1,24 @@
+# NAME: IBKR
+# DESC: 盈透证券 Interactive Brokers
+# FORMAT: Clash rule-provider, behavior: ipcidr
+# UPDATED: 2026-10-30 06:18:27 UTC
+# DOMAIN-SUFFIX: 21
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 13
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+payload:
+  - '8.17.22.0/24'
+  - '63.86.206.0/24'
+  - '64.190.196.0/23'
+  - '66.33.70.0/24'
+  - '72.18.209.0/24'
+  - '72.18.211.0/24'
+  - '188.172.197.0/24'
+  - '193.200.181.0/24'
+  - '202.38.4.0/23'
+  - '206.106.137.0/24'
+  - '208.245.107.0/24'
+  - '209.127.240.0/23'
+  - '217.192.86.0/24'

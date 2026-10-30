@@ -1,0 +1,20 @@
+# NAME: HTX
+# DESC: HTX (formerly Huobi)
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-14 09:45:58 UTC
+# DOMAIN-SUFFIX: 10
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.hbabit.com
+.htx.com
+.huobi.com
+.huobigroup.com
+.huobitoken.com
+.huobi.me
+.hbfile.net
+.huobi.pro
+.huobi.sc
+.huobiasia.vip

@@ -1,0 +1,33 @@
+# NAME: uSMART
+# DESC: 盈立证券: uSMART
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-30 06:18:13 UTC
+# DOMAIN-SUFFIX: 22
+# DOMAIN: 1
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+.usmart11.com
+.usmart22.com
+.usmart66.com
+.usmart8.com
+.usmartbroker.com
+.usmartcapital.com
+.usmartfinance.com
+.usmartglobal.com
+.usmartgroup.com
+.usmarthk.com
+.usmartinvest.com
+.usmartsecurities.com
+.usmartsg.com
+.usmarttrade.com
+.usmartus.com
+.ylzqhk.com
+.ylzqsg.com
+.yxzjhk.com
+.yxzjsg.com
+.yxzq.com
+.usmart.hk
+.usmart.sg
+yxzq.udesk.cn

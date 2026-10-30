@@ -1,0 +1,13 @@
+# NAME: BoComHK
+# DESC: Bank of Communications (Hong Kong) 交通银行（香港）
+# FORMAT: Clash rule-provider, behavior: domain
+# UPDATED: 2026-10-30 06:26:15 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 1
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - '+.hk.bankcomm.com'
+  - '+.bankcomm.com.hk'

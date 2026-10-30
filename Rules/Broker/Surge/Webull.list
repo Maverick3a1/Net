@@ -1,0 +1,36 @@
+# NAME: Webull
+# DESC: 微牛 Webull
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 06:18:15 UTC
+# DOMAIN-SUFFIX: 26
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+DOMAIN-SUFFIX,webull.com.au
+DOMAIN-SUFFIX,webull.com.br
+DOMAIN-SUFFIX,webull.ca
+DOMAIN-SUFFIX,wb4magxg.com
+DOMAIN-SUFFIX,wbapiservxg.com
+DOMAIN-SUFFIX,wbausecurities.com
+DOMAIN-SUFFIX,wbjpsecurities.com
+DOMAIN-SUFFIX,wbsecurities.com
+DOMAIN-SUFFIX,wbsgsecurities.com
+DOMAIN-SUFFIX,wbzasecurities.com
+DOMAIN-SUFFIX,webull.com
+DOMAIN-SUFFIX,webull-uk.com
+DOMAIN-SUFFIX,webull-us.com
+DOMAIN-SUFFIX,webullapp.com
+DOMAIN-SUFFIX,webullbroker.com
+DOMAIN-SUFFIX,webullcorp.com
+DOMAIN-SUFFIX,webullfinance.com
+DOMAIN-SUFFIX,webullfintech.com
+DOMAIN-SUFFIX,webullpay.com
+DOMAIN-SUFFIX,webull.hk
+DOMAIN-SUFFIX,webull.co.id
+DOMAIN-SUFFIX,webull.co.jp
+DOMAIN-SUFFIX,webull.com.my
+DOMAIN-SUFFIX,webull.com.sg
+DOMAIN-SUFFIX,webull.co.th
+DOMAIN-SUFFIX,webull.co.za

@@ -1,0 +1,14 @@
+# NAME: ICBCAsia
+# DESC: ICBC (Asia) 工银亚洲
+# FORMAT: Clash rule-provider, behavior: domain
+# UPDATED: 2026-10-30 06:26:09 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 1
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - '+.icbcasia.com'
+  - 'corpebankasia.icbc.com.cn'
+  - 'myebankasia.icbc.com.cn'

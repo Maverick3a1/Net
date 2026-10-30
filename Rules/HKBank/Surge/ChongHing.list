@@ -1,0 +1,11 @@
+# NAME: ChongHing
+# DESC: Chong Hing Bank 创兴银行
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 06:26:14 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+DOMAIN-SUFFIX,chbank.com

@@ -1,0 +1,54 @@
+# NAME: HSBC
+# DESC: HSBC 汇丰银行（香港）
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-30 06:25:59 UTC
+# DOMAIN-SUFFIX: 44
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 3
+# IP-CIDR6: 3
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+.hsbc.ae
+.hsbc.am
+.hsbc.com.ar
+.hsbc.com.au
+.hsbc.com.bd
+.hsbc.com.bh
+.hsbc.bm
+.hsbc.com.br
+.hsbc.ca
+.hsbc.com
+.hsbcinnovationbanking.com
+.hsbcnet.com
+.hsbcprivatebank.com
+.vv1865.com
+.hsbc.de
+.hsbc-alternatives.de
+.hsbc-transactionservices.de
+.hsbc-zertifikate.de
+.hsbctrinkaus.de
+.hsbc.com.eg
+.hsbc.fr
+.hsbc.com.hk
+.hsbc.co.id
+.hsbc.co.in
+.hsbc.co.jp
+.hsbc.co.kr
+.hsbc.lk
+.hsbc.com.mo
+.hsbc.com.mt
+.hsbc.co.mu
+.hsbc.com.mx
+.hsbc.com.my
+.hsbcamanah.com.my
+.hsbc.net
+.hsbc.co.nz
+.hsbc.com.ph
+.hsbc.com.sg
+.hsbc.co.th
+.hsbc.com.tr
+.hsbc.com.tw
+.hsbc.co.uk
+.hsbc.uk
+.hsbc.com.uy
+.hsbc.com.vn

@@ -1,0 +1,37 @@
+# NAME: Futu
+# DESC: 富途证券: 富途牛牛, moomoo
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 06:18:11 UTC
+# DOMAIN-SUFFIX: 26
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+payload:
+  - 'DOMAIN-SUFFIX,futu.cn'
+  - 'DOMAIN-SUFFIX,futu5.com'
+  - 'DOMAIN-SUFFIX,futuau.com'
+  - 'DOMAIN-SUFFIX,futuclearing.com'
+  - 'DOMAIN-SUFFIX,futuesop.com'
+  - 'DOMAIN-SUFFIX,futufin.com'
+  - 'DOMAIN-SUFFIX,futuhk.com'
+  - 'DOMAIN-SUFFIX,futuhk1.com'
+  - 'DOMAIN-SUFFIX,futuhk2.com'
+  - 'DOMAIN-SUFFIX,futuhkapp.com'
+  - 'DOMAIN-SUFFIX,futuhn.com'
+  - 'DOMAIN-SUFFIX,futuholdings.com'
+  - 'DOMAIN-SUFFIX,futuniuniu.com'
+  - 'DOMAIN-SUFFIX,futunn.com'
+  - 'DOMAIN-SUFFIX,futuoa.com'
+  - 'DOMAIN-SUFFIX,futusg.com'
+  - 'DOMAIN-SUFFIX,futustatic.com'
+  - 'DOMAIN-SUFFIX,fututrade.com'
+  - 'DOMAIN-SUFFIX,moomoo.com'
+  - 'DOMAIN-SUFFIX,moomooapp.com'
+  - 'DOMAIN-SUFFIX,moomoobull.com'
+  - 'DOMAIN-SUFFIX,moomoocn.com'
+  - 'DOMAIN-SUFFIX,moomooequity.com'
+  - 'DOMAIN-SUFFIX,moomootrustee.com'
+  - 'DOMAIN-SUFFIX,panthertrade.com'
+  - 'DOMAIN-SUFFIX,futu.link'

@@ -1,0 +1,14 @@
+# NAME: NCB
+# DESC: Nanyang Commercial Bank 南洋商业银行
+# FORMAT: Clash rule-provider, behavior: ipcidr
+# UPDATED: 2026-10-30 06:26:14 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 3
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - '103.49.122.0/23'
+  - '202.82.169.0/24'
+  - '210.177.228.0/24'

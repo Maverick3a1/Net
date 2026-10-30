@@ -1,0 +1,260 @@
+# NAME: Broker
+# DESC: All brokers above combined
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 07:13:05 UTC
+# DOMAIN-SUFFIX: 153
+# DOMAIN: 1
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 32
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# ============================================================
+# Futu
+# 富途证券: 富途牛牛, moomoo
+# ============================================================
+DOMAIN-SUFFIX,futu.cn
+DOMAIN-SUFFIX,futu5.com
+DOMAIN-SUFFIX,futuau.com
+DOMAIN-SUFFIX,futuclearing.com
+DOMAIN-SUFFIX,futuesop.com
+DOMAIN-SUFFIX,futufin.com
+DOMAIN-SUFFIX,futuhk.com
+DOMAIN-SUFFIX,futuhk1.com
+DOMAIN-SUFFIX,futuhk2.com
+DOMAIN-SUFFIX,futuhkapp.com
+DOMAIN-SUFFIX,futuhn.com
+DOMAIN-SUFFIX,futuholdings.com
+DOMAIN-SUFFIX,futuniuniu.com
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,futuoa.com
+DOMAIN-SUFFIX,futusg.com
+DOMAIN-SUFFIX,futustatic.com
+DOMAIN-SUFFIX,fututrade.com
+DOMAIN-SUFFIX,moomoo.com
+DOMAIN-SUFFIX,moomooapp.com
+DOMAIN-SUFFIX,moomoobull.com
+DOMAIN-SUFFIX,moomoocn.com
+DOMAIN-SUFFIX,moomooequity.com
+DOMAIN-SUFFIX,moomootrustee.com
+DOMAIN-SUFFIX,panthertrade.com
+DOMAIN-SUFFIX,futu.link
+
+# ============================================================
+# Tiger
+# 老虎证券: Tiger Trade, Tiger Brokers
+# ============================================================
+DOMAIN-SUFFIX,skytigris.cn
+DOMAIN-SUFFIX,tigerbbs.cn
+DOMAIN-SUFFIX,tigertcp.cn
+DOMAIN-SUFFIX,zhijianfengyi.cn
+DOMAIN-SUFFIX,ftfast.com
+DOMAIN-SUFFIX,iotaskyt.com
+DOMAIN-SUFFIX,iotaskyty.com
+DOMAIN-SUFFIX,itiger.com
+DOMAIN-SUFFIX,itigergrowth.com
+DOMAIN-SUFFIX,itigergrowtha.com
+DOMAIN-SUFFIX,itigerup.com
+DOMAIN-SUFFIX,laohu8.com
+DOMAIN-SUFFIX,play-analytics.com
+DOMAIN-SUFFIX,tbdesk.com
+DOMAIN-SUFFIX,tigerbbs.com
+DOMAIN-SUFFIX,tigerfintech.com
+DOMAIN-SUFFIX,xiaohu8.com
+DOMAIN-SUFFIX,zhijianfengyi.com
+DOMAIN-SUFFIX,tigr.link
+DOMAIN-SUFFIX,tigerbrokers.net
+
+# ============================================================
+# Longbridge
+# 长桥证券: Longbridge, LongPort
+# ============================================================
+DOMAIN-SUFFIX,longbridge.cloud
+DOMAIN-SUFFIX,longbridge.cn
+DOMAIN-SUFFIX,lbctrl.com
+DOMAIN-SUFFIX,lbkrs.com
+DOMAIN-SUFFIX,longbridge.com
+DOMAIN-SUFFIX,longbridgeapp.com
+DOMAIN-SUFFIX,longbridgehk.com
+DOMAIN-SUFFIX,longportapp.com
+DOMAIN-SUFFIX,wbrks.com
+DOMAIN-SUFFIX,longbridge.global
+DOMAIN-SUFFIX,longbridge.hk
+DOMAIN-SUFFIX,longbridge.sg
+
+# ============================================================
+# uSMART
+# 盈立证券: uSMART
+# ============================================================
+DOMAIN-SUFFIX,usmart11.com
+DOMAIN-SUFFIX,usmart22.com
+DOMAIN-SUFFIX,usmart66.com
+DOMAIN-SUFFIX,usmart8.com
+DOMAIN-SUFFIX,usmartbroker.com
+DOMAIN-SUFFIX,usmartcapital.com
+DOMAIN-SUFFIX,usmartfinance.com
+DOMAIN-SUFFIX,usmartglobal.com
+DOMAIN-SUFFIX,usmartgroup.com
+DOMAIN-SUFFIX,usmarthk.com
+DOMAIN-SUFFIX,usmartinvest.com
+DOMAIN-SUFFIX,usmartsecurities.com
+DOMAIN-SUFFIX,usmartsg.com
+DOMAIN-SUFFIX,usmarttrade.com
+DOMAIN-SUFFIX,usmartus.com
+DOMAIN-SUFFIX,ylzqhk.com
+DOMAIN-SUFFIX,ylzqsg.com
+DOMAIN-SUFFIX,yxzjhk.com
+DOMAIN-SUFFIX,yxzjsg.com
+DOMAIN-SUFFIX,yxzq.com
+DOMAIN-SUFFIX,usmart.hk
+DOMAIN-SUFFIX,usmart.sg
+DOMAIN,yxzq.udesk.cn
+
+# ============================================================
+# Valuable
+# 华盛证券: 华盛通, Valuable
+# ============================================================
+DOMAIN-SUFFIX,hstong.com
+DOMAIN-SUFFIX,vbkr.com
+DOMAIN-SUFFIX,valuable.com.hk
+
+# ============================================================
+# Snowball
+# 雪盈证券 Snowball Securities
+# ============================================================
+DOMAIN-SUFFIX,snowballsecurities.com
+
+# ============================================================
+# Eddid
+# 艾德证券: Eddid ONE
+# ============================================================
+DOMAIN-SUFFIX,eddidapp.com
+DOMAIN-SUFFIX,eddidfin.com
+DOMAIN-SUFFIX,eddidusa.com
+DOMAIN-SUFFIX,eddid.com.hk
+DOMAIN-SUFFIX,eddid.com.sg
+
+# ============================================================
+# HuataiIntl
+# 华泰国际: 涨乐全球通
+# ============================================================
+DOMAIN-SUFFIX,htsc.com.hk
+
+# ============================================================
+# Webull
+# 微牛 Webull
+# ============================================================
+DOMAIN-SUFFIX,webull.com.au
+DOMAIN-SUFFIX,webull.com.br
+DOMAIN-SUFFIX,webull.ca
+DOMAIN-SUFFIX,wb4magxg.com
+DOMAIN-SUFFIX,wbapiservxg.com
+DOMAIN-SUFFIX,wbausecurities.com
+DOMAIN-SUFFIX,wbjpsecurities.com
+DOMAIN-SUFFIX,wbsecurities.com
+DOMAIN-SUFFIX,wbsgsecurities.com
+DOMAIN-SUFFIX,wbzasecurities.com
+DOMAIN-SUFFIX,webull.com
+DOMAIN-SUFFIX,webull-uk.com
+DOMAIN-SUFFIX,webull-us.com
+DOMAIN-SUFFIX,webullapp.com
+DOMAIN-SUFFIX,webullbroker.com
+DOMAIN-SUFFIX,webullcorp.com
+DOMAIN-SUFFIX,webullfinance.com
+DOMAIN-SUFFIX,webullfintech.com
+DOMAIN-SUFFIX,webullpay.com
+DOMAIN-SUFFIX,webull.hk
+DOMAIN-SUFFIX,webull.co.id
+DOMAIN-SUFFIX,webull.co.jp
+DOMAIN-SUFFIX,webull.com.my
+DOMAIN-SUFFIX,webull.com.sg
+DOMAIN-SUFFIX,webull.co.th
+DOMAIN-SUFFIX,webull.co.za
+
+# ============================================================
+# IBKR
+# 盈透证券 Interactive Brokers
+# ============================================================
+DOMAIN-SUFFIX,ibkr.com.au
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,ibkr.ca
+DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibkrguides.com
+DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,ibkr.eu
+DOMAIN-SUFFIX,interactivebrokers.eu
+DOMAIN-SUFFIX,ibkr.com.hk
+DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,ibkr.ie
+DOMAIN-SUFFIX,interactivebrokers.ie
+DOMAIN-SUFFIX,ibkr.co.in
+DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,interactivebrokers.co.jp
+DOMAIN-SUFFIX,ibkr.com.sg
+DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,ibkr.co.uk
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+IP-CIDR,8.17.22.0/24,no-resolve
+IP-CIDR,63.86.206.0/24,no-resolve
+IP-CIDR,64.190.196.0/23,no-resolve
+IP-CIDR,66.33.70.0/24,no-resolve
+IP-CIDR,72.18.209.0/24,no-resolve
+IP-CIDR,72.18.211.0/24,no-resolve
+IP-CIDR,188.172.197.0/24,no-resolve
+IP-CIDR,193.200.181.0/24,no-resolve
+IP-CIDR,202.38.4.0/23,no-resolve
+IP-CIDR,206.106.137.0/24,no-resolve
+IP-CIDR,208.245.107.0/24,no-resolve
+IP-CIDR,209.127.240.0/23,no-resolve
+IP-CIDR,217.192.86.0/24,no-resolve
+
+# ============================================================
+# Schwab
+# 嘉信理财 Charles Schwab, thinkorswim
+# ============================================================
+DOMAIN-SUFFIX,aboutschwab.com
+DOMAIN-SUFFIX,schwab.com
+DOMAIN-SUFFIX,schwabassetmanagement.com
+DOMAIN-SUFFIX,schwabcdn.com
+DOMAIN-SUFFIX,schwabplan.com
+DOMAIN-SUFFIX,thinkorswim.com
+DOMAIN-SUFFIX,schwab.com.hk
+DOMAIN-SUFFIX,schwab.com.sg
+DOMAIN-SUFFIX,schwab.co.uk
+IP-CIDR,74.114.36.0/24,no-resolve
+IP-CIDR,162.93.0.0/24,no-resolve
+IP-CIDR,162.93.8.0/24,no-resolve
+IP-CIDR,162.93.11.0/24,no-resolve
+IP-CIDR,162.93.12.0/24,no-resolve
+IP-CIDR,162.93.16.0/24,no-resolve
+IP-CIDR,162.93.26.0/24,no-resolve
+IP-CIDR,162.93.32.0/22,no-resolve
+IP-CIDR,162.93.55.0/24,no-resolve
+IP-CIDR,162.93.62.0/24,no-resolve
+IP-CIDR,162.93.64.0/19,no-resolve
+IP-CIDR,162.93.112.0/20,no-resolve
+IP-CIDR,162.93.140.0/22,no-resolve
+IP-CIDR,162.93.152.0/22,no-resolve
+IP-CIDR,162.93.158.0/24,no-resolve
+IP-CIDR,162.93.160.0/19,no-resolve
+IP-CIDR,162.93.192.0/18,no-resolve
+
+# ============================================================
+# Firstrade
+# 第一证券 Firstrade
+# ============================================================
+DOMAIN-SUFFIX,firstrade.com
+DOMAIN-SUFFIX,firstrade.info
+DOMAIN-SUFFIX,firstrade.net
+
+# ============================================================
+# Robinhood
+# Robinhood
+# ============================================================
+DOMAIN-SUFFIX,aboutrobinhood.com
+DOMAIN-SUFFIX,robinhood.com
+DOMAIN-SUFFIX,rhinternal.net
+DOMAIN-SUFFIX,robinhood.net
+IP-CIDR,134.195.0.0/23,no-resolve
+IP-CIDR,134.195.2.0/24,no-resolve

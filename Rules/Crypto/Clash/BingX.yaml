@@ -1,0 +1,14 @@
+# NAME: BingX
+# DESC: BingX (formerly Bingbon)
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-14 09:46:01 UTC
+# DOMAIN-SUFFIX: 3
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+payload:
+  - 'DOMAIN-SUFFIX,bb-os.com'
+  - 'DOMAIN-SUFFIX,bingbon.com'
+  - 'DOMAIN-SUFFIX,bingx.com'

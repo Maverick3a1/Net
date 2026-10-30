@@ -1,0 +1,12 @@
+# NAME: ShacomBank
+# DESC: Shanghai Commercial Bank 上海商业银行
+# FORMAT: Clash rule-provider, behavior: domain
+# UPDATED: 2026-10-30 06:26:14 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - '+.shacombank.com.hk'

@@ -1,0 +1,77 @@
+name: Update rulesets
+
+on:
+  schedule:
+    # 19:00 UTC = 03:00 Asia/Shanghai (UTC+8). GitHub cron is always UTC.
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Rules/*/config/**"
+      - "Rules/*/scripts/**"
+      - ".github/workflows/update-rulesets.yml"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-rulesets
+  cancel-in-progress: false
+
+env:
+  # Each entry is a ruleset project with scripts/build.py, Clash/, Surge/ and README.md.
+  PROJECTS: Rules/AI Rules/Crypto Rules/Broker
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      # One project failing (e.g. an upstream source down) must not block the others.
+      - name: Build rulesets
+        id: build
+        run: |
+          failed=""
+          for p in $PROJECTS; do
+            echo "::group::$p"
+            python "$p/scripts/build.py" || failed="$failed $p"
+            echo "::endgroup::"
+          done
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for p in $PROJECTS; do
+            git add "$p/Clash" "$p/Surge" "$p/README.md"
+          done
+          if git diff --cached --quiet; then
+            echo "Rulesets unchanged."
+          else
+            git commit -m "chore: update rulesets $(date -u +'%Y-%m-%d')"
+            git push
+          fi
+
+      # GitHub disables scheduled workflows after 60 days without repo activity.
+      # Re-enabling through the API keeps the daily schedule alive even when
+      # rules haven't changed (no commit needed).
+      - name: Keep schedule alive
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/update-rulesets.yml/enable"
+
+      - name: Report failed builds
+        if: steps.build.outputs.failed != ''
+        run: |
+          echo "::error::Build failed for:${{ steps.build.outputs.failed }}"
+          exit 1

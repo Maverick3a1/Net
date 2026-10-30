@@ -1,0 +1,11 @@
+# NAME: Gemini
+# DESC: Gemini Exchange (not Google Gemini)
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-14 09:46:07 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 2
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.gemini.com

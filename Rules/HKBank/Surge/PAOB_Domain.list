@@ -1,0 +1,12 @@
+# NAME: PAOB
+# DESC: Ping An OneConnect Bank 平安壹账通银行
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-30 06:26:17 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+.pingandb.com
+.paob.com.hk

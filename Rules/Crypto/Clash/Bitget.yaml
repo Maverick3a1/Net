@@ -1,0 +1,17 @@
+# NAME: Bitget
+# DESC: Bitget
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-14 09:45:53 UTC
+# DOMAIN-SUFFIX: 6
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+payload:
+  - 'DOMAIN-SUFFIX,bgbstatic.com'
+  - 'DOMAIN-SUFFIX,bgstatic.com'
+  - 'DOMAIN-SUFFIX,bitget.com'
+  - 'DOMAIN-SUFFIX,bitgetapp.com'
+  - 'DOMAIN-SUFFIX,bitgetapps.com'
+  - 'DOMAIN-SUFFIX,bitget.site'

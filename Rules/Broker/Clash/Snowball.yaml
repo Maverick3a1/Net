@@ -1,0 +1,12 @@
+# NAME: Snowball
+# DESC: 雪盈证券 Snowball Securities
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 07:10:26 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+payload:
+  - 'DOMAIN-SUFFIX,snowballsecurities.com'

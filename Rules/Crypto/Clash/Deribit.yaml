@@ -1,0 +1,18 @@
+# NAME: Deribit
+# DESC: Deribit
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-14 09:46:13 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 1
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 5
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+payload:
+  - 'DOMAIN-SUFFIX,deribit.com'
+  - 'DOMAIN,deribit.cdn.prismic.io'
+  - 'IP-CIDR,62.115.245.0/24,no-resolve'
+  - 'IP-CIDR,193.58.240.0/24,no-resolve'
+  - 'IP-CIDR,193.72.79.0/24,no-resolve'
+  - 'IP-CIDR,193.73.250.0/24,no-resolve'
+  - 'IP-CIDR,194.28.45.0/24,no-resolve'

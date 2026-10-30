@@ -1,0 +1,18 @@
+# NAME: KuCoin
+# DESC: KuCoin, KuCoin TH, KuCoin TR
+# FORMAT: Clash rule-provider, behavior: domain
+# UPDATED: 2026-10-14 09:45:59 UTC
+# DOMAIN-SUFFIX: 7
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+payload:
+  - '+.kucoinauth.cloud'
+  - '+.kucoin.club'
+  - '+.kucoin.com'
+  - '+.staticimg.com'
+  - '+.kucoin.plus'
+  - '+.kucoin.th'
+  - '+.kucoin.tr'

@@ -1,0 +1,13 @@
+# NAME: OCBC
+# DESC: OCBC Bank (Hong Kong) 华侨银行（香港）
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 06:26:12 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+DOMAIN-SUFFIX,ocbcwhhk.com
+DOMAIN-SUFFIX,ocbc.com.hk
+IP-CIDR,202.130.145.0/24,no-resolve

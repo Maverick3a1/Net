@@ -1,0 +1,18 @@
+# NAME: Citibank
+# DESC: Citibank (Hong Kong) 花旗银行（香港）
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 06:26:08 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 6
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+DOMAIN-SUFFIX,citi.com.hk
+DOMAIN-SUFFIX,citibank.com.hk
+IP-CIDR,192.193.19.0/24,no-resolve
+IP-CIDR,192.193.82.0/24,no-resolve
+IP-CIDR,192.193.128.0/24,no-resolve
+IP-CIDR,192.193.130.0/24,no-resolve
+IP-CIDR,192.193.133.0/24,no-resolve
+IP-CIDR,192.193.134.0/24,no-resolve

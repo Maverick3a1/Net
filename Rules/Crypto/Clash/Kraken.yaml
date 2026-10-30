@@ -1,0 +1,18 @@
+# NAME: Kraken
+# DESC: Kraken, Kraken Pro
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-14 09:46:01 UTC
+# DOMAIN-SUFFIX: 4
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 3
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+payload:
+  - 'DOMAIN-SUFFIX,krak.app'
+  - 'DOMAIN-SUFFIX,kraken.com'
+  - 'DOMAIN-SUFFIX,payward.com'
+  - 'DOMAIN-SUFFIX,kraken.onl'
+  - 'IP-CIDR,67.208.234.0/24,no-resolve'
+  - 'IP-CIDR,193.118.169.0/24,no-resolve'
+  - 'IP-CIDR,208.185.210.0/24,no-resolve'

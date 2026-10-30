@@ -1,0 +1,292 @@
+# NAME: HKBank
+# DESC: All Hong Kong banks above combined
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-10-30 06:26:17 UTC
+# DOMAIN-SUFFIX: 85
+# DOMAIN: 4
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 53
+# IP-CIDR6: 6
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# ============================================================
+# HSBC
+# HSBC 汇丰银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,hsbc.ae
+DOMAIN-SUFFIX,hsbc.am
+DOMAIN-SUFFIX,hsbc.com.ar
+DOMAIN-SUFFIX,hsbc.com.au
+DOMAIN-SUFFIX,hsbc.com.bd
+DOMAIN-SUFFIX,hsbc.com.bh
+DOMAIN-SUFFIX,hsbc.bm
+DOMAIN-SUFFIX,hsbc.com.br
+DOMAIN-SUFFIX,hsbc.ca
+DOMAIN-SUFFIX,hsbc.com
+DOMAIN-SUFFIX,hsbcinnovationbanking.com
+DOMAIN-SUFFIX,hsbcnet.com
+DOMAIN-SUFFIX,hsbcprivatebank.com
+DOMAIN-SUFFIX,vv1865.com
+DOMAIN-SUFFIX,hsbc.de
+DOMAIN-SUFFIX,hsbc-alternatives.de
+DOMAIN-SUFFIX,hsbc-transactionservices.de
+DOMAIN-SUFFIX,hsbc-zertifikate.de
+DOMAIN-SUFFIX,hsbctrinkaus.de
+DOMAIN-SUFFIX,hsbc.com.eg
+DOMAIN-SUFFIX,hsbc.fr
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.co.id
+DOMAIN-SUFFIX,hsbc.co.in
+DOMAIN-SUFFIX,hsbc.co.jp
+DOMAIN-SUFFIX,hsbc.co.kr
+DOMAIN-SUFFIX,hsbc.lk
+DOMAIN-SUFFIX,hsbc.com.mo
+DOMAIN-SUFFIX,hsbc.com.mt
+DOMAIN-SUFFIX,hsbc.co.mu
+DOMAIN-SUFFIX,hsbc.com.mx
+DOMAIN-SUFFIX,hsbc.com.my
+DOMAIN-SUFFIX,hsbcamanah.com.my
+DOMAIN-SUFFIX,hsbc.net
+DOMAIN-SUFFIX,hsbc.co.nz
+DOMAIN-SUFFIX,hsbc.com.ph
+DOMAIN-SUFFIX,hsbc.com.sg
+DOMAIN-SUFFIX,hsbc.co.th
+DOMAIN-SUFFIX,hsbc.com.tr
+DOMAIN-SUFFIX,hsbc.com.tw
+DOMAIN-SUFFIX,hsbc.co.uk
+DOMAIN-SUFFIX,hsbc.uk
+DOMAIN-SUFFIX,hsbc.com.uy
+DOMAIN-SUFFIX,hsbc.com.vn
+IP-CIDR,27.110.72.0/21,no-resolve
+IP-CIDR,161.113.192.0/19,no-resolve
+IP-CIDR,203.112.80.0/20,no-resolve
+IP-CIDR6,2406:dc0:235e::/47,no-resolve
+IP-CIDR6,2406:dc0:8850::/47,no-resolve
+IP-CIDR6,2406:dc0:88ca::/47,no-resolve
+
+# ============================================================
+# StandardChartered
+# Standard Chartered 渣打银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,sc.com
+DOMAIN-SUFFIX,standardchartered.com
+DOMAIN-SUFFIX,standardchartered.com.hk
+DOMAIN,standchartbank.sc.omtrdc.net
+DOMAIN,standchartbank.tt.omtrdc.net
+IP-CIDR,166.81.9.0/24,no-resolve
+IP-CIDR,166.81.10.0/23,no-resolve
+IP-CIDR,166.81.12.0/24,no-resolve
+IP-CIDR,166.81.16.0/22,no-resolve
+IP-CIDR,166.81.20.0/23,no-resolve
+IP-CIDR,166.81.22.0/24,no-resolve
+IP-CIDR,166.81.26.0/23,no-resolve
+IP-CIDR,166.81.28.0/22,no-resolve
+IP-CIDR,166.81.33.0/24,no-resolve
+IP-CIDR,166.81.34.0/24,no-resolve
+IP-CIDR,166.81.38.0/23,no-resolve
+IP-CIDR,166.81.40.0/24,no-resolve
+IP-CIDR,166.81.51.0/24,no-resolve
+IP-CIDR,166.81.52.0/22,no-resolve
+IP-CIDR,166.81.56.0/24,no-resolve
+IP-CIDR,166.81.58.0/23,no-resolve
+IP-CIDR,166.81.61.0/24,no-resolve
+IP-CIDR,166.81.62.0/23,no-resolve
+IP-CIDR,166.81.66.0/24,no-resolve
+IP-CIDR,166.81.69.0/24,no-resolve
+IP-CIDR,166.81.70.0/24,no-resolve
+IP-CIDR,166.81.77.0/24,no-resolve
+IP-CIDR,166.81.78.0/23,no-resolve
+IP-CIDR,166.81.80.0/23,no-resolve
+IP-CIDR,166.81.83.0/24,no-resolve
+IP-CIDR,166.81.84.0/23,no-resolve
+IP-CIDR,166.81.87.0/24,no-resolve
+IP-CIDR,166.81.88.0/22,no-resolve
+IP-CIDR,166.81.97.0/24,no-resolve
+IP-CIDR,166.81.98.0/23,no-resolve
+IP-CIDR,166.81.100.0/24,no-resolve
+IP-CIDR,175.111.12.0/22,no-resolve
+IP-CIDR,206.42.118.0/23,no-resolve
+IP-CIDR,206.42.120.0/23,no-resolve
+
+# ============================================================
+# BOCHK
+# Bank of China (Hong Kong) 中银香港
+# ============================================================
+DOMAIN-SUFFIX,bochk.com
+DOMAIN-SUFFIX,bochk.com.hk
+IP-CIDR,202.127.168.0/21,no-resolve
+
+# ============================================================
+# HangSeng
+# Hang Seng Bank 恒生银行
+# ============================================================
+DOMAIN-SUFFIX,hangseng.com
+DOMAIN-SUFFIX,hangseng.com.hk
+
+# ============================================================
+# BEA
+# The Bank of East Asia 东亚银行
+# ============================================================
+DOMAIN-SUFFIX,hkbea.com
+DOMAIN-SUFFIX,hkbea-cyberbanking.com
+
+# ============================================================
+# DBS
+# DBS Bank (Hong Kong) 星展银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,hk.dbs.com
+DOMAIN-SUFFIX,dbs.com.hk
+IP-CIDR,103.144.97.0/24,no-resolve
+IP-CIDR,202.0.183.0/24,no-resolve
+
+# ============================================================
+# Citibank
+# Citibank (Hong Kong) 花旗银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,citi.com.hk
+DOMAIN-SUFFIX,citibank.com.hk
+IP-CIDR,192.193.19.0/24,no-resolve
+IP-CIDR,192.193.82.0/24,no-resolve
+IP-CIDR,192.193.128.0/24,no-resolve
+IP-CIDR,192.193.130.0/24,no-resolve
+IP-CIDR,192.193.133.0/24,no-resolve
+IP-CIDR,192.193.134.0/24,no-resolve
+
+# ============================================================
+# DahSing
+# Dah Sing Bank 大新银行
+# ============================================================
+DOMAIN-SUFFIX,dahsing.com
+
+# ============================================================
+# CNCBI
+# China CITIC Bank International 中信银行（国际）
+# ============================================================
+DOMAIN-SUFFIX,cncbinternational.com
+
+# ============================================================
+# CMBWingLung
+# CMB Wing Lung Bank 招商永隆银行
+# ============================================================
+DOMAIN-SUFFIX,cmbwinglungbank.com
+DOMAIN-SUFFIX,winglungbank.com
+
+# ============================================================
+# ICBCAsia
+# ICBC (Asia) 工银亚洲
+# ============================================================
+DOMAIN-SUFFIX,icbcasia.com
+DOMAIN,corpebankasia.icbc.com.cn
+DOMAIN,myebankasia.icbc.com.cn
+IP-CIDR,203.34.252.0/23,no-resolve
+IP-CIDR6,2001:df7:dc80::/48,no-resolve
+
+# ============================================================
+# CCBAsia
+# China Construction Bank (Asia) 建行亚洲
+# ============================================================
+DOMAIN-SUFFIX,asia.ccb.com
+IP-CIDR,203.89.6.0/23,no-resolve
+IP-CIDR6,2001:df1:f4c0::/48,no-resolve
+
+# ============================================================
+# OCBC
+# OCBC Bank (Hong Kong) 华侨银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,ocbcwhhk.com
+DOMAIN-SUFFIX,ocbc.com.hk
+IP-CIDR,202.130.145.0/24,no-resolve
+
+# ============================================================
+# Fubon
+# Fubon Bank (Hong Kong) 富邦银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,fubonbank.com.hk
+
+# ============================================================
+# NCB
+# Nanyang Commercial Bank 南洋商业银行
+# ============================================================
+DOMAIN-SUFFIX,ncb.com.hk
+IP-CIDR,103.49.122.0/23,no-resolve
+IP-CIDR,202.82.169.0/24,no-resolve
+IP-CIDR,210.177.228.0/24,no-resolve
+
+# ============================================================
+# Chiyu
+# Chiyu Banking Corporation 集友银行
+# ============================================================
+DOMAIN-SUFFIX,chiyubank.com
+DOMAIN-SUFFIX,cybhk.com
+
+# ============================================================
+# ShacomBank
+# Shanghai Commercial Bank 上海商业银行
+# ============================================================
+DOMAIN-SUFFIX,shacombank.com.hk
+
+# ============================================================
+# ChongHing
+# Chong Hing Bank 创兴银行
+# ============================================================
+DOMAIN-SUFFIX,chbank.com
+
+# ============================================================
+# BoComHK
+# Bank of Communications (Hong Kong) 交通银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,hk.bankcomm.com
+DOMAIN-SUFFIX,bankcomm.com.hk
+IP-CIDR,103.44.63.0/24,no-resolve
+IP-CIDR6,2407:880:9f00::/48,no-resolve
+
+# ============================================================
+# ZABank
+# ZA Bank 众安银行
+# ============================================================
+DOMAIN-SUFFIX,zaticdn.com
+DOMAIN-SUFFIX,za.group
+DOMAIN-SUFFIX,zabank.com.hk
+
+# ============================================================
+# Mox
+# Mox Bank
+# ============================================================
+DOMAIN-SUFFIX,mox.com
+
+# ============================================================
+# WeLab
+# WeLab Bank 汇立银行
+# ============================================================
+DOMAIN-SUFFIX,welab.bank
+
+# ============================================================
+# Livi
+# livi bank 理慧银行
+# ============================================================
+DOMAIN-SUFFIX,livibank.com
+
+# ============================================================
+# EleBank
+# EleBank 大象银行（原 Airstar Bank 天星银行）
+# ============================================================
+DOMAIN-SUFFIX,airstarbank.com
+DOMAIN-SUFFIX,elebank.com
+
+# ============================================================
+# PAOB
+# Ping An OneConnect Bank 平安壹账通银行
+# ============================================================
+DOMAIN-SUFFIX,pingandb.com
+DOMAIN-SUFFIX,paob.com.hk
+
+# ============================================================
+# Fusion
+# Fusion Bank 富融银行
+# ============================================================
+DOMAIN-SUFFIX,fusionbank.com
+
+# ============================================================
+# AntBank
+# Ant Bank (Hong Kong) 蚂蚁银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,antbank.hk

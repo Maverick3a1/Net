@@ -1,0 +1,14 @@
+# NAME: CCBAsia
+# DESC: China Construction Bank (Asia) 建行亚洲
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 06:26:11 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 1
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - 'DOMAIN-SUFFIX,asia.ccb.com'
+  - 'IP-CIDR,203.89.6.0/23,no-resolve'
+  - 'IP-CIDR6,2001:df1:f4c0::/48,no-resolve'

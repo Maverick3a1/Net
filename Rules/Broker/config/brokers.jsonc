@@ -1,0 +1,259 @@
+// Broker 券商配置。改完推送到 main，scripts/build.py 会重新生成 Clash/ 和 Surge/。
+// 只支持整行的 // 注释。
+// 手工维护的域名均已通过 TLS 证书主体或券商官网前端代码核实归属。
+// 收录原则：只收这些港美股券商自己使用的域名，不收内地券商（以及与内地券商共用）的域名。
+// 券商境内技术公司的 .cn 域名（如富途 futu.cn、老虎 tigerbbs.cn、长桥 longbridge.cn）
+// 是券商自家 App 使用的，予以保留。
+{
+  // ================================================================
+  // 全局设置
+  // ================================================================
+
+  // 拒绝收录的过宽 DOMAIN-SUFFIX（只拦截完全相同的后缀）
+  "global_deny_suffix": [
+    "aliyuncs.com",
+    "amazonaws.com",
+    "cloudflare.com",
+    "cloudflare.net",
+    "cloudfront.net",
+    "ctfassets.net",
+    "github.com",
+    "google.com",
+    "googleapis.com",
+    "gstatic.com",
+    "myqcloud.com",
+    "qcloud.com",
+    "udesk.cn"
+  ],
+
+  // v2fly 中带这些属性的条目会被丢弃
+  "v2fly_exclude_attrs": ["ads"],
+
+  // 内地证券公司域名黑名单：命中的条目一律剔除；拉取失败则本次不发布任何规则
+  "mainland_deny_v2fly": ["category-securities-cn"],
+
+  "brokers": [
+    // ================================================================
+    // 中资互联网券商
+    // ================================================================
+
+    // 富途：富途牛牛 / moomoo
+    {
+      "name": "Futu",
+      "description": "富途证券: 富途牛牛, moomoo",
+      "sources": [
+        {"type": "v2fly", "list": "futu"}
+      ],
+      // moomoo 各地区域名、富途清算（v2fly 未收录）
+      "domain_suffix": [
+        "futuclearing.com",
+        "moomooapp.com",
+        "moomoobull.com",
+        "moomoocn.com",
+        "panthertrade.com"
+      ]
+    },
+
+    // 老虎证券：Tiger Trade / 老虎国际
+    {
+      "name": "Tiger",
+      "description": "老虎证券: Tiger Trade, Tiger Brokers",
+      "sources": [
+        {"type": "v2fly", "list": "itiger"},
+        {"type": "blackmatrix7", "list": "TigerFintech"}
+      ]
+    },
+
+    // 长桥证券：Longbridge / LongPort
+    {
+      "name": "Longbridge",
+      "description": "长桥证券: Longbridge, LongPort",
+      "sources": [
+        {"type": "v2fly", "list": "longbridge"}
+      ]
+    },
+
+    // 盈立证券：uSMART（v2fly 没有单独列表，手工维护）
+    {
+      "name": "uSMART",
+      "description": "盈立证券: uSMART",
+      "sources": [],
+      "domain_suffix": [
+        "usmart.hk",
+        "usmart.sg",
+        "usmart11.com",
+        "usmart22.com",
+        "usmart66.com",
+        "usmart8.com",
+        "usmartbroker.com",
+        "usmartcapital.com",
+        "usmartfinance.com",
+        "usmartglobal.com",
+        "usmartgroup.com",
+        "usmarthk.com",
+        "usmartinvest.com",
+        "usmartsecurities.com",
+        "usmartsg.com",
+        "usmarttrade.com",
+        "usmartus.com",
+        "ylzqhk.com",
+        "ylzqsg.com",
+        "yxzjhk.com",
+        "yxzjsg.com",
+        "yxzq.com"
+      ],
+      // 在线客服（udesk 是共用 SaaS，只收录盈立的子域）
+      "domain": ["yxzq.udesk.cn"]
+    },
+
+    // 华盛证券：华盛通 / Valuable（手工维护）
+    {
+      "name": "Valuable",
+      "description": "华盛证券: 华盛通, Valuable",
+      "sources": [],
+      "domain_suffix": [
+        "hstong.com",
+        "valuable.com.hk",
+        "vbkr.com"
+      ]
+    },
+
+    // 雪盈证券（雪球旗下）
+    // 不引用 v2fly/xueqiu、blackmatrix7/XueQiu：其中的 xueqiu.com、imedao.com 是雪球 App
+    // 与内地券商 A 股交易共用的域名，danjuanfunds.com 等是内地蛋卷基金，均非雪盈专用
+    {
+      "name": "Snowball",
+      "description": "雪盈证券 Snowball Securities",
+      "sources": [],
+      "domain_suffix": ["snowballsecurities.com"]
+    },
+
+    // 艾德证券：Eddid ONE（手工维护）
+    {
+      "name": "Eddid",
+      "description": "艾德证券: Eddid ONE",
+      "sources": [],
+      "domain_suffix": [
+        "eddid.com.hk",
+        "eddid.com.sg",
+        "eddidapp.com",
+        "eddidfin.com",
+        "eddidusa.com"
+      ]
+    },
+
+    // 华泰国际：涨乐全球通（只收录香港站点，不含内地华泰证券 htsc.com.cn）
+    {
+      "name": "HuataiIntl",
+      "description": "华泰国际: 涨乐全球通",
+      "sources": [],
+      "domain_suffix": ["htsc.com.hk"]
+    },
+
+    // 微牛：Webull 各地区站点（手工维护）
+    {
+      "name": "Webull",
+      "description": "微牛 Webull",
+      "sources": [],
+      "domain_suffix": [
+        "wb4magxg.com",
+        "wbapiservxg.com",
+        "wbausecurities.com",
+        "wbjpsecurities.com",
+        "wbsecurities.com",
+        "wbsgsecurities.com",
+        "wbzasecurities.com",
+        "webull-uk.com",
+        "webull-us.com",
+        "webull.ca",
+        "webull.co.id",
+        "webull.co.jp",
+        "webull.co.th",
+        "webull.co.za",
+        "webull.com",
+        "webull.com.au",
+        "webull.com.br",
+        "webull.com.my",
+        "webull.com.sg",
+        "webull.hk",
+        "webullapp.com",
+        "webullbroker.com",
+        "webullcorp.com",
+        "webullfinance.com",
+        "webullfintech.com",
+        "webullpay.com"
+      ]
+    },
+
+    // ================================================================
+    // 美国本土券商
+    // ================================================================
+
+    // 盈透证券 Interactive Brokers
+    {
+      "name": "IBKR",
+      "description": "盈透证券 Interactive Brokers",
+      "sources": [
+        {"type": "v2fly", "list": "ibkr"},
+        // Interactive Brokers LLC / Corp 自有 ASN
+        {"type": "asn", "asn": 11449},
+        {"type": "asn", "asn": 27163},
+        {"type": "asn", "asn": 27164},
+        {"type": "asn", "asn": 40711},
+        {"type": "asn", "asn": 400227},
+        // IBKR Financial Services AG（欧洲）
+        {"type": "asn", "asn": 9096},
+        {"type": "asn", "asn": 207241},
+        {"type": "asn", "asn": 212141}
+      ]
+    },
+
+    // 嘉信理财 Charles Schwab（含 thinkorswim）
+    {
+      "name": "Schwab",
+      "description": "嘉信理财 Charles Schwab, thinkorswim",
+      "sources": [
+        {"type": "v2fly", "list": "schwab"},
+        // Charles Schwab & Co. 自有 ASN
+        {"type": "asn", "asn": 1399},
+        {"type": "asn", "asn": 6949}
+      ]
+    },
+
+    // 第一证券 Firstrade（v2fly 只在 category-finance 里有主域名，手工维护）
+    {
+      "name": "Firstrade",
+      "description": "第一证券 Firstrade",
+      "sources": [],
+      "domain_suffix": [
+        "firstrade.com",
+        "firstrade.info",
+        "firstrade.net"
+      ]
+    },
+
+    // Robinhood
+    {
+      "name": "Robinhood",
+      "description": "Robinhood",
+      "sources": [
+        // Robinhood Markets 自有 ASN
+        {"type": "asn", "asn": 29981}
+      ],
+      "domain_suffix": [
+        "aboutrobinhood.com",
+        "rhinternal.net",
+        "robinhood.com",
+        "robinhood.net"
+      ]
+    }
+  ],
+
+  // ================================================================
+  // 合集：以上所有券商合并为 Broker.list / Broker.yaml
+  // ================================================================
+  "aggregate": {
+    "name": "Broker",
+    "description": "All brokers above combined"
+  }
+}

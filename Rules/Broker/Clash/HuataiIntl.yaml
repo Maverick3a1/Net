@@ -1,0 +1,12 @@
+# NAME: HuataiIntl
+# DESC: 华泰国际: 涨乐全球通
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 06:18:15 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+payload:
+  - 'DOMAIN-SUFFIX,htsc.com.hk'

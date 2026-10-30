@@ -1,0 +1,16 @@
+# NAME: Eddid
+# DESC: 艾德证券: Eddid ONE
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 06:18:15 UTC
+# DOMAIN-SUFFIX: 5
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+payload:
+  - 'DOMAIN-SUFFIX,eddidapp.com'
+  - 'DOMAIN-SUFFIX,eddidfin.com'
+  - 'DOMAIN-SUFFIX,eddidusa.com'
+  - 'DOMAIN-SUFFIX,eddid.com.hk'
+  - 'DOMAIN-SUFFIX,eddid.com.sg'
