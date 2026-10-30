@@ -1,4 +1,4 @@
-# Rules4Crypto
+# Crypto
 
 全球主流加密货币交易所（Binance、OKX、Bybit、Coinbase、Bitget、Upbit、Gate、MEXC、HTX、KuCoin、Kraken、Crypto.com、Bithumb、BingX、Bitfinex、Bitstamp、Gemini、bitFlyer、Deribit、Hyperliquid）的 **Clash / Surge 分流规则集**。
 

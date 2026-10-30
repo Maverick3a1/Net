@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect Hong Kong bank domains / IP ranges and render Clash + Surge rulesets.
+"""Collect bank (Hong Kong banks, Wise) domains / IP ranges and render Clash + Surge rulesets.
 
 Stdlib only. Run from anywhere:  python3 scripts/build.py
 """
@@ -21,7 +21,7 @@ README = ROOT / "README.md"
 
 V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
 RIPE_PREFIXES = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{}"
-USER_AGENT = "Rules-HKBank/1.0"
+USER_AGENT = "Rules-Bank/1.0"
 
 # A rule set must not shrink below this fraction of its previous size in one run.
 MIN_KEEP_RATIO = 0.5

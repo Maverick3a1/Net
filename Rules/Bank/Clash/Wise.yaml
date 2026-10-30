@@ -1,0 +1,15 @@
+# NAME: Wise
+# DESC: Wise（原 TransferWise）
+# FORMAT: Clash rule-provider, behavior: classical
+# UPDATED: 2026-10-30 07:48:55 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+payload:
+  - 'DOMAIN-SUFFIX,transferwise.com'
+  - 'DOMAIN-SUFFIX,wise.com'
+  - 'DOMAIN,daw291njkc3ao.cloudfront.net'
+  - 'DOMAIN,dq8dwmysp7hk1.cloudfront.net'

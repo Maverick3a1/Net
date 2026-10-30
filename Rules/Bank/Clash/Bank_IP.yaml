@@ -1,8 +1,8 @@
-# NAME: HKBank
-# DESC: All Hong Kong banks above combined
+# NAME: Bank
+# DESC: All banks above combined
 # FORMAT: Clash rule-provider, behavior: ipcidr
-# UPDATED: 2026-10-30 06:26:17 UTC
-# DOMAIN-SUFFIX: 85
+# UPDATED: 2026-10-30 07:48:07 UTC
+# DOMAIN-SUFFIX: 87
 # DOMAIN: 4
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53

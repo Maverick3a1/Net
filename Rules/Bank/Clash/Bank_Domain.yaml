@@ -1,9 +1,9 @@
-# NAME: HKBank
-# DESC: All Hong Kong banks above combined
+# NAME: Bank
+# DESC: All banks above combined
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-10-30 06:26:17 UTC
-# DOMAIN-SUFFIX: 85
-# DOMAIN: 4
+# UPDATED: 2026-10-30 07:48:55 UTC
+# DOMAIN-SUFFIX: 87
+# DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
@@ -232,3 +232,12 @@ payload:
   # Ant Bank (Hong Kong) 蚂蚁银行（香港）
   # ============================================================
   - '+.antbank.hk'
+
+  # ============================================================
+  # Wise
+  # Wise（原 TransferWise）
+  # ============================================================
+  - '+.transferwise.com'
+  - '+.wise.com'
+  - 'daw291njkc3ao.cloudfront.net'
+  - 'dq8dwmysp7hk1.cloudfront.net'

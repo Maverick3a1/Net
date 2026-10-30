@@ -1,6 +1,8 @@
-# HKBank
+# Bank
 
-香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）的 **Clash / Surge 分流规则集**，结构和生成方式沿用 Rules4AI。
+香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）和 Wise 的 **Clash / Surge 分流规则集**。
+
+GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，只要有变化就提交。
 
 ## 规则列表
 
@@ -34,10 +36,11 @@
 | **PAOB** | Ping An OneConnect Bank 平安壹账通银行 | 2 | 0 | [RULE-SET](Surge/PAOB.list) · [DOMAIN-SET](Surge/PAOB_Domain.list) | [classical](Clash/PAOB.yaml) · [domain](Clash/PAOB_Domain.yaml) |
 | **Fusion** | Fusion Bank 富融银行 | 1 | 0 | [RULE-SET](Surge/Fusion.list) · [DOMAIN-SET](Surge/Fusion_Domain.list) | [classical](Clash/Fusion.yaml) · [domain](Clash/Fusion_Domain.yaml) |
 | **AntBank** | Ant Bank (Hong Kong) 蚂蚁银行（香港） | 1 | 0 | [RULE-SET](Surge/AntBank.list) · [DOMAIN-SET](Surge/AntBank_Domain.list) | [classical](Clash/AntBank.yaml) · [domain](Clash/AntBank_Domain.yaml) |
-| **HKBank** | All Hong Kong banks above combined | 89 | 59 | [RULE-SET](Surge/HKBank.list) · [DOMAIN-SET](Surge/HKBank_Domain.list) | [classical](Clash/HKBank.yaml) · [domain](Clash/HKBank_Domain.yaml) · [ipcidr](Clash/HKBank_IP.yaml) |
+| **Wise** | Wise（原 TransferWise） | 4 | 0 | [RULE-SET](Surge/Wise.list) · [DOMAIN-SET](Surge/Wise_Domain.list) | [classical](Clash/Wise.yaml) · [domain](Clash/Wise_Domain.yaml) |
+| **Bank** | All banks above combined | 93 | 59 | [RULE-SET](Surge/Bank.list) · [DOMAIN-SET](Surge/Bank_Domain.list) | [classical](Clash/Bank.yaml) · [domain](Clash/Bank_Domain.yaml) · [ipcidr](Clash/Bank_IP.yaml) |
 <!-- RULES:END -->
 
-`HKBank` 是以上所有银行的合集，一条规则全部覆盖。
+`Bank` 是以上所有银行（含 Wise）的合集，一条规则全部覆盖。
 
 ## 文件格式
 
@@ -49,43 +52,44 @@
 | `Clash/<Name>_Domain.yaml` | mihomo rule-provider，`behavior: domain`（不含关键字和 IP） |
 | `Clash/<Name>_IP.yaml` | mihomo rule-provider，`behavior: ipcidr`（仅当该银行有 IP 段时生成） |
 
+想要完整覆盖就用 classical / RULE-SET；`_Domain` + `_IP` 组合匹配更快，但会丢掉少量 `DOMAIN-KEYWORD` 规则。
+
 ## 使用方法
 
 ### Surge
 
 ```ini
 [Rule]
-RULE-SET,<RAW_BASE>/Surge/HKBank.list,HK
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/Bank.list,Bank
 # 或者按银行分开：
-# RULE-SET,<RAW_BASE>/Surge/HSBC.list,HK
-# DOMAIN-SET,<RAW_BASE>/Surge/ZABank_Domain.list,HK
+# RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/HSBC.list,HK
+# DOMAIN-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/ZABank_Domain.list,HK
+# RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/Wise.list,HK
 ```
 
 ### Clash / mihomo
 
 ```yaml
 rule-providers:
-  HKBank:
+  Bank:
     type: http
     behavior: classical
     format: yaml
-    url: <RAW_BASE>/Clash/HKBank.yaml
-    path: ./ruleset/HKBank.yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Clash/Bank.yaml
+    path: ./ruleset/Bank.yaml
     interval: 86400
 
 rules:
-  - RULE-SET,HKBank,HK
+  - RULE-SET,Bank,Bank
 ```
-
-`<RAW_BASE>` 换成这个目录发布后的 raw 地址。
 
 ## 数据来源
 
 | 类型 | 来源 |
 | --- | --- |
-| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`hsbc`、`standardchartered`），去掉标记为 `@ads` / `@cn` 的条目，以及 `hsbc-cn` 里的内地域名 |
-| 域名 | [`config/banks.jsonc`](config/banks.jsonc) 中手工维护的条目（取自各行官网首页实际引用的主机名） |
-| IP | [RIPEstat](https://stat.ripe.net/) 查询各行香港实体的自有 ASN 实际宣告的网段：HSBC `AS9221`、渣打 `AS24112` / `AS38166`、中银香港 `AS24396`、东亚 `AS137452`、星展香港 `AS133852`、花旗香港 `AS24568`、工银亚洲 `AS17487`、建行亚洲 `AS38475`、华侨香港 `AS4828`、南商 `AS152712`、交行香港 `AS133926`、WeLab `AS150700` |
+| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`hsbc`、`standardchartered`、`wise`），去掉标记为 `@ads` / `@cn` 的条目，以及 `hsbc-cn` 里的内地域名 |
+| 域名 | [`config/banks.jsonc`](config/banks.jsonc) 中手工维护的条目（取自各行官网首页实际引用的主机名，如 Wise 自有的 CloudFront 分发） |
+| IP | [RIPEstat](https://stat.ripe.net/) 查询各行香港实体的自有 ASN 实际宣告的网段：HSBC `AS9221`、渣打 `AS24112` / `AS38166`、中银香港 `AS24396`、东亚 `AS137452`、星展香港 `AS133852`、花旗香港 `AS24568`、工银亚洲 `AS17487`、建行亚洲 `AS38475`、华侨香港 `AS4828`、南商 `AS152712`、交行香港 `AS133926`、WeLab `AS150700`、Wise `AS208550`（WeLab、Wise 目前没有宣告网段，有了会自动收录） |
 
 注意事项：
 
@@ -93,7 +97,10 @@ rules:
 - 恒生中国 `hangseng.com.cn`、集友内地 `cybchina.com.cn`、汇丰中国 `hsbc.com.cn` 等内地域名不收录；
 - HSBC 的 v2fly 列表包含汇丰各国站点（如 `hsbc.co.uk`），一并收录；
 - 共用 CDN（支付宝 `alipayobjects.com`、Contentful `ctfassets.net` 等）不收录；
-- 其他处理（域名 / CIDR 校验、去重、IP 段合并、防误删、仅在变化时重写）和 Rules4AI 相同。
+- 校验域名 / CIDR 格式，被上级后缀覆盖的条目自动去重，IP 段自动合并；
+- 上游 regexp 规则 Clash 和 Surge 无法通用，所以跳过；
+- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在 Actions 里给出警告；
+- 只在规则内容真正变化时才重写文件，所以文件头里的 `UPDATED` 就是规则最后一次变化的时间。
 
 ## 本地运行
 
@@ -122,3 +129,9 @@ python3 scripts/build.py
   "exclude": []                      // 要从结果中删除的条目
 }
 ```
+
+推送到 `main` 后会自动触发重新生成。也可以在 Actions 页面手动运行 **Update rulesets**。
+
+## License
+
+[MIT](LICENSE)

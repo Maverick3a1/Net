@@ -1,4 +1,4 @@
-// 香港银行配置。改完运行 python3 scripts/build.py，会重新生成 Clash/ 和 Surge/。
+// 银行配置（香港银行 + Wise 等跨境账户）。改完运行 python3 scripts/build.py，会重新生成 Clash/ 和 Surge/。
 // 只支持整行的 // 注释。
 // 域名来自 v2fly 和各行官网首页实际引用的主机名；IP 来自 RIPEstat 查询各行自有 ASN。
 {
@@ -258,14 +258,29 @@
       "sources": [],
       // 静态资源走支付宝共用 CDN（alipayobjects.com），不收录
       "domain_suffix": ["antbank.hk"]
+    },
+
+    // ================================================================
+    // 跨境汇款 / 多币种账户
+    // ================================================================
+    {
+      "name": "Wise",
+      "description": "Wise（原 TransferWise）",
+      "sources": [
+        {"type": "v2fly", "list": "wise"},
+        // Transferwise-est（目前没有宣告网段，有了会自动收录）
+        {"type": "asn", "asn": 208550}
+      ],
+      // wise.com 首页引用的 Wise 自有 CloudFront 分发（logo 等静态资源）
+      "domain": ["dq8dwmysp7hk1.cloudfront.net", "daw291njkc3ao.cloudfront.net"]
     }
   ],
 
   // ================================================================
-  // 合集：以上所有银行合并为 HKBank.list / HKBank.yaml
+  // 合集：以上所有银行合并为 Bank.list / Bank.yaml
   // ================================================================
   "aggregate": {
-    "name": "HKBank",
-    "description": "All Hong Kong banks above combined"
+    "name": "Bank",
+    "description": "All banks above combined"
   }
 }

@@ -1,4 +1,4 @@
-# Rules4AI
+# AI
 
 美国主流 AI 服务（OpenAI、Anthropic、xAI Grok、Google Gemini、Perplexity、Copilot、Meta AI）的 **Clash / Surge 分流规则集**。
 
