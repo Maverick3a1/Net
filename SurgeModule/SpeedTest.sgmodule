@@ -1,0 +1,22 @@
+#!name=SpeedTest 测速分流
+#!desc=将 Ookla Speedtest 与 Fast.com 的测速流量交给指定策略。
+#!category=Tools
+#!arguments=POLICY:DIRECT,FAST_CDN:DIRECT
+#!arguments-desc=POLICY：测速服务使用的策略或策略组名，可在后面写注释，格式「策略名 // 注释」，// 前必须有空格，例如：香港节点 // 测港区速度。\nFAST_CDN：Fast.com 测速流量所在的 Netflix CDN（nflxvideo.net）使用的策略，同样支持「策略名 // 注释」。它同时承载 Netflix 视频。
+
+# 参数值原样替换进规则行，Surge 把行内「空格 + //」之后的内容当作注释，因此只有 // 前的部分作为策略生效
+
+[Rule]
+# ---------- Ookla Speedtest ----------
+# macOS 版 Speedtest App 的全部流量（含任意测速节点）
+PROCESS-NAME,Speedtest,{{{POLICY}}}
+DOMAIN-SUFFIX,speedtest.net,{{{POLICY}}}
+DOMAIN-SUFFIX,ookla.com,{{{POLICY}}}
+DOMAIN-SUFFIX,ooklaserver.net,{{{POLICY}}}
+DOMAIN-SUFFIX,speedtestcustom.com,{{{POLICY}}}
+# Ookla 测速节点域名各异，多数包含 speedtest 关键字（如 speedtest.xxx.com:8080）
+DOMAIN-KEYWORD,speedtest,{{{POLICY}}}
+
+# ---------- Fast.com (Netflix) ----------
+DOMAIN-SUFFIX,fast.com,{{{POLICY}}}
+DOMAIN-SUFFIX,nflxvideo.net,{{{FAST_CDN}}}

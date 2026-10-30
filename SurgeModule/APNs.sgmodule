@@ -1,0 +1,9 @@
+#!name=APNs接管
+#!desc=将APNs流量交由Surge接管，解决某些App无法收到推送的问题
+#!author=Maverick3a1
+#!repo=https://github.com/Maverick3a1/SurgeModule
+#!category=Maverick3a1
+
+[General]
+include-all-networks = true
+include-apns = true

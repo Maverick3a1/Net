@@ -1,0 +1,9 @@
+#!name=海外DNS
+#!desc=使用纯海外DNS进行解析，只有在当前网络环境可以无阻碍访问海外DNS情况下启用
+#!author=Maverick3a1
+#!repo=https://github.com/Maverick3a1/SurgeModule
+#!category=Maverick3a1
+
+[General]
+dns-server = 1.1.1.1, 8.8.8.8
+encrypted-dns-server = https://cloudflare-dns.com/dns-query, https://dns.google/dns-query
