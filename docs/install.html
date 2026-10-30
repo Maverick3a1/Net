@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>导入 Surge 模块</title>
+<style>
+  :root { --bg: #fff; --fg: #1d1d1f; --muted: #6e6e73; --accent: #0071e3; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #000; --fg: #f5f5f7; --muted: #a1a1a6; --accent: #2997ff; } }
+  body { margin: 0; padding: 48px 16px; background: var(--bg); color: var(--fg);
+         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; text-align: center; }
+  a.btn { display: inline-block; margin: 16px 0; padding: 12px 28px; border-radius: 999px;
+          background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+  code { color: var(--muted); word-break: break-all; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1 id="title">导入 Surge 模块</h1>
+<p>正在打开 Surge…如果没有反应，请点下面的按钮。</p>
+<a class="btn" id="open" href="#">在 Surge 中导入</a>
+<p><code id="src"></code></p>
+<script>
+  // 只接受本仓库的模块地址，避免被当成任意跳转页
+  var ALLOWED = "https://raw.githubusercontent.com/Maverick3a1/Net/";
+  var url = new URLSearchParams(location.search).get("url") || "";
+  if (url.indexOf(ALLOWED) === 0) {
+    var target = "surge:///install-module?url=" + encodeURIComponent(url);
+    document.getElementById("open").href = target;
+    document.getElementById("src").textContent = url;
+    document.getElementById("title").textContent = "导入 " + url.split("/").pop();
+    location.href = target;
+  } else {
+    document.getElementById("open").style.display = "none";
+    document.querySelector("p").textContent = "缺少或不支持的模块地址。";
+  }
+</script>
+</body>
+</html>

@@ -26,8 +26,8 @@ https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/<name>/Clash/<Name>
 
 | 模块 | 导入 | 说明 |
 | --- | --- | --- |
-| [APNs.sgmodule](SurgeModule/APNs.sgmodule) | [导入 Surge](surge:///install-module?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2FAPNs.sgmodule) | 让 Surge 接管 APNs 流量，解决部分 App 收不到推送 |
-| [SpeedTest.sgmodule](SurgeModule/SpeedTest.sgmodule) | [导入 Surge](surge:///install-module?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2FSpeedTest.sgmodule) | 把 Ookla Speedtest 和 Fast.com 的测速流量交给指定策略 |
-| [system-dns.sgmodule](SurgeModule/system-dns.sgmodule) | [导入 Surge](surge:///install-module?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2Fsystem-dns.sgmodule) | 使用纯海外 DNS 解析（需当前网络能直接访问海外 DNS） |
+| [APNs.sgmodule](SurgeModule/APNs.sgmodule) | [导入 Surge](https://maverick3a1.github.io/Net/install.html?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2FAPNs.sgmodule) | 让 Surge 接管 APNs 流量，解决部分 App 收不到推送 |
+| [SpeedTest.sgmodule](SurgeModule/SpeedTest.sgmodule) | [导入 Surge](https://maverick3a1.github.io/Net/install.html?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2FSpeedTest.sgmodule) | 把 Ookla Speedtest 和 Fast.com 的测速流量交给指定策略 |
+| [system-dns.sgmodule](SurgeModule/system-dns.sgmodule) | [导入 Surge](https://maverick3a1.github.io/Net/install.html?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaverick3a1%2FNet%2Fmain%2FSurgeModule%2Fsystem-dns.sgmodule) | 使用纯海外 DNS 解析（需当前网络能直接访问海外 DNS） |
 
 安装地址：`https://raw.githubusercontent.com/Maverick3a1/Net/main/SurgeModule/<file>.sgmodule`
