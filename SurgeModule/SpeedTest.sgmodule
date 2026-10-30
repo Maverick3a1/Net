@@ -1,5 +1,7 @@
 #!name=SpeedTest 测速分流
 #!desc=将 Ookla Speedtest 与 Fast.com 的测速流量交给指定策略。
+#!author=Maverick3a1
+#!repo=https://github.com/Maverick3a1/Net
 #!category=Maverick3a1
 #!arguments=POLICY:DIRECT,FAST_CDN:DIRECT
 #!arguments-desc=POLICY：测速服务使用的策略或策略组名，可在后面写注释，格式「策略名 // 注释」，// 前必须有空格，例如：香港节点 // 测港区速度。\nFAST_CDN：Fast.com 测速流量所在的 Netflix CDN（nflxvideo.net）使用的策略，同样支持「策略名 // 注释」。它同时承载 Netflix 视频。
