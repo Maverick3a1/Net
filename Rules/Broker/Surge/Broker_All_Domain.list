@@ -1,0 +1,228 @@
+# NAME: Broker_All
+# DESC: All brokers above combined
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-10-30 07:13:05 UTC
+# DOMAIN-SUFFIX: 153
+# DOMAIN: 1
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 32
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# ============================================================
+# Futu
+# 富途证券: 富途牛牛, moomoo
+# ============================================================
+.futu.cn
+.futu5.com
+.futuau.com
+.futuclearing.com
+.futuesop.com
+.futufin.com
+.futuhk.com
+.futuhk1.com
+.futuhk2.com
+.futuhkapp.com
+.futuhn.com
+.futuholdings.com
+.futuniuniu.com
+.futunn.com
+.futuoa.com
+.futusg.com
+.futustatic.com
+.fututrade.com
+.moomoo.com
+.moomooapp.com
+.moomoobull.com
+.moomoocn.com
+.moomooequity.com
+.moomootrustee.com
+.panthertrade.com
+.futu.link
+
+# ============================================================
+# Tiger
+# 老虎证券: Tiger Trade, Tiger Brokers
+# ============================================================
+.skytigris.cn
+.tigerbbs.cn
+.tigertcp.cn
+.zhijianfengyi.cn
+.ftfast.com
+.iotaskyt.com
+.iotaskyty.com
+.itiger.com
+.itigergrowth.com
+.itigergrowtha.com
+.itigerup.com
+.laohu8.com
+.play-analytics.com
+.tbdesk.com
+.tigerbbs.com
+.tigerfintech.com
+.xiaohu8.com
+.zhijianfengyi.com
+.tigr.link
+.tigerbrokers.net
+
+# ============================================================
+# Longbridge
+# 长桥证券: Longbridge, LongPort
+# ============================================================
+.longbridge.cloud
+.longbridge.cn
+.lbctrl.com
+.lbkrs.com
+.longbridge.com
+.longbridgeapp.com
+.longbridgehk.com
+.longportapp.com
+.wbrks.com
+.longbridge.global
+.longbridge.hk
+.longbridge.sg
+
+# ============================================================
+# uSMART
+# 盈立证券: uSMART
+# ============================================================
+.usmart11.com
+.usmart22.com
+.usmart66.com
+.usmart8.com
+.usmartbroker.com
+.usmartcapital.com
+.usmartfinance.com
+.usmartglobal.com
+.usmartgroup.com
+.usmarthk.com
+.usmartinvest.com
+.usmartsecurities.com
+.usmartsg.com
+.usmarttrade.com
+.usmartus.com
+.ylzqhk.com
+.ylzqsg.com
+.yxzjhk.com
+.yxzjsg.com
+.yxzq.com
+.usmart.hk
+.usmart.sg
+yxzq.udesk.cn
+
+# ============================================================
+# Valuable
+# 华盛证券: 华盛通, Valuable
+# ============================================================
+.hstong.com
+.vbkr.com
+.valuable.com.hk
+
+# ============================================================
+# Snowball
+# 雪盈证券 Snowball Securities
+# ============================================================
+.snowballsecurities.com
+
+# ============================================================
+# Eddid
+# 艾德证券: Eddid ONE
+# ============================================================
+.eddidapp.com
+.eddidfin.com
+.eddidusa.com
+.eddid.com.hk
+.eddid.com.sg
+
+# ============================================================
+# HuataiIntl
+# 华泰国际: 涨乐全球通
+# ============================================================
+.htsc.com.hk
+
+# ============================================================
+# Webull
+# 微牛 Webull
+# ============================================================
+.webull.com.au
+.webull.com.br
+.webull.ca
+.wb4magxg.com
+.wbapiservxg.com
+.wbausecurities.com
+.wbjpsecurities.com
+.wbsecurities.com
+.wbsgsecurities.com
+.wbzasecurities.com
+.webull.com
+.webull-uk.com
+.webull-us.com
+.webullapp.com
+.webullbroker.com
+.webullcorp.com
+.webullfinance.com
+.webullfintech.com
+.webullpay.com
+.webull.hk
+.webull.co.id
+.webull.co.jp
+.webull.com.my
+.webull.com.sg
+.webull.co.th
+.webull.co.za
+
+# ============================================================
+# IBKR
+# 盈透证券 Interactive Brokers
+# ============================================================
+.ibkr.com.au
+.interactivebrokers.com.au
+.ibkr.ca
+.interactivebrokers.ca
+.ibkr.com
+.ibkrguides.com
+.ibllc.com
+.interactivebrokers.com
+.ibkr.eu
+.interactivebrokers.eu
+.ibkr.com.hk
+.interactivebrokers.com.hk
+.ibkr.ie
+.interactivebrokers.ie
+.ibkr.co.in
+.interactivebrokers.co.in
+.interactivebrokers.co.jp
+.ibkr.com.sg
+.interactivebrokers.com.sg
+.ibkr.co.uk
+.interactivebrokers.co.uk
+
+# ============================================================
+# Schwab
+# 嘉信理财 Charles Schwab, thinkorswim
+# ============================================================
+.aboutschwab.com
+.schwab.com
+.schwabassetmanagement.com
+.schwabcdn.com
+.schwabplan.com
+.thinkorswim.com
+.schwab.com.hk
+.schwab.com.sg
+.schwab.co.uk
+
+# ============================================================
+# Firstrade
+# 第一证券 Firstrade
+# ============================================================
+.firstrade.com
+.firstrade.info
+.firstrade.net
+
+# ============================================================
+# Robinhood
+# Robinhood
+# ============================================================
+.aboutrobinhood.com
+.robinhood.com
+.rhinternal.net
+.robinhood.net

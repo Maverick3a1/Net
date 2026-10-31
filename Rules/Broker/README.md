@@ -1,31 +1,31 @@
 # Broker
 
-互联网港美股券商（富途、老虎、长桥、盈立、华盛、雪盈、艾德、华泰国际、Webull、盈透、嘉信、Firstrade、Robinhood）的 **Clash / Surge 分流规则集**。
+互联网港美股券商（富途、老虎、长桥、盈立、华盛、雪盈、艾德、华泰国际、Webull、盈透、嘉信、Firstrade、Robinhood）的 **Clash / Surge / Shadowrocket 分流规则集**。
 
 GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，只要有变化就提交。
 
 ## 规则列表
 
 <!-- RULES:START -->
-| Ruleset | Description | Domains | IP | Surge | Clash |
-| --- | --- | ---: | ---: | --- | --- |
-| **Futu** | 富途证券: 富途牛牛, moomoo | 26 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu_Domain.yaml) |
-| **Tiger** | 老虎证券: Tiger Trade, Tiger Brokers | 20 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger_Domain.yaml) |
-| **Longbridge** | 长桥证券: Longbridge, LongPort | 12 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge_Domain.yaml) |
-| **uSMART** | 盈立证券: uSMART | 23 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART_Domain.yaml) |
-| **Valuable** | 华盛证券: 华盛通, Valuable | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable_Domain.yaml) |
-| **Snowball** | 雪盈证券 Snowball Securities | 1 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Snowball.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Snowball_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Snowball.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Snowball_Domain.yaml) |
-| **Eddid** | 艾德证券: Eddid ONE | 5 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Eddid.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Eddid_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Eddid.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Eddid_Domain.yaml) |
-| **HuataiIntl** | 华泰国际: 涨乐全球通 | 1 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/HuataiIntl.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/HuataiIntl_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/HuataiIntl.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/HuataiIntl_Domain.yaml) |
-| **Webull** | 微牛 Webull | 26 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Webull.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Webull_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Webull.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Webull_Domain.yaml) |
-| **IBKR** | 盈透证券 Interactive Brokers | 21 | 13 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/IBKR.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/IBKR_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR_IP.yaml) |
-| **Schwab** | 嘉信理财 Charles Schwab, thinkorswim | 9 | 17 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Schwab.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Schwab_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab_IP.yaml) |
-| **Firstrade** | 第一证券 Firstrade | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade_Domain.yaml) |
-| **Robinhood** | Robinhood | 4 | 2 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_IP.yaml) |
-| **Broker** | All brokers above combined | 154 | 32 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_IP.yaml) |
+| Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |
+| --- | --- | ---: | ---: | --- | --- | --- |
+| **Futu** | 富途证券: 富途牛牛, moomoo | 26 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu_Domain.yaml) |
+| **Tiger** | 老虎证券: Tiger Trade, Tiger Brokers | 20 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger_Domain.yaml) |
+| **Longbridge** | 长桥证券: Longbridge, LongPort | 12 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Longbridge.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Longbridge_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge_Domain.yaml) |
+| **uSMART** | 盈立证券: uSMART | 23 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/uSMART.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/uSMART_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART_Domain.yaml) |
+| **Valuable** | 华盛证券: 华盛通, Valuable | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Valuable.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Valuable_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable_Domain.yaml) |
+| **Snowball** | 雪盈证券 Snowball Securities | 1 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Snowball.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Snowball_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Snowball.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Snowball_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Snowball.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Snowball_Domain.yaml) |
+| **Eddid** | 艾德证券: Eddid ONE | 5 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Eddid.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Eddid_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Eddid.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Eddid_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Eddid.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Eddid_Domain.yaml) |
+| **HuataiIntl** | 华泰国际: 涨乐全球通 | 1 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/HuataiIntl.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/HuataiIntl_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/HuataiIntl.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/HuataiIntl_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/HuataiIntl.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/HuataiIntl_Domain.yaml) |
+| **Webull** | 微牛 Webull | 26 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Webull.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Webull_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Webull.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Webull_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Webull.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Webull_Domain.yaml) |
+| **IBKR** | 盈透证券 Interactive Brokers | 21 | 13 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/IBKR.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/IBKR_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/IBKR.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/IBKR_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/IBKR_IP.yaml) |
+| **Schwab** | 嘉信理财 Charles Schwab, thinkorswim | 9 | 17 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Schwab.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Schwab_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Schwab.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Schwab_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Schwab_IP.yaml) |
+| **Firstrade** | 第一证券 Firstrade | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Firstrade.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Firstrade_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade_Domain.yaml) |
+| **Robinhood** | Robinhood | 4 | 2 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Robinhood.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Robinhood_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_IP.yaml) |
+| **Broker_All** | All brokers above combined | 154 | 32 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_IP.yaml) |
 <!-- RULES:END -->
 
-`Broker` 是以上所有券商的合集，一条规则全部覆盖。
+`Broker_All` 是以上所有券商的合集，一条规则全部覆盖。
 
 ## 文件格式
 
@@ -33,6 +33,8 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 | --- | --- |
 | `Surge/<Name>.list` | Surge `RULE-SET`（域名 + `IP-CIDR,...,no-resolve`） |
 | `Surge/<Name>_Domain.list` | Surge `DOMAIN-SET`（仅域名，匹配更快；不含关键字和 IP） |
+| `Shadowrocket/<Name>.list` | Shadowrocket `RULE-SET`（内容同 Surge 版） |
+| `Shadowrocket/<Name>_Domain.list` | Shadowrocket `DOMAIN-SET`（仅域名，不含关键字和 IP） |
 | `Clash/<Name>.yaml` | Clash / mihomo rule-provider，`behavior: classical` |
 | `Clash/<Name>_Domain.yaml` | mihomo rule-provider，`behavior: domain`（不含关键字和 IP） |
 | `Clash/<Name>_IP.yaml` | mihomo rule-provider，`behavior: ipcidr`（仅当该券商有 IP 段时生成） |
@@ -45,27 +47,40 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker.list,Broker
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All.list,Broker
 # 或者按券商分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list,HK
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/IBKR.list,US
 # DOMAIN-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Webull_Domain.list,US
 ```
 
+### Shadowrocket
+
+```ini
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list,Broker
+# 也可以按券商分开：
+# RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu.list,HK
+# RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/IBKR.list,US
+# DOMAIN-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Webull_Domain.list,US
+```
+
+也可以在 Shadowrocket 的「配置 → 规则 → 添加规则」中选择 `RULE-SET`，填入上面的 raw 地址。
+
 ### Clash / mihomo
 
 ```yaml
 rule-providers:
-  Broker:
+  Broker_All:
     type: http
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker.yaml
-    path: ./ruleset/Broker.yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All.yaml
+    path: ./ruleset/Broker_All.yaml
     interval: 86400
 
 rules:
-  - RULE-SET,Broker,Broker
+  - RULE-SET,Broker_All,Broker
 ```
 
 ## 收录原则

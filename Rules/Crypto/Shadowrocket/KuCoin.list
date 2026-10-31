@@ -1,0 +1,17 @@
+# NAME: KuCoin
+# DESC: KuCoin, KuCoin TH, KuCoin TR
+# FORMAT: Shadowrocket RULE-SET
+# UPDATED: 2026-10-14 09:45:59 UTC
+# DOMAIN-SUFFIX: 7
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+DOMAIN-SUFFIX,kucoinauth.cloud
+DOMAIN-SUFFIX,kucoin.club
+DOMAIN-SUFFIX,kucoin.com
+DOMAIN-SUFFIX,staticimg.com
+DOMAIN-SUFFIX,kucoin.plus
+DOMAIN-SUFFIX,kucoin.th
+DOMAIN-SUFFIX,kucoin.tr

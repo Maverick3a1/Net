@@ -1,0 +1,11 @@
+# NAME: CryptoCom
+# DESC: Crypto.com App and Exchange
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-14 09:46:01 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.crypto.com

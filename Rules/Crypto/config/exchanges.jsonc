@@ -311,7 +311,7 @@
   // 合集：以上所有交易所合并为 Crypto.list / Crypto.yaml
   // ================================================================
   "aggregate": {
-    "name": "Crypto",
+    "name": "Crypto_All",
     "description": "All exchanges above combined"
   }
 }

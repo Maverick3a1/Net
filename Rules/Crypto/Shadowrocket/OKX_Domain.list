@@ -1,0 +1,19 @@
+# NAME: OKX
+# DESC: OKX (formerly OKEx), OKX Wallet, X Layer
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-14 09:45:52 UTC
+# DOMAIN-SUFFIX: 9
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.okx.ac
+.okx.cab
+.okex.com
+.okx.com
+.okx-dns.com
+.okx-dns1.com
+.okx-dns2.com
+.okx.com.cdn.cloudflare.net
+.xlayer.tech

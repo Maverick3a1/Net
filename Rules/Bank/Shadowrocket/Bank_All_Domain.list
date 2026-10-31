@@ -1,0 +1,242 @@
+# NAME: Bank_All
+# DESC: All banks above combined
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-30 07:48:55 UTC
+# DOMAIN-SUFFIX: 87
+# DOMAIN: 6
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 53
+# IP-CIDR6: 6
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# ============================================================
+# HSBC
+# HSBC 汇丰银行（香港）
+# ============================================================
+.hsbc.ae
+.hsbc.am
+.hsbc.com.ar
+.hsbc.com.au
+.hsbc.com.bd
+.hsbc.com.bh
+.hsbc.bm
+.hsbc.com.br
+.hsbc.ca
+.hsbc.com
+.hsbcinnovationbanking.com
+.hsbcnet.com
+.hsbcprivatebank.com
+.vv1865.com
+.hsbc.de
+.hsbc-alternatives.de
+.hsbc-transactionservices.de
+.hsbc-zertifikate.de
+.hsbctrinkaus.de
+.hsbc.com.eg
+.hsbc.fr
+.hsbc.com.hk
+.hsbc.co.id
+.hsbc.co.in
+.hsbc.co.jp
+.hsbc.co.kr
+.hsbc.lk
+.hsbc.com.mo
+.hsbc.com.mt
+.hsbc.co.mu
+.hsbc.com.mx
+.hsbc.com.my
+.hsbcamanah.com.my
+.hsbc.net
+.hsbc.co.nz
+.hsbc.com.ph
+.hsbc.com.sg
+.hsbc.co.th
+.hsbc.com.tr
+.hsbc.com.tw
+.hsbc.co.uk
+.hsbc.uk
+.hsbc.com.uy
+.hsbc.com.vn
+
+# ============================================================
+# StandardChartered
+# Standard Chartered 渣打银行（香港）
+# ============================================================
+.sc.com
+.standardchartered.com
+.standardchartered.com.hk
+standchartbank.sc.omtrdc.net
+standchartbank.tt.omtrdc.net
+
+# ============================================================
+# BOCHK
+# Bank of China (Hong Kong) 中银香港
+# ============================================================
+.bochk.com
+.bochk.com.hk
+
+# ============================================================
+# HangSeng
+# Hang Seng Bank 恒生银行
+# ============================================================
+.hangseng.com
+.hangseng.com.hk
+
+# ============================================================
+# BEA
+# The Bank of East Asia 东亚银行
+# ============================================================
+.hkbea.com
+.hkbea-cyberbanking.com
+
+# ============================================================
+# DBS
+# DBS Bank (Hong Kong) 星展银行（香港）
+# ============================================================
+.hk.dbs.com
+.dbs.com.hk
+
+# ============================================================
+# Citibank
+# Citibank (Hong Kong) 花旗银行（香港）
+# ============================================================
+.citi.com.hk
+.citibank.com.hk
+
+# ============================================================
+# DahSing
+# Dah Sing Bank 大新银行
+# ============================================================
+.dahsing.com
+
+# ============================================================
+# CNCBI
+# China CITIC Bank International 中信银行（国际）
+# ============================================================
+.cncbinternational.com
+
+# ============================================================
+# CMBWingLung
+# CMB Wing Lung Bank 招商永隆银行
+# ============================================================
+.cmbwinglungbank.com
+.winglungbank.com
+
+# ============================================================
+# ICBCAsia
+# ICBC (Asia) 工银亚洲
+# ============================================================
+.icbcasia.com
+corpebankasia.icbc.com.cn
+myebankasia.icbc.com.cn
+
+# ============================================================
+# CCBAsia
+# China Construction Bank (Asia) 建行亚洲
+# ============================================================
+.asia.ccb.com
+
+# ============================================================
+# OCBC
+# OCBC Bank (Hong Kong) 华侨银行（香港）
+# ============================================================
+.ocbcwhhk.com
+.ocbc.com.hk
+
+# ============================================================
+# Fubon
+# Fubon Bank (Hong Kong) 富邦银行（香港）
+# ============================================================
+.fubonbank.com.hk
+
+# ============================================================
+# NCB
+# Nanyang Commercial Bank 南洋商业银行
+# ============================================================
+.ncb.com.hk
+
+# ============================================================
+# Chiyu
+# Chiyu Banking Corporation 集友银行
+# ============================================================
+.chiyubank.com
+.cybhk.com
+
+# ============================================================
+# ShacomBank
+# Shanghai Commercial Bank 上海商业银行
+# ============================================================
+.shacombank.com.hk
+
+# ============================================================
+# ChongHing
+# Chong Hing Bank 创兴银行
+# ============================================================
+.chbank.com
+
+# ============================================================
+# BoComHK
+# Bank of Communications (Hong Kong) 交通银行（香港）
+# ============================================================
+.hk.bankcomm.com
+.bankcomm.com.hk
+
+# ============================================================
+# ZABank
+# ZA Bank 众安银行
+# ============================================================
+.zaticdn.com
+.za.group
+.zabank.com.hk
+
+# ============================================================
+# Mox
+# Mox Bank
+# ============================================================
+.mox.com
+
+# ============================================================
+# WeLab
+# WeLab Bank 汇立银行
+# ============================================================
+.welab.bank
+
+# ============================================================
+# Livi
+# livi bank 理慧银行
+# ============================================================
+.livibank.com
+
+# ============================================================
+# EleBank
+# EleBank 大象银行（原 Airstar Bank 天星银行）
+# ============================================================
+.airstarbank.com
+.elebank.com
+
+# ============================================================
+# PAOB
+# Ping An OneConnect Bank 平安壹账通银行
+# ============================================================
+.pingandb.com
+.paob.com.hk
+
+# ============================================================
+# Fusion
+# Fusion Bank 富融银行
+# ============================================================
+.fusionbank.com
+
+# ============================================================
+# AntBank
+# Ant Bank (Hong Kong) 蚂蚁银行（香港）
+# ============================================================
+.antbank.hk
+
+# ============================================================
+# Wise
+# Wise（原 TransferWise）
+# ============================================================
+.transferwise.com
+.wise.com
+daw291njkc3ao.cloudfront.net
+dq8dwmysp7hk1.cloudfront.net

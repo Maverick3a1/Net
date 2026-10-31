@@ -1,0 +1,15 @@
+# NAME: ICBCAsia
+# DESC: ICBC (Asia) 工银亚洲
+# FORMAT: Shadowrocket RULE-SET
+# UPDATED: 2026-10-30 06:26:09 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 1
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+DOMAIN-SUFFIX,icbcasia.com
+DOMAIN,corpebankasia.icbc.com.cn
+DOMAIN,myebankasia.icbc.com.cn
+IP-CIDR,203.34.252.0/23,no-resolve
+IP-CIDR6,2001:df7:dc80::/48,no-resolve

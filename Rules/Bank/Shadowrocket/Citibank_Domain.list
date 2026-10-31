@@ -1,0 +1,12 @@
+# NAME: Citibank
+# DESC: Citibank (Hong Kong) 花旗银行（香港）
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-30 06:26:08 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 6
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+.citi.com.hk
+.citibank.com.hk

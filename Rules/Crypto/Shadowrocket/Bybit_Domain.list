@@ -1,0 +1,26 @@
+# NAME: Bybit
+# DESC: Bybit
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-14 09:45:53 UTC
+# DOMAIN-SUFFIX: 14
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.bybit.biz
+.bybit.cloud
+.byabcde.com
+.byapis.com
+.bybdc6.com
+.bybit.com
+.bybit-global.com
+.bybitglobal.com
+.bycbe.com
+.bycsi.com
+.byd3c3.com
+.bytick.com
+.bymj.io
+.byapps.net
+bybit-exchange.github.io
+bybit.ada.support

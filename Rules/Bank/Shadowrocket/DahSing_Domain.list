@@ -1,0 +1,11 @@
+# NAME: DahSing
+# DESC: Dah Sing Bank 大新银行
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-30 06:26:08 UTC
+# DOMAIN-SUFFIX: 1
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+.dahsing.com

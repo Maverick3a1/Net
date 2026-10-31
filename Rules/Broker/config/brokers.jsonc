@@ -253,7 +253,7 @@
   // 合集：以上所有券商合并为 Broker.list / Broker.yaml
   // ================================================================
   "aggregate": {
-    "name": "Broker",
+    "name": "Broker_All",
     "description": "All brokers above combined"
   }
 }

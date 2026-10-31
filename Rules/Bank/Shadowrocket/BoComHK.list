@@ -1,0 +1,14 @@
+# NAME: BoComHK
+# DESC: Bank of Communications (Hong Kong) 交通银行（香港）
+# FORMAT: Shadowrocket RULE-SET
+# UPDATED: 2026-10-30 06:26:15 UTC
+# DOMAIN-SUFFIX: 2
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 1
+# IP-CIDR6: 1
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+DOMAIN-SUFFIX,hk.bankcomm.com
+DOMAIN-SUFFIX,bankcomm.com.hk
+IP-CIDR,103.44.63.0/24,no-resolve
+IP-CIDR6,2407:880:9f00::/48,no-resolve

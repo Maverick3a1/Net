@@ -280,7 +280,7 @@
   // 合集：以上所有银行合并为 Bank.list / Bank.yaml
   // ================================================================
   "aggregate": {
-    "name": "Bank",
+    "name": "Bank_All",
     "description": "All banks above combined"
   }
 }

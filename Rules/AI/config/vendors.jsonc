@@ -142,7 +142,7 @@
   // 合集：以上所有厂商合并为 AI.list / AI.yaml
   // ================================================================
   "aggregate": {
-    "name": "AI",
+    "name": "AI_All",
     "description": "All vendors above combined"
   }
 }

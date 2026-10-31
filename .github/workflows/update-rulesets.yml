@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Every Rules/<name>/ with scripts/build.py is a ruleset project (Clash/, Surge/, README.md).
+      # Every Rules/<name>/ with scripts/build.py is a ruleset project (Clash/, Surge/, Shadowrocket/, README.md).
       - name: Find projects
         run: |
           projects=$(ls -d Rules/*/scripts/build.py | xargs -n1 dirname | xargs -n1 dirname | tr '\n' ' ')
@@ -55,7 +55,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for p in $PROJECTS; do
-            git add "$p/Clash" "$p/Surge" "$p/README.md"
+            git add "$p/Clash" "$p/Surge" "$p/Shadowrocket" "$p/README.md"
           done
           if git diff --cached --quiet; then
             echo "Rulesets unchanged."

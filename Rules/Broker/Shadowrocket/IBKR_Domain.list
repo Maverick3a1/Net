@@ -1,0 +1,31 @@
+# NAME: IBKR
+# DESC: 盈透证券 Interactive Brokers
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-30 06:18:27 UTC
+# DOMAIN-SUFFIX: 21
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 13
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+.ibkr.com.au
+.interactivebrokers.com.au
+.ibkr.ca
+.interactivebrokers.ca
+.ibkr.com
+.ibkrguides.com
+.ibllc.com
+.interactivebrokers.com
+.ibkr.eu
+.interactivebrokers.eu
+.ibkr.com.hk
+.interactivebrokers.com.hk
+.ibkr.ie
+.interactivebrokers.ie
+.ibkr.co.in
+.interactivebrokers.co.in
+.interactivebrokers.co.jp
+.ibkr.com.sg
+.interactivebrokers.com.sg
+.ibkr.co.uk
+.interactivebrokers.co.uk

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect bank (Hong Kong banks, Wise) domains / IP ranges and render Clash + Surge rulesets.
+"""Collect bank (Hong Kong banks, Wise) domains / IP ranges and render Clash + Surge + Shadowrocket rulesets.
 
 Stdlib only. Run from anywhere:  python3 scripts/build.py
 """
@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config" / "banks.jsonc"
 CLASH_DIR = ROOT / "Clash"
 SURGE_DIR = ROOT / "Surge"
+SHADOWROCKET_DIR = ROOT / "Shadowrocket"
 README = ROOT / "README.md"
 
 V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
@@ -333,11 +334,13 @@ def write_if_changed(path, head, body):
 
 
 def render(name, description, rs, sections=None):
-    """Write all five formats. `sections` splits the body into commented bank blocks."""
+    """Write all seven formats. `sections` splits the body into commented bank blocks."""
     sections = sections or [(None, None, rs)]
     outputs = [
         (SURGE_DIR / f"{name}.list", "Surge RULE-SET", surge_rules, False),
         (SURGE_DIR / f"{name}_Domain.list", "Surge DOMAIN-SET", surge_domain_set, False),
+        (SHADOWROCKET_DIR / f"{name}.list", "Shadowrocket RULE-SET", surge_rules, False),
+        (SHADOWROCKET_DIR / f"{name}_Domain.list", "Shadowrocket DOMAIN-SET", surge_domain_set, False),
         (CLASH_DIR / f"{name}.yaml", "Clash rule-provider, behavior: classical", surge_rules, True),
         (CLASH_DIR / f"{name}_Domain.yaml", "Clash rule-provider, behavior: domain", clash_domain, True),
         (CLASH_DIR / f"{name}_IP.yaml", "Clash rule-provider, behavior: ipcidr", clash_ipcidr, True),
@@ -362,16 +365,19 @@ def update_readme(entries):
     if not README.exists():
         return
     rows = [
-        "| Ruleset | Description | Domains | IP | Surge | Clash |",
-        "| --- | --- | ---: | ---: | --- | --- |",
+        "| Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |",
+        "| --- | --- | ---: | ---: | --- | --- | --- |",
     ]
     for name, desc, rs in entries:
         domains = len(rs.suffix) + len(rs.full) + len(rs.keyword)
         surge = f"[RULE-SET](Surge/{name}.list) · [DOMAIN-SET](Surge/{name}_Domain.list)"
+        shadowrocket = (
+            f"[RULE-SET](Shadowrocket/{name}.list) · [DOMAIN-SET](Shadowrocket/{name}_Domain.list)"
+        )
         clash = f"[classical](Clash/{name}.yaml) · [domain](Clash/{name}_Domain.yaml)"
         if rs.nets:
             clash += f" · [ipcidr](Clash/{name}_IP.yaml)"
-        rows.append(f"| **{name}** | {desc} | {domains} | {len(rs.nets)} | {surge} | {clash} |")
+        rows.append(f"| **{name}** | {desc} | {domains} | {len(rs.nets)} | {surge} | {shadowrocket} | {clash} |")
     block = "<!-- RULES:START -->\n" + "\n".join(rows) + "\n<!-- RULES:END -->"
     text = README.read_text()
     new = re.sub(r"<!-- RULES:START -->.*?<!-- RULES:END -->", block, text, flags=re.S)
@@ -393,6 +399,7 @@ def main():
     cfg = load_config()
     CLASH_DIR.mkdir(exist_ok=True)
     SURGE_DIR.mkdir(exist_ok=True)
+    SHADOWROCKET_DIR.mkdir(exist_ok=True)
 
     built = []
     failed = []

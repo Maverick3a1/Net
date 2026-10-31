@@ -1,0 +1,55 @@
+# NAME: Binance
+# DESC: Binance, Binance.US, BNB Chain
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-10-14 09:45:51 UTC
+# DOMAIN-SUFFIX: 43
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+.binancezh.be
+.binancezh.biz
+.bnappweb.black
+.binance.cc
+.binancezh.cc
+.bsappapi.cc
+.saasexch.cc
+.binance.charity
+.binance.cloud
+.binance.co
+.binancezh.co
+.saasexch.co
+.binance.com
+.binanceapi.com
+.binancecnt.com
+.binancezh.com
+.bnbstatic.com
+.bntrace.com
+.bsappapi.com
+.bscdnweb.com
+.nftstatic.com
+.saasexch.com
+.binance.info
+.binancezh.info
+.saasexch.info
+.binancezh.ink
+.saasexch.io
+.binancezh.kim
+.binancezh.link
+.binancezh.live
+.binance.me
+.binancezh.mobi
+.binance.net
+.binanceru.net
+.binancezh.net
+.binance.org
+.bnbchain.org
+.binancezh.pro
+.binancezh.sh
+.bmwweb.solutions
+.binancezh.top
+.binance.us
+.binance.vision
+zftksc.cdn-settings.appsflyersdk.com
+zftksc.launches.appsflyersdk.com
