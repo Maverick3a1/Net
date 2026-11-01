@@ -1,13 +1,12 @@
 # NAME: Upbit
 # DESC: Upbit (Dunamu)
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-14 09:45:55 UTC
+# UPDATED: 2026-11-01 22:36:39 UTC
 # DOMAIN-SUFFIX: 2
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
-# IP-CIDR: 1
+# IP-CIDR: 0
 # IP-CIDR6: 0
 # SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
 DOMAIN-SUFFIX,dunamu.com
 DOMAIN-SUFFIX,upbit.com
-IP-CIDR,211.168.132.0/25,no-resolve

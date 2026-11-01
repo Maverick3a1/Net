@@ -1,20 +1,14 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Clash rule-provider, behavior: ipcidr
-# UPDATED: 2026-10-14 09:46:13 UTC
+# UPDATED: 2026-11-01 22:36:45 UTC
 # DOMAIN-SUFFIX: 123
 # DOMAIN: 5
 # DOMAIN-KEYWORD: 0
-# IP-CIDR: 11
+# IP-CIDR: 10
 # IP-CIDR6: 0
 # SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
 payload:
-  # ============================================================
-  # Upbit
-  # Upbit (Dunamu)
-  # ============================================================
-  - '211.168.132.0/25'
-
   # ============================================================
   # Kraken
   # Kraken, Kraken Pro
