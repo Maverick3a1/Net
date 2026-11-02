@@ -1,8 +1,8 @@
 # NAME: Longbridge
 # DESC: 长桥证券: Longbridge, LongPort
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-10-30 06:18:13 UTC
-# DOMAIN-SUFFIX: 12
+# UPDATED: 2026-11-02 02:56:15 UTC
+# DOMAIN-SUFFIX: 13
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
@@ -11,6 +11,7 @@
 payload:
   - 'DOMAIN-SUFFIX,longbridge.cloud'
   - 'DOMAIN-SUFFIX,longbridge.cn'
+  - 'DOMAIN-SUFFIX,longportapp.cn'
   - 'DOMAIN-SUFFIX,lbctrl.com'
   - 'DOMAIN-SUFFIX,lbkrs.com'
   - 'DOMAIN-SUFFIX,longbridge.com'

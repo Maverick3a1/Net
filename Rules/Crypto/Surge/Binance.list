@@ -1,13 +1,14 @@
 # NAME: Binance
 # DESC: Binance, Binance.US, BNB Chain
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-10-14 09:45:51 UTC
-# DOMAIN-SUFFIX: 43
+# UPDATED: 2026-11-02 16:49:13 UTC
+# DOMAIN-SUFFIX: 47
 # DOMAIN: 2
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
+DOMAIN-SUFFIX,bnbzh.ac
 DOMAIN-SUFFIX,binancezh.be
 DOMAIN-SUFFIX,binancezh.biz
 DOMAIN-SUFFIX,bnappweb.black
@@ -19,10 +20,13 @@ DOMAIN-SUFFIX,binance.charity
 DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binance.co
 DOMAIN-SUFFIX,binancezh.co
+DOMAIN-SUFFIX,bnappzh.co
 DOMAIN-SUFFIX,saasexch.co
+DOMAIN-SUFFIX,appsflayer.com
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binanceapi.com
 DOMAIN-SUFFIX,binancecnt.com
+DOMAIN-SUFFIX,binancefuture.com
 DOMAIN-SUFFIX,binancezh.com
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,bntrace.com

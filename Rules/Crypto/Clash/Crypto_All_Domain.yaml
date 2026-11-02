@@ -1,18 +1,19 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-10-14 09:46:13 UTC
-# DOMAIN-SUFFIX: 123
+# UPDATED: 2026-11-02 16:49:32 UTC
+# DOMAIN-SUFFIX: 128
 # DOMAIN: 5
 # DOMAIN-KEYWORD: 0
-# IP-CIDR: 11
+# IP-CIDR: 10
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 payload:
   # ============================================================
   # Binance
   # Binance, Binance.US, BNB Chain
   # ============================================================
+  - '+.bnbzh.ac'
   - '+.binancezh.be'
   - '+.binancezh.biz'
   - '+.bnappweb.black'
@@ -24,10 +25,13 @@ payload:
   - '+.binance.cloud'
   - '+.binance.co'
   - '+.binancezh.co'
+  - '+.bnappzh.co'
   - '+.saasexch.co'
+  - '+.appsflayer.com'
   - '+.binance.com'
   - '+.binanceapi.com'
   - '+.binancecnt.com'
+  - '+.binancefuture.com'
   - '+.binancezh.com'
   - '+.bnbstatic.com'
   - '+.bntrace.com'
@@ -66,6 +70,7 @@ payload:
   - '+.okx.ac'
   - '+.okx.cab'
   - '+.okex.com'
+  - '+.oklink.com'
   - '+.okx.com'
   - '+.okx-dns.com'
   - '+.okx-dns1.com'

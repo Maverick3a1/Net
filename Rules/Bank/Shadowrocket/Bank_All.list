@@ -1,13 +1,13 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-30 07:48:55 UTC
-# DOMAIN-SUFFIX: 87
-# DOMAIN: 6
+# UPDATED: 2026-11-02 16:42:23 UTC
+# DOMAIN-SUFFIX: 95
+# DOMAIN: 14
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
 # ============================================================
 # HSBC
 # HSBC 汇丰银行（香港）
@@ -25,6 +25,7 @@ DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,hsbcinnovationbanking.com
 DOMAIN-SUFFIX,hsbcnet.com
 DOMAIN-SUFFIX,hsbcprivatebank.com
+DOMAIN-SUFFIX,tealiumiq.com
 DOMAIN-SUFFIX,vv1865.com
 DOMAIN-SUFFIX,hsbc.de
 DOMAIN-SUFFIX,hsbc-alternatives.de
@@ -46,6 +47,9 @@ DOMAIN-SUFFIX,hsbc.com.mx
 DOMAIN-SUFFIX,hsbc.com.my
 DOMAIN-SUFFIX,hsbcamanah.com.my
 DOMAIN-SUFFIX,hsbc.net
+DOMAIN-SUFFIX,liveperson.net
+DOMAIN-SUFFIX,lpsnmedia.net
+DOMAIN-SUFFIX,online-metrix.net
 DOMAIN-SUFFIX,hsbc.co.nz
 DOMAIN-SUFFIX,hsbc.com.ph
 DOMAIN-SUFFIX,hsbc.com.sg
@@ -56,6 +60,12 @@ DOMAIN-SUFFIX,hsbc.co.uk
 DOMAIN-SUFFIX,hsbc.uk
 DOMAIN-SUFFIX,hsbc.com.uy
 DOMAIN-SUFFIX,hsbc.com.vn
+DOMAIN,hsbc.edge.sdk.awswaf.com
+DOMAIN,mobile.eum-appdynamics.com
+DOMAIN,cdn.optimizely.com
+DOMAIN,tags.tiqcdn.com
+DOMAIN,log-58144bf0.we-stats.com
+DOMAIN,c-hsbc.lytics.io
 IP-CIDR,27.110.72.0/21,no-resolve
 IP-CIDR,161.113.192.0/19,no-resolve
 IP-CIDR,203.112.80.0/20,no-resolve
@@ -243,9 +253,13 @@ IP-CIDR6,2407:880:9f00::/48,no-resolve
 # ZABank
 # ZA Bank 众安银行
 # ============================================================
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zaticdn.com
 DOMAIN-SUFFIX,za.group
+DOMAIN-SUFFIX,zainvest.group
 DOMAIN-SUFFIX,zabank.com.hk
+DOMAIN,app-measurement.com
 
 # ============================================================
 # Mox
@@ -270,6 +284,7 @@ DOMAIN-SUFFIX,livibank.com
 # EleBank 大象银行（原 Airstar Bank 天星银行）
 # ============================================================
 DOMAIN-SUFFIX,airstarbank.com
+DOMAIN-SUFFIX,appsflyersdk.com
 DOMAIN-SUFFIX,elebank.com
 
 # ============================================================
@@ -297,5 +312,6 @@ DOMAIN-SUFFIX,antbank.hk
 # ============================================================
 DOMAIN-SUFFIX,transferwise.com
 DOMAIN-SUFFIX,wise.com
+DOMAIN,api.mixpanel.com
 DOMAIN,daw291njkc3ao.cloudfront.net
 DOMAIN,dq8dwmysp7hk1.cloudfront.net

@@ -1,17 +1,18 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-11-01 22:36:45 UTC
-# DOMAIN-SUFFIX: 123
+# UPDATED: 2026-11-02 16:52:09 UTC
+# DOMAIN-SUFFIX: 128
 # DOMAIN: 5
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 # ============================================================
 # Binance
 # Binance, Binance.US, BNB Chain
 # ============================================================
+DOMAIN-SUFFIX,bnbzh.ac
 DOMAIN-SUFFIX,binancezh.be
 DOMAIN-SUFFIX,binancezh.biz
 DOMAIN-SUFFIX,bnappweb.black
@@ -23,10 +24,13 @@ DOMAIN-SUFFIX,binance.charity
 DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binance.co
 DOMAIN-SUFFIX,binancezh.co
+DOMAIN-SUFFIX,bnappzh.co
 DOMAIN-SUFFIX,saasexch.co
+DOMAIN-SUFFIX,appsflayer.com
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binanceapi.com
 DOMAIN-SUFFIX,binancecnt.com
+DOMAIN-SUFFIX,binancefuture.com
 DOMAIN-SUFFIX,binancezh.com
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,bntrace.com
@@ -65,6 +69,7 @@ DOMAIN,zftksc.launches.appsflyersdk.com
 DOMAIN-SUFFIX,okx.ac
 DOMAIN-SUFFIX,okx.cab
 DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx.com
 DOMAIN-SUFFIX,okx-dns.com
 DOMAIN-SUFFIX,okx-dns1.com

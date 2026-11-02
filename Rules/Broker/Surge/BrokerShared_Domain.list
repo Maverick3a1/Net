@@ -1,0 +1,16 @@
+# NAME: BrokerShared
+# DESC: 券商 App 共用 SDK 域名和云服务器 IP
+# FORMAT: Surge DOMAIN-SET
+# UPDATED: 2026-11-02 16:43:03 UTC
+# DOMAIN-SUFFIX: 3
+# DOMAIN: 3
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 63
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+.9oju31.launches.appsflyersdk.com
+.sgqt0j.launches.appsflyersdk.com
+.shortconn.im.qcloud.com
+cg.play-analytics.com
+loginv6.im.qcloud.com
+shortconnv6.im.qcloud.com

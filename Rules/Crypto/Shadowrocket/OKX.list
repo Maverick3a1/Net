@@ -1,16 +1,17 @@
 # NAME: OKX
 # DESC: OKX (formerly OKEx), OKX Wallet, X Layer
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-14 09:45:52 UTC
-# DOMAIN-SUFFIX: 9
+# UPDATED: 2026-11-02 16:49:17 UTC
+# DOMAIN-SUFFIX: 10
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 DOMAIN-SUFFIX,okx.ac
 DOMAIN-SUFFIX,okx.cab
 DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx.com
 DOMAIN-SUFFIX,okx-dns.com
 DOMAIN-SUFFIX,okx-dns1.com

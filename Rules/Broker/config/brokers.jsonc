@@ -42,9 +42,10 @@
       "name": "Futu",
       "description": "富途证券: 富途牛牛, moomoo",
       "sources": [
-        {"type": "v2fly", "list": "futu"}
+        {"type": "v2fly", "list": "futu"},
+        {"type": "forecho", "list": "Broker", "conf": "futu"}
       ],
-      // moomoo 各地区域名、富途清算（v2fly 未收录）
+      // moomoo 各地区域名、富途清算（上游未收录）
       "domain_suffix": [
         "futuclearing.com",
         "moomooapp.com",
@@ -60,7 +61,8 @@
       "description": "老虎证券: Tiger Trade, Tiger Brokers",
       "sources": [
         {"type": "v2fly", "list": "itiger"},
-        {"type": "blackmatrix7", "list": "TigerFintech"}
+        {"type": "blackmatrix7", "list": "TigerFintech"},
+        {"type": "forecho", "list": "Broker", "conf": "tiger"}
       ]
     },
 
@@ -69,7 +71,8 @@
       "name": "Longbridge",
       "description": "长桥证券: Longbridge, LongPort",
       "sources": [
-        {"type": "v2fly", "list": "longbridge"}
+        {"type": "v2fly", "list": "longbridge"},
+        {"type": "forecho", "list": "Broker", "conf": "longbridge"}
       ]
     },
 
@@ -110,7 +113,9 @@
     {
       "name": "Valuable",
       "description": "华盛证券: 华盛通, Valuable",
-      "sources": [],
+      "sources": [
+        {"type": "forecho", "list": "Broker", "conf": "hstong"}
+      ],
       "domain_suffix": [
         "hstong.com",
         "valuable.com.hk",
@@ -124,7 +129,9 @@
     {
       "name": "Snowball",
       "description": "雪盈证券 Snowball Securities",
-      "sources": [],
+      "sources": [
+        {"type": "forecho", "list": "Broker", "conf": "snowball"}
+      ],
       "domain_suffix": ["snowballsecurities.com"]
     },
 
@@ -148,6 +155,24 @@
       "description": "华泰国际: 涨乐全球通",
       "sources": [],
       "domain_suffix": ["htsc.com.hk"]
+    },
+
+    // 复星国际证券（复星恒利 Fosun Hani）/ 复星财富
+    {
+      "name": "Fosun",
+      "description": "复星国际证券: 复星恒利, 复星财富",
+      "sources": [
+        {"type": "forecho", "list": "Broker", "conf": "fosun"}
+      ]
+    },
+
+    // 卓锐证券 Sharp Point
+    {
+      "name": "ZR",
+      "description": "卓锐证券 Sharp Point",
+      "sources": [
+        {"type": "forecho", "list": "Broker", "conf": "zr"}
+      ]
     },
 
     // 微牛：Webull 各地区站点（手工维护）
@@ -216,7 +241,8 @@
         {"type": "v2fly", "list": "schwab"},
         // Charles Schwab & Co. 自有 ASN
         {"type": "asn", "asn": 1399},
-        {"type": "asn", "asn": 6949}
+        {"type": "asn", "asn": 6949},
+        {"type": "forecho", "list": "Broker", "conf": "schwab"}
       ]
     },
 
@@ -245,6 +271,30 @@
         "rhinternal.net",
         "robinhood.com",
         "robinhood.net"
+      ]
+    },
+
+    // ================================================================
+    // 行情 / 共用基础设施（来自 forecho/broker-rules）
+    // ================================================================
+
+    // TradingView：券商站点和 App 内嵌的托管图表也走它
+    {
+      "name": "TradingView",
+      "description": "TradingView 图表 / 行情",
+      "sources": [
+        {"type": "forecho", "list": "Broker", "conf": "tradingview"}
+      ]
+    },
+
+    // forecho Broker.list 里不属于上面任何一个 conf 的规则：多家券商 App 共用的 SDK
+    // （_shared.conf）、腾讯云 / 阿里云 / AWS 网段（_ip.conf），以及 forecho 以后新增、
+    // 这里还没对应的券商（Actions 日志会列出来，再按需拆成单独的条目）
+    {
+      "name": "BrokerShared",
+      "description": "券商 App 共用 SDK 域名和云服务器 IP",
+      "sources": [
+        {"type": "forecho", "list": "Broker", "rest": true}
       ]
     }
   ],

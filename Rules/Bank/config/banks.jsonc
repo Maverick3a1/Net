@@ -44,7 +44,9 @@
       "sources": [
         {"type": "v2fly", "list": "hsbc"},
         // HSBC-HK-AS
-        {"type": "asn", "asn": 9221}
+        {"type": "asn", "asn": 9221},
+        // HSBC HK App 依赖的埋点 / 反欺诈 / 客服 SDK 域名
+        {"type": "forecho", "list": "Bank", "conf": "hsbc"}
       ],
       // v2fly 的 hsbc 列表 include 了 hsbc-cn（内地业务），这里去掉；
       // "hsbc" 是 .hsbc 顶级域，不是合法后缀规则
@@ -208,7 +210,9 @@
     {
       "name": "ZABank",
       "description": "ZA Bank 众安银行",
-      "sources": [],
+      "sources": [
+        {"type": "forecho", "list": "Bank", "conf": "zabank"}
+      ],
       // zaticdn.com 是众安自有 CDN
       "domain_suffix": ["za.group", "zabank.com.hk", "zaticdn.com"]
     },
@@ -236,7 +240,9 @@
     {
       "name": "EleBank",
       "description": "EleBank 大象银行（原 Airstar Bank 天星银行）",
-      "sources": [],
+      "sources": [
+        {"type": "forecho", "list": "Bank", "conf": "elebank"}
+      ],
       "domain_suffix": ["elebank.com", "airstarbank.com"]
     },
     {
@@ -268,6 +274,7 @@
       "description": "Wise（原 TransferWise）",
       "sources": [
         {"type": "v2fly", "list": "wise"},
+        {"type": "forecho", "list": "Bank", "conf": "wise"},
         // Transferwise-est（目前没有宣告网段，有了会自动收录）
         {"type": "asn", "asn": 208550}
       ],

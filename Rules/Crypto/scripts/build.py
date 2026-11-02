@@ -24,6 +24,9 @@ README = ROOT / "README.md"
 
 V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
 RIPE_PREFIXES = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{}"
+BM7_RAW = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/{platform}/{name}/{name}.{ext}"
+PLATFORMS = ("Surge", "Shadowrocket", "Clash")
+PLATFORM_EXT = {"Surge": "list", "Shadowrocket": "list", "Clash": "yaml"}
 USER_AGENT = "Rules4Crypto/1.0 (+https://github.com)"
 DEFAULT_SLUG = "Maverick3a1/Rules4Crypto"
 
@@ -202,28 +205,103 @@ def load_asn(asn):
     return rs
 
 
-def build_exchange(exchange, cfg):
+# ---------------------------------------------------------------- per-platform upstreams
+#
+# blackmatrix7 publishes one file per client. Each of our platforms is built
+# from the upstream file for the same platform (Surge <- Surge, Shadowrocket <- Shadowrocket,
+# Clash <- Clash); v2fly, RIPEstat and the manual entries are platform-neutral.
+
+
+def parse_classical(text):
+    """(TYPE, value) pairs from a Surge list or a Clash classical payload."""
+    out = []
+    for raw in text.splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line or line == "payload:":
+            continue
+        line = line.removeprefix("- ").strip().strip("'\"")
+        kind, _, rest = line.partition(",")
+        if rest:
+            out.append((kind.strip().upper(), rest.split(",", 1)[0].strip().lower()))
+    return out
+
+
+def to_ruleset(pairs, label):
     rs = RuleSet()
-    rs.suffix |= set(exchange.get("domain_suffix", []))
-    rs.full |= set(exchange.get("domain", []))
-    rs.keyword |= set(exchange.get("domain_keyword", []))
+    for kind, value in pairs:
+        if kind == "DOMAIN-SUFFIX":
+            rs.suffix.add(value)
+        elif kind == "DOMAIN":
+            rs.full.add(value)
+        elif kind == "DOMAIN-KEYWORD":
+            rs.keyword.add(value)
+        elif kind in ("IP-CIDR", "IP-CIDR6"):
+            rs.add_cidr(value)
+        else:
+            log(f"  {label}: unsupported rule skipped: {kind},{value}")
+    return rs
+
+
+_platform_cache = {}
+
+
+def platform_rules(url_fmt, label, **fmt):
+    """{platform: [(TYPE, value)]} fetched from each platform's own upstream file."""
+    key = (url_fmt, tuple(sorted(fmt.items())))
+    if key not in _platform_cache:
+        out = {}
+        for platform in PLATFORMS:
+            url = url_fmt.format(platform=platform, ext=PLATFORM_EXT[platform], **fmt)
+            pairs = parse_classical(fetch(url))
+            if not pairs:
+                raise SourceError(f"{label} ({platform}): no rules parsed")
+            out[platform] = pairs
+        _platform_cache[key] = out
+    return _platform_cache[key]
+
+
+def load_blackmatrix7(name):
+    return {
+        p: to_ruleset(pairs, f"blackmatrix7/{name}")
+        for p, pairs in platform_rules(BM7_RAW, f"blackmatrix7/{name}", name=name).items()
+    }
+
+
+def build_exchange(exchange, cfg):
+    """{platform: RuleSet}: neutral sources shared by all, per-platform sources by platform."""
+    neutral = RuleSet()
+    neutral.suffix |= set(exchange.get("domain_suffix", []))
+    neutral.full |= set(exchange.get("domain", []))
+    neutral.keyword |= set(exchange.get("domain_keyword", []))
     for c in exchange.get("ip_cidr", []):
-        rs.add_cidr(c)
+        neutral.add_cidr(c)
+    own = {p: RuleSet() for p in PLATFORMS}
 
     for src in exchange.get("sources", []):
         kind = src["type"]
         if kind == "v2fly":
             part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []))
-            label = f"v2fly/{src['list']}"
+            log(f"  v2fly/{src['list']}: {part.count()} entries")
+            neutral.update(part)
         elif kind == "asn":
             part = load_asn(src["asn"])
-            label = f"AS{src['asn']}"
+            log(f"  AS{src['asn']}: {part.count()} entries")
+            neutral.update(part)
+        elif kind == "blackmatrix7":
+            parts = load_blackmatrix7(src["list"])
+            log(f"  blackmatrix7/{src['list']}: {parts['Surge'].count()} entries")
+            for p in PLATFORMS:
+                own[p].update(parts[p])
         else:
             raise SourceError(f"unknown source type {kind!r}")
-        log(f"  {label}: {part.count()} entries")
-        rs.update(part)
 
-    return rs.normalize(cfg.get("global_deny_suffix", []), exchange.get("exclude", []))
+    out = {}
+    for p in PLATFORMS:
+        rs = RuleSet()
+        rs.update(neutral)
+        rs.update(own[p])
+        out[p] = rs.normalize(cfg.get("global_deny_suffix", []), exchange.get("exclude", []))
+    return out
 
 
 # ---------------------------------------------------------------- renderers
@@ -281,7 +359,7 @@ def header(name, description, fmt, rs, comment):
         f"{comment} DOMAIN-KEYWORD: {len(keyword)}",
         f"{comment} IP-CIDR: {v4}",
         f"{comment} IP-CIDR6: {len(nets) - v4}",
-        f"{comment} SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites",
+        f"{comment} SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites",
     ]
 
 
@@ -336,23 +414,25 @@ def write_if_changed(path, head, body):
     log(f"  wrote {path.relative_to(ROOT)} ({len(body)} lines)")
 
 
-def render(name, description, rs, sections=None):
-    """Write all seven formats. `sections` splits the body into commented exchange blocks."""
-    sections = sections or [(None, None, rs)]
+def render(name, description, rs_by, sections_by=None):
+    """Write all seven formats, each platform from its own {platform: RuleSet}.
+
+    `sections_by` ({platform: sections}) splits the body into commented blocks."""
+    sections_by = sections_by or {p: [(None, None, rs_by[p])] for p in PLATFORMS}
     outputs = [
-        (SURGE_DIR / f"{name}.list", "Surge RULE-SET", surge_rules, False),
-        (SURGE_DIR / f"{name}_Domain.list", "Surge DOMAIN-SET", surge_domain_set, False),
-        (SHADOWROCKET_DIR / f"{name}.list", "Shadowrocket RULE-SET", surge_rules, False),
-        (SHADOWROCKET_DIR / f"{name}_Domain.list", "Shadowrocket DOMAIN-SET", surge_domain_set, False),
-        (CLASH_DIR / f"{name}.yaml", "Clash rule-provider, behavior: classical", surge_rules, True),
-        (CLASH_DIR / f"{name}_Domain.yaml", "Clash rule-provider, behavior: domain", clash_domain, True),
-        (CLASH_DIR / f"{name}_IP.yaml", "Clash rule-provider, behavior: ipcidr", clash_ipcidr, True),
+        ("Surge", SURGE_DIR / f"{name}.list", "Surge RULE-SET", surge_rules, False),
+        ("Surge", SURGE_DIR / f"{name}_Domain.list", "Surge DOMAIN-SET", surge_domain_set, False),
+        ("Shadowrocket", SHADOWROCKET_DIR / f"{name}.list", "Shadowrocket RULE-SET", surge_rules, False),
+        ("Shadowrocket", SHADOWROCKET_DIR / f"{name}_Domain.list", "Shadowrocket DOMAIN-SET", surge_domain_set, False),
+        ("Clash", CLASH_DIR / f"{name}.yaml", "Clash rule-provider, behavior: classical", surge_rules, True),
+        ("Clash", CLASH_DIR / f"{name}_Domain.yaml", "Clash rule-provider, behavior: domain", clash_domain, True),
+        ("Clash", CLASH_DIR / f"{name}_IP.yaml", "Clash rule-provider, behavior: ipcidr", clash_ipcidr, True),
     ]
-    for path, fmt, fn, is_clash in outputs:
-        body = sectioned(fn, sections)
+    for platform, path, fmt, fn, is_clash in outputs:
+        body = sectioned(fn, sections_by[platform])
         if is_clash:
             body = clash_payload(body)
-        write_if_changed(path, header(name, description, fmt, rs, "#"), body)
+        write_if_changed(path, header(name, description, fmt, rs_by[platform], "#"), body)
 
 
 def previous_count(name):
@@ -407,7 +487,8 @@ def update_readme(entries):
         "| Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |",
         "| --- | --- | ---: | ---: | --- | --- | --- |",
     ]
-    for name, desc, rs in entries:
+    for name, desc, rs_by in entries:
+        rs = rs_by["Surge"]
         domains = len(rs.suffix) + len(rs.full) + len(rs.keyword)
         surge = f"[RULE-SET]({base}/Surge/{name}.list) · [DOMAIN-SET]({base}/Surge/{name}_Domain.list)"
         shadowrocket = (
@@ -415,7 +496,7 @@ def update_readme(entries):
             f" · [DOMAIN-SET]({base}/Shadowrocket/{name}_Domain.list)"
         )
         clash = f"[classical]({base}/Clash/{name}.yaml) · [domain]({base}/Clash/{name}_Domain.yaml)"
-        if rs.nets:
+        if rs_by["Clash"].nets:
             clash += f" · [ipcidr]({base}/Clash/{name}_IP.yaml)"
         rows.append(f"| **{name}** | {desc} | {domains} | {len(rs.nets)} | {surge} | {shadowrocket} | {clash} |")
     block = "<!-- RULES:START -->\n" + "\n".join(rows) + "\n<!-- RULES:END -->"
@@ -456,7 +537,7 @@ def main():
             failed.append(name)
             continue
         prev = previous_count(name)
-        new = len(surge_rules(rs))
+        new = len(surge_rules(rs["Surge"]))
         if prev and new < prev * MIN_KEEP_RATIO:
             warn(f"{name}: shrank from {prev} to {new} rules; keeping previous ruleset")
             failed.append(name)
@@ -468,13 +549,14 @@ def main():
     agg = cfg.get("aggregate")
     if agg and not failed:
         log(f"[{agg['name']}]")
-        rs = RuleSet()
-        sections = []
-        for ename, edesc, part in built:
-            part = part.subtract(rs)
-            rs.update(part)
-            sections.append((ename, edesc, part))
-        log(f"  total: {len(surge_rules(rs))} rules")
+        rs = {p: RuleSet() for p in PLATFORMS}
+        sections = {p: [] for p in PLATFORMS}
+        for ename, edesc, parts in built:
+            for p in PLATFORMS:
+                part = parts[p].subtract(rs[p])
+                rs[p].update(part)
+                sections[p].append((ename, edesc, part))
+        log(f"  total: {len(surge_rules(rs['Surge']))} rules")
         render(agg["name"], agg["description"], rs, sections)
         built.append((agg["name"], agg["description"], rs))
     elif agg:

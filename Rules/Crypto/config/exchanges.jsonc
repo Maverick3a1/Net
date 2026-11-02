@@ -39,7 +39,8 @@
       "name": "Binance",
       "description": "Binance, Binance.US, BNB Chain",
       "sources": [
-        {"type": "v2fly", "list": "binance"}
+        {"type": "v2fly", "list": "binance"},
+        {"type": "blackmatrix7", "list": "Binance"}
       ]
     },
 
@@ -50,7 +51,8 @@
       "name": "OKX",
       "description": "OKX (formerly OKEx), OKX Wallet, X Layer",
       "sources": [
-        {"type": "v2fly", "list": "okx"}
+        {"type": "v2fly", "list": "okx"},
+        {"type": "blackmatrix7", "list": "OKX"}
       ]
     },
 

@@ -1,35 +1,54 @@
 # NAME: Broker_All
 # DESC: All brokers above combined
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-30 07:13:05 UTC
-# DOMAIN-SUFFIX: 153
-# DOMAIN: 1
+# UPDATED: 2026-11-02 16:43:03 UTC
+# DOMAIN-SUFFIX: 192
+# DOMAIN: 5
 # DOMAIN-KEYWORD: 0
-# IP-CIDR: 32
+# IP-CIDR: 95
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
 # ============================================================
 # Futu
 # 富途证券: 富途牛牛, moomoo
 # ============================================================
 DOMAIN-SUFFIX,futu.cn
+DOMAIN-SUFFIX,futubull.cn
+DOMAIN-SUFFIX,ftesop.com
+DOMAIN-SUFFIX,futu.com
+DOMAIN-SUFFIX,futu0.com
+DOMAIN-SUFFIX,futu1.com
+DOMAIN-SUFFIX,futu2.com
+DOMAIN-SUFFIX,futu3.com
+DOMAIN-SUFFIX,futu4.com
 DOMAIN-SUFFIX,futu5.com
+DOMAIN-SUFFIX,futu6.com
+DOMAIN-SUFFIX,futu7.com
+DOMAIN-SUFFIX,futu8.com
+DOMAIN-SUFFIX,futu9.com
 DOMAIN-SUFFIX,futuau.com
+DOMAIN-SUFFIX,futubos.com
+DOMAIN-SUFFIX,futuchain.com
 DOMAIN-SUFFIX,futuclearing.com
 DOMAIN-SUFFIX,futuesop.com
 DOMAIN-SUFFIX,futufin.com
+DOMAIN-SUFFIX,futuhainan.com
 DOMAIN-SUFFIX,futuhk.com
 DOMAIN-SUFFIX,futuhk1.com
 DOMAIN-SUFFIX,futuhk2.com
 DOMAIN-SUFFIX,futuhkapp.com
 DOMAIN-SUFFIX,futuhn.com
 DOMAIN-SUFFIX,futuholdings.com
+DOMAIN-SUFFIX,futuhongkong.com
+DOMAIN-SUFFIX,futuie.com
+DOMAIN-SUFFIX,futuinc.com
 DOMAIN-SUFFIX,futuniuniu.com
 DOMAIN-SUFFIX,futunn.com
 DOMAIN-SUFFIX,futuoa.com
 DOMAIN-SUFFIX,futusg.com
 DOMAIN-SUFFIX,futustatic.com
 DOMAIN-SUFFIX,fututrade.com
+DOMAIN-SUFFIX,fututrustee.com
 DOMAIN-SUFFIX,moomoo.com
 DOMAIN-SUFFIX,moomooapp.com
 DOMAIN-SUFFIX,moomoobull.com
@@ -37,7 +56,10 @@ DOMAIN-SUFFIX,moomoocn.com
 DOMAIN-SUFFIX,moomooequity.com
 DOMAIN-SUFFIX,moomootrustee.com
 DOMAIN-SUFFIX,panthertrade.com
+DOMAIN-SUFFIX,moomoo.com.hk
+DOMAIN-SUFFIX,futu.hk
 DOMAIN-SUFFIX,futu.link
+DOMAIN,collect.us.moomoocrypto.com
 
 # ============================================================
 # Tiger
@@ -58,11 +80,14 @@ DOMAIN-SUFFIX,laohu8.com
 DOMAIN-SUFFIX,play-analytics.com
 DOMAIN-SUFFIX,tbdesk.com
 DOMAIN-SUFFIX,tigerbbs.com
+DOMAIN-SUFFIX,tigerbrokers.com
 DOMAIN-SUFFIX,tigerfintech.com
+DOMAIN-SUFFIX,tradeup.com
 DOMAIN-SUFFIX,xiaohu8.com
 DOMAIN-SUFFIX,zhijianfengyi.com
 DOMAIN-SUFFIX,tigr.link
 DOMAIN-SUFFIX,tigerbrokers.net
+DOMAIN-SUFFIX,tigerbrokers.nz
 
 # ============================================================
 # Longbridge
@@ -70,6 +95,7 @@ DOMAIN-SUFFIX,tigerbrokers.net
 # ============================================================
 DOMAIN-SUFFIX,longbridge.cloud
 DOMAIN-SUFFIX,longbridge.cn
+DOMAIN-SUFFIX,longportapp.cn
 DOMAIN-SUFFIX,lbctrl.com
 DOMAIN-SUFFIX,lbkrs.com
 DOMAIN-SUFFIX,longbridge.com
@@ -121,6 +147,8 @@ DOMAIN-SUFFIX,valuable.com.hk
 # Snowball
 # 雪盈证券 Snowball Securities
 # ============================================================
+DOMAIN-SUFFIX,snowball-x.com
+DOMAIN-SUFFIX,snowballfinance.com
 DOMAIN-SUFFIX,snowballsecurities.com
 
 # ============================================================
@@ -138,6 +166,21 @@ DOMAIN-SUFFIX,eddid.com.sg
 # 华泰国际: 涨乐全球通
 # ============================================================
 DOMAIN-SUFFIX,htsc.com.hk
+
+# ============================================================
+# Fosun
+# 复星国际证券: 复星恒利, 复星财富
+# ============================================================
+DOMAIN-SUFFIX,fosunwealth.com
+DOMAIN-SUFFIX,fotechwealth.com
+DOMAIN-SUFFIX,mfosunhani.com
+
+# ============================================================
+# ZR
+# 卓锐证券 Sharp Point
+# ============================================================
+DOMAIN-SUFFIX,zr66.com
+DOMAIN-SUFFIX,zr.hk
 
 # ============================================================
 # Webull
@@ -213,6 +256,7 @@ IP-CIDR,217.192.86.0/24,no-resolve
 # Schwab
 # 嘉信理财 Charles Schwab, thinkorswim
 # ============================================================
+DOMAIN-SUFFIX,schwab.com.cn
 DOMAIN-SUFFIX,aboutschwab.com
 DOMAIN-SUFFIX,schwab.com
 DOMAIN-SUFFIX,schwabassetmanagement.com
@@ -258,3 +302,85 @@ DOMAIN-SUFFIX,rhinternal.net
 DOMAIN-SUFFIX,robinhood.net
 IP-CIDR,134.195.0.0/23,no-resolve
 IP-CIDR,134.195.2.0/24,no-resolve
+
+# ============================================================
+# TradingView
+# TradingView 图表 / 行情
+# ============================================================
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN-SUFFIX,tradingview-widget.com
+DOMAIN-SUFFIX,tradingviewstore.com
+DOMAIN,tradingview-user-uploads.b-cdn.net
+
+# ============================================================
+# BrokerShared
+# 券商 App 共用 SDK 域名和云服务器 IP
+# ============================================================
+DOMAIN-SUFFIX,9oju31.launches.appsflyersdk.com
+DOMAIN-SUFFIX,sgqt0j.launches.appsflyersdk.com
+DOMAIN-SUFFIX,shortconn.im.qcloud.com
+DOMAIN,loginv6.im.qcloud.com
+DOMAIN,shortconnv6.im.qcloud.com
+IP-CIDR,1.14.242.0/23,no-resolve
+IP-CIDR,1.15.158.0/24,no-resolve
+IP-CIDR,8.218.30.161/32,no-resolve
+IP-CIDR,14.152.91.0/24,no-resolve
+IP-CIDR,18.162.38.24/32,no-resolve
+IP-CIDR,18.163.254.94/32,no-resolve
+IP-CIDR,18.166.204.203/32,no-resolve
+IP-CIDR,34.226.76.162/32,no-resolve
+IP-CIDR,38.65.217.0/24,no-resolve
+IP-CIDR,42.193.128.0/24,no-resolve
+IP-CIDR,42.194.152.0/24,no-resolve
+IP-CIDR,43.130.30.0/24,no-resolve
+IP-CIDR,43.130.170.0/24,no-resolve
+IP-CIDR,43.132.106.6/32,no-resolve
+IP-CIDR,43.132.106.8/32,no-resolve
+IP-CIDR,43.132.107.0/24,no-resolve
+IP-CIDR,43.132.138.6/32,no-resolve
+IP-CIDR,43.132.138.67/32,no-resolve
+IP-CIDR,43.134.158.106/32,no-resolve
+IP-CIDR,43.135.64.0/24,no-resolve
+IP-CIDR,43.135.82.0/24,no-resolve
+IP-CIDR,43.142.232.0/24,no-resolve
+IP-CIDR,43.145.30.0/24,no-resolve
+IP-CIDR,43.152.182.46/32,no-resolve
+IP-CIDR,43.153.191.0/24,no-resolve
+IP-CIDR,43.153.233.0/24,no-resolve
+IP-CIDR,43.153.234.107/32,no-resolve
+IP-CIDR,43.153.249.33/32,no-resolve
+IP-CIDR,43.160.156.0/24,no-resolve
+IP-CIDR,43.163.17.229/32,no-resolve
+IP-CIDR,47.57.180.81/32,no-resolve
+IP-CIDR,47.243.107.98/32,no-resolve
+IP-CIDR,47.243.118.180/32,no-resolve
+IP-CIDR,49.51.77.113/32,no-resolve
+IP-CIDR,49.51.78.0/23,no-resolve
+IP-CIDR,49.234.241.0/24,no-resolve
+IP-CIDR,54.172.233.156/32,no-resolve
+IP-CIDR,101.32.198.0/24,no-resolve
+IP-CIDR,106.55.66.0/23,no-resolve
+IP-CIDR,111.230.119.0/24,no-resolve
+IP-CIDR,111.230.214.0/24,no-resolve
+IP-CIDR,119.28.37.0/24,no-resolve
+IP-CIDR,119.28.141.0/24,no-resolve
+IP-CIDR,119.28.183.0/24,no-resolve
+IP-CIDR,119.28.201.30/32,no-resolve
+IP-CIDR,119.28.218.0/23,no-resolve
+IP-CIDR,119.29.48.0/23,no-resolve
+IP-CIDR,119.91.244.0/23,no-resolve
+IP-CIDR,119.147.110.0/24,no-resolve
+IP-CIDR,121.5.97.0/24,no-resolve
+IP-CIDR,124.156.124.0/24,no-resolve
+IP-CIDR,124.156.233.0/24,no-resolve
+IP-CIDR,124.156.234.0/24,no-resolve
+IP-CIDR,129.226.79.0/24,no-resolve
+IP-CIDR,129.226.111.0/24,no-resolve
+IP-CIDR,162.14.10.0/24,no-resolve
+IP-CIDR,170.106.48.0/23,no-resolve
+IP-CIDR,170.106.62.0/24,no-resolve
+IP-CIDR,170.106.201.0/24,no-resolve
+IP-CIDR,175.178.207.0/24,no-resolve
+IP-CIDR,183.60.225.0/24,no-resolve
+IP-CIDR,193.112.84.0/24,no-resolve
+IP-CIDR,193.112.234.0/24,no-resolve

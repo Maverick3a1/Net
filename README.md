@@ -8,12 +8,22 @@
 | --- | --- | --- |
 | [Rules/AI](Rules/AI) | 美国主流 AI 服务（OpenAI、Anthropic、xAI、Gemini、Perplexity、Copilot、Meta AI） | `AI_All` |
 | [Rules/Bank](Rules/Bank) | 香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）和 Wise | `Bank_All` |
-| [Rules/Broker](Rules/Broker) | 互联网港美股券商（富途、老虎、长桥、盈透、嘉信等） | `Broker_All` |
+| [Rules/Broker](Rules/Broker) | 互联网港美股券商（富途、老虎、长桥、盈透、嘉信等）、TradingView、券商共用 SDK / IP | `Broker_All` |
 | [Rules/Crypto](Rules/Crypto) | 全球主流加密货币交易所（Binance、OKX、Coinbase 等） | `Crypto_All` |
 
 每个目录下都有 `Surge/`、`Shadowrocket/`（RULE-SET / DOMAIN-SET）和 `Clash/`（classical / domain / ipcidr）三套文件，合集规则统一以 `_All` 结尾，具体规则列表和用法见各目录的 README。
 
 GitHub Actions（[`update-rulesets.yml`](.github/workflows/update-rulesets.yml)）每天 **北京时间 03:00** 依次运行每个 `Rules/<name>/scripts/build.py`，规则有变化才提交；某个目录构建失败不影响其他目录。新增规则目录只要放好 `scripts/build.py`，就会自动纳入。
+
+所有上游每次构建都会重新拉取：
+
+| 上游 | 用于 | 平台对应 |
+| --- | --- | --- |
+| [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community) | AI、Crypto、Broker、Bank | 不分平台，三个平台共用 |
+| [RIPEstat](https://stat.ripe.net/)（按 ASN 查宣告网段） | AI、Crypto、Broker、Bank | 不分平台 |
+| [Anthropic IP 文档](https://platform.claude.com/docs/en/api/ip-addresses) | AI | 不分平台 |
+| [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | Crypto（`Binance`、`OKX`）、Broker（`TigerFintech`） | Surge ← Surge、Shadowrocket ← Shadowrocket、Clash ← Clash |
+| [forecho/broker-rules](https://github.com/forecho/broker-rules) | Broker（`Broker`）、Bank（`Bank`） | Surge ← Surge、Shadowrocket ← Shadowrocket、Clash ← Clash |
 
 raw 地址格式：
 

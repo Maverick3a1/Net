@@ -5,6 +5,7 @@ Stdlib only. Run from anywhere:  python3 scripts/build.py
 """
 
 import datetime
+import functools
 import ipaddress
 import json
 import os
@@ -23,8 +24,13 @@ SHADOWROCKET_DIR = ROOT / "Shadowrocket"
 README = ROOT / "README.md"
 
 V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
-BM7_RAW = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/{0}/{0}.list"
+BM7_RAW = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/{platform}/{name}/{name}.{ext}"
 RIPE_PREFIXES = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{}"
+FORECHO_RAW = "https://raw.githubusercontent.com/forecho/broker-rules/main/rule/{platform}/{name}.{ext}"
+FORECHO_CONF = "https://raw.githubusercontent.com/forecho/broker-rules/main/Source/{dir}/{conf}.conf"
+PLATFORMS = ("Surge", "Shadowrocket", "Clash")
+PLATFORM_EXT = {"Surge": "list", "Shadowrocket": "list", "Clash": "yaml"}
+ENTRIES = "brokers"
 USER_AGENT = "Broker-Rules/1.0 (+https://github.com)"
 
 # A rule set must not shrink below this fraction of its previous size in one run.
@@ -202,15 +208,30 @@ def load_asn(asn):
     return rs
 
 
-def load_blackmatrix7(name):
-    """Parse a blackmatrix7/ios_rule_script Surge list (DOMAIN*/IP-CIDR* lines)."""
-    rs = RuleSet()
-    for raw in fetch(BM7_RAW.format(name)).splitlines():
+# ---------------------------------------------------------------- per-platform upstreams
+#
+# blackmatrix7 and forecho publish one file per client. Each of our platforms is built
+# from the upstream file for the same platform (Surge <- Surge, Shadowrocket <- Shadowrocket,
+# Clash <- Clash); v2fly, RIPEstat and the manual entries are platform-neutral.
+
+
+def parse_classical(text):
+    """(TYPE, value) pairs from a Surge list or a Clash classical payload."""
+    out = []
+    for raw in text.splitlines():
         line = raw.split("#", 1)[0].strip()
-        if not line:
+        if not line or line == "payload:":
             continue
+        line = line.removeprefix("- ").strip().strip("'\"")
         kind, _, rest = line.partition(",")
-        value = rest.split(",", 1)[0]
+        if rest:
+            out.append((kind.strip().upper(), rest.split(",", 1)[0].strip().lower()))
+    return out
+
+
+def to_ruleset(pairs, label):
+    rs = RuleSet()
+    for kind, value in pairs:
         if kind == "DOMAIN-SUFFIX":
             rs.suffix.add(value)
         elif kind == "DOMAIN":
@@ -220,37 +241,125 @@ def load_blackmatrix7(name):
         elif kind in ("IP-CIDR", "IP-CIDR6"):
             rs.add_cidr(value)
         else:
-            log(f"  blackmatrix7/{name}: unsupported rule skipped: {line}")
-    if not rs.count():
-        raise SourceError(f"blackmatrix7/{name}: no rules parsed")
+            log(f"  {label}: unsupported rule skipped: {kind},{value}")
     return rs
 
 
+_platform_cache = {}
+
+
+def platform_rules(url_fmt, label, **fmt):
+    """{platform: [(TYPE, value)]} fetched from each platform's own upstream file."""
+    key = (url_fmt, tuple(sorted(fmt.items())))
+    if key not in _platform_cache:
+        out = {}
+        for platform in PLATFORMS:
+            url = url_fmt.format(platform=platform, ext=PLATFORM_EXT[platform], **fmt)
+            pairs = parse_classical(fetch(url))
+            if not pairs:
+                raise SourceError(f"{label} ({platform}): no rules parsed")
+            out[platform] = pairs
+        _platform_cache[key] = out
+    return _platform_cache[key]
+
+
+@functools.lru_cache(maxsize=None)
+def forecho_conf(name, conf):
+    """Rules of one forecho Source/<name>/<conf>.conf, used only to split the list per entry."""
+    url = FORECHO_CONF.format(dir=name.lower(), conf=conf)
+    return set(parse_classical(fetch(url)))
+
+
+def forecho_claimed(cfg, name):
+    """Rules of every forecho conf that some entry in the config maps."""
+    claimed = set()
+    for entry in cfg[ENTRIES]:
+        for src in entry.get("sources", []):
+            if src["type"] == "forecho" and src["list"] == name and "conf" in src:
+                claimed |= forecho_conf(name, src["conf"])
+    return claimed
+
+
+def load_forecho(src, cfg):
+    name = src["list"]
+    rules = platform_rules(FORECHO_RAW, f"forecho/{name}", name=name)
+    if src.get("rest"):
+        # Whatever no mapped conf claims (shared SDKs, IPs, confs added upstream later).
+        claimed = forecho_claimed(cfg, name)
+        keep = lambda r: r not in claimed  # noqa: E731
+        label = f"forecho/{name} (unmapped)"
+        extra = {r for r in rules["Surge"] if keep(r)}
+        if extra:
+            log(f"  {label}: {len(extra)} rules not in any mapped conf")
+    else:
+        members = forecho_conf(name, src["conf"])
+        keep = lambda r: r in members  # noqa: E731
+        label = f"forecho/{name}:{src['conf']}"
+    return {p: to_ruleset([r for r in pairs if keep(r)], label) for p, pairs in rules.items()}
+
+
+def forecho_unmapped_warnings(cfg):
+    """Warn about forecho rules no entry publishes (a list without a "rest" holder)."""
+    lists = {}
+    for entry in cfg[ENTRIES]:
+        for src in entry.get("sources", []):
+            if src["type"] == "forecho":
+                lists[src["list"]] = lists.get(src["list"], False) or bool(src.get("rest"))
+    for name, has_rest in lists.items():
+        if has_rest:
+            continue
+        claimed = forecho_claimed(cfg, name)
+        rules = platform_rules(FORECHO_RAW, f"forecho/{name}", name=name)
+        for kind, value in sorted({r for r in rules["Surge"] if r not in claimed}):
+            warn(f"forecho/{name}: {kind},{value} is not in any mapped conf, not published")
+
+
+def load_blackmatrix7(name):
+    return {
+        p: to_ruleset(pairs, f"blackmatrix7/{name}")
+        for p, pairs in platform_rules(BM7_RAW, f"blackmatrix7/{name}", name=name).items()
+    }
+
+
 def build_broker(broker, cfg):
-    rs = RuleSet()
-    rs.suffix |= set(broker.get("domain_suffix", []))
-    rs.full |= set(broker.get("domain", []))
-    rs.keyword |= set(broker.get("domain_keyword", []))
+    """{platform: RuleSet}: neutral sources shared by all, per-platform sources by platform."""
+    neutral = RuleSet()
+    neutral.suffix |= set(broker.get("domain_suffix", []))
+    neutral.full |= set(broker.get("domain", []))
+    neutral.keyword |= set(broker.get("domain_keyword", []))
     for c in broker.get("ip_cidr", []):
-        rs.add_cidr(c)
+        neutral.add_cidr(c)
+    own = {p: RuleSet() for p in PLATFORMS}
+
+    def per_platform(parts, label):
+        log(f"  {label}: {parts['Surge'].count()} entries")
+        for p in PLATFORMS:
+            own[p].update(parts[p])
 
     for src in broker.get("sources", []):
         kind = src["type"]
         if kind == "v2fly":
             part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []))
-            label = f"v2fly/{src['list']}"
+            log(f"  v2fly/{src['list']}: {part.count()} entries")
+            neutral.update(part)
         elif kind == "asn":
             part = load_asn(src["asn"])
-            label = f"AS{src['asn']}"
+            log(f"  AS{src['asn']}: {part.count()} entries")
+            neutral.update(part)
         elif kind == "blackmatrix7":
-            part = load_blackmatrix7(src["list"])
-            label = f"blackmatrix7/{src['list']}"
+            per_platform(load_blackmatrix7(src["list"]), f"blackmatrix7/{src['list']}")
+        elif kind == "forecho":
+            per_platform(load_forecho(src, cfg), f"forecho/{src['list']}:{src.get('conf', 'unmapped')}")
         else:
             raise SourceError(f"unknown source type {kind!r}")
-        log(f"  {label}: {part.count()} entries")
-        rs.update(part)
 
-    return rs.normalize(cfg.get("global_deny_suffix", []), broker.get("exclude", []))
+    out = {}
+    for p in PLATFORMS:
+        rs = RuleSet()
+        rs.update(neutral)
+        rs.update(own[p])
+        out[p] = rs.normalize(cfg.get("global_deny_suffix", []), broker.get("exclude", []))
+    return out
 
 
 def load_mainland_brokers(cfg):
@@ -261,7 +370,7 @@ def load_mainland_brokers(cfg):
     return deny.suffix | deny.full
 
 
-def drop_mainland(name, rs, mainland):
+def drop_mainland(name, rs, mainland, quiet=False):
     def hit(domain):
         parts = domain.split(".")
         return any(".".join(parts[i:]) in mainland for i in range(len(parts) - 1))
@@ -269,7 +378,7 @@ def drop_mainland(name, rs, mainland):
     for kind in ("suffix", "full"):
         values = getattr(rs, kind)
         bad = {d for d in values if hit(d)}
-        for d in sorted(bad):
+        for d in sorted(bad if not quiet else ()):
             warn(f"{name}: {d} belongs to a mainland securities firm, dropped")
         setattr(rs, kind, values - bad)
     return rs
@@ -330,7 +439,7 @@ def header(name, description, fmt, rs, comment):
         f"{comment} DOMAIN-KEYWORD: {len(keyword)}",
         f"{comment} IP-CIDR: {v4}",
         f"{comment} IP-CIDR6: {len(nets) - v4}",
-        f"{comment} SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat",
+        f"{comment} SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat",
     ]
 
 
@@ -385,23 +494,25 @@ def write_if_changed(path, head, body):
     log(f"  wrote {path.relative_to(ROOT)} ({len(body)} lines)")
 
 
-def render(name, description, rs, sections=None):
-    """Write all seven formats. `sections` splits the body into commented broker blocks."""
-    sections = sections or [(None, None, rs)]
+def render(name, description, rs_by, sections_by=None):
+    """Write all seven formats, each platform from its own {platform: RuleSet}.
+
+    `sections_by` ({platform: sections}) splits the body into commented blocks."""
+    sections_by = sections_by or {p: [(None, None, rs_by[p])] for p in PLATFORMS}
     outputs = [
-        (SURGE_DIR / f"{name}.list", "Surge RULE-SET", surge_rules, False),
-        (SURGE_DIR / f"{name}_Domain.list", "Surge DOMAIN-SET", surge_domain_set, False),
-        (SHADOWROCKET_DIR / f"{name}.list", "Shadowrocket RULE-SET", surge_rules, False),
-        (SHADOWROCKET_DIR / f"{name}_Domain.list", "Shadowrocket DOMAIN-SET", surge_domain_set, False),
-        (CLASH_DIR / f"{name}.yaml", "Clash rule-provider, behavior: classical", surge_rules, True),
-        (CLASH_DIR / f"{name}_Domain.yaml", "Clash rule-provider, behavior: domain", clash_domain, True),
-        (CLASH_DIR / f"{name}_IP.yaml", "Clash rule-provider, behavior: ipcidr", clash_ipcidr, True),
+        ("Surge", SURGE_DIR / f"{name}.list", "Surge RULE-SET", surge_rules, False),
+        ("Surge", SURGE_DIR / f"{name}_Domain.list", "Surge DOMAIN-SET", surge_domain_set, False),
+        ("Shadowrocket", SHADOWROCKET_DIR / f"{name}.list", "Shadowrocket RULE-SET", surge_rules, False),
+        ("Shadowrocket", SHADOWROCKET_DIR / f"{name}_Domain.list", "Shadowrocket DOMAIN-SET", surge_domain_set, False),
+        ("Clash", CLASH_DIR / f"{name}.yaml", "Clash rule-provider, behavior: classical", surge_rules, True),
+        ("Clash", CLASH_DIR / f"{name}_Domain.yaml", "Clash rule-provider, behavior: domain", clash_domain, True),
+        ("Clash", CLASH_DIR / f"{name}_IP.yaml", "Clash rule-provider, behavior: ipcidr", clash_ipcidr, True),
     ]
-    for path, fmt, fn, is_clash in outputs:
-        body = sectioned(fn, sections)
+    for platform, path, fmt, fn, is_clash in outputs:
+        body = sectioned(fn, sections_by[platform])
         if is_clash:
             body = clash_payload(body)
-        write_if_changed(path, header(name, description, fmt, rs, "#"), body)
+        write_if_changed(path, header(name, description, fmt, rs_by[platform], "#"), body)
 
 
 def previous_count(name):
@@ -456,7 +567,8 @@ def update_readme(entries):
         "| Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |",
         "| --- | --- | ---: | ---: | --- | --- | --- |",
     ]
-    for name, desc, rs in entries:
+    for name, desc, rs_by in entries:
+        rs = rs_by["Surge"]
         domains = len(rs.suffix) + len(rs.full) + len(rs.keyword)
         surge = f"[RULE-SET]({base}/Surge/{name}.list) · [DOMAIN-SET]({base}/Surge/{name}_Domain.list)"
         shadowrocket = (
@@ -464,7 +576,7 @@ def update_readme(entries):
             f" · [DOMAIN-SET]({base}/Shadowrocket/{name}_Domain.list)"
         )
         clash = f"[classical]({base}/Clash/{name}.yaml) · [domain]({base}/Clash/{name}_Domain.yaml)"
-        if rs.nets:
+        if rs_by["Clash"].nets:
             clash += f" · [ipcidr]({base}/Clash/{name}_IP.yaml)"
         rows.append(f"| **{name}** | {desc} | {domains} | {len(rs.nets)} | {surge} | {shadowrocket} | {clash} |")
     block = "<!-- RULES:START -->\n" + "\n".join(rows) + "\n<!-- RULES:END -->"
@@ -505,13 +617,16 @@ def main():
         name = broker["name"]
         log(f"[{name}]")
         try:
-            rs = drop_mainland(name, build_broker(broker, cfg), mainland)
+            rs = {
+                p: drop_mainland(name, part, mainland, quiet=p != "Surge")
+                for p, part in build_broker(broker, cfg).items()
+            }
         except SourceError as exc:
             warn(f"{name}: {exc}; keeping previous ruleset")
             failed.append(name)
             continue
         prev = previous_count(name)
-        new = len(surge_rules(rs))
+        new = len(surge_rules(rs["Surge"]))
         if prev and new < prev * MIN_KEEP_RATIO:
             warn(f"{name}: shrank from {prev} to {new} rules; keeping previous ruleset")
             failed.append(name)
@@ -523,13 +638,14 @@ def main():
     agg = cfg.get("aggregate")
     if agg and not failed:
         log(f"[{agg['name']}]")
-        rs = RuleSet()
-        sections = []
-        for vname, vdesc, part in built:
-            part = part.subtract(rs)
-            rs.update(part)
-            sections.append((vname, vdesc, part))
-        log(f"  total: {len(surge_rules(rs))} rules")
+        rs = {p: RuleSet() for p in PLATFORMS}
+        sections = {p: [] for p in PLATFORMS}
+        for vname, vdesc, parts in built:
+            for p in PLATFORMS:
+                part = parts[p].subtract(rs[p])
+                rs[p].update(part)
+                sections[p].append((vname, vdesc, part))
+        log(f"  total: {len(surge_rules(rs['Surge']))} rules")
         render(agg["name"], agg["description"], rs, sections)
         built.append((agg["name"], agg["description"], rs))
     elif agg:
@@ -537,6 +653,10 @@ def main():
 
     if not failed:
         update_readme(built)
+        try:
+            forecho_unmapped_warnings(cfg)
+        except SourceError as exc:
+            warn(f"forecho unmapped check skipped: {exc}")
 
     if len(failed) == len(cfg["brokers"]):
         sys.exit("all brokers failed")

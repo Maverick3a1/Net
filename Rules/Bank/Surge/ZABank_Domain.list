@@ -1,13 +1,17 @@
 # NAME: ZABank
 # DESC: ZA Bank 众安银行
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-10-30 06:26:15 UTC
-# DOMAIN-SUFFIX: 3
-# DOMAIN: 0
+# UPDATED: 2026-11-02 16:42:17 UTC
+# DOMAIN-SUFFIX: 6
+# DOMAIN: 1
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
+.crashlytics.com
+.zajourney.com
 .zaticdn.com
 .za.group
+.zainvest.group
 .zabank.com.hk
+app-measurement.com

@@ -1,31 +1,50 @@
 # NAME: Futu
 # DESC: 富途证券: 富途牛牛, moomoo
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-10-30 06:18:11 UTC
-# DOMAIN-SUFFIX: 26
-# DOMAIN: 0
+# UPDATED: 2026-11-02 16:42:34 UTC
+# DOMAIN-SUFFIX: 47
+# DOMAIN: 1
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
 .futu.cn
+.futubull.cn
+.ftesop.com
+.futu.com
+.futu0.com
+.futu1.com
+.futu2.com
+.futu3.com
+.futu4.com
 .futu5.com
+.futu6.com
+.futu7.com
+.futu8.com
+.futu9.com
 .futuau.com
+.futubos.com
+.futuchain.com
 .futuclearing.com
 .futuesop.com
 .futufin.com
+.futuhainan.com
 .futuhk.com
 .futuhk1.com
 .futuhk2.com
 .futuhkapp.com
 .futuhn.com
 .futuholdings.com
+.futuhongkong.com
+.futuie.com
+.futuinc.com
 .futuniuniu.com
 .futunn.com
 .futuoa.com
 .futusg.com
 .futustatic.com
 .fututrade.com
+.fututrustee.com
 .moomoo.com
 .moomooapp.com
 .moomoobull.com
@@ -33,4 +52,7 @@
 .moomooequity.com
 .moomootrustee.com
 .panthertrade.com
+.moomoo.com.hk
+.futu.hk
 .futu.link
+collect.us.moomoocrypto.com

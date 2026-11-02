@@ -1,13 +1,13 @@
 # NAME: HSBC
 # DESC: HSBC 汇丰银行（香港）
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-10-30 06:25:59 UTC
-# DOMAIN-SUFFIX: 44
-# DOMAIN: 0
+# UPDATED: 2026-11-02 16:41:58 UTC
+# DOMAIN-SUFFIX: 48
+# DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 3
 # IP-CIDR6: 3
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
 payload:
   - 'DOMAIN-SUFFIX,hsbc.ae'
   - 'DOMAIN-SUFFIX,hsbc.am'
@@ -22,6 +22,7 @@ payload:
   - 'DOMAIN-SUFFIX,hsbcinnovationbanking.com'
   - 'DOMAIN-SUFFIX,hsbcnet.com'
   - 'DOMAIN-SUFFIX,hsbcprivatebank.com'
+  - 'DOMAIN-SUFFIX,tealiumiq.com'
   - 'DOMAIN-SUFFIX,vv1865.com'
   - 'DOMAIN-SUFFIX,hsbc.de'
   - 'DOMAIN-SUFFIX,hsbc-alternatives.de'
@@ -43,6 +44,9 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com.my'
   - 'DOMAIN-SUFFIX,hsbcamanah.com.my'
   - 'DOMAIN-SUFFIX,hsbc.net'
+  - 'DOMAIN-SUFFIX,liveperson.net'
+  - 'DOMAIN-SUFFIX,lpsnmedia.net'
+  - 'DOMAIN-SUFFIX,online-metrix.net'
   - 'DOMAIN-SUFFIX,hsbc.co.nz'
   - 'DOMAIN-SUFFIX,hsbc.com.ph'
   - 'DOMAIN-SUFFIX,hsbc.com.sg'
@@ -53,6 +57,12 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.uk'
   - 'DOMAIN-SUFFIX,hsbc.com.uy'
   - 'DOMAIN-SUFFIX,hsbc.com.vn'
+  - 'DOMAIN,hsbc.edge.sdk.awswaf.com'
+  - 'DOMAIN,mobile.eum-appdynamics.com'
+  - 'DOMAIN,cdn.optimizely.com'
+  - 'DOMAIN,tags.tiqcdn.com'
+  - 'DOMAIN,log-58144bf0.we-stats.com'
+  - 'DOMAIN,c-hsbc.lytics.io'
   - 'IP-CIDR,27.110.72.0/21,no-resolve'
   - 'IP-CIDR,161.113.192.0/19,no-resolve'
   - 'IP-CIDR,203.112.80.0/20,no-resolve'

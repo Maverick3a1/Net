@@ -1,13 +1,13 @@
 # NAME: HSBC
 # DESC: HSBC 汇丰银行（香港）
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-10-30 06:25:59 UTC
-# DOMAIN-SUFFIX: 44
-# DOMAIN: 0
+# UPDATED: 2026-11-02 16:41:58 UTC
+# DOMAIN-SUFFIX: 48
+# DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 3
 # IP-CIDR6: 3
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
 .hsbc.ae
 .hsbc.am
 .hsbc.com.ar
@@ -21,6 +21,7 @@
 .hsbcinnovationbanking.com
 .hsbcnet.com
 .hsbcprivatebank.com
+.tealiumiq.com
 .vv1865.com
 .hsbc.de
 .hsbc-alternatives.de
@@ -42,6 +43,9 @@
 .hsbc.com.my
 .hsbcamanah.com.my
 .hsbc.net
+.liveperson.net
+.lpsnmedia.net
+.online-metrix.net
 .hsbc.co.nz
 .hsbc.com.ph
 .hsbc.com.sg
@@ -52,3 +56,9 @@
 .hsbc.uk
 .hsbc.com.uy
 .hsbc.com.vn
+hsbc.edge.sdk.awswaf.com
+mobile.eum-appdynamics.com
+cdn.optimizely.com
+tags.tiqcdn.com
+log-58144bf0.we-stats.com
+c-hsbc.lytics.io

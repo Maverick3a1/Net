@@ -1,14 +1,15 @@
 # NAME: Binance
 # DESC: Binance, Binance.US, BNB Chain
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-10-14 09:45:51 UTC
-# DOMAIN-SUFFIX: 43
+# UPDATED: 2026-11-02 16:49:13 UTC
+# DOMAIN-SUFFIX: 47
 # DOMAIN: 2
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 payload:
+  - '+.bnbzh.ac'
   - '+.binancezh.be'
   - '+.binancezh.biz'
   - '+.bnappweb.black'
@@ -20,10 +21,13 @@ payload:
   - '+.binance.cloud'
   - '+.binance.co'
   - '+.binancezh.co'
+  - '+.bnappzh.co'
   - '+.saasexch.co'
+  - '+.appsflayer.com'
   - '+.binance.com'
   - '+.binanceapi.com'
   - '+.binancecnt.com'
+  - '+.binancefuture.com'
   - '+.binancezh.com'
   - '+.bnbstatic.com'
   - '+.bntrace.com'
