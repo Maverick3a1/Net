@@ -1,9 +1,9 @@
 # NAME: HSBC
 # DESC: HSBC 汇丰银行（香港）
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-11-02 16:41:58 UTC
-# DOMAIN-SUFFIX: 48
-# DOMAIN: 6
+# UPDATED: 2026-11-03 07:46:57 UTC
+# DOMAIN-SUFFIX: 47
+# DOMAIN: 2
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 3
 # IP-CIDR6: 3
@@ -21,7 +21,6 @@
 .hsbcinnovationbanking.com
 .hsbcnet.com
 .hsbcprivatebank.com
-.tealiumiq.com
 .vv1865.com
 .hsbc.de
 .hsbc-alternatives.de
@@ -57,8 +56,4 @@
 .hsbc.com.uy
 .hsbc.com.vn
 hsbc.edge.sdk.awswaf.com
-mobile.eum-appdynamics.com
-cdn.optimizely.com
-tags.tiqcdn.com
 log-58144bf0.we-stats.com
-c-hsbc.lytics.io

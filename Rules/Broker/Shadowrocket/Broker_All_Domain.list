@@ -1,9 +1,9 @@
 # NAME: Broker_All
 # DESC: All brokers above combined
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-11-02 16:43:03 UTC
-# DOMAIN-SUFFIX: 192
-# DOMAIN: 5
+# UPDATED: 2026-11-03 07:46:52 UTC
+# DOMAIN-SUFFIX: 189
+# DOMAIN: 4
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 95
 # IP-CIDR6: 0
@@ -59,7 +59,6 @@
 .moomoo.com.hk
 .futu.hk
 .futu.link
-collect.us.moomoocrypto.com
 
 # ============================================================
 # Tiger
@@ -77,7 +76,6 @@ collect.us.moomoocrypto.com
 .itigergrowtha.com
 .itigerup.com
 .laohu8.com
-.play-analytics.com
 .tbdesk.com
 .tigerbbs.com
 .tigerbrokers.com
@@ -284,8 +282,6 @@ tradingview-user-uploads.b-cdn.net
 # BrokerShared
 # 券商 App 共用 SDK 域名和云服务器 IP
 # ============================================================
-.9oju31.launches.appsflyersdk.com
-.sgqt0j.launches.appsflyersdk.com
 .shortconn.im.qcloud.com
 loginv6.im.qcloud.com
 shortconnv6.im.qcloud.com

@@ -1,9 +1,9 @@
 # NAME: Broker_All
 # DESC: All brokers above combined
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-11-02 16:43:03 UTC
-# DOMAIN-SUFFIX: 192
-# DOMAIN: 5
+# UPDATED: 2026-11-03 07:46:52 UTC
+# DOMAIN-SUFFIX: 189
+# DOMAIN: 4
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 95
 # IP-CIDR6: 0
@@ -59,7 +59,6 @@ DOMAIN-SUFFIX,panthertrade.com
 DOMAIN-SUFFIX,moomoo.com.hk
 DOMAIN-SUFFIX,futu.hk
 DOMAIN-SUFFIX,futu.link
-DOMAIN,collect.us.moomoocrypto.com
 
 # ============================================================
 # Tiger
@@ -77,7 +76,6 @@ DOMAIN-SUFFIX,itigergrowth.com
 DOMAIN-SUFFIX,itigergrowtha.com
 DOMAIN-SUFFIX,itigerup.com
 DOMAIN-SUFFIX,laohu8.com
-DOMAIN-SUFFIX,play-analytics.com
 DOMAIN-SUFFIX,tbdesk.com
 DOMAIN-SUFFIX,tigerbbs.com
 DOMAIN-SUFFIX,tigerbrokers.com
@@ -316,8 +314,6 @@ DOMAIN,tradingview-user-uploads.b-cdn.net
 # BrokerShared
 # 券商 App 共用 SDK 域名和云服务器 IP
 # ============================================================
-DOMAIN-SUFFIX,9oju31.launches.appsflyersdk.com
-DOMAIN-SUFFIX,sgqt0j.launches.appsflyersdk.com
 DOMAIN-SUFFIX,shortconn.im.qcloud.com
 DOMAIN,loginv6.im.qcloud.com
 DOMAIN,shortconnv6.im.qcloud.com

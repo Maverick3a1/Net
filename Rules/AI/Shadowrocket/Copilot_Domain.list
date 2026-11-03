@@ -1,9 +1,9 @@
 # NAME: Copilot
 # DESC: Microsoft Copilot and GitHub Copilot
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-10-12 10:37:33 UTC
+# UPDATED: 2026-11-03 07:46:03 UTC
 # DOMAIN-SUFFIX: 3
-# DOMAIN: 7
+# DOMAIN: 5
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
@@ -15,6 +15,4 @@ edgeservices.bing.com
 sydney.bing.com
 copilot-workspace.githubnext.com
 copilot-proxy.githubusercontent.com
-copilot-telemetry.githubusercontent.com
-copilot-telemetry-service.githubusercontent.com
 copilotprodattachments.blob.core.windows.net

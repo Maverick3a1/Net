@@ -10,16 +10,19 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 | Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |
 | --- | --- | ---: | ---: | --- | --- | --- |
 | **OpenAI** | OpenAI: ChatGPT, Sora, Codex, OpenAI API | 21 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/OpenAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/OpenAI_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/OpenAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/OpenAI_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/OpenAI.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/OpenAI_Domain.yaml) |
-| **Anthropic** | Anthropic: Claude, Claude Code, Claude API | 19 | 3 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Anthropic.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Anthropic_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Anthropic.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Anthropic_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic_IP.yaml) |
+| **Anthropic** | Anthropic: Claude, Claude Code, Claude API | 19 | 4 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Anthropic.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Anthropic_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Anthropic.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Anthropic_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Anthropic_IP.yaml) |
 | **xAI** | xAI: Grok, Grok API | 4 | 1 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/xAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/xAI_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/xAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/xAI_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/xAI.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/xAI_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/xAI_IP.yaml) |
 | **Gemini** | Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity | 49 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Gemini.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Gemini_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Gemini.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Gemini_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Gemini.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Gemini_Domain.yaml) |
 | **Perplexity** | Perplexity AI | 5 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Perplexity.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Perplexity_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Perplexity.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Perplexity_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Perplexity.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Perplexity_Domain.yaml) |
-| **Copilot** | Microsoft Copilot and GitHub Copilot | 10 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Copilot.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Copilot_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Copilot.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Copilot_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Copilot.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Copilot_Domain.yaml) |
+| **Copilot** | Microsoft Copilot and GitHub Copilot | 8 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Copilot.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/Copilot_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Copilot.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/Copilot_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Copilot.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/Copilot_Domain.yaml) |
 | **MetaAI** | Meta AI and Llama | 2 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/MetaAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/MetaAI_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/MetaAI.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/MetaAI_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/MetaAI.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/MetaAI_Domain.yaml) |
-| **AI_All** | All vendors above combined | 110 | 4 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_IP.yaml) |
+| **AI_All** | All vendors above combined | 108 | 5 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_IP.yaml) |
+| **AI_Reject** | Ads, tracking and telemetry from the AI rules above | 6 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_Reject_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_Reject_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_Reject.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_Reject_Domain.yaml) |
 <!-- RULES:END -->
 
 `AI_All` 是以上所有厂商的合集，一条规则全部覆盖。
+
+`AI_Reject` 是从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目：上游自己标记的（v2fly `@ads` / `@telemetry`），以及 [`config`](config) 里 `reject` 列出的域名。这些条目只出现在 `AI_Reject` 里，不再出现在各自的规则和 `AI_All` 里。`AI_Reject` 配 `REJECT`，放在 `AI_All` 前面。
 
 ## 文件格式
 
@@ -41,6 +44,7 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 
 ```ini
 [Rule]
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/AI_All.list,AI
 # 或者按厂商分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/OpenAI.list,US
@@ -52,6 +56,7 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Surge/A
 
 ```ini
 [Rule]
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All.list,AI
 # 也可以按厂商分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/OpenAI.list,US
@@ -65,6 +70,13 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowr
 
 ```yaml
 rule-providers:
+  AI_Reject:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_Reject.yaml
+    path: ./ruleset/AI_Reject.yaml
+    interval: 86400
   AI_All:
     type: http
     behavior: classical
@@ -74,6 +86,7 @@ rule-providers:
     interval: 86400
 
 rules:
+  - RULE-SET,AI_Reject,REJECT
   - RULE-SET,AI_All,AI
 ```
 
@@ -81,7 +94,7 @@ rules:
 
 | 类型 | 来源 |
 | --- | --- |
-| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`openai`、`anthropic`、`xai`、`google-deepmind`、`perplexity`、`github-copilot`），去掉标记为 `@ads` / `@cn` 的条目 |
+| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`openai`、`anthropic`、`xai`、`google-deepmind`、`perplexity`、`github-copilot`），去掉标记为 `@cn` 的条目；标记为 `@ads` / `@telemetry` 的放进 `AI_Reject` |
 | 域名 | [`config/vendors.jsonc`](config/vendors.jsonc) 中手工维护的补充条目 |
 | IP | [RIPEstat](https://stat.ripe.net/) 查询各厂商自有 ASN 实际宣告的网段：OpenAI `AS401864`、Anthropic `AS399358` / `AS400243` / `AS401551`、xAI `AS400297` |
 | IP | [Anthropic IP 地址文档](https://platform.claude.com/docs/en/api/ip-addresses) 中的 *Inbound* 段（出站 IP 和已停用的 IP 不收录） |

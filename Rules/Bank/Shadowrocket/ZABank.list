@@ -1,17 +1,15 @@
 # NAME: ZABank
 # DESC: ZA Bank 众安银行
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-11-02 16:42:17 UTC
-# DOMAIN-SUFFIX: 6
-# DOMAIN: 1
+# UPDATED: 2026-11-03 07:47:15 UTC
+# DOMAIN-SUFFIX: 5
+# DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
 # SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
-DOMAIN-SUFFIX,crashlytics.com
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zaticdn.com
 DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,zainvest.group
 DOMAIN-SUFFIX,zabank.com.hk
-DOMAIN,app-measurement.com

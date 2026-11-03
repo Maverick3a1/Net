@@ -1,9 +1,9 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-02 16:42:23 UTC
-# DOMAIN-SUFFIX: 95
-# DOMAIN: 14
+# UPDATED: 2026-11-03 07:47:20 UTC
+# DOMAIN-SUFFIX: 92
+# DOMAIN: 8
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
@@ -26,7 +26,6 @@ payload:
   - '+.hsbcinnovationbanking.com'
   - '+.hsbcnet.com'
   - '+.hsbcprivatebank.com'
-  - '+.tealiumiq.com'
   - '+.vv1865.com'
   - '+.hsbc.de'
   - '+.hsbc-alternatives.de'
@@ -62,11 +61,7 @@ payload:
   - '+.hsbc.com.uy'
   - '+.hsbc.com.vn'
   - 'hsbc.edge.sdk.awswaf.com'
-  - 'mobile.eum-appdynamics.com'
-  - 'cdn.optimizely.com'
-  - 'tags.tiqcdn.com'
   - 'log-58144bf0.we-stats.com'
-  - 'c-hsbc.lytics.io'
 
   # ============================================================
   # StandardChartered
@@ -195,13 +190,11 @@ payload:
   # ZABank
   # ZA Bank 众安银行
   # ============================================================
-  - '+.crashlytics.com'
   - '+.zajourney.com'
   - '+.zaticdn.com'
   - '+.za.group'
   - '+.zainvest.group'
   - '+.zabank.com.hk'
-  - 'app-measurement.com'
 
   # ============================================================
   # Mox
@@ -226,7 +219,6 @@ payload:
   # EleBank 大象银行（原 Airstar Bank 天星银行）
   # ============================================================
   - '+.airstarbank.com'
-  - '+.appsflyersdk.com'
   - '+.elebank.com'
 
   # ============================================================
@@ -254,6 +246,5 @@ payload:
   # ============================================================
   - '+.transferwise.com'
   - '+.wise.com'
-  - 'api.mixpanel.com'
   - 'daw291njkc3ao.cloudfront.net'
   - 'dq8dwmysp7hk1.cloudfront.net'

@@ -27,7 +27,10 @@
   ],
 
   // v2fly 中带这些属性的条目会被丢弃
-  "v2fly_exclude_attrs": ["ads"],
+  "v2fly_exclude_attrs": [],
+
+  // v2fly 中带这些属性的条目（广告 / 遥测）放进拒绝列表，而不是普通规则
+  "v2fly_reject_attrs": ["ads", "telemetry"],
 
   // 内地证券公司域名黑名单：命中的条目一律剔除；拉取失败则本次不发布任何规则
   "mainland_deny_v2fly": ["category-securities-cn"],
@@ -305,5 +308,22 @@
   "aggregate": {
     "name": "Broker_All",
     "description": "All brokers above combined"
+  },
+
+  // ================================================================
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 Broker_Reject，配 REJECT。
+  // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
+  // 来自 forecho（AppsFlyer、moomoo 采集入口）和 blackmatrix7 TigerFintech（play-analytics.com）
+  // ================================================================
+  "reject": {
+    "name": "Broker_Reject",
+    "description": "Ads, tracking and telemetry from the broker rules above",
+    "domain_suffix": [
+      "appsflyersdk.com",
+      "play-analytics.com"
+    ],
+    "domain": [
+      "collect.us.moomoocrypto.com"
+    ]
   }
 }

@@ -29,7 +29,10 @@
   ],
 
   // v2fly 中带这些属性的条目会被丢弃
-  "v2fly_exclude_attrs": ["ads", "cn"],
+  "v2fly_exclude_attrs": ["cn"],
+
+  // v2fly 中带这些属性的条目（广告 / 遥测）放进拒绝列表，而不是普通规则
+  "v2fly_reject_attrs": ["ads", "telemetry"],
 
   "exchanges": [
     // ================================================================
@@ -315,5 +318,21 @@
   "aggregate": {
     "name": "Crypto_All",
     "description": "All exchanges above combined"
+  },
+
+  // ================================================================
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 Crypto_Reject，配 REJECT。
+  // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
+  // appsflayer.com 是 blackmatrix7 Binance 里的 AppsFlyer 拼写错误版本；mexcsensors.com 是 MEXC 的神策埋点
+  // ================================================================
+  "reject": {
+    "name": "Crypto_Reject",
+    "description": "Ads, tracking and telemetry from the exchange rules above",
+    "domain_suffix": [
+      "appsflayer.com",
+      "appsflyersdk.com",
+      "mexcsensors.com"
+    ],
+    "domain": []
   }
 }

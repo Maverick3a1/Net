@@ -1,9 +1,9 @@
 # NAME: Futu
 # DESC: 富途证券: 富途牛牛, moomoo
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-11-02 16:42:34 UTC
+# UPDATED: 2026-11-03 07:46:25 UTC
 # DOMAIN-SUFFIX: 47
-# DOMAIN: 1
+# DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
@@ -56,4 +56,3 @@ payload:
   - 'DOMAIN-SUFFIX,moomoo.com.hk'
   - 'DOMAIN-SUFFIX,futu.hk'
   - 'DOMAIN-SUFFIX,futu.link'
-  - 'DOMAIN,collect.us.moomoocrypto.com'

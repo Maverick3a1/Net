@@ -9,8 +9,8 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 <!-- RULES:START -->
 | Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |
 | --- | --- | ---: | ---: | --- | --- | --- |
-| **Futu** | 富途证券: 富途牛牛, moomoo | 48 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu_Domain.yaml) |
-| **Tiger** | 老虎证券: Tiger Trade, Tiger Brokers | 23 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger_Domain.yaml) |
+| **Futu** | 富途证券: 富途牛牛, moomoo | 47 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Futu_Domain.yaml) |
+| **Tiger** | 老虎证券: Tiger Trade, Tiger Brokers | 22 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Tiger_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Tiger_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Tiger_Domain.yaml) |
 | **Longbridge** | 长桥证券: Longbridge, LongPort | 13 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Longbridge_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Longbridge.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Longbridge_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Longbridge_Domain.yaml) |
 | **uSMART** | 盈立证券: uSMART | 23 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/uSMART_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/uSMART.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/uSMART_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/uSMART_Domain.yaml) |
 | **Valuable** | 华盛证券: 华盛通, Valuable | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Valuable_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Valuable.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Valuable_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Valuable_Domain.yaml) |
@@ -25,11 +25,14 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 | **Firstrade** | 第一证券 Firstrade | 3 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Firstrade_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Firstrade.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Firstrade_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Firstrade_Domain.yaml) |
 | **Robinhood** | Robinhood | 4 | 2 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Robinhood_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Robinhood.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Robinhood_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Robinhood_IP.yaml) |
 | **TradingView** | TradingView 图表 / 行情 | 4 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/TradingView.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/TradingView_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/TradingView.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/TradingView_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/TradingView.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/TradingView_Domain.yaml) |
-| **BrokerShared** | 券商 App 共用 SDK 域名和云服务器 IP | 6 | 63 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/BrokerShared.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/BrokerShared_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/BrokerShared.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/BrokerShared_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared_IP.yaml) |
-| **Broker_All** | All brokers above combined | 197 | 95 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_IP.yaml) |
+| **BrokerShared** | 券商 App 共用 SDK 域名和云服务器 IP | 3 | 63 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/BrokerShared.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/BrokerShared_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/BrokerShared.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/BrokerShared_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/BrokerShared_IP.yaml) |
+| **Broker_All** | All brokers above combined | 193 | 95 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_IP.yaml) |
+| **Broker_Reject** | Ads, tracking and telemetry from the broker rules above | 4 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_Reject_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_Reject_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_Reject.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_Reject_Domain.yaml) |
 <!-- RULES:END -->
 
 `Broker_All` 是以上所有券商（含 TradingView 和 `BrokerShared`）的合集，一条规则全部覆盖。
+
+`Broker_Reject` 是从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目：上游自己标记的（v2fly `@ads` / `@telemetry`），以及 [`config`](config) 里 `reject` 列出的域名。这些条目只出现在 `Broker_Reject` 里，不再出现在各自的规则和 `Broker_All` 里。`Broker_Reject` 配 `REJECT`，放在 `Broker_All` 前面。
 
 ## 文件格式
 
@@ -51,6 +54,7 @@ GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家�
 
 ```ini
 [Rule]
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Broker_All.list,Broker
 # 或者按券商分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Surge/Futu.list,HK
@@ -62,6 +66,7 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Sur
 
 ```ini
 [Rule]
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list,Broker
 # 也可以按券商分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Futu.list,HK
@@ -75,6 +80,13 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Sha
 
 ```yaml
 rule-providers:
+  Broker_Reject:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_Reject.yaml
+    path: ./ruleset/Broker_Reject.yaml
+    interval: 86400
   Broker_All:
     type: http
     behavior: classical
@@ -84,6 +96,7 @@ rule-providers:
     interval: 86400
 
 rules:
+  - RULE-SET,Broker_Reject,REJECT
   - RULE-SET,Broker_All,Broker
 ```
 
@@ -100,10 +113,10 @@ rules:
 
 | 类型 | 来源 |
 | --- | --- |
-| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`futu`、`itiger`、`longbridge`、`ibkr`、`schwab`），去掉标记为 `@ads` 的条目 |
+| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`futu`、`itiger`、`longbridge`、`ibkr`、`schwab`），标记为 `@ads` / `@telemetry` 的放进 `Broker_Reject` |
 | 域名 | [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)（`TigerFintech`，按平台分别取 `rule/Surge`、`rule/Shadowrocket`、`rule/Clash`） |
 | 域名 | [`config/brokers.jsonc`](config/brokers.jsonc) 中手工维护的条目：都用 TLS 证书主体或券商官网前端代码核实过归属 |
-| 域名 / IP | [forecho/broker-rules](https://github.com/forecho/broker-rules)：`Broker` 规则按平台分别取 `rule/Surge/Broker.list`、`rule/Shadowrocket/Broker.list`、`rule/Clash/Broker.yaml`，再按对方 `Source/broker/*.conf` 拆到各券商（`futu.conf` → Futu、`hstong.conf` → Valuable 等）；不属于任何已对应 conf 的规则（共用 SDK、云服务器网段、对方以后新增的券商）放进 `BrokerShared`。埋点域名跟随上游，上游有就保留 |
+| 域名 / IP | [forecho/broker-rules](https://github.com/forecho/broker-rules)：`Broker` 规则按平台分别取 `rule/Surge/Broker.list`、`rule/Shadowrocket/Broker.list`、`rule/Clash/Broker.yaml`，再按对方 `Source/broker/*.conf` 拆到各券商（`futu.conf` → Futu、`hstong.conf` → Valuable 等）；不属于任何已对应 conf 的规则（共用 SDK、云服务器网段、对方以后新增的券商）放进 `BrokerShared`。其中的埋点域名（AppsFlyer、`play-analytics.com`、moomoo 采集入口）放进 `Broker_Reject` |
 | IP | [RIPEstat](https://stat.ripe.net/) 查询各券商自有 ASN 实际宣告的网段：盈透 `AS11449` / `AS27163` / `AS27164` / `AS40711` / `AS400227` / `AS9096` / `AS207241` / `AS212141`，嘉信 `AS1399` / `AS6949`，Robinhood `AS29981` |
 
 > 中资券商和 Webull 的服务器基本都在阿里云、腾讯云、AWS 等共用云上，没有自有 ASN，无法按 ASN 收录 IP；`BrokerShared` 里的云服务器网段来自 forecho/broker-rules 的实测，难以归属单一券商，统一放在一起。

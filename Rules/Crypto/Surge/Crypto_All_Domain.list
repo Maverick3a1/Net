@@ -1,9 +1,9 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-11-02 16:49:32 UTC
-# DOMAIN-SUFFIX: 128
-# DOMAIN: 5
+# UPDATED: 2026-11-03 07:46:20 UTC
+# DOMAIN-SUFFIX: 126
+# DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
 # IP-CIDR6: 0
@@ -26,7 +26,6 @@
 .binancezh.co
 .bnappzh.co
 .saasexch.co
-.appsflayer.com
 .binance.com
 .binanceapi.com
 .binancecnt.com
@@ -59,8 +58,6 @@
 .binancezh.top
 .binance.us
 .binance.vision
-zftksc.cdn-settings.appsflyersdk.com
-zftksc.launches.appsflyersdk.com
 
 # ============================================================
 # OKX
@@ -143,7 +140,6 @@ bybit.ada.support
 # ============================================================
 .mexc.co
 .mexc.com
-.mexcsensors.com
 
 # ============================================================
 # HTX

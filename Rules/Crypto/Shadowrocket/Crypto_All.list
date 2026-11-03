@@ -1,9 +1,9 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-11-02 16:52:09 UTC
-# DOMAIN-SUFFIX: 128
-# DOMAIN: 5
+# UPDATED: 2026-11-03 07:46:20 UTC
+# DOMAIN-SUFFIX: 126
+# DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
 # IP-CIDR6: 0
@@ -26,7 +26,6 @@ DOMAIN-SUFFIX,binance.co
 DOMAIN-SUFFIX,binancezh.co
 DOMAIN-SUFFIX,bnappzh.co
 DOMAIN-SUFFIX,saasexch.co
-DOMAIN-SUFFIX,appsflayer.com
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binanceapi.com
 DOMAIN-SUFFIX,binancecnt.com
@@ -59,8 +58,6 @@ DOMAIN-SUFFIX,bmwweb.solutions
 DOMAIN-SUFFIX,binancezh.top
 DOMAIN-SUFFIX,binance.us
 DOMAIN-SUFFIX,binance.vision
-DOMAIN,zftksc.cdn-settings.appsflyersdk.com
-DOMAIN,zftksc.launches.appsflyersdk.com
 
 # ============================================================
 # OKX
@@ -143,7 +140,6 @@ DOMAIN-SUFFIX,gate.tv
 # ============================================================
 DOMAIN-SUFFIX,mexc.co
 DOMAIN-SUFFIX,mexc.com
-DOMAIN-SUFFIX,mexcsensors.com
 
 # ============================================================
 # HTX

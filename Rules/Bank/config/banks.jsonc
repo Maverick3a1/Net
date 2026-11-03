@@ -32,7 +32,10 @@
   ],
 
   // v2fly 中带这些属性的条目会被丢弃
-  "v2fly_exclude_attrs": ["ads", "cn"],
+  "v2fly_exclude_attrs": ["cn"],
+
+  // v2fly 中带这些属性的条目（广告 / 遥测）放进拒绝列表，而不是普通规则
+  "v2fly_reject_attrs": ["ads", "telemetry"],
 
   "banks": [
     // ================================================================
@@ -289,5 +292,28 @@
   "aggregate": {
     "name": "Bank_All",
     "description": "All banks above combined"
+  },
+
+  // ================================================================
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 Bank_Reject，配 REJECT。
+  // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
+  // 来自 forecho 的银行 App SDK。ThreatMetrix（online-metrix.net）、BioCatch（we-stats.com）、
+  // AWS WAF、LivePerson 是风控 / 客服，银行会核对它们的出口 IP，不放进拒绝列表
+  // ================================================================
+  "reject": {
+    "name": "Bank_Reject",
+    "description": "Ads, tracking and telemetry from the bank rules above",
+    "domain_suffix": [
+      "app-measurement.com",
+      "appsflyersdk.com",
+      "crashlytics.com",
+      "eum-appdynamics.com",
+      "lytics.io",
+      "mixpanel.com",
+      "optimizely.com",
+      "tealiumiq.com",
+      "tiqcdn.com"
+    ],
+    "domain": []
   }
 }

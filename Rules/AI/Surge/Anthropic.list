@@ -1,11 +1,11 @@
 # NAME: Anthropic
 # DESC: Anthropic: Claude, Claude Code, Claude API
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-10-21 22:11:03 UTC
+# UPDATED: 2026-11-03 07:45:59 UTC
 # DOMAIN-SUFFIX: 18
 # DOMAIN: 1
 # DOMAIN-KEYWORD: 0
-# IP-CIDR: 1
+# IP-CIDR: 2
 # IP-CIDR6: 2
 # SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, vendor docs
 DOMAIN-SUFFIX,claude.ai
@@ -27,6 +27,7 @@ DOMAIN-SUFFIX,claude.new
 DOMAIN-SUFFIX,claude.site
 DOMAIN-SUFFIX,anthropic.team
 DOMAIN,servd-anthropic-website.b-cdn.net
+IP-CIDR,153.61.224.0/22,no-resolve
 IP-CIDR,160.79.104.0/23,no-resolve
 IP-CIDR6,2607:6bc0::/48,no-resolve
 IP-CIDR6,2607:6bc0:11::/48,no-resolve

@@ -69,12 +69,15 @@ class RuleSet:
         self.full = set()
         self.keyword = set()
         self.nets = set()
+        # (kind, value) entries an upstream itself marks as ads / telemetry
+        self.tracked = set()
 
     def update(self, other):
         self.suffix |= other.suffix
         self.full |= other.full
         self.keyword |= other.keyword
         self.nets |= other.nets
+        self.tracked |= other.tracked
 
     def add_cidr(self, value):
         try:
@@ -157,7 +160,7 @@ class RuleSet:
 # ---------------------------------------------------------------- sources
 
 
-def load_v2fly(name, exclude_attrs, seen=None):
+def load_v2fly(name, exclude_attrs, seen=None, reject_attrs=()):
     seen = seen if seen is not None else set()
     if name in seen:
         return RuleSet()
@@ -177,14 +180,13 @@ def load_v2fly(name, exclude_attrs, seen=None):
             kind, value = entry.split(":", 1)
         else:
             kind, value = "domain", entry
-        if kind == "domain":
-            rs.suffix.add(value)
-        elif kind == "full":
-            rs.full.add(value)
-        elif kind == "keyword":
-            rs.keyword.add(value)
+        field = {"domain": "suffix", "full": "full", "keyword": "keyword"}.get(kind)
+        if field:
+            getattr(rs, field).add(value)
+            if attrs & set(reject_attrs):
+                rs.tracked.add((field, value.lower()))
         elif kind == "include":
-            rs.update(load_v2fly(value, exclude_attrs, seen))
+            rs.update(load_v2fly(value, exclude_attrs, seen, reject_attrs))
         elif kind == "regexp":
             log(f"  v2fly/{name}: regexp not portable to Clash+Surge, skipped: {value}")
         else:
@@ -231,7 +233,7 @@ def build_vendor(vendor, cfg):
     for src in vendor.get("sources", []):
         kind = src["type"]
         if kind == "v2fly":
-            part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []))
+            part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []), reject_attrs=cfg.get("v2fly_reject_attrs", []))
             label = f"v2fly/{src['list']}"
         elif kind == "asn":
             part = load_asn(src["asn"])
@@ -244,7 +246,48 @@ def build_vendor(vendor, cfg):
         log(f"  {label}: {part.count()} entries")
         rs.update(part)
 
-    return rs.normalize(cfg.get("global_deny_suffix", []), vendor.get("exclude", []))
+    kept, rej = split_reject(rs, cfg.get("reject", {}))
+    return (
+        kept.normalize(cfg.get("global_deny_suffix", []), vendor.get("exclude", [])),
+        rej.normalize((), vendor.get("exclude", [])),
+    )
+
+
+def split_reject(rs, reject_cfg):
+    """(kept, rejected): ads / tracking / telemetry entries go to the category's Reject list.
+
+    An entry is rejected when its upstream marks it (v2fly @ads / @telemetry) or it is at or
+    under one of the config's reject domains. Runs before normalize(), so a tracker host under
+    a vendor's own suffix is moved out instead of being folded into that suffix."""
+    suffixes = {d.lower() for d in reject_cfg.get("domain_suffix", [])}
+    hosts = {d.lower() for d in reject_cfg.get("domain", [])}
+
+    def hit(field, value):
+        value = value.strip().lower().rstrip(".")
+        if (field, value) in rs.tracked or value in hosts:
+            return True
+        if field == "keyword":
+            return False
+        parts = value.split(".")
+        return any(".".join(parts[i:]) in suffixes for i in range(len(parts)))
+
+    kept, rejected = RuleSet(), RuleSet()
+    for field in ("suffix", "full", "keyword"):
+        for value in getattr(rs, field):
+            getattr(rejected if hit(field, value) else kept, field).add(value)
+    kept.nets = set(rs.nets)
+    return kept, rejected
+
+
+def combine(entries):
+    """Merge [(name, desc, RuleSet)] into one ruleset, one commented section per entry."""
+    rs = RuleSet()
+    sections = []
+    for name, desc, part in entries:
+        part = part.subtract(rs)
+        rs.update(part)
+        sections.append((name, desc, part))
+    return rs, sections
 
 
 # ---------------------------------------------------------------- renderers
@@ -466,12 +509,13 @@ def main():
     SHADOWROCKET_DIR.mkdir(exist_ok=True)
 
     built = []
+    rejects = []
     failed = []
     for vendor in cfg["vendors"]:
         name = vendor["name"]
         log(f"[{name}]")
         try:
-            rs = build_vendor(vendor, cfg)
+            rs, rej = build_vendor(vendor, cfg)
         except SourceError as exc:
             warn(f"{name}: {exc}; keeping previous ruleset")
             failed.append(name)
@@ -485,21 +529,28 @@ def main():
         log(f"  total: {new} rules")
         render(name, vendor["description"], rs)
         built.append((name, vendor["description"], rs))
+        rejects.append((name, vendor["description"], rej))
 
     agg = cfg.get("aggregate")
     if agg and not failed:
         log(f"[{agg['name']}]")
-        rs = RuleSet()
-        sections = []
-        for vname, vdesc, part in built:
-            part = part.subtract(rs)
-            rs.update(part)
-            sections.append((vname, vdesc, part))
+        rs, sections = combine(built)
         log(f"  total: {len(surge_rules(rs))} rules")
         render(agg["name"], agg["description"], rs, sections)
         built.append((agg["name"], agg["description"], rs))
     elif agg:
         warn(f"{agg['name']}: skipped because {', '.join(failed)} failed")
+
+    # Ads / tracking / telemetry pulled out of every entry, as one REJECT list per category
+    rej_cfg = cfg.get("reject")
+    if rej_cfg and not failed:
+        log(f"[{rej_cfg['name']}]")
+        rs, sections = combine(rejects)
+        log(f"  total: {len(surge_rules(rs))} rules")
+        render(rej_cfg["name"], rej_cfg["description"], rs, sections)
+        built.append((rej_cfg["name"], rej_cfg["description"], rs))
+    elif rej_cfg:
+        warn(f"{rej_cfg['name']}: skipped because {', '.join(failed)} failed")
 
     if not failed:
         update_readme(built)

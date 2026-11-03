@@ -1,0 +1,25 @@
+# NAME: AI_Reject
+# DESC: Ads, tracking and telemetry from the AI rules above
+# FORMAT: Surge RULE-SET
+# UPDATED: 2026-11-03 07:46:03 UTC
+# DOMAIN-SUFFIX: 0
+# DOMAIN: 6
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, vendor docs
+# ============================================================
+# OpenAI
+# OpenAI: ChatGPT, Sora, Codex, OpenAI API
+# ============================================================
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,openai.qualtrics.com
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN,o33249.ingest.us.sentry.io
+
+# ============================================================
+# Copilot
+# Microsoft Copilot and GitHub Copilot
+# ============================================================
+DOMAIN,copilot-telemetry.githubusercontent.com
+DOMAIN,copilot-telemetry-service.githubusercontent.com

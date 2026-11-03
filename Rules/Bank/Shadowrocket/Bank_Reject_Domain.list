@@ -1,0 +1,38 @@
+# NAME: Bank_Reject
+# DESC: Ads, tracking and telemetry from the bank rules above
+# FORMAT: Shadowrocket DOMAIN-SET
+# UPDATED: 2026-11-03 07:47:20 UTC
+# DOMAIN-SUFFIX: 3
+# DOMAIN: 6
+# DOMAIN-KEYWORD: 0
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
+# ============================================================
+# HSBC
+# HSBC 汇丰银行（香港）
+# ============================================================
+.tealiumiq.com
+mobile.eum-appdynamics.com
+cdn.optimizely.com
+tags.tiqcdn.com
+c-hsbc.lytics.io
+
+# ============================================================
+# ZABank
+# ZA Bank 众安银行
+# ============================================================
+.crashlytics.com
+app-measurement.com
+
+# ============================================================
+# EleBank
+# EleBank 大象银行（原 Airstar Bank 天星银行）
+# ============================================================
+.appsflyersdk.com
+
+# ============================================================
+# Wise
+# Wise（原 TransferWise）
+# ============================================================
+api.mixpanel.com

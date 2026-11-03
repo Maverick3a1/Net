@@ -72,12 +72,15 @@ class RuleSet:
         self.full = set()
         self.keyword = set()
         self.nets = set()
+        # (kind, value) entries an upstream itself marks as ads / telemetry
+        self.tracked = set()
 
     def update(self, other):
         self.suffix |= other.suffix
         self.full |= other.full
         self.keyword |= other.keyword
         self.nets |= other.nets
+        self.tracked |= other.tracked
 
     def add_cidr(self, value):
         try:
@@ -160,7 +163,7 @@ class RuleSet:
 # ---------------------------------------------------------------- sources
 
 
-def load_v2fly(name, exclude_attrs, seen=None):
+def load_v2fly(name, exclude_attrs, seen=None, reject_attrs=()):
     seen = seen if seen is not None else set()
     if name in seen:
         return RuleSet()
@@ -180,14 +183,13 @@ def load_v2fly(name, exclude_attrs, seen=None):
             kind, value = entry.split(":", 1)
         else:
             kind, value = "domain", entry
-        if kind == "domain":
-            rs.suffix.add(value)
-        elif kind == "full":
-            rs.full.add(value)
-        elif kind == "keyword":
-            rs.keyword.add(value)
+        field = {"domain": "suffix", "full": "full", "keyword": "keyword"}.get(kind)
+        if field:
+            getattr(rs, field).add(value)
+            if attrs & set(reject_attrs):
+                rs.tracked.add((field, value.lower()))
         elif kind == "include":
-            rs.update(load_v2fly(value, exclude_attrs, seen))
+            rs.update(load_v2fly(value, exclude_attrs, seen, reject_attrs))
         elif kind == "regexp":
             log(f"  v2fly/{name}: regexp not portable to Clash+Surge, skipped: {value}")
         else:
@@ -312,7 +314,8 @@ def forecho_unmapped_warnings(cfg):
 
 
 def build_bank(bank, cfg):
-    """{platform: RuleSet}: neutral sources shared by all, per-platform sources by platform."""
+    """({platform: kept}, {platform: rejected}): neutral sources shared by all platforms,
+    per-platform sources by platform."""
     neutral = RuleSet()
     neutral.suffix |= set(bank.get("domain_suffix", []))
     neutral.full |= set(bank.get("domain", []))
@@ -329,7 +332,7 @@ def build_bank(bank, cfg):
     for src in bank.get("sources", []):
         kind = src["type"]
         if kind == "v2fly":
-            part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []))
+            part = load_v2fly(src["list"], cfg.get("v2fly_exclude_attrs", []), reject_attrs=cfg.get("v2fly_reject_attrs", []))
             log(f"  v2fly/{src['list']}: {part.count()} entries")
             neutral.update(part)
         elif kind == "asn":
@@ -341,13 +344,53 @@ def build_bank(bank, cfg):
         else:
             raise SourceError(f"unknown source type {kind!r}")
 
-    out = {}
+    out, rejected = {}, {}
     for p in PLATFORMS:
         rs = RuleSet()
         rs.update(neutral)
         rs.update(own[p])
-        out[p] = rs.normalize(cfg.get("global_deny_suffix", []), bank.get("exclude", []))
-    return out
+        kept, rej = split_reject(rs, cfg.get("reject", {}))
+        out[p] = kept.normalize(cfg.get("global_deny_suffix", []), bank.get("exclude", []))
+        rejected[p] = rej.normalize((), bank.get("exclude", []))
+    return out, rejected
+
+
+def split_reject(rs, reject_cfg):
+    """(kept, rejected): ads / tracking / telemetry entries go to the category's Reject list.
+
+    An entry is rejected when its upstream marks it (v2fly @ads / @telemetry) or it is at or
+    under one of the config's reject domains. Runs before normalize(), so a tracker host under
+    a vendor's own suffix is moved out instead of being folded into that suffix."""
+    suffixes = {d.lower() for d in reject_cfg.get("domain_suffix", [])}
+    hosts = {d.lower() for d in reject_cfg.get("domain", [])}
+
+    def hit(field, value):
+        value = value.strip().lower().rstrip(".")
+        if (field, value) in rs.tracked or value in hosts:
+            return True
+        if field == "keyword":
+            return False
+        parts = value.split(".")
+        return any(".".join(parts[i:]) in suffixes for i in range(len(parts)))
+
+    kept, rejected = RuleSet(), RuleSet()
+    for field in ("suffix", "full", "keyword"):
+        for value in getattr(rs, field):
+            getattr(rejected if hit(field, value) else kept, field).add(value)
+    kept.nets = set(rs.nets)
+    return kept, rejected
+
+
+def combine(entries):
+    """Merge [(name, desc, {platform: RuleSet})] into one ruleset, one commented section per entry."""
+    rs = {p: RuleSet() for p in PLATFORMS}
+    sections = {p: [] for p in PLATFORMS}
+    for name, desc, parts in entries:
+        for p in PLATFORMS:
+            part = parts[p].subtract(rs[p])
+            rs[p].update(part)
+            sections[p].append((name, desc, part))
+    return rs, sections
 
 
 # ---------------------------------------------------------------- renderers
@@ -532,12 +575,13 @@ def main():
     SHADOWROCKET_DIR.mkdir(exist_ok=True)
 
     built = []
+    rejects = []
     failed = []
     for bank in cfg["banks"]:
         name = bank["name"]
         log(f"[{name}]")
         try:
-            rs = build_bank(bank, cfg)
+            rs, rej = build_bank(bank, cfg)
         except SourceError as exc:
             warn(f"{name}: {exc}; keeping previous ruleset")
             failed.append(name)
@@ -551,22 +595,28 @@ def main():
         log(f"  total: {new} rules")
         render(name, bank["description"], rs)
         built.append((name, bank["description"], rs))
+        rejects.append((name, bank["description"], rej))
 
     agg = cfg.get("aggregate")
     if agg and not failed:
         log(f"[{agg['name']}]")
-        rs = {p: RuleSet() for p in PLATFORMS}
-        sections = {p: [] for p in PLATFORMS}
-        for bname, bdesc, parts in built:
-            for p in PLATFORMS:
-                part = parts[p].subtract(rs[p])
-                rs[p].update(part)
-                sections[p].append((bname, bdesc, part))
+        rs, sections = combine(built)
         log(f"  total: {len(surge_rules(rs['Surge']))} rules")
         render(agg["name"], agg["description"], rs, sections)
         built.append((agg["name"], agg["description"], rs))
     elif agg:
         warn(f"{agg['name']}: skipped because {', '.join(failed)} failed")
+
+    # Ads / tracking / telemetry pulled out of every entry, as one REJECT list per category
+    rej_cfg = cfg.get("reject")
+    if rej_cfg and not failed:
+        log(f"[{rej_cfg['name']}]")
+        rs, sections = combine(rejects)
+        log(f"  total: {len(surge_rules(rs['Surge']))} rules")
+        render(rej_cfg["name"], rej_cfg["description"], rs, sections)
+        built.append((rej_cfg["name"], rej_cfg["description"], rs))
+    elif rej_cfg:
+        warn(f"{rej_cfg['name']}: skipped because {', '.join(failed)} failed")
 
     if not failed:
         update_readme(built)
