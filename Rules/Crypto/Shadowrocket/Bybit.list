@@ -1,13 +1,13 @@
 # NAME: Bybit
 # DESC: Bybit
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-14 09:45:53 UTC
-# DOMAIN-SUFFIX: 14
+# UPDATED: 2026-11-04 03:39:01 UTC
+# DOMAIN-SUFFIX: 19
 # DOMAIN: 2
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 DOMAIN-SUFFIX,bybit.biz
 DOMAIN-SUFFIX,bybit.cloud
 DOMAIN-SUFFIX,byabcde.com
@@ -15,12 +15,17 @@ DOMAIN-SUFFIX,byapis.com
 DOMAIN-SUFFIX,bybdc6.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,bybit-global.com
+DOMAIN-SUFFIX,bybit-tr.com
 DOMAIN-SUFFIX,bybitglobal.com
 DOMAIN-SUFFIX,bycbe.com
 DOMAIN-SUFFIX,bycsi.com
 DOMAIN-SUFFIX,byd3c3.com
 DOMAIN-SUFFIX,bytick.com
+DOMAIN-SUFFIX,bybitgeorgia.ge
+DOMAIN-SUFFIX,bybit.id
 DOMAIN-SUFFIX,bymj.io
+DOMAIN-SUFFIX,bybit.kz
 DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bybit.tr
 DOMAIN,bybit-exchange.github.io
 DOMAIN,bybit.ada.support

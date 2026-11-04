@@ -1,8 +1,8 @@
 # NAME: Binance
 # DESC: Binance, Binance.US, BNB Chain
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-11-03 07:46:06 UTC
-# DOMAIN-SUFFIX: 46
+# UPDATED: 2026-11-04 03:38:58 UTC
+# DOMAIN-SUFFIX: 47
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
@@ -52,5 +52,6 @@
 .binancezh.sh
 .bmwweb.solutions
 .binancezh.top
+.binance.tr
 .binance.us
 .binance.vision

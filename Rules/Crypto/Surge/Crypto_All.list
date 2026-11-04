@@ -1,8 +1,8 @@
 # NAME: Crypto_All
 # DESC: All exchanges above combined
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-11-03 07:46:20 UTC
-# DOMAIN-SUFFIX: 126
+# UPDATED: 2026-11-04 03:39:14 UTC
+# DOMAIN-SUFFIX: 137
 # DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
@@ -56,6 +56,7 @@ DOMAIN-SUFFIX,binancezh.pro
 DOMAIN-SUFFIX,binancezh.sh
 DOMAIN-SUFFIX,bmwweb.solutions
 DOMAIN-SUFFIX,binancezh.top
+DOMAIN-SUFFIX,binance.tr
 DOMAIN-SUFFIX,binance.us
 DOMAIN-SUFFIX,binance.vision
 
@@ -85,23 +86,29 @@ DOMAIN-SUFFIX,byapis.com
 DOMAIN-SUFFIX,bybdc6.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,bybit-global.com
+DOMAIN-SUFFIX,bybit-tr.com
 DOMAIN-SUFFIX,bybitglobal.com
 DOMAIN-SUFFIX,bycbe.com
 DOMAIN-SUFFIX,bycsi.com
 DOMAIN-SUFFIX,byd3c3.com
 DOMAIN-SUFFIX,bytick.com
+DOMAIN-SUFFIX,bybitgeorgia.ge
+DOMAIN-SUFFIX,bybit.id
 DOMAIN-SUFFIX,bymj.io
+DOMAIN-SUFFIX,bybit.kz
 DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bybit.tr
 DOMAIN,bybit-exchange.github.io
 DOMAIN,bybit.ada.support
 
 # ============================================================
 # Coinbase
-# Coinbase, Coinbase Advanced, Coinbase Wallet
+# Coinbase, Coinbase Advanced, Base App (Coinbase Wallet)
 # ============================================================
 DOMAIN-SUFFIX,coinbase.com
 DOMAIN-SUFFIX,gdax.com
 DOMAIN-SUFFIX,cbhq.net
+DOMAIN-SUFFIX,base.org
 
 # ============================================================
 # Bitget
@@ -125,14 +132,17 @@ DOMAIN-SUFFIX,upbit.com
 # Gate
 # Gate (Gate.com, Gate.io)
 # ============================================================
+DOMAIN-SUFFIX,gate.ac
 DOMAIN-SUFFIX,gate.com
 DOMAIN-SUFFIX,gateimg.com
+DOMAIN-SUFFIX,gate.hk
 DOMAIN-SUFFIX,gate.io
 DOMAIN-SUFFIX,gateapi.io
 DOMAIN-SUFFIX,gateio.live
 DOMAIN-SUFFIX,gatedata.org
 DOMAIN-SUFFIX,gateio.services
 DOMAIN-SUFFIX,gate.tv
+DOMAIN-SUFFIX,gateio.ws
 
 # ============================================================
 # MEXC
@@ -173,6 +183,7 @@ DOMAIN-SUFFIX,kucoin.tr
 # Kraken, Kraken Pro
 # ============================================================
 DOMAIN-SUFFIX,krak.app
+DOMAIN-SUFFIX,cryptofacilities.com
 DOMAIN-SUFFIX,kraken.com
 DOMAIN-SUFFIX,payward.com
 DOMAIN-SUFFIX,kraken.onl

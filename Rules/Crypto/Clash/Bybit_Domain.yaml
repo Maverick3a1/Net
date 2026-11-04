@@ -1,13 +1,13 @@
 # NAME: Bybit
 # DESC: Bybit
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-10-14 09:45:53 UTC
-# DOMAIN-SUFFIX: 14
+# UPDATED: 2026-11-04 03:39:01 UTC
+# DOMAIN-SUFFIX: 19
 # DOMAIN: 2
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, exchange websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat, exchange websites
 payload:
   - '+.bybit.biz'
   - '+.bybit.cloud'
@@ -16,12 +16,17 @@ payload:
   - '+.bybdc6.com'
   - '+.bybit.com'
   - '+.bybit-global.com'
+  - '+.bybit-tr.com'
   - '+.bybitglobal.com'
   - '+.bycbe.com'
   - '+.bycsi.com'
   - '+.byd3c3.com'
   - '+.bytick.com'
+  - '+.bybitgeorgia.ge'
+  - '+.bybit.id'
   - '+.bymj.io'
+  - '+.bybit.kz'
   - '+.byapps.net'
+  - '+.bybit.tr'
   - 'bybit-exchange.github.io'
   - 'bybit.ada.support'

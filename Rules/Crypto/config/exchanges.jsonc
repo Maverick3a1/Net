@@ -44,7 +44,9 @@
       "sources": [
         {"type": "v2fly", "list": "binance"},
         {"type": "blackmatrix7", "list": "Binance"}
-      ]
+      ],
+      // 币安土耳其（CT 证书 O=Binance）
+      "domain_suffix": ["binance.tr"]
     },
 
     // ================================================================
@@ -67,6 +69,14 @@
       "description": "Bybit",
       "sources": [
         {"type": "v2fly", "list": "bybit"}
+      ],
+      // Bybit 各地区站点（土耳其、印尼、哈萨克斯坦、格鲁吉亚），页面均为 Bybit 官网
+      "domain_suffix": [
+        "bybit-tr.com",
+        "bybit.id",
+        "bybit.kz",
+        "bybit.tr",
+        "bybitgeorgia.ge"
       ]
     },
 
@@ -76,14 +86,16 @@
     // ================================================================
     {
       "name": "Coinbase",
-      "description": "Coinbase, Coinbase Advanced, Coinbase Wallet",
+      "description": "Coinbase, Coinbase Advanced, Base App (Coinbase Wallet)",
       "sources": [],
       "domain_suffix": [
         "coinbase.com",
         // 静态资源 CDN
         "cbhq.net",
         // 旧品牌 GDAX
-        "gdax.com"
+        "gdax.com",
+        // Coinbase 的 Base 网络和 Base App（原 Coinbase Wallet）
+        "base.org"
       ]
     },
 
@@ -129,7 +141,9 @@
       "description": "Gate (Gate.com, Gate.io)",
       "sources": [
         {"type": "v2fly", "list": "gateio"}
-      ]
+      ],
+      // gate.hk 是 Gate.HK；gateio.ws 是 Gate 的 WebSocket API；gate.ac 是 Gate 的镜像域名
+      "domain_suffix": ["gate.ac", "gate.hk", "gateio.ws"]
     },
 
     // ================================================================
@@ -187,7 +201,9 @@
         // Payward (Kraken) 自有 ASN
         {"type": "asn", "asn": 1072}
       ],
+      // cryptofacilities.com 是 Kraken Futures 前身 Crypto Facilities（CT 证书 O=Payward, Inc.）
       "domain_suffix": [
+        "cryptofacilities.com",
         "krak.app",
         "payward.com"
       ]
