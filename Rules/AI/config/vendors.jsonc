@@ -48,7 +48,9 @@
         {"type": "asn", "asn": 401864}
       ],
       // 替代上游 regexp：chatgpt-async-webps-prod-*.webpubsub.azure.com
-      "domain_keyword": ["chatgpt-async-webps-prod-"]
+      "domain_keyword": ["chatgpt-async-webps-prod-"],
+      // OpenAI 登录用的 Arkose 人机验证专用主机（blackmatrix7 / ACL4SSR 等社区规则长期收录）
+      "domain": ["openai-api.arkoselabs.com"]
     },
 
     // ================================================================
@@ -92,6 +94,20 @@
       "description": "Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity",
       "sources": [
         {"type": "v2fly", "list": "google-deepmind"}
+      ],
+      // opal.withgoogle.com 跳转到 opal.google，opal.goog 用 Google 的 NS 和证书
+      "domain_suffix": ["opal.withgoogle.com", "opal.goog"],
+      // Google AI 产品的专用主机（google.com / googleapis.com 整段太宽，只收主机）：
+      // Antigravity、Jules、AI Studio、Vertex AI、Gemini、NotebookLM 企业版
+      "domain": [
+        "aiplatform.googleapis.com",
+        "alkalimakersuite-pa.googleapis.com",
+        "antigravity.google.com",
+        "jetski-webchannel-pa.googleapis.com",
+        "jetski-webchannel.googleapis.com",
+        "jules.googleapis.com",
+        "notebooklm.cloud.google.com",
+        "webchannel-robinfrontend-pa.googleapis.com"
       ]
     },
 
@@ -117,11 +133,14 @@
         {"type": "v2fly", "list": "github-copilot"}
       ],
       // Microsoft Copilot（v2fly 没有单独列表，手工维护）
+      // copilot.com 证书 O=Microsoft Corporation
       "domain_suffix": [
+        "copilot.com",
         "copilot.microsoft.com",
         "copilot.cloud.microsoft"
       ],
       "domain": [
+        "copilot-reports.github.com",
         "sydney.bing.com",
         "edgeservices.bing.com"
       ]
@@ -134,9 +153,12 @@
       "name": "MetaAI",
       "description": "Meta AI and Llama",
       "sources": [],
+      // metaaiusercontent.com / metaaivm.com 用 Meta 自己的 NS（来自 v2fly category-ai-!cn）
       "domain_suffix": [
         "meta.ai",
-        "llama.com"
+        "llama.com",
+        "metaaiusercontent.com",
+        "metaaivm.com"
       ]
     }
   ],
