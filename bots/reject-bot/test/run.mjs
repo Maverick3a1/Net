@@ -112,7 +112,6 @@ const queue = await (await api("GET", "/api/pending")).json();
 assert.equal(queue.length, 2);
 const id = queue[0].id;
 const id2 = queue[1].id;
-await new Promise((r) => setTimeout(r, 5));
 // once the run has read the queue, a new message fires a new run; a failed fire falls back
 fireStatus = 429;
 await hook({ message: { message_id: 4, chat: { id: 9 }, from: { id: OWNER }, text: "third.example.org" } });
@@ -192,6 +191,38 @@ for (const f of REJECT_FILES) {
 }
 
 console.log(`ok: ${commits.length} commits, ${fires.length} fires, ${sent.length} Telegram calls`);
+
+// ---- suspected suggestions: labeled, confirmed ones first, never picked by "全部按首选"
+await hook({ message: { message_id: 20, chat: { id: 9 }, from: { id: OWNER }, text: "bochk01.etdsinfo.com" } });
+const sid = (await (await api("GET", "/api/pending")).json()).at(-1).id;
+await api("POST", `/api/verdict/${sid}`, {
+  summary: "疑似中银香港",
+  candidates: [
+    { type: "DOMAIN", value: "bochk01.etdsinfo.com", reason: "名称疑似中银香港", suggestions: [{ target: "Bank/BOCHK", note: "证书无法获取", suspected: true }] },
+    {
+      type: "DOMAIN",
+      value: "bochk02.etdsinfo.com",
+      reason: "同上",
+      suggestions: [{ target: "Bank/BOCHK", note: "未证实", suspected: true }, { target: "Reject", note: "埋点" }],
+    },
+  ],
+});
+const sItem = JSON.parse(kv.get(`item:${sid}`));
+assert.deepEqual(sItem.verdict.candidates[1].suggestions.map((x) => [x.target, x.suspected]), [["Reject", false], ["Bank/BOCHK", true]]);
+const sMsg = sent.filter((x) => x.method === "sendMessage").at(-1).body;
+assert.match(sMsg.text, /疑似（未证实，由你决定）：Bank\/BOCHK（证书无法获取）/);
+assert.deepEqual(sMsg.reply_markup.inline_keyboard[0].map((b) => b.text), ["1 → Bank/BOCHK（疑似）", "跳过 1"]);
+const commitsBefore = commits.length;
+await hook({ callback_query: { id: "q9", from: { id: OWNER }, data: `F:${sid}` } });
+let after = JSON.parse(kv.get(`item:${sid}`));
+assert.equal(after.verdict.candidates[0].decision, undefined, "suspected first choice is left for you");
+assert.equal(after.verdict.candidates[1].decision.target, "Reject");
+assert.equal(commits.length, commitsBefore + 1);
+await hook({ callback_query: { id: "q10", from: { id: OWNER }, data: `p:${sid}:0:0` } });
+after = JSON.parse(kv.get(`item:${sid}`));
+assert.deepEqual(after.verdict.candidates[0].decision.status, "approved");
+assert.deepEqual((await (await api("GET", "/api/approved")).json()).map((q) => [q.entry, q.value]), [["BOCHK", "bochk01.etdsinfo.com"]]);
+console.log("ok: suspected suggestions");
 
 // ---- items stored by the first version still render and accept buttons
 kv.set("item:old1", JSON.stringify({

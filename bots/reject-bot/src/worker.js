@@ -41,7 +41,7 @@ export default {
       if (path.startsWith("/api/")) {
         if (!authorized(req, env)) return json({ error: "unauthorized" }, 401);
         if (req.method === "GET" && (path === "/api/pending" || path === "/api/approved")) {
-          await env.QUEUE.put("state:last_poll", String(Date.now())); // a run has started reading
+          await env.QUEUE.put("state:fire_read", "1"); // a run has started reading the queues
           return json(path === "/api/pending" ? await pending(env) : await approved(env));
         }
         let m = path.match(/^\/api\/photo\/([a-z0-9]+)$/);
@@ -200,7 +200,10 @@ async function onButton(env, cq) {
     const s = c && c.suggestions[Number(b)];
     if (c && s && open(c)) picks = [[c, s.target]];
   } else if (op === "F") {
-    picks = cands.filter((c) => open(c) && c.suggestions.length).map((c) => [c, c.suggestions[0].target]);
+    // only confirmed first choices; suspected ones always need their own tap
+    picks = cands
+      .filter((c) => open(c) && c.suggestions.length && !c.suggestions[0].suspected)
+      .map((c) => [c, c.suggestions[0].target]);
   } else if (op === "s" || op === "S") {
     const skip = op === "s" ? [cands[Number(a)]].filter((c) => c && open(c)) : cands.filter(open);
     if (!skip.length) return answer("没有需要处理的条目。");
@@ -256,8 +259,8 @@ async function maybeFire(env) {
   if (!env.CLAUDE_ROUTINE_ID || !env.CLAUDE_ROUTINE_TOKEN) return "unconfigured";
   const now = Date.now();
   const lastFire = Number((await env.QUEUE.get("state:last_fire")) || 0);
-  const lastPoll = Number((await env.QUEUE.get("state:last_poll")) || 0);
-  if (now - lastFire < FIRE_WINDOW_MS && lastPoll < lastFire) return "batched";
+  const read = (await env.QUEUE.get("state:fire_read")) !== "0";
+  if (now - lastFire < FIRE_WINDOW_MS && !read) return "batched";
   const r = await fetch(`https://api.anthropic.com/v1/claude_code/routines/${env.CLAUDE_ROUTINE_ID}/fire`, {
     method: "POST",
     headers: {
@@ -273,6 +276,7 @@ async function maybeFire(env) {
     return "failed";
   }
   await env.QUEUE.put("state:last_fire", String(now));
+  await env.QUEUE.put("state:fire_read", "0");
   return "fired";
 }
 
@@ -307,8 +311,10 @@ async function photo(env, id) {
   return new Response(r.body, { status: r.status, headers: { "content-type": type } });
 }
 
-// body: {summary, candidates: [{type, value, reason, suggestions: [{target, note}]}]}
-// target is "Reject" or "<Category>/<Entry>" (AI/OpenAI, Bank/HSBC, ...). No suggestions means
+// body: {summary, candidates: [{type, value, reason, suggestions: [{target, note, suspected}]}]}
+// target is "Reject" or "<Category>/<Entry>" (AI/OpenAI, Bank/HSBC, ...). suspected: true marks
+// a plausible but unproven suggestion; it is offered with a 疑似 label and left out of
+// "全部按首选", so you decide. Confirmed suggestions are listed first. No suggestions means
 // "does not belong in any list".
 async function verdict(env, id, body) {
   const item = await getItem(env, id);
@@ -326,8 +332,9 @@ async function verdict(env, id, body) {
       const target = String((s && s.target) || "").trim();
       if (!TARGET_RE.test(target) || targets.has(target) || suggestions.length >= MAX_SUGGESTIONS) continue;
       targets.add(target);
-      suggestions.push({ target, note: String(s.note || "").slice(0, 120) });
+      suggestions.push({ target, note: String(s.note || "").slice(0, 120), suspected: s.suspected === true });
     }
+    suggestions.sort((x, y) => Number(x.suspected) - Number(y.suspected)); // stable: confirmed first
     candidates.push({ ...clean, reason: String(c.reason || "").slice(0, 300), suggestions });
   }
   for (const c of candidates) if (!c.suggestions.length) c.decision = { status: "skipped", auto: true };
@@ -388,7 +395,10 @@ function verdictText(item) {
     lines.push("", `${i + 1}. ${c.type},${c.value}`);
     if (c.reason) lines.push(`   ${c.reason}`);
     if (!c.suggestions.length) lines.push("   建议：不加入任何列表");
-    c.suggestions.forEach((s, j) => lines.push(`   ${j === 0 ? "建议" : "也可"}：${s.target}${s.note ? `（${s.note}）` : ""}`));
+    c.suggestions.forEach((s, j) => {
+      const label = s.suspected ? "疑似（未证实，由你决定）" : j === 0 ? "建议" : "也可";
+      lines.push(`   ${label}：${s.target}${s.note ? `（${s.note}）` : ""}`);
+    });
     if (c.decision && !c.decision.auto) lines.push(`   ${STATUS_TEXT[c.decision.status](c.decision)}`);
   });
   return lines.join("\n").slice(0, 4000);
@@ -399,15 +409,20 @@ function keyboard(item) {
   const open = item.verdict.candidates.map((c, i) => [c, i]).filter(([c]) => !c.decision);
   for (const [c, i] of open.slice(0, 30)) {
     rows.push([
-      ...c.suggestions.map((s, j) => ({ text: `${i + 1} → ${s.target}`, callback_data: `p:${item.id}:${i}:${j}` })),
+      ...c.suggestions.map((s, j) => ({
+        text: `${i + 1} → ${s.target}${s.suspected ? "（疑似）" : ""}`,
+        callback_data: `p:${item.id}:${i}:${j}`,
+      })),
       { text: `跳过 ${i + 1}`, callback_data: `s:${item.id}:${i}` },
     ]);
   }
   if (open.length > 1) {
-    rows.push([
-      { text: "全部按首选", callback_data: `F:${item.id}` },
-      { text: "全部跳过", callback_data: `S:${item.id}` },
-    ]);
+    const row = [];
+    if (open.some(([c]) => c.suggestions.length && !c.suggestions[0].suspected)) {
+      row.push({ text: "全部按首选（不含疑似）", callback_data: `F:${item.id}` });
+    }
+    row.push({ text: "全部跳过", callback_data: `S:${item.id}` });
+    rows.push(row);
   }
   return { inline_keyboard: rows };
 }
