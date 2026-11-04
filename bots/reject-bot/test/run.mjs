@@ -122,35 +122,60 @@ fireStatus = 200;
 await hook({ message: { message_id: 5, chat: { id: 9 }, from: { id: OWNER }, text: "fourth.example.org" } });
 assert.equal(fires.length, 3, "a failed fire does not block the next one");
 
-// ---- verdict (one duplicate of an existing Crypto rule, one invalid value dropped)
+// ---- verdict: per-domain suggestions; bad values and bad targets are dropped
 const v = await (
   await api("POST", `/api/verdict/${id}`, {
-    summary: "两个域名",
+    summary: "四个域名",
     candidates: [
-      { type: "DOMAIN-SUFFIX", value: "Example-Track.com", verdict: "reject", reason: "跟踪" },
-      { type: "DOMAIN", value: "t.example.net", verdict: "unsure", reason: "可能是统计" },
-      { type: "DOMAIN-SUFFIX", value: "appsflyersdk.com", verdict: "reject", reason: "已在 Bank 段" },
-      { type: "DOMAIN", value: "not a domain", verdict: "reject", reason: "x" },
+      { type: "DOMAIN-SUFFIX", value: "Example-Track.com", reason: "跟踪", suggestions: [{ target: "Reject", note: "埋点" }] },
+      {
+        type: "DOMAIN",
+        value: "t.example.net",
+        reason: "OpenAI 的 API 主机",
+        suggestions: [{ target: "AI/OpenAI", note: "证书 O=OpenAI" }, { target: "Personal/Direct" }, { target: "Reject" }],
+      },
+      { type: "DOMAIN-SUFFIX", value: "appsflyersdk.com", reason: "已在 Bank 段", suggestions: [{ target: "Reject" }] },
+      { type: "DOMAIN", value: "nothing.example.org", reason: "普通网站", suggestions: [] },
+      { type: "DOMAIN", value: "not a domain", reason: "x", suggestions: [{ target: "Reject" }] },
     ],
   })
 ).json();
-assert.deepEqual(v, { ok: true, candidates: 3 });
+assert.deepEqual(v, { ok: true, candidates: 4 });
+let item = JSON.parse(kv.get(`item:${id}`));
+assert.deepEqual(item.verdict.candidates[1].suggestions.map((x) => x.target), ["AI/OpenAI", "Reject"]);
+assert.equal(item.verdict.candidates[3].decision.status, "skipped", "no suggestion -> nothing to pick");
+const kb = sent.filter((x) => x.method === "sendMessage").at(-1).body.reply_markup.inline_keyboard;
+assert.deepEqual(kb[1].map((b) => b.text), ["2 → AI/OpenAI", "2 → Reject", "跳过 2"]);
 assert.deepEqual((await (await api("GET", "/api/pending")).json()).map((q) => q.id).includes(id), false, "judged items leave the queue");
 assert.equal((await (await api("POST", `/api/verdict/${id}`, { candidates: [] })).json()).error, "item is judged");
 
-// ---- "add all suggested" -> one commit with the new rule; the existing one is reported
-await hook({ callback_query: { id: "q1", from: { id: OWNER }, data: `A:${id}` } });
+// ---- "all first choices": Reject ones commit at once (existing one reported); category ones are queued + fire
+const firesBefore = fires.length;
+await hook({ callback_query: { id: "q1", from: { id: OWNER }, data: `F:${id}` } });
 assert.equal(commits.length, 1);
 const manual = JSON.parse(repo[MANUAL_PATH]);
 assert.deepEqual(manual.entries.map((e) => `${e.type},${e.value}`), ["DOMAIN-SUFFIX,example-track.com"]);
 assert.match(repo[REJECT_FILES[0].path], /# Manual \/ Telegram\n.*\n# =+\nDOMAIN-SUFFIX,example-track\.com\n$/);
+assert.equal(fires.length, firesBefore + 1, "category picks fire the routine");
+const queued = await (await api("GET", "/api/approved")).json();
+assert.deepEqual(queued.map((q) => [q.item_id, q.index, q.category, q.entry, q.value]), [[id, 1, "AI", "OpenAI", "t.example.net"]]);
 
-// ---- add the remaining one by itself
-await hook({ callback_query: { id: "q2", from: { id: OWNER }, data: `a:${id}:1` } });
-assert.equal(commits.length, 2);
-const item = JSON.parse(kv.get(`item:${id}`));
-assert.deepEqual(item.verdict.candidates.map((c) => c.decision), ["added", "added", "existing"]);
+// ---- the routine reports the category write back
+assert.deepEqual(await (await api("POST", `/api/applied/${id}/1`, { ok: true, commit: "abc1234def", note: "已重新生成" })).json(), { ok: true });
+assert.equal((await (await api("POST", `/api/applied/${id}/1`, { ok: true })).json()).error, "not waiting to be applied");
+assert.equal((await (await api("GET", "/api/approved")).json()).length, 0);
+item = JSON.parse(kv.get(`item:${id}`));
+assert.deepEqual(item.verdict.candidates.map((c) => c.decision.status), ["added", "applied", "existing", "skipped"]);
 assert.equal(item.status, "done");
+const edited = sent.filter((x) => x.method === "editMessageText").at(-1).body.text;
+assert.match(edited, /→ 已加入 AI\/OpenAI（abc1234）：已重新生成/);
+assert.match(edited, /→ Reject 里已有/);
+
+// ---- skipping a single domain
+await api("POST", `/api/verdict/${id2}`, { candidates: [{ type: "DOMAIN", value: "second.example.org", suggestions: [{ target: "Crypto/Binance" }] }] });
+await hook({ callback_query: { id: "q2", from: { id: OWNER }, data: `s:${id2}:0` } });
+assert.equal(JSON.parse(kv.get(`item:${id2}`)).status, "done");
+assert.equal(commits.length, 1, "skips never commit");
 
 // ---- the Worker's files must equal what reject.py renders from the same manual.json
 const tmp = mkdtempSync(join(tmpdir(), "rejectbot-"));
@@ -166,5 +191,19 @@ for (const f of REJECT_FILES) {
   assert.equal(replaceManual(original, manualRules(manual), f.clash).includes("Manual / Telegram"), true);
 }
 
-void id2;
 console.log(`ok: ${commits.length} commits, ${fires.length} fires, ${sent.length} Telegram calls`);
+
+// ---- items stored by the first version still render and accept buttons
+kv.set("item:old1", JSON.stringify({
+  id: "old1", status: "judged", created: new Date().toISOString(), chat_id: 9, message_id: 7, verdict_message_id: 8,
+  verdict: { summary: "", candidates: [
+    { type: "DOMAIN", value: "old.example-ads.com", verdict: "reject", reason: "旧格式" },
+    { type: "DOMAIN", value: "keep.example.com", verdict: "keep", reason: "旧格式" },
+    { type: "DOMAIN", value: "done.example.com", verdict: "reject", reason: "旧格式", decision: "skipped" },
+  ] },
+}));
+await hook({ callback_query: { id: "q3", from: { id: OWNER }, data: "p:old1:0:0" } });
+const old = JSON.parse(kv.get("item:old1"));
+assert.deepEqual(old.verdict.candidates.map((c) => c.decision.status), ["added", "skipped", "skipped"]);
+assert.equal(old.status, "done");
+console.log("ok: old items upgraded");

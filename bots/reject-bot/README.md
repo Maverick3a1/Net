@@ -1,27 +1,36 @@
 # reject-bot
 
-把域名的文字或截图发给这个 Telegram 机器人，由 Claude 判断是不是广告 / 跟踪 / 遥测；你在 Telegram 里点「添加」后，它会直接提交到 `main`，写进 [`Rules/Reject`](../../Rules/Reject) 的 `Manual` 段。
+把域名的文字或截图发给这个 Telegram 机器人，Claude 会告诉你每个域名适合加到哪个列表：
+
+- **Reject**：广告 / 跟踪 / 遥测，写进 [`Rules/Reject`](../../Rules/Reject) 的 `Manual` 段；
+- **某个分类条目**：例如 `AI/OpenAI`、`Bank/HSBC`、`Broker/Futu`、`Crypto/Binance`，写进对应分类的 `config`，并重新生成规则。
+
+你在 Telegram 里点按钮选定后才会写入，都直接进 `main`。
 
 ## 怎么工作
 
 ```
 你 ──文字 / 截图──▶ Worker（存进 KV，回复「已收到」，并通过 API 触发云端任务）
                        ▲   │
-       GET /api/pending │   │ POST /api/verdict/<id>
+       GET /api/pending │   │ POST /api/verdict/<id>（每个域名的建议目标）
                        │   ▼
             Claude 云端任务「Reject 待办判断」（收到消息就触发，每天 23:00 兜底一次）
                            │
-Worker ──结论 + 添加 / 跳过按钮──▶ 你
-你点「添加」──▶ Worker 用 GitHub API 一次提交：
-                 Rules/Reject/config/manual.json
-                 Rules/Reject/{Surge,Shadowrocket}/Reject.list、Clash/Reject.yaml 的 Manual 段
+Worker ──每个域名的建议 + 按钮（1 → AI/OpenAI、1 → Reject、跳过 1 …）──▶ 你
+你点按钮：
+  → Reject        Worker 立即用 GitHub API 提交 manual.json 和三个 Reject 文件
+  → 分类/条目     Worker 记为「已确认」并再次触发云端任务；任务读 GET /api/approved，
+                  改该分类的 config、运行 build.py、推送到 main，
+                  再用 POST /api/applied/<id>/<i> 回报，消息上显示提交号或失败原因
 ```
 
 - 只处理 `TELEGRAM_USER_ID` 发来的消息和按钮，其他人一律忽略。
-- Worker 不调用任何 AI，判断全部交给云端任务。连着发几条消息时，只要触发的那次运行还没开始读队列，就不再重复触发（单个任务每小时最多触发 30 次）；运行会反复读队列直到清空。触发失败的消息等每天 23:00 兜底处理。云端任务只读仓库、不提交；写入只发生在你点「添加」之后。
-- 已经在 `Rules/Reject` 里的（包括被上级 `DOMAIN-SUFFIX` 覆盖的）不会重复添加，会显示「已存在」。
+- Worker 不调用任何 AI，判断和分类写入都交给云端任务。连着发几条消息时，只要触发的那次运行还没开始读队列，就不再重复触发（单个任务每小时最多触发 30 次）；运行会反复读队列直到清空。触发失败的等每天 23:00 兜底处理。
+- 建议目标只会是 `Reject` 或配置里已有的条目（不含 `BrokerShared`）；属于新公司的域名不能自动新建条目，只会在说明里提到。
+- 已经收录的不会重复添加：Reject 显示「已存在」，分类显示「已收录，无需修改」。
+- 分类写入仍受各分类自己的规则约束（过宽后缀、内地券商等会被拒绝，并在消息上写明原因）。写入时 `build.py` 会顺带刷新该分类的上游数据，一起提交。
 - 排队的消息 30 天后自动过期。
-- 各分类的 `build.py` 和 `python3 Rules/Reject/scripts/reject.py` 都会按 `manual.json` 重新生成 `Manual` 段，所以要删掉某条，改 `manual.json` 再运行 `reject.py` 就行。
+- 各分类的 `build.py` 和 `python3 Rules/Reject/scripts/reject.py` 都会按 `manual.json` 重新生成 `Manual` 段，所以要删掉 Reject 里的某条，改 `manual.json` 再运行 `reject.py` 就行。
 
 ## 部署
 
@@ -84,7 +93,7 @@ Worker ──结论 + 添加 / 跳过按钮──▶ 你
    - 加环境变量 `REJECT_BOT_URL`（第 5 步的地址）和 `REJECT_BOT_TOKEN`（`ROUTINE_TOKEN` 的值）；
    - 网络访问放行 `reject-bot.<你的子域>.workers.dev`（以及 `dns.google`）。
 
-   然后打开 [「Reject 待办判断」](https://claude.ai/code/routines/trig_015eZU6NkN8XakECnAymSpWc) 并启用它。
+   然后打开 [「Reject 待办判断」](https://claude.ai/code/routines/trig_015eZU6NkN8XakECnAymSpWc)，启用它，并允许它直接推送到 `main`（不受限的分支推送），否则写入分类会失败，消息上会显示「没有推送 main 的权限」。
 8. 给机器人发 `/help` 试一下，再发一个域名，几分钟内应该收到判断结果。
 
 兜底时间改了的话，同时改 `wrangler.toml` 里的 `JUDGE_SCHEDULE`（只用于回复里的提示）并重新部署。
@@ -95,4 +104,4 @@ Worker ──结论 + 添加 / 跳过按钮──▶ 你
 npm test
 ```
 
-测试会模拟 Telegram、GitHub 和 KV，走一遍「发消息 → 排队 → 判断 → 点添加 → 提交」，并核对 Worker 写出的文件和 `reject.py` 生成的结果逐字节一致。
+测试会模拟 Telegram、GitHub 和 KV，走一遍「发消息 → 排队 → 建议 → 点按钮 → 提交 Reject / 交给云端任务写入分类」，并核对 Worker 写出的文件和 `reject.py` 生成的结果逐字节一致。
