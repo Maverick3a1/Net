@@ -93,7 +93,7 @@ Worker ──每个域名的建议 + 按钮（1 → AI/OpenAI、1 → Reject、�
    - 加环境变量 `REJECT_BOT_URL`（第 5 步的地址）和 `REJECT_BOT_TOKEN`（`ROUTINE_TOKEN` 的值）；
    - 网络访问放行 `reject-bot.<你的子域>.workers.dev`（以及 `dns.google`）。
 
-   然后打开 [「Reject 待办判断」](https://claude.ai/code/routines/trig_015eZU6NkN8XakECnAymSpWc)，启用它，并允许它直接推送到 `main`（不受限的分支推送），否则写入分类会失败，消息上会显示「没有推送 main 的权限」。
+   然后打开 [「Reject 待办判断」](https://claude.ai/code/routines/trig_015eZU6NkN8XakECnAymSpWc)并启用它。写入分类时它会按提示词直接推送到 `main`，不需要额外设置；只有 `main` 开了 GitHub 分支保护 / rulesets、且不允许你连接给 Claude 的 GitHub 账号推送时才会失败，消息上会显示「没有推送 main 的权限」。
 8. 给机器人发 `/help` 试一下，再发一个域名，几分钟内应该收到判断结果。
 
 兜底时间改了的话，同时改 `wrangler.toml` 里的 `JUDGE_SCHEDULE`（只用于回复里的提示）并重新部署。
