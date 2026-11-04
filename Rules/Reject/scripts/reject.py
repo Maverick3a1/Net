@@ -7,8 +7,12 @@ on its own. The files themselves are the only state: nothing else is stored.
 
 Rules are passed in Surge classical syntax (DOMAIN-SUFFIX,x / DOMAIN,x /
 DOMAIN-KEYWORD,x / IP-CIDR,x,no-resolve); Clash classical uses the same lines.
+
+The "Manual" section (always last) is rendered from config/manual.json, which the
+Telegram bot (bots/reject-bot) appends to. Run this file directly to re-render it.
 """
 
+import json
 import re
 from pathlib import Path
 
@@ -18,8 +22,27 @@ OUTPUTS = {
     "Shadowrocket": (ROOT / "Shadowrocket" / "Reject.list", "Shadowrocket RULE-SET", False),
     "Clash": (ROOT / "Clash" / "Reject.yaml", "Clash rule-provider, behavior: classical", True),
 }
+MANUAL = ROOT / "config" / "manual.json"
+MANUAL_CATEGORY = "Manual"
+MANUAL_TITLE = "Telegram"
+MANUAL_DESC = "Added by hand after confirmation (Rules/Reject/config/manual.json)"
+MANUAL_TYPES = ("DOMAIN-SUFFIX", "DOMAIN", "DOMAIN-KEYWORD")
 BANNER = "# " + "=" * 60
 SEP = " / "
+
+
+def manual_rules():
+    """Rules from manual.json in file order, without duplicates."""
+    if not MANUAL.exists():
+        return []
+    out = []
+    for e in json.loads(MANUAL.read_text())["entries"]:
+        if e["type"] not in MANUAL_TYPES:
+            raise ValueError(f"manual.json: unsupported type {e['type']!r}")
+        rule = f"{e['type']},{e['value'].strip().lower()}"
+        if rule not in out:
+            out.append(rule)
+    return out
 
 
 def _plain(line):
@@ -85,9 +108,13 @@ def update(category, sections_by_platform, log=print):
     """Replace `category`'s sections; sections_by_platform = {platform: [(name, desc, [rules])]}."""
     for platform, (path, fmt, is_clash) in OUTPUTS.items():
         old = _read(path)
-        others = [s for s in old if s[0] != category]
-        mine = [(category, n, d, list(r)) for n, d, r in sections_by_platform[platform] if r]
-        sections = sorted(others + mine, key=lambda s: s[0])  # stable: keeps each category's order
+        others = [s for s in old if s[0] not in (category, MANUAL_CATEGORY)]
+        mine = []
+        if category != MANUAL_CATEGORY:
+            mine = [(category, n, d, list(r)) for n, d, r in sections_by_platform[platform] if r]
+        # Categories alphabetically (stable: keeps each category's own order), Manual last.
+        sections = sorted(others + mine, key=lambda s: s[0])
+        sections.append((MANUAL_CATEGORY, MANUAL_TITLE, MANUAL_DESC, manual_rules()))
         body = _body(sections, is_clash)
         rel = path.relative_to(ROOT.parent.parent)
         if not body:
@@ -101,3 +128,8 @@ def update(category, sections_by_platform, log=print):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text)
         log(f"  wrote {rel} ({sum(len(s[3]) for s in sections)} rules)")
+
+
+if __name__ == "__main__":
+    # Re-render only the Manual section (e.g. after editing config/manual.json by hand).
+    update(MANUAL_CATEGORY, None)

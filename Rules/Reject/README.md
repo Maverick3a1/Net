@@ -8,7 +8,7 @@
 | Shadowrocket | [`Shadowrocket/Reject.list`](Shadowrocket/Reject.list) | `RULE-SET` |
 | Clash / mihomo | [`Clash/Reject.yaml`](Clash/Reject.yaml) | rule-provider，`behavior: classical` |
 
-文件按分类分段（`# AI / OpenAI`、`# Bank / HSBC` ……）。条目来源：上游自己标记的（v2fly `@ads` / `@telemetry`），以及各分类 `config` 里 `reject` 列出的域名。这些条目不会再出现在各分类自己的规则和 `_All` 合集里。
+文件按分类分段（`# AI / OpenAI`、`# Bank / HSBC` ……）。条目来源：上游自己标记的（v2fly `@ads` / `@telemetry`）、各分类 `config` 里 `reject` 列出的域名，以及通过 Telegram 机器人人工确认的条目（`# Manual / Telegram` 段）。这些条目不会再出现在各分类自己的规则和 `_All` 合集里。
 
 ## 使用方法
 
@@ -41,4 +41,11 @@ rules:
 
 ## 生成方式
 
-这里的文件不要手动编辑。每个分类的 `scripts/build.py` 运行时，会调用 [`scripts/reject.py`](scripts/reject.py) 只替换自己那一段，其他分类的段落保持不变，所以各分类可以单独构建。要加拒绝条目，改对应分类 `config` 里的 `reject`，再运行该分类的 `build.py`。
+这里的规则文件不要手动编辑。
+
+- **分类段**：每个分类的 `scripts/build.py` 运行时，会调用 [`scripts/reject.py`](scripts/reject.py) 只替换自己那一段，其他段落保持不变，所以各分类可以单独构建。要加这类条目，改对应分类 `config` 里的 `reject`，再运行该分类的 `build.py`。
+- **`Manual` 段**（总在最后）：来自 [`config/manual.json`](config/manual.json)，由 [Telegram 机器人](../../bots/reject-bot) 在你确认后写入。要手动增删，改 `manual.json` 后运行：
+
+  ```bash
+  python3 Rules/Reject/scripts/reject.py
+  ```
