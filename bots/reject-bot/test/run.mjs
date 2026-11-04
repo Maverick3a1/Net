@@ -26,11 +26,17 @@ let head = "c0";
 const commits = [];
 const sent = [];
 let msgId = 100;
+const fires = [];
+let fireStatus = 200;
 
 globalThis.fetch = async (url, init = {}) => {
   url = String(url);
   const body = init.body ? JSON.parse(init.body) : null;
   const ok = (result) => new Response(JSON.stringify({ ok: true, result }));
+  if (url.startsWith("https://api.anthropic.com/")) {
+    fires.push({ url, headers: init.headers });
+    return new Response(JSON.stringify({ type: "routine_fire" }), { status: fireStatus });
+  }
   if (url.startsWith("https://api.telegram.org/")) {
     const method = url.split("/").pop();
     sent.push({ method, body });
@@ -74,7 +80,9 @@ const env = {
   GITHUB_TOKEN: "gh",
   GITHUB_REPO: "Maverick3a1/Net",
   GITHUB_BRANCH: "main",
-  JUDGE_SCHEDULE: "每小时",
+  JUDGE_SCHEDULE: "每天 23:00",
+  CLAUDE_ROUTINE_ID: "trig_test",
+  CLAUDE_ROUTINE_TOKEN: "sk-test",
 };
 const call = (method, path, body, headers = {}) =>
   worker.fetch(new Request("https://bot.example" + path, { method, headers, body: body && JSON.stringify(body) }), env);
@@ -87,11 +95,32 @@ assert.equal((await call("GET", "/api/pending")).status, 401);
 await hook({ message: { message_id: 1, chat: { id: 9 }, from: { id: 1 }, text: "stranger.example.com" } });
 assert.equal((await (await api("GET", "/api/pending")).json()).length, 0, "strangers are ignored");
 
-// ---- message -> pending
+assert.equal(fires.length, 0, "strangers do not fire the routine");
+
+// ---- message -> fire -> pending
+const lastReply = () => sent.filter((s) => s.method === "sendMessage").at(-1).body.text;
 await hook({ message: { message_id: 2, chat: { id: 9 }, from: { id: OWNER }, text: "ads.example-track.com 和 t.example.net" } });
+assert.equal(fires.length, 1);
+assert.equal(fires[0].url, "https://api.anthropic.com/v1/claude_code/routines/trig_test/fire");
+assert.equal(fires[0].headers.authorization, "Bearer sk-test");
+assert.equal(fires[0].headers["anthropic-beta"], "experimental-cc-routine-2026-04-01");
+assert.match(lastReply(), /已通知 Claude/);
+// a second message before the run reads the queue rides along with it
+await hook({ message: { message_id: 3, chat: { id: 9 }, from: { id: OWNER }, text: "second.example.org" } });
+assert.equal(fires.length, 1, "batched into the pending run");
 const queue = await (await api("GET", "/api/pending")).json();
-assert.equal(queue.length, 1);
+assert.equal(queue.length, 2);
 const id = queue[0].id;
+const id2 = queue[1].id;
+await new Promise((r) => setTimeout(r, 5));
+// once the run has read the queue, a new message fires a new run; a failed fire falls back
+fireStatus = 429;
+await hook({ message: { message_id: 4, chat: { id: 9 }, from: { id: OWNER }, text: "third.example.org" } });
+assert.equal(fires.length, 2);
+assert.match(lastReply(), /兜底时间处理：每天 23:00/);
+fireStatus = 200;
+await hook({ message: { message_id: 5, chat: { id: 9 }, from: { id: OWNER }, text: "fourth.example.org" } });
+assert.equal(fires.length, 3, "a failed fire does not block the next one");
 
 // ---- verdict (one duplicate of an existing Crypto rule, one invalid value dropped)
 const v = await (
@@ -106,7 +135,8 @@ const v = await (
   })
 ).json();
 assert.deepEqual(v, { ok: true, candidates: 3 });
-assert.equal((await (await api("GET", "/api/pending")).json()).length, 0, "judged items leave the queue");
+assert.deepEqual((await (await api("GET", "/api/pending")).json()).map((q) => q.id).includes(id), false, "judged items leave the queue");
+assert.equal((await (await api("POST", `/api/verdict/${id}`, { candidates: [] })).json()).error, "item is judged");
 
 // ---- "add all suggested" -> one commit with the new rule; the existing one is reported
 await hook({ callback_query: { id: "q1", from: { id: OWNER }, data: `A:${id}` } });
@@ -136,4 +166,5 @@ for (const f of REJECT_FILES) {
   assert.equal(replaceManual(original, manualRules(manual), f.clash).includes("Manual / Telegram"), true);
 }
 
-console.log(`ok: ${commits.length} commits, ${sent.length} Telegram calls`);
+void id2;
+console.log(`ok: ${commits.length} commits, ${fires.length} fires, ${sent.length} Telegram calls`);

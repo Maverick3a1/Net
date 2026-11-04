@@ -1,5 +1,6 @@
-// Telegram bot that queues domains (text or screenshots) for the "Reject 待办判断" Claude
-// routine, shows its verdicts with buttons, and commits confirmed ones to Rules/Reject.
+// Telegram bot that queues domains (text or screenshots), fires the "Reject 待办判断" Claude
+// routine through its API trigger, shows its verdicts with buttons, and commits confirmed
+// ones to Rules/Reject.
 //
 // Routes
 //   POST /telegram              Telegram webhook (checked with WEBHOOK_SECRET)
@@ -22,7 +23,10 @@ export default {
       if (req.method === "POST" && path === "/telegram") return await telegramWebhook(req, env);
       if (path.startsWith("/api/")) {
         if (!authorized(req, env)) return json({ error: "unauthorized" }, 401);
-        if (req.method === "GET" && path === "/api/pending") return json(await pending(env));
+        if (req.method === "GET" && path === "/api/pending") {
+          await env.QUEUE.put("state:last_poll", String(Date.now())); // a run has started reading
+          return json(await pending(env));
+        }
         let m = path.match(/^\/api\/photo\/([a-z0-9]+)$/);
         if (req.method === "GET" && m) return await photo(env, m[1]);
         m = path.match(/^\/api\/verdict\/([a-z0-9]+)$/);
@@ -81,14 +85,14 @@ async function onMessage(env, msg) {
 
   if (/^\/(start|help)\b/.test(text)) {
     return reply(
-      "把域名的文字或截图发给我。我先存起来，" +
-        `由 Claude 在下一次判断时（${env.JUDGE_SCHEDULE || "按计划"}）看是不是广告 / 跟踪 / 遥测，` +
-        "再把结论发给你；你点「添加」后才会写进 Rules/Reject。\n\n/pending 查看还在排队的条数",
+      "把域名的文字或截图发给我。我会马上通知 Claude 判断是不是广告 / 跟踪 / 遥测，" +
+        "通常几分钟内把结论发给你；你点「添加」后才会写进 Rules/Reject。" +
+        `通知失败的消息会在兜底时间处理：${env.JUDGE_SCHEDULE || "按计划"}。\n\n/pending 查看还在排队的条数`,
     );
   }
   if (/^\/pending\b/.test(text)) {
     const n = (await pending(env)).length;
-    return reply(n ? `还有 ${n} 条在排队，等下一次判断。` : "没有排队中的消息。");
+    return reply(n ? `还有 ${n} 条在排队，Claude 正在处理或等兜底时间处理。` : "没有排队中的消息。");
   }
 
   const photoId = msg.photo
@@ -108,7 +112,41 @@ async function onMessage(env, msg) {
     text,
     photo_file_id: photoId,
   });
-  return reply(`已收到（编号 ${id}），会在下一次判断时处理：${env.JUDGE_SCHEDULE || "按计划"}。`);
+  const fired = await maybeFire(env);
+  return reply(
+    fired === "failed" || fired === "unconfigured"
+      ? `已收到（编号 ${id}）。没能立即通知 Claude，会在兜底时间处理：${env.JUDGE_SCHEDULE || "按计划"}。`
+      : `已收到（编号 ${id}），已通知 Claude 判断，通常几分钟内回复。`,
+  );
+}
+
+// Start the "Reject 待办判断" routine through its API trigger. Messages that arrive while a
+// fired run has not started reading the queue yet ride along with it instead of firing again
+// (each routine allows 30 fires an hour); once that run has read the queue, fire a new one.
+const FIRE_WINDOW_MS = 10 * 60 * 1000;
+
+async function maybeFire(env) {
+  if (!env.CLAUDE_ROUTINE_ID || !env.CLAUDE_ROUTINE_TOKEN) return "unconfigured";
+  const now = Date.now();
+  const lastFire = Number((await env.QUEUE.get("state:last_fire")) || 0);
+  const lastPoll = Number((await env.QUEUE.get("state:last_poll")) || 0);
+  if (now - lastFire < FIRE_WINDOW_MS && lastPoll < lastFire) return "batched";
+  const r = await fetch(`https://api.anthropic.com/v1/claude_code/routines/${env.CLAUDE_ROUTINE_ID}/fire`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.CLAUDE_ROUTINE_TOKEN}`,
+      "anthropic-beta": "experimental-cc-routine-2026-04-01",
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+    },
+    body: "{}",
+  });
+  if (!r.ok) {
+    console.error(`routine fire failed: ${r.status} ${await r.text()}`);
+    return "failed";
+  }
+  await env.QUEUE.put("state:last_fire", String(now));
+  return "fired";
 }
 
 // callback_data: a:<id>:<i> add one · s:<id>:<i> skip one · A:<id> add all suggested · S:<id> skip all
