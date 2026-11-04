@@ -5,7 +5,7 @@ compatibility_date = "2025-10-01"
 # Create it with: npx wrangler kv namespace create QUEUE  (then paste the id here)
 [[kv_namespaces]]
 binding = "QUEUE"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "afeabae80b2e4c1e999ff5eb241070ce"
 
 [vars]
 GITHUB_REPO = "Maverick3a1/Net"
