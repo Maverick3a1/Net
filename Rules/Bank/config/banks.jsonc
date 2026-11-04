@@ -80,7 +80,13 @@
         {"type": "asn", "asn": 24396}
       ],
       // bocgroup.com 返回中银香港自己的 EV 证书；boccc.com.hk 是中银信用卡（CT 证书 O=中银香港）
-      "domain_suffix": ["bochk.com", "bochk.com.hk", "bocgroup.com", "boccc.com.hk"]
+      "domain_suffix": ["bochk.com", "bochk.com.hk", "bocgroup.com", "boccc.com.hk"],
+      "domain": [
+        // 来自 Telegram 机器人（用户确认）：经济通 ETNet（AS9906）的主机，名称含 bochk，疑似中银香港 App 的股票行情服务；根域 etdsinfo.com 属 ETNet，未收录
+        "bochk01.etdsinfo.com",
+        // 来自 Telegram 机器人（用户确认）：同 bochk01，ETNet（AS9906）主机，疑似中银香港 App 的行情服务；根域属 ETNet，未收录
+        "bochk02.etdsinfo.com"
+      ]
     },
     {
       "name": "HangSeng",

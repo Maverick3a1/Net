@@ -1,9 +1,9 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-04 02:15:08 UTC
+# UPDATED: 2026-11-04 09:40:00 UTC
 # DOMAIN-SUFFIX: 106
-# DOMAIN: 12
+# DOMAIN: 14
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
@@ -85,6 +85,8 @@ payload:
   - '+.bochk.com'
   - '+.boccc.com.hk'
   - '+.bochk.com.hk'
+  - 'bochk01.etdsinfo.com'
+  - 'bochk02.etdsinfo.com'
 
   # ============================================================
   # HangSeng
