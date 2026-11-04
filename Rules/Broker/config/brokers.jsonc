@@ -48,9 +48,15 @@
         {"type": "v2fly", "list": "futu"},
         {"type": "forecho", "list": "Broker", "conf": "futu"}
       ],
-      // moomoo 各地区域名、富途清算（上游未收录）
+      // moomoo 各地区域名、富途清算（上游未收录）；fututrust.com 是富途信托（证书 O=Futu Trustee Limited）；
+      // futucrypto / fututradehub / fttradehub / futuhk8 的 CT 证书 O=Futu Securities International (Hong Kong)
       "domain_suffix": [
+        "fttradehub.com",
         "futuclearing.com",
+        "futucrypto.com",
+        "futuhk8.com",
+        "fututradehub.com",
+        "fututrust.com",
         "moomooapp.com",
         "moomoobull.com",
         "moomoocn.com",
@@ -66,6 +72,26 @@
         {"type": "v2fly", "list": "itiger"},
         {"type": "blackmatrix7", "list": "TigerFintech"},
         {"type": "forecho", "list": "Broker", "conf": "tiger"}
+      ],
+      // 老虎各地区站点 / 备用域名：页面均为老虎国际官网，NS 与老虎其他域名同在 AWS / DNSPod；
+      // tigersecurities.com 证书 O=Tiger Brokers (Singapore)。来自 imdp6/hk-broker-rules、
+      // yindudegugezhanghao-lgtm/hk-brokers-rules 等社区规则
+      "domain_suffix": [
+        "atigrpulse.com",
+        "atigrzen.com",
+        "etasphere.com",
+        "gotigerhk.com",
+        "itigertrader.com",
+        "thetigerbrokers.com",
+        "tigerbrokers.com.au",
+        "tigerbrokers.com.hk",
+        "tigerbrokers.com.sg",
+        "tigerhkgo.com",
+        "tigersecurities.com",
+        "tigertrader.app",
+        "tigrdw.com",
+        "tigrgood.com",
+        "tigrwd.com"
       ]
     },
 
@@ -76,7 +102,11 @@
       "sources": [
         {"type": "v2fly", "list": "longbridge"},
         {"type": "forecho", "list": "Broker", "conf": "longbridge"}
-      ]
+      ],
+      // longportwhale.com 是长桥的 WHALE 券商云服务
+      "domain_suffix": ["longportwhale.com"],
+      // 长桥桌面端安装包所在的阿里云 OSS 存储桶（来自 imdp6/hk-broker-rules）
+      "domain": ["lb-hk-desktop.oss-cn-hongkong.aliyuncs.com"]
     },
 
     // 盈立证券：uSMART（v2fly 没有单独列表，手工维护）
@@ -84,7 +114,9 @@
       "name": "uSMART",
       "description": "盈立证券: uSMART",
       "sources": [],
+      // usmart-app.com 是 uSMART App 下载页
       "domain_suffix": [
+        "usmart-app.com",
         "usmart.hk",
         "usmart.sg",
         "usmart11.com",
@@ -119,7 +151,12 @@
       "sources": [
         {"type": "forecho", "list": "Broker", "conf": "hstong"}
       ],
+      // vbkhk / vbkrhk / vclbrokers / vbkr.cn 的 CT 证书 O=Valuable Capital Limited
       "domain_suffix": [
+        "vbkhk.com",
+        "vbkr.cn",
+        "vbkrhk.com",
+        "vclbrokers.com",
         "hstong.com",
         "valuable.com.hk",
         "vbkr.com"
@@ -135,7 +172,8 @@
       "sources": [
         {"type": "forecho", "list": "Broker", "conf": "snowball"}
       ],
-      "domain_suffix": ["snowballsecurities.com"]
+      // snbsecurities.com 是雪盈 OpenAPI 域名（返回 *.snowballsecurities.com 证书）
+      "domain_suffix": ["snbsecurities.com", "snowballsecurities.com"]
     },
 
     // 艾德证券：Eddid ONE（手工维护）
@@ -157,7 +195,8 @@
       "name": "HuataiIntl",
       "description": "华泰国际: 涨乐全球通",
       "sources": [],
-      "domain_suffix": ["htsc.com.hk"]
+      // zhangleglobal.com 是涨乐全球通（证书 O=Huatai Financial Holdings (Hong Kong) Limited）
+      "domain_suffix": ["htsc.com.hk", "zhangleglobal.com"]
     },
 
     // 复星国际证券（复星恒利 Fosun Hani）/ 复星财富
@@ -166,7 +205,9 @@
       "description": "复星国际证券: 复星恒利, 复星财富",
       "sources": [
         {"type": "forecho", "list": "Broker", "conf": "fosun"}
-      ]
+      ],
+      // fosunwealth.cn 是复星财富境内技术公司（星财智科技）的域名
+      "domain_suffix": ["fosunwealth.cn"]
     },
 
     // 卓锐证券 Sharp Point
@@ -209,7 +250,9 @@
         "webullcorp.com",
         "webullfinance.com",
         "webullfintech.com",
-        "webullpay.com"
+        "webullpay.com",
+        // 微牛泰国（CT 证书 O=Webull Securities Limited）
+        "wbthsecurities.com"
       ]
     },
 
@@ -233,7 +276,16 @@
         {"type": "asn", "asn": 9096},
         {"type": "asn", "asn": 207241},
         {"type": "asn", "asn": 212141}
-      ]
+      ],
+      // CT 证书 O=Interactive Brokers LLC 的客户端相关域名（不含 ibgdr.com 等清算 / 内部网关）
+      "domain_suffix": [
+        "clientam.com",
+        "ibkr-svc.com",
+        "interactivebrokers.ch",
+        "interactivebrokers.sg"
+      ],
+      // 盈透的加密货币交易由 Paxos 托管
+      "domain": ["ibkr.paxosclients.com"]
     },
 
     // 嘉信理财 Charles Schwab（含 thinkorswim）
@@ -246,6 +298,13 @@
         {"type": "asn", "asn": 1399},
         {"type": "asn", "asn": 6949},
         {"type": "forecho", "list": "Broker", "conf": "schwab"}
+      ],
+      // CT 证书 O=Charles Schwab & Co.：TD Ameritrade（已并入嘉信）、嘉信银行、图片 CDN、机构顾问平台
+      "domain_suffix": [
+        "schwabbank.com",
+        "schwabimg.com",
+        "schwabinstitutional.com",
+        "tdameritrade.com"
       ]
     },
 

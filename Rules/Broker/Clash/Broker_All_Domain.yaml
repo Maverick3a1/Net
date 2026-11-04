@@ -1,9 +1,9 @@
 # NAME: Broker_All
 # DESC: All brokers above combined
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-03 07:46:52 UTC
-# DOMAIN-SUFFIX: 189
-# DOMAIN: 4
+# UPDATED: 2026-11-04 03:13:46 UTC
+# DOMAIN-SUFFIX: 227
+# DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 95
 # IP-CIDR6: 0
@@ -16,6 +16,7 @@ payload:
   - '+.futu.cn'
   - '+.futubull.cn'
   - '+.ftesop.com'
+  - '+.fttradehub.com'
   - '+.futu.com'
   - '+.futu0.com'
   - '+.futu1.com'
@@ -31,12 +32,14 @@ payload:
   - '+.futubos.com'
   - '+.futuchain.com'
   - '+.futuclearing.com'
+  - '+.futucrypto.com'
   - '+.futuesop.com'
   - '+.futufin.com'
   - '+.futuhainan.com'
   - '+.futuhk.com'
   - '+.futuhk1.com'
   - '+.futuhk2.com'
+  - '+.futuhk8.com'
   - '+.futuhkapp.com'
   - '+.futuhn.com'
   - '+.futuholdings.com'
@@ -49,6 +52,8 @@ payload:
   - '+.futusg.com'
   - '+.futustatic.com'
   - '+.fututrade.com'
+  - '+.fututradehub.com'
+  - '+.fututrust.com'
   - '+.fututrustee.com'
   - '+.moomoo.com'
   - '+.moomooapp.com'
@@ -65,28 +70,43 @@ payload:
   # Tiger
   # 老虎证券: Tiger Trade, Tiger Brokers
   # ============================================================
+  - '+.tigertrader.app'
+  - '+.tigerbrokers.com.au'
   - '+.skytigris.cn'
   - '+.tigerbbs.cn'
   - '+.tigertcp.cn'
   - '+.zhijianfengyi.cn'
+  - '+.atigrpulse.com'
+  - '+.atigrzen.com'
+  - '+.etasphere.com'
   - '+.ftfast.com'
+  - '+.gotigerhk.com'
   - '+.iotaskyt.com'
   - '+.iotaskyty.com'
   - '+.itiger.com'
   - '+.itigergrowth.com'
   - '+.itigergrowtha.com'
+  - '+.itigertrader.com'
   - '+.itigerup.com'
   - '+.laohu8.com'
   - '+.tbdesk.com'
+  - '+.thetigerbrokers.com'
   - '+.tigerbbs.com'
   - '+.tigerbrokers.com'
   - '+.tigerfintech.com'
+  - '+.tigerhkgo.com'
+  - '+.tigersecurities.com'
+  - '+.tigrdw.com'
+  - '+.tigrgood.com'
+  - '+.tigrwd.com'
   - '+.tradeup.com'
   - '+.xiaohu8.com'
   - '+.zhijianfengyi.com'
+  - '+.tigerbrokers.com.hk'
   - '+.tigr.link'
   - '+.tigerbrokers.net'
   - '+.tigerbrokers.nz'
+  - '+.tigerbrokers.com.sg'
 
   # ============================================================
   # Longbridge
@@ -101,15 +121,18 @@ payload:
   - '+.longbridgeapp.com'
   - '+.longbridgehk.com'
   - '+.longportapp.com'
+  - '+.longportwhale.com'
   - '+.wbrks.com'
   - '+.longbridge.global'
   - '+.longbridge.hk'
   - '+.longbridge.sg'
+  - 'lb-hk-desktop.oss-cn-hongkong.aliyuncs.com'
 
   # ============================================================
   # uSMART
   # 盈立证券: uSMART
   # ============================================================
+  - '+.usmart-app.com'
   - '+.usmart11.com'
   - '+.usmart22.com'
   - '+.usmart66.com'
@@ -138,14 +161,19 @@ payload:
   # Valuable
   # 华盛证券: 华盛通, Valuable
   # ============================================================
+  - '+.vbkr.cn'
   - '+.hstong.com'
+  - '+.vbkhk.com'
   - '+.vbkr.com'
+  - '+.vbkrhk.com'
+  - '+.vclbrokers.com'
   - '+.valuable.com.hk'
 
   # ============================================================
   # Snowball
   # 雪盈证券 Snowball Securities
   # ============================================================
+  - '+.snbsecurities.com'
   - '+.snowball-x.com'
   - '+.snowballfinance.com'
   - '+.snowballsecurities.com'
@@ -164,12 +192,14 @@ payload:
   # HuataiIntl
   # 华泰国际: 涨乐全球通
   # ============================================================
+  - '+.zhangleglobal.com'
   - '+.htsc.com.hk'
 
   # ============================================================
   # Fosun
   # 复星国际证券: 复星恒利, 复星财富
   # ============================================================
+  - '+.fosunwealth.cn'
   - '+.fosunwealth.com'
   - '+.fotechwealth.com'
   - '+.mfosunhani.com'
@@ -194,6 +224,7 @@ payload:
   - '+.wbjpsecurities.com'
   - '+.wbsecurities.com'
   - '+.wbsgsecurities.com'
+  - '+.wbthsecurities.com'
   - '+.wbzasecurities.com'
   - '+.webull.com'
   - '+.webull-uk.com'
@@ -220,7 +251,10 @@ payload:
   - '+.interactivebrokers.com.au'
   - '+.ibkr.ca'
   - '+.interactivebrokers.ca'
+  - '+.interactivebrokers.ch'
+  - '+.clientam.com'
   - '+.ibkr.com'
+  - '+.ibkr-svc.com'
   - '+.ibkrguides.com'
   - '+.ibllc.com'
   - '+.interactivebrokers.com'
@@ -235,8 +269,10 @@ payload:
   - '+.interactivebrokers.co.jp'
   - '+.ibkr.com.sg'
   - '+.interactivebrokers.com.sg'
+  - '+.interactivebrokers.sg'
   - '+.ibkr.co.uk'
   - '+.interactivebrokers.co.uk'
+  - 'ibkr.paxosclients.com'
 
   # ============================================================
   # Schwab
@@ -246,8 +282,12 @@ payload:
   - '+.aboutschwab.com'
   - '+.schwab.com'
   - '+.schwabassetmanagement.com'
+  - '+.schwabbank.com'
   - '+.schwabcdn.com'
+  - '+.schwabimg.com'
+  - '+.schwabinstitutional.com'
   - '+.schwabplan.com'
+  - '+.tdameritrade.com'
   - '+.thinkorswim.com'
   - '+.schwab.com.hk'
   - '+.schwab.com.sg'

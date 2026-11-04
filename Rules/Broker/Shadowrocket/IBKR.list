@@ -1,18 +1,21 @@
 # NAME: IBKR
 # DESC: 盈透证券 Interactive Brokers
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-10-30 06:18:27 UTC
-# DOMAIN-SUFFIX: 21
-# DOMAIN: 0
+# UPDATED: 2026-11-04 03:13:39 UTC
+# DOMAIN-SUFFIX: 25
+# DOMAIN: 1
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 13
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
 DOMAIN-SUFFIX,ibkr.com.au
 DOMAIN-SUFFIX,interactivebrokers.com.au
 DOMAIN-SUFFIX,ibkr.ca
 DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,interactivebrokers.ch
+DOMAIN-SUFFIX,clientam.com
 DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibkr-svc.com
 DOMAIN-SUFFIX,ibkrguides.com
 DOMAIN-SUFFIX,ibllc.com
 DOMAIN-SUFFIX,interactivebrokers.com
@@ -27,8 +30,10 @@ DOMAIN-SUFFIX,interactivebrokers.co.in
 DOMAIN-SUFFIX,interactivebrokers.co.jp
 DOMAIN-SUFFIX,ibkr.com.sg
 DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,interactivebrokers.sg
 DOMAIN-SUFFIX,ibkr.co.uk
 DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN,ibkr.paxosclients.com
 IP-CIDR,8.17.22.0/24,no-resolve
 IP-CIDR,63.86.206.0/24,no-resolve
 IP-CIDR,64.190.196.0/23,no-resolve

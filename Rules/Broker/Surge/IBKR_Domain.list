@@ -1,18 +1,21 @@
 # NAME: IBKR
 # DESC: 盈透证券 Interactive Brokers
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-10-30 06:18:27 UTC
-# DOMAIN-SUFFIX: 21
-# DOMAIN: 0
+# UPDATED: 2026-11-04 03:13:39 UTC
+# DOMAIN-SUFFIX: 25
+# DOMAIN: 1
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 13
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, https://github.com/blackmatrix7/ios_rule_script, RIPEstat
 .ibkr.com.au
 .interactivebrokers.com.au
 .ibkr.ca
 .interactivebrokers.ca
+.interactivebrokers.ch
+.clientam.com
 .ibkr.com
+.ibkr-svc.com
 .ibkrguides.com
 .ibllc.com
 .interactivebrokers.com
@@ -27,5 +30,7 @@
 .interactivebrokers.co.jp
 .ibkr.com.sg
 .interactivebrokers.com.sg
+.interactivebrokers.sg
 .ibkr.co.uk
 .interactivebrokers.co.uk
+ibkr.paxosclients.com
