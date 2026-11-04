@@ -1,13 +1,14 @@
 # NAME: BEA
 # DESC: The Bank of East Asia 东亚银行
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-10-30 06:26:05 UTC
-# DOMAIN-SUFFIX: 2
+# UPDATED: 2026-11-04 02:14:52 UTC
+# DOMAIN-SUFFIX: 3
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 0
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
 payload:
   - 'DOMAIN-SUFFIX,hkbea.com'
+  - 'DOMAIN-SUFFIX,hkbea-beany.com'
   - 'DOMAIN-SUFFIX,hkbea-cyberbanking.com'

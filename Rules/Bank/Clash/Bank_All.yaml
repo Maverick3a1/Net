@@ -1,9 +1,9 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-11-03 07:47:20 UTC
-# DOMAIN-SUFFIX: 92
-# DOMAIN: 8
+# UPDATED: 2026-11-04 02:15:08 UTC
+# DOMAIN-SUFFIX: 106
+# DOMAIN: 12
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
@@ -25,6 +25,7 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com'
   - 'DOMAIN-SUFFIX,hsbcinnovationbanking.com'
   - 'DOMAIN-SUFFIX,hsbcnet.com'
+  - 'DOMAIN-SUFFIX,hsbcpb.com'
   - 'DOMAIN-SUFFIX,hsbcprivatebank.com'
   - 'DOMAIN-SUFFIX,vv1865.com'
   - 'DOMAIN-SUFFIX,hsbc.de'
@@ -35,6 +36,7 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com.eg'
   - 'DOMAIN-SUFFIX,hsbc.fr'
   - 'DOMAIN-SUFFIX,hsbc.com.hk'
+  - 'DOMAIN-SUFFIX,hsbc.hk'
   - 'DOMAIN-SUFFIX,hsbc.co.id'
   - 'DOMAIN-SUFFIX,hsbc.co.in'
   - 'DOMAIN-SUFFIX,hsbc.co.jp'
@@ -57,11 +59,13 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com.tr'
   - 'DOMAIN-SUFFIX,hsbc.com.tw'
   - 'DOMAIN-SUFFIX,hsbc.co.uk'
+  - 'DOMAIN-SUFFIX,hsbckinetic.co.uk'
   - 'DOMAIN-SUFFIX,hsbc.uk'
   - 'DOMAIN-SUFFIX,hsbc.com.uy'
   - 'DOMAIN-SUFFIX,hsbc.com.vn'
   - 'DOMAIN,hsbc.edge.sdk.awswaf.com'
   - 'DOMAIN,log-58144bf0.we-stats.com'
+  - 'DOMAIN,cdnhsbcrhostorage.azureedge.net'
   - 'IP-CIDR,27.110.72.0/21,no-resolve'
   - 'IP-CIDR,161.113.192.0/19,no-resolve'
   - 'IP-CIDR,203.112.80.0/20,no-resolve'
@@ -117,7 +121,9 @@ payload:
   # BOCHK
   # Bank of China (Hong Kong) 中银香港
   # ============================================================
+  - 'DOMAIN-SUFFIX,bocgroup.com'
   - 'DOMAIN-SUFFIX,bochk.com'
+  - 'DOMAIN-SUFFIX,boccc.com.hk'
   - 'DOMAIN-SUFFIX,bochk.com.hk'
   - 'IP-CIDR,202.127.168.0/21,no-resolve'
 
@@ -133,6 +139,7 @@ payload:
   # The Bank of East Asia 东亚银行
   # ============================================================
   - 'DOMAIN-SUFFIX,hkbea.com'
+  - 'DOMAIN-SUFFIX,hkbea-beany.com'
   - 'DOMAIN-SUFFIX,hkbea-cyberbanking.com'
 
   # ============================================================
@@ -168,6 +175,7 @@ payload:
   # China CITIC Bank International 中信银行（国际）
   # ============================================================
   - 'DOMAIN-SUFFIX,cncbinternational.com'
+  - 'DOMAIN-SUFFIX,cncbintl.com'
 
   # ============================================================
   # CMBWingLung
@@ -182,6 +190,8 @@ payload:
   # ============================================================
   - 'DOMAIN-SUFFIX,icbcasia.com'
   - 'DOMAIN,corpebankasia.icbc.com.cn'
+  - 'DOMAIN,icbc-asia.icbc.com.cn'
+  - 'DOMAIN,mobilehk.icbc.com.cn'
   - 'DOMAIN,myebankasia.icbc.com.cn'
   - 'IP-CIDR,203.34.252.0/23,no-resolve'
   - 'IP-CIDR6,2001:df7:dc80::/48,no-resolve'
@@ -191,6 +201,8 @@ payload:
   # China Construction Bank (Asia) 建行亚洲
   # ============================================================
   - 'DOMAIN-SUFFIX,asia.ccb.com'
+  - 'DOMAIN-SUFFIX,ccbasiahk.com'
+  - 'DOMAIN-SUFFIX,ccbhk.com'
   - 'IP-CIDR,203.89.6.0/23,no-resolve'
   - 'IP-CIDR6,2001:df1:f4c0::/48,no-resolve'
 
@@ -206,12 +218,14 @@ payload:
   # Fubon
   # Fubon Bank (Hong Kong) 富邦银行（香港）
   # ============================================================
+  - 'DOMAIN-SUFFIX,fubon-queuehk.com'
   - 'DOMAIN-SUFFIX,fubonbank.com.hk'
 
   # ============================================================
   # NCB
   # Nanyang Commercial Bank 南洋商业银行
   # ============================================================
+  - 'DOMAIN-SUFFIX,nanyang-bank.com'
   - 'DOMAIN-SUFFIX,ncb.com.hk'
   - 'IP-CIDR,103.49.122.0/23,no-resolve'
   - 'IP-CIDR,202.82.169.0/24,no-resolve'
@@ -228,6 +242,7 @@ payload:
   # ShacomBank
   # Shanghai Commercial Bank 上海商业银行
   # ============================================================
+  - 'DOMAIN-SUFFIX,shacombank.com'
   - 'DOMAIN-SUFFIX,shacombank.com.hk'
 
   # ============================================================
@@ -260,6 +275,7 @@ payload:
   # Mox Bank
   # ============================================================
   - 'DOMAIN-SUFFIX,mox.com'
+  - 'DOMAIN-SUFFIX,moxbank.com'
 
   # ============================================================
   # WeLab
@@ -271,6 +287,7 @@ payload:
   # Livi
   # livi bank 理慧银行
   # ============================================================
+  - 'DOMAIN-SUFFIX,livi.com'
   - 'DOMAIN-SUFFIX,livibank.com'
 
   # ============================================================
@@ -298,6 +315,7 @@ payload:
   # Ant Bank (Hong Kong) 蚂蚁银行（香港）
   # ============================================================
   - 'DOMAIN-SUFFIX,antbank.hk'
+  - 'DOMAIN,antbank-cdn.marmot-cloud.com'
 
   # ============================================================
   # Wise

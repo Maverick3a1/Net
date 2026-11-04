@@ -1,13 +1,15 @@
 # NAME: BOCHK
 # DESC: Bank of China (Hong Kong) 中银香港
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-10-30 06:26:04 UTC
-# DOMAIN-SUFFIX: 2
+# UPDATED: 2026-11-04 02:14:51 UTC
+# DOMAIN-SUFFIX: 4
 # DOMAIN: 0
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 1
 # IP-CIDR6: 0
-# SOURCE: https://github.com/v2fly/domain-list-community, RIPEstat, bank websites
+# SOURCE: https://github.com/v2fly/domain-list-community, https://github.com/forecho/broker-rules, RIPEstat, bank websites
+DOMAIN-SUFFIX,bocgroup.com
 DOMAIN-SUFFIX,bochk.com
+DOMAIN-SUFFIX,boccc.com.hk
 DOMAIN-SUFFIX,bochk.com.hk
 IP-CIDR,202.127.168.0/21,no-resolve

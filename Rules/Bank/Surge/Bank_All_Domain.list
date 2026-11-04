@@ -1,9 +1,9 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-11-03 07:47:20 UTC
-# DOMAIN-SUFFIX: 92
-# DOMAIN: 8
+# UPDATED: 2026-11-04 02:15:08 UTC
+# DOMAIN-SUFFIX: 106
+# DOMAIN: 12
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
 # IP-CIDR6: 6
@@ -24,6 +24,7 @@
 .hsbc.com
 .hsbcinnovationbanking.com
 .hsbcnet.com
+.hsbcpb.com
 .hsbcprivatebank.com
 .vv1865.com
 .hsbc.de
@@ -34,6 +35,7 @@
 .hsbc.com.eg
 .hsbc.fr
 .hsbc.com.hk
+.hsbc.hk
 .hsbc.co.id
 .hsbc.co.in
 .hsbc.co.jp
@@ -56,11 +58,13 @@
 .hsbc.com.tr
 .hsbc.com.tw
 .hsbc.co.uk
+.hsbckinetic.co.uk
 .hsbc.uk
 .hsbc.com.uy
 .hsbc.com.vn
 hsbc.edge.sdk.awswaf.com
 log-58144bf0.we-stats.com
+cdnhsbcrhostorage.azureedge.net
 
 # ============================================================
 # StandardChartered
@@ -76,7 +80,9 @@ standchartbank.tt.omtrdc.net
 # BOCHK
 # Bank of China (Hong Kong) 中银香港
 # ============================================================
+.bocgroup.com
 .bochk.com
+.boccc.com.hk
 .bochk.com.hk
 
 # ============================================================
@@ -91,6 +97,7 @@ standchartbank.tt.omtrdc.net
 # The Bank of East Asia 东亚银行
 # ============================================================
 .hkbea.com
+.hkbea-beany.com
 .hkbea-cyberbanking.com
 
 # ============================================================
@@ -118,6 +125,7 @@ standchartbank.tt.omtrdc.net
 # China CITIC Bank International 中信银行（国际）
 # ============================================================
 .cncbinternational.com
+.cncbintl.com
 
 # ============================================================
 # CMBWingLung
@@ -132,6 +140,8 @@ standchartbank.tt.omtrdc.net
 # ============================================================
 .icbcasia.com
 corpebankasia.icbc.com.cn
+icbc-asia.icbc.com.cn
+mobilehk.icbc.com.cn
 myebankasia.icbc.com.cn
 
 # ============================================================
@@ -139,6 +149,8 @@ myebankasia.icbc.com.cn
 # China Construction Bank (Asia) 建行亚洲
 # ============================================================
 .asia.ccb.com
+.ccbasiahk.com
+.ccbhk.com
 
 # ============================================================
 # OCBC
@@ -151,12 +163,14 @@ myebankasia.icbc.com.cn
 # Fubon
 # Fubon Bank (Hong Kong) 富邦银行（香港）
 # ============================================================
+.fubon-queuehk.com
 .fubonbank.com.hk
 
 # ============================================================
 # NCB
 # Nanyang Commercial Bank 南洋商业银行
 # ============================================================
+.nanyang-bank.com
 .ncb.com.hk
 
 # ============================================================
@@ -170,6 +184,7 @@ myebankasia.icbc.com.cn
 # ShacomBank
 # Shanghai Commercial Bank 上海商业银行
 # ============================================================
+.shacombank.com
 .shacombank.com.hk
 
 # ============================================================
@@ -200,6 +215,7 @@ myebankasia.icbc.com.cn
 # Mox Bank
 # ============================================================
 .mox.com
+.moxbank.com
 
 # ============================================================
 # WeLab
@@ -211,6 +227,7 @@ myebankasia.icbc.com.cn
 # Livi
 # livi bank 理慧银行
 # ============================================================
+.livi.com
 .livibank.com
 
 # ============================================================
@@ -238,6 +255,7 @@ myebankasia.icbc.com.cn
 # Ant Bank (Hong Kong) 蚂蚁银行（香港）
 # ============================================================
 .antbank.hk
+antbank-cdn.marmot-cloud.com
 
 # ============================================================
 # Wise

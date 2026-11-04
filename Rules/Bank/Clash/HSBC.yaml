@@ -1,9 +1,9 @@
 # NAME: HSBC
 # DESC: HSBC 汇丰银行（香港）
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-11-03 07:46:57 UTC
-# DOMAIN-SUFFIX: 47
-# DOMAIN: 2
+# UPDATED: 2026-11-04 02:14:46 UTC
+# DOMAIN-SUFFIX: 50
+# DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 3
 # IP-CIDR6: 3
@@ -21,6 +21,7 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com'
   - 'DOMAIN-SUFFIX,hsbcinnovationbanking.com'
   - 'DOMAIN-SUFFIX,hsbcnet.com'
+  - 'DOMAIN-SUFFIX,hsbcpb.com'
   - 'DOMAIN-SUFFIX,hsbcprivatebank.com'
   - 'DOMAIN-SUFFIX,vv1865.com'
   - 'DOMAIN-SUFFIX,hsbc.de'
@@ -31,6 +32,7 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com.eg'
   - 'DOMAIN-SUFFIX,hsbc.fr'
   - 'DOMAIN-SUFFIX,hsbc.com.hk'
+  - 'DOMAIN-SUFFIX,hsbc.hk'
   - 'DOMAIN-SUFFIX,hsbc.co.id'
   - 'DOMAIN-SUFFIX,hsbc.co.in'
   - 'DOMAIN-SUFFIX,hsbc.co.jp'
@@ -53,11 +55,13 @@ payload:
   - 'DOMAIN-SUFFIX,hsbc.com.tr'
   - 'DOMAIN-SUFFIX,hsbc.com.tw'
   - 'DOMAIN-SUFFIX,hsbc.co.uk'
+  - 'DOMAIN-SUFFIX,hsbckinetic.co.uk'
   - 'DOMAIN-SUFFIX,hsbc.uk'
   - 'DOMAIN-SUFFIX,hsbc.com.uy'
   - 'DOMAIN-SUFFIX,hsbc.com.vn'
   - 'DOMAIN,hsbc.edge.sdk.awswaf.com'
   - 'DOMAIN,log-58144bf0.we-stats.com'
+  - 'DOMAIN,cdnhsbcrhostorage.azureedge.net'
   - 'IP-CIDR,27.110.72.0/21,no-resolve'
   - 'IP-CIDR,161.113.192.0/19,no-resolve'
   - 'IP-CIDR,203.112.80.0/20,no-resolve'

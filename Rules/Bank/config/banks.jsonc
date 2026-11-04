@@ -53,7 +53,13 @@
       ],
       // v2fly 的 hsbc 列表 include 了 hsbc-cn（内地业务），这里去掉；
       // "hsbc" 是 .hsbc 顶级域，不是合法后缀规则
-      "exclude": ["hsbc", "hsbc.com.cn", "hsbcqh.com.cn", "hsbcinsurance.com.cn"]
+      "exclude": ["hsbc", "hsbc.com.cn", "hsbcqh.com.cn", "hsbcinsurance.com.cn"],
+      // hsbcpb.com 汇丰私人银行、hsbckinetic.co.uk 汇丰英国商业银行 App（TLS 证书均属 HSBC Group）；
+      // hsbcdigital 是 HSBC 网银内嵌的 Qualtrics 问卷（会进 Bank_Reject）
+      // hsbc.hk 跳转到 hsbc.com.hk（证书属汇丰香港）
+      "domain_suffix": ["hsbc.hk", "hsbcpb.com", "hsbckinetic.co.uk", "hsbcdigital.siteintercept.qualtrics.com"],
+      // HSBC 自有的 Azure CDN 存储（来自 klchai/personal-rule）
+      "domain": ["cdnhsbcrhostorage.azureedge.net"]
     },
     {
       "name": "StandardChartered",
@@ -73,7 +79,8 @@
         // BOC-AS-HK
         {"type": "asn", "asn": 24396}
       ],
-      "domain_suffix": ["bochk.com", "bochk.com.hk"]
+      // bocgroup.com 返回中银香港自己的 EV 证书；boccc.com.hk 是中银信用卡（CT 证书 O=中银香港）
+      "domain_suffix": ["bochk.com", "bochk.com.hk", "bocgroup.com", "boccc.com.hk"]
     },
     {
       "name": "HangSeng",
@@ -93,7 +100,8 @@
         // BEAHK-AS-AP（目前没有宣告网段，有了会自动收录）
         {"type": "asn", "asn": 137452}
       ],
-      "domain_suffix": ["hkbea.com", "hkbea-cyberbanking.com"]
+      // hkbea-beany.com 是东亚的 BEANY 站点（证书 O=The Bank of East Asia）
+      "domain_suffix": ["hkbea.com", "hkbea-cyberbanking.com", "hkbea-beany.com"]
     },
     {
       "name": "DBS",
@@ -124,7 +132,8 @@
       "name": "CNCBI",
       "description": "China CITIC Bank International 中信银行（国际）",
       "sources": [],
-      "domain_suffix": ["cncbinternational.com"]
+      // cncbintl.com 的证书 O=China CITIC Bank International（CT 记录）
+      "domain_suffix": ["cncbinternational.com", "cncbintl.com"]
     },
     {
       "name": "CMBWingLung",
@@ -141,7 +150,13 @@
       ],
       "domain_suffix": ["icbcasia.com"],
       // 工银亚洲网银挂在母行 icbc.com.cn 下，只收这两个主机
-      "domain": ["myebankasia.icbc.com.cn", "corpebankasia.icbc.com.cn"]
+      // icbc-asia / mobilehk 在同一张工银证书里，是工银亚洲网站和手机银行
+      "domain": [
+        "corpebankasia.icbc.com.cn",
+        "icbc-asia.icbc.com.cn",
+        "mobilehk.icbc.com.cn",
+        "myebankasia.icbc.com.cn"
+      ]
     },
     {
       "name": "CCBAsia",
@@ -150,7 +165,8 @@
         // CCBASIA-ISG-HK-AP
         {"type": "asn", "asn": 38475}
       ],
-      "domain_suffix": ["asia.ccb.com"]
+      // ccbhk.com（App 接入网关）、ccbasiahk.com（API 网关 / 无卡取款）的证书 O=建行亚洲（CT 记录）
+      "domain_suffix": ["asia.ccb.com", "ccbhk.com", "ccbasiahk.com"]
     },
     {
       "name": "OCBC",
@@ -166,7 +182,8 @@
       "name": "Fubon",
       "description": "Fubon Bank (Hong Kong) 富邦银行（香港）",
       "sources": [],
-      "domain_suffix": ["fubonbank.com.hk"]
+      // fubon-queuehk.com 是分行排队取号（证书 O=Fubon Bank (Hong Kong)）
+      "domain_suffix": ["fubonbank.com.hk", "fubon-queuehk.com"]
     },
     {
       "name": "NCB",
@@ -175,7 +192,8 @@
         // NCBL-AS-AP - Nanyang Commercial Bank, Limited
         {"type": "asn", "asn": 152712}
       ],
-      "domain_suffix": ["ncb.com.hk"]
+      // nanyang-bank.com 的证书 O=Nanyang Commercial Bank（CT 记录）
+      "domain_suffix": ["ncb.com.hk", "nanyang-bank.com"]
     },
     {
       "name": "Chiyu",
@@ -188,7 +206,8 @@
       "name": "ShacomBank",
       "description": "Shanghai Commercial Bank 上海商业银行",
       "sources": [],
-      "domain_suffix": ["shacombank.com.hk"]
+      // shacombank.com 返回上海商业银行自己的 EV 证书；shacom.com 是台湾的上海商业储蓄银行，不收录
+      "domain_suffix": ["shacombank.com.hk", "shacombank.com"]
     },
     {
       "name": "ChongHing",
@@ -223,7 +242,8 @@
       "name": "Mox",
       "description": "Mox Bank",
       "sources": [],
-      "domain_suffix": ["mox.com"]
+      // moxbank.com 跳转到 mox.com
+      "domain_suffix": ["mox.com", "moxbank.com"]
     },
     {
       "name": "WeLab",
@@ -238,7 +258,8 @@
       "name": "Livi",
       "description": "livi bank 理慧银行",
       "sources": [],
-      "domain_suffix": ["livibank.com"]
+      // livi.com 跳转到 livibank.com
+      "domain_suffix": ["livibank.com", "livi.com"]
     },
     {
       "name": "EleBank",
@@ -266,7 +287,9 @@
       "description": "Ant Bank (Hong Kong) 蚂蚁银行（香港）",
       "sources": [],
       // 静态资源走支付宝共用 CDN（alipayobjects.com），不收录
-      "domain_suffix": ["antbank.hk"]
+      "domain_suffix": ["antbank.hk"],
+      // 蚂蚁银行自己的 CDN 和日志入口（来自 LeventLei/shadowrocket-rules；日志会进 Bank_Reject）
+      "domain": ["antbank-cdn.marmot-cloud.com", "ant-hkbank-linkd.cn-hongkong.log.aliyuncs.com"]
     },
 
     // ================================================================
@@ -306,6 +329,7 @@
     "domain_suffix": [
       "app-measurement.com",
       "appsflyersdk.com",
+      "siteintercept.qualtrics.com",
       "crashlytics.com",
       "eum-appdynamics.com",
       "lytics.io",
@@ -314,6 +338,6 @@
       "tealiumiq.com",
       "tiqcdn.com"
     ],
-    "domain": []
+    "domain": ["ant-hkbank-linkd.cn-hongkong.log.aliyuncs.com"]
   }
 }

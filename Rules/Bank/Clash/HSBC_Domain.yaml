@@ -1,9 +1,9 @@
 # NAME: HSBC
 # DESC: HSBC 汇丰银行（香港）
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-03 07:46:57 UTC
-# DOMAIN-SUFFIX: 47
-# DOMAIN: 2
+# UPDATED: 2026-11-04 02:14:46 UTC
+# DOMAIN-SUFFIX: 50
+# DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 3
 # IP-CIDR6: 3
@@ -21,6 +21,7 @@ payload:
   - '+.hsbc.com'
   - '+.hsbcinnovationbanking.com'
   - '+.hsbcnet.com'
+  - '+.hsbcpb.com'
   - '+.hsbcprivatebank.com'
   - '+.vv1865.com'
   - '+.hsbc.de'
@@ -31,6 +32,7 @@ payload:
   - '+.hsbc.com.eg'
   - '+.hsbc.fr'
   - '+.hsbc.com.hk'
+  - '+.hsbc.hk'
   - '+.hsbc.co.id'
   - '+.hsbc.co.in'
   - '+.hsbc.co.jp'
@@ -53,8 +55,10 @@ payload:
   - '+.hsbc.com.tr'
   - '+.hsbc.com.tw'
   - '+.hsbc.co.uk'
+  - '+.hsbckinetic.co.uk'
   - '+.hsbc.uk'
   - '+.hsbc.com.uy'
   - '+.hsbc.com.vn'
   - 'hsbc.edge.sdk.awswaf.com'
   - 'log-58144bf0.we-stats.com'
+  - 'cdnhsbcrhostorage.azureedge.net'
