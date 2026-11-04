@@ -2,7 +2,7 @@
 
 香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）和 Wise 的 **Clash / Surge / Shadowrocket 分流规则集**。
 
-GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，只要有变化就提交。
+Claude 云端定时任务每周一 **北京时间 02:00** 自动运行：重新拉取各家的域名和 IP 段，再搜索、核实新的域名，有变化就开 PR 到 `main`，合并后生效。
 
 ## 规则列表
 
@@ -126,12 +126,12 @@ rules:
 - 中资行的母行域名（`ccb.com`、`bankcomm.com`、`icbc.com.cn` 等）是内地业务，只收录香港子域名或个别网银主机，并列入 `global_deny_suffix` 防止误收；
 - 恒生中国 `hangseng.com.cn`、集友内地 `cybchina.com.cn`、汇丰中国 `hsbc.com.cn` 等内地域名不收录；
 - HSBC 的 v2fly 列表包含汇丰各国站点（如 `hsbc.co.uk`），一并收录；
-- forecho 的银行规则带有 App 依赖的第三方 SDK：埋点 / 统计类（AppsFlyer、Firebase `crashlytics.com` / `app-measurement.com`、Mixpanel、Tealium、Lytics、Optimizely、AppDynamics）放进 `Bank_Reject`；风控 / 客服类（ThreatMetrix `online-metrix.net`、BioCatch `we-stats.com`、AWS WAF、LivePerson）银行会核对它们的出口 IP，保留在 `Bank_All`。forecho 的规则里如果出现没对应到任何银行的 conf，Actions 会给出警告；
+- forecho 的银行规则带有 App 依赖的第三方 SDK：埋点 / 统计类（AppsFlyer、Firebase `crashlytics.com` / `app-measurement.com`、Mixpanel、Tealium、Lytics、Optimizely、AppDynamics）放进 `Bank_Reject`；风控 / 客服类（ThreatMetrix `online-metrix.net`、BioCatch `we-stats.com`、AWS WAF、LivePerson）银行会核对它们的出口 IP，保留在 `Bank_All`。forecho 的规则里如果出现没对应到任何银行的 conf，构建输出会给出警告；
 - 共用 CDN（支付宝 `alipayobjects.com`、Contentful `ctfassets.net` 等）不收录；
 - 校验域名 / CIDR 格式，被上级后缀覆盖的条目自动去重，IP 段自动合并；
 - **平台一一对应**：blackmatrix7、forecho 这类按客户端分别发布文件的上游，Surge 版只取对方的 Surge 文件、Shadowrocket 版只取对方的 Shadowrocket 文件、Clash 版只取对方的 Clash 文件；v2fly、RIPEstat 和手工条目不分平台，三个平台共用；
 - 上游 regexp 规则 Clash 和 Surge 无法通用，所以跳过；
-- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在 Actions 里给出警告；
+- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在构建输出里给出警告；
 - 只在规则内容真正变化时才重写文件，所以文件头里的 `UPDATED` 就是规则最后一次变化的时间。
 
 ## 本地运行
@@ -163,7 +163,7 @@ python3 scripts/build.py
 }
 ```
 
-推送到 `main` 后会自动触发重新生成。也可以在 Actions 页面手动运行 **Update rulesets**。
+改完配置后，在本目录运行 `python3 scripts/build.py` 重新生成，再把配置和生成的文件一起提交（`main` 上不会自动重新生成）。
 
 ## License
 

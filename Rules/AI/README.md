@@ -2,7 +2,7 @@
 
 美国主流 AI 服务（OpenAI、Anthropic、xAI Grok、Google Gemini、Perplexity、Copilot、Meta AI）的 **Clash / Surge / Shadowrocket 分流规则集**。
 
-GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，只要有变化就提交。
+Claude 云端定时任务每周一 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，再搜索、核实新的域名，有变化就开 PR 到 `main`，合并后生效。
 
 ## 规则列表
 
@@ -105,7 +105,7 @@ rules:
 - 校验域名 / CIDR 格式，被上级后缀覆盖的条目自动去重，IP 段自动合并；
 - 过于宽泛的后缀（如 `google.com`、`googleapis.com`、`azureedge.net`、`x.com`）会被拒绝，避免把无关流量带进去，列表见 `global_deny_suffix`；
 - 上游 regexp 规则 Clash 和 Surge 无法通用，所以跳过；
-- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在 Actions 里给出警告；
+- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在构建输出里给出警告；
 - 只在规则内容真正变化时才重写文件，所以文件头里的 `UPDATED` 就是规则最后一次变化的时间。
 
 ## 本地运行
@@ -136,7 +136,7 @@ python3 scripts/build.py
 }
 ```
 
-推送到 `main` 后会自动触发重新生成。也可以在 Actions 页面手动运行 **Update rulesets**。
+改完配置后，在本目录运行 `python3 scripts/build.py` 重新生成，再把配置和生成的文件一起提交（`main` 上不会自动重新生成）。
 
 ## License
 

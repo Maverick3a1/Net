@@ -2,7 +2,7 @@
 
 互联网港美股券商（富途、老虎、长桥、盈立、华盛、雪盈、艾德、华泰国际、复星、卓锐、Webull、盈透、嘉信、Firstrade、Robinhood）的 **Clash / Surge / Shadowrocket 分流规则集**，另附 TradingView、券商 App 共用的 SDK 和云服务器 IP（`BrokerShared`）。
 
-GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各家的域名和 IP 段，只要有变化就提交。
+Claude 云端定时任务每周一 **北京时间 02:30** 自动运行：重新拉取各家的域名和 IP 段，再搜索、核实新的域名，有变化就开 PR 到 `main`，合并后生效。
 
 ## 规则列表
 
@@ -107,7 +107,7 @@ rules:
 - 雪盈证券只收 `snowballsecurities.com`。`xueqiu.com`、`imedao.com` 是雪球 App 和内地券商 A 股交易共用的，`danjuanfunds.com` 等属于内地蛋卷基金，都不收录；
 - 华泰国际只收香港站 `htsc.com.hk`，不收内地华泰证券的 `htsc.com.cn`；
 - 券商境内技术公司的 `.cn` 域名（如富途 `futu.cn`、老虎 `tigerbbs.cn`、长桥 `longbridge.cn`）是券商自家 App 在用的，予以保留；
-- 每次生成都会和 v2fly `category-securities-cn`（内地证券公司列表）比对：命中的条目自动剔除并在 Actions 里给出警告；这份黑名单拉取失败时，本次不发布任何规则。
+- 每次生成都会和 v2fly `category-securities-cn`（内地证券公司列表）比对：命中的条目自动剔除并在构建输出里给出警告；这份黑名单拉取失败时，本次不发布任何规则。
 
 ## 数据来源
 
@@ -128,7 +128,7 @@ rules:
 - 过于宽泛的后缀（如 `amazonaws.com`、`myqcloud.com`、`udesk.cn`）会被拒绝，避免把无关流量带进去，列表见 `global_deny_suffix`；
 - **平台一一对应**：blackmatrix7、forecho 这类按客户端分别发布文件的上游，Surge 版只取对方的 Surge 文件、Shadowrocket 版只取对方的 Shadowrocket 文件、Clash 版只取对方的 Clash 文件；v2fly、RIPEstat 和手工条目不分平台，三个平台共用；
 - 上游 regexp 规则 Clash 和 Surge 无法通用，所以跳过；
-- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在 Actions 里给出警告；
+- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在构建输出里给出警告；
 - 只在规则内容真正变化时才重写文件，所以文件头里的 `UPDATED` 就是规则最后一次变化的时间。
 
 ## 本地运行
@@ -161,7 +161,7 @@ python3 scripts/build.py
 }
 ```
 
-推送到 `main` 后会自动触发重新生成。也可以在 Actions 页面手动运行 **Update rulesets**。
+改完配置后，在本目录运行 `python3 scripts/build.py` 重新生成，再把配置和生成的文件一起提交（`main` 上不会自动重新生成）。
 
 ## License
 

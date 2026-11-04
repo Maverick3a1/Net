@@ -351,7 +351,7 @@
 
     // forecho Broker.list 里不属于上面任何一个 conf 的规则：多家券商 App 共用的 SDK
     // （_shared.conf）、腾讯云 / 阿里云 / AWS 网段（_ip.conf），以及 forecho 以后新增、
-    // 这里还没对应的券商（Actions 日志会列出来，再按需拆成单独的条目）
+    // 这里还没对应的券商（构建输出会列出来，再按需拆成单独的条目）
     {
       "name": "BrokerShared",
       "description": "券商 App 共用 SDK 域名和云服务器 IP",

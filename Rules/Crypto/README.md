@@ -2,7 +2,7 @@
 
 全球主流加密货币交易所（Binance、OKX、Bybit、Coinbase、Bitget、Upbit、Gate、MEXC、HTX、KuCoin、Kraken、Crypto.com、Bithumb、BingX、Bitfinex、Bitstamp、Gemini、bitFlyer、Deribit、Hyperliquid）的 **Clash / Surge / Shadowrocket 分流规则集**。
 
-GitHub Actions 每天 **北京时间 03:00** 自动运行：重新拉取各交易所的域名和 IP 段，只要有变化就提交。
+Claude 云端定时任务每周一 **北京时间 03:30** 自动运行：重新拉取各交易所的域名和 IP 段，再搜索、核实新的域名，有变化就开 PR 到 `main`，合并后生效。
 
 ## 规则列表
 
@@ -121,7 +121,7 @@ rules:
 - 过于宽泛的后缀（如 `amazonaws.com`、`cloudflare.net`、`github.io`、`onelink.me`）会被拒绝，避免把无关流量带进去，列表见 `global_deny_suffix`；
 - **平台一一对应**：blackmatrix7 按客户端分别发布文件，Surge 版只取对方的 Surge 文件、Shadowrocket 版只取对方的 Shadowrocket 文件、Clash 版只取对方的 Clash 文件；v2fly、RIPEstat 和手工条目不分平台，三个平台共用；
 - 上游 regexp 规则 Clash 和 Surge 无法通用，所以跳过；
-- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在 Actions 里给出警告；
+- **防误删**：某个数据源拉取失败，或者某个规则集一次缩水超过 50%，就保留上一版文件，并在构建输出里给出警告；
 - 只在规则内容真正变化时才重写文件，所以文件头里的 `UPDATED` 就是规则最后一次变化的时间。
 
 ## 本地运行
@@ -153,7 +153,7 @@ python3 scripts/build.py
 }
 ```
 
-推送到 `main` 后会自动触发重新生成。也可以在 Actions 页面手动运行 **Update rulesets**。
+改完配置后，在本目录运行 `python3 scripts/build.py` 重新生成，再把配置和生成的文件一起提交（`main` 上不会自动重新生成）。
 
 ## License
 

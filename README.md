@@ -15,7 +15,7 @@
 
 每个分类另有一个 `<分类>_Reject`：从该分类所有规则里拉出来的广告 / 跟踪 / 遥测条目，配 `REJECT`，放在 `<分类>_All` 前面。
 
-GitHub Actions（[`update-rulesets.yml`](.github/workflows/update-rulesets.yml)）每天 **北京时间 03:00** 依次运行每个 `Rules/<name>/scripts/build.py`，规则有变化才提交；某个目录构建失败不影响其他目录。新增规则目录只要放好 `scripts/build.py`，就会自动纳入。
+Claude 云端定时任务每周一凌晨（北京时间）分别处理一个目录：Bank 02:00、Broker 02:30、AI 03:00、Crypto 03:30。每个任务先运行该目录的 `scripts/build.py` 刷新上游，再搜索并核实新的域名，有变化就开 PR 到 `main`，合并后生效。任务的提示词保存在 claude.ai 的定时任务里，不在仓库中。新增规则目录需要另建一个对应的定时任务；`Rules/Personal` 没有 `build.py`，需要手动维护。
 
 所有上游每次构建都会重新拉取：
 
