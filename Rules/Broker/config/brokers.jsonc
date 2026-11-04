@@ -370,13 +370,11 @@
   },
 
   // ================================================================
-  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 Broker_Reject，配 REJECT。
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，写进 Rules/Reject 里各平台共用的 Reject（Broker 段），配 REJECT。
   // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
   // 来自 forecho（AppsFlyer、moomoo 采集入口）和 blackmatrix7 TigerFintech（play-analytics.com）
   // ================================================================
   "reject": {
-    "name": "Broker_Reject",
-    "description": "Ads, tracking and telemetry from the broker rules above",
     "domain_suffix": [
       "appsflyersdk.com",
       "play-analytics.com"

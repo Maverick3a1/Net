@@ -1,0 +1,88 @@
+# NAME: Reject
+# DESC: Ads, tracking and telemetry pulled out of every category under Rules/
+# FORMAT: Surge RULE-SET
+# SOURCE: Rules/<category>/scripts/build.py (see each category's README)
+# ============================================================
+# AI / OpenAI
+# OpenAI: ChatGPT, Sora, Codex, OpenAI API
+# ============================================================
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,openai.qualtrics.com
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN,o33249.ingest.us.sentry.io
+
+# ============================================================
+# AI / Copilot
+# Microsoft Copilot and GitHub Copilot
+# ============================================================
+DOMAIN,copilot-telemetry.githubusercontent.com
+DOMAIN,copilot-telemetry-service.githubusercontent.com
+
+# ============================================================
+# Bank / HSBC
+# HSBC 汇丰银行（香港）
+# ============================================================
+DOMAIN-SUFFIX,hsbcdigital.siteintercept.qualtrics.com
+DOMAIN-SUFFIX,tealiumiq.com
+DOMAIN,mobile.eum-appdynamics.com
+DOMAIN,cdn.optimizely.com
+DOMAIN,tags.tiqcdn.com
+DOMAIN,c-hsbc.lytics.io
+
+# ============================================================
+# Bank / ZABank
+# ZA Bank 众安银行
+# ============================================================
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN,app-measurement.com
+
+# ============================================================
+# Bank / EleBank
+# EleBank 大象银行（原 Airstar Bank 天星银行）
+# ============================================================
+DOMAIN-SUFFIX,appsflyersdk.com
+
+# ============================================================
+# Bank / AntBank
+# Ant Bank (Hong Kong) 蚂蚁银行（香港）
+# ============================================================
+DOMAIN,ant-hkbank-linkd.cn-hongkong.log.aliyuncs.com
+
+# ============================================================
+# Bank / Wise
+# Wise（原 TransferWise）
+# ============================================================
+DOMAIN,api.mixpanel.com
+
+# ============================================================
+# Broker / Futu
+# 富途证券: 富途牛牛, moomoo
+# ============================================================
+DOMAIN,collect.us.moomoocrypto.com
+
+# ============================================================
+# Broker / Tiger
+# 老虎证券: Tiger Trade, Tiger Brokers
+# ============================================================
+DOMAIN-SUFFIX,play-analytics.com
+
+# ============================================================
+# Broker / BrokerShared
+# 券商 App 共用 SDK 域名和云服务器 IP
+# ============================================================
+DOMAIN-SUFFIX,9oju31.launches.appsflyersdk.com
+DOMAIN-SUFFIX,sgqt0j.launches.appsflyersdk.com
+
+# ============================================================
+# Crypto / Binance
+# Binance, Binance.US, BNB Chain
+# ============================================================
+DOMAIN-SUFFIX,appsflayer.com
+DOMAIN,zftksc.cdn-settings.appsflyersdk.com
+DOMAIN,zftksc.launches.appsflyersdk.com
+
+# ============================================================
+# Crypto / MEXC
+# MEXC
+# ============================================================
+DOMAIN-SUFFIX,mexcsensors.com

@@ -38,12 +38,11 @@ Claude 云端定时任务每周一 **北京时间 02:00** 自动运行：重新�
 | **AntBank** | Ant Bank (Hong Kong) 蚂蚁银行（香港） | 2 | 0 | [RULE-SET](Surge/AntBank.list) · [DOMAIN-SET](Surge/AntBank_Domain.list) | [RULE-SET](Shadowrocket/AntBank.list) · [DOMAIN-SET](Shadowrocket/AntBank_Domain.list) | [classical](Clash/AntBank.yaml) · [domain](Clash/AntBank_Domain.yaml) |
 | **Wise** | Wise（原 TransferWise） | 4 | 0 | [RULE-SET](Surge/Wise.list) · [DOMAIN-SET](Surge/Wise_Domain.list) | [RULE-SET](Shadowrocket/Wise.list) · [DOMAIN-SET](Shadowrocket/Wise_Domain.list) | [classical](Clash/Wise.yaml) · [domain](Clash/Wise_Domain.yaml) |
 | **Bank_All** | All banks above combined | 118 | 59 | [RULE-SET](Surge/Bank_All.list) · [DOMAIN-SET](Surge/Bank_All_Domain.list) | [RULE-SET](Shadowrocket/Bank_All.list) · [DOMAIN-SET](Shadowrocket/Bank_All_Domain.list) | [classical](Clash/Bank_All.yaml) · [domain](Clash/Bank_All_Domain.yaml) · [ipcidr](Clash/Bank_All_IP.yaml) |
-| **Bank_Reject** | Ads, tracking and telemetry from the bank rules above | 11 | 0 | [RULE-SET](Surge/Bank_Reject.list) · [DOMAIN-SET](Surge/Bank_Reject_Domain.list) | [RULE-SET](Shadowrocket/Bank_Reject.list) · [DOMAIN-SET](Shadowrocket/Bank_Reject_Domain.list) | [classical](Clash/Bank_Reject.yaml) · [domain](Clash/Bank_Reject_Domain.yaml) |
 <!-- RULES:END -->
 
 `Bank_All` 是以上所有银行（含 Wise）的合集，一条规则全部覆盖。
 
-`Bank_Reject` 是从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目：上游自己标记的（v2fly `@ads` / `@telemetry`），以及 [`config`](config) 里 `reject` 列出的域名。这些条目只出现在 `Bank_Reject` 里，不再出现在各自的规则和 `Bank_All` 里。`Bank_Reject` 配 `REJECT`，放在 `Bank_All` 前面。
+从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目（上游自己标记的 v2fly `@ads` / `@telemetry`，以及 [`config`](config) 里 `reject` 列出的域名）不出现在各自的规则和 `Bank_All` 里，而是写进 [`Rules/Reject`](../Reject) 里所有分类共用的 `Reject`（Bank 段）。`Reject` 配 `REJECT`，放在 `Bank_All` 前面。
 
 ## 文件格式
 
@@ -65,7 +64,7 @@ Claude 云端定时任务每周一 **北京时间 02:00** 自动运行：重新�
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/Bank_Reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Surge/Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/Bank_All.list,Bank
 # 或者按银行分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge/HSBC.list,HK
@@ -77,7 +76,7 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Surge
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Shadowrocket/Bank_Reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Shadowrocket/Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Shadowrocket/Bank_All.list,Bank
 # 也可以按银行分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Shadowrocket/HSBC.list,HK
@@ -91,12 +90,12 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Shado
 
 ```yaml
 rule-providers:
-  Bank_Reject:
+  Reject:
     type: http
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Bank/Clash/Bank_Reject.yaml
-    path: ./ruleset/Bank_Reject.yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Clash/Reject.yaml
+    path: ./ruleset/Reject.yaml
     interval: 86400
   Bank_All:
     type: http
@@ -107,7 +106,7 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,Bank_Reject,REJECT
+  - RULE-SET,Reject,REJECT
   - RULE-SET,Bank_All,Bank
 ```
 
@@ -115,10 +114,10 @@ rules:
 
 | 类型 | 来源 |
 | --- | --- |
-| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`hsbc`、`standardchartered`、`wise`），去掉标记为 `@cn` 的条目；标记为 `@ads` / `@telemetry` 的放进 `Bank_Reject`，以及 `hsbc-cn` 里的内地域名 |
+| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`hsbc`、`standardchartered`、`wise`），去掉标记为 `@cn` 的条目；标记为 `@ads` / `@telemetry` 的放进 `Reject`，以及 `hsbc-cn` 里的内地域名 |
 | 域名 | [`config/banks.jsonc`](config/banks.jsonc) 中手工维护的条目（取自各行官网首页实际引用的主机名，如 Wise 自有的 CloudFront 分发） |
 | 域名 | 社区规则（[klchai/personal-rule](https://github.com/klchai/personal-rule)、[gz4zzxc/rule](https://github.com/gz4zzxc/rule)、[LeventLei/shadowrocket-rules](https://github.com/LeventLei/shadowrocket-rules) 等）和 [crt.sh](https://crt.sh/) 证书透明度记录里证书 O= 为该银行的域名；逐个核实证书归属 / 跳转后才收录，停放域名、同名的其他公司、内地业务、证券 / 保险子公司一律不收 |
-| 域名 | [forecho/broker-rules](https://github.com/forecho/broker-rules)：`Bank` 规则按平台分别取 `rule/Surge/Bank.list`、`rule/Shadowrocket/Bank.list`、`rule/Clash/Bank.yaml`，再按对方 `Source/bank/*.conf` 拆到 HSBC、众安、大象、Wise。其中的埋点 / 统计域名放进 `Bank_Reject` |
+| 域名 | [forecho/broker-rules](https://github.com/forecho/broker-rules)：`Bank` 规则按平台分别取 `rule/Surge/Bank.list`、`rule/Shadowrocket/Bank.list`、`rule/Clash/Bank.yaml`，再按对方 `Source/bank/*.conf` 拆到 HSBC、众安、大象、Wise。其中的埋点 / 统计域名放进 `Reject` |
 | IP | [RIPEstat](https://stat.ripe.net/) 查询各行香港实体的自有 ASN 实际宣告的网段：HSBC `AS9221`、渣打 `AS24112` / `AS38166`、中银香港 `AS24396`、东亚 `AS137452`、星展香港 `AS133852`、花旗香港 `AS24568`、工银亚洲 `AS17487`、建行亚洲 `AS38475`、华侨香港 `AS4828`、南商 `AS152712`、交行香港 `AS133926`、WeLab `AS150700`、Wise `AS208550`（WeLab、Wise 目前没有宣告网段，有了会自动收录） |
 
 注意事项：
@@ -126,7 +125,7 @@ rules:
 - 中资行的母行域名（`ccb.com`、`bankcomm.com`、`icbc.com.cn` 等）是内地业务，只收录香港子域名或个别网银主机，并列入 `global_deny_suffix` 防止误收；
 - 恒生中国 `hangseng.com.cn`、集友内地 `cybchina.com.cn`、汇丰中国 `hsbc.com.cn` 等内地域名不收录；
 - HSBC 的 v2fly 列表包含汇丰各国站点（如 `hsbc.co.uk`），一并收录；
-- forecho 的银行规则带有 App 依赖的第三方 SDK：埋点 / 统计类（AppsFlyer、Firebase `crashlytics.com` / `app-measurement.com`、Mixpanel、Tealium、Lytics、Optimizely、AppDynamics）放进 `Bank_Reject`；风控 / 客服类（ThreatMetrix `online-metrix.net`、BioCatch `we-stats.com`、AWS WAF、LivePerson）银行会核对它们的出口 IP，保留在 `Bank_All`。forecho 的规则里如果出现没对应到任何银行的 conf，构建输出会给出警告；
+- forecho 的银行规则带有 App 依赖的第三方 SDK：埋点 / 统计类（AppsFlyer、Firebase `crashlytics.com` / `app-measurement.com`、Mixpanel、Tealium、Lytics、Optimizely、AppDynamics）放进 `Reject`；风控 / 客服类（ThreatMetrix `online-metrix.net`、BioCatch `we-stats.com`、AWS WAF、LivePerson）银行会核对它们的出口 IP，保留在 `Bank_All`。forecho 的规则里如果出现没对应到任何银行的 conf，构建输出会给出警告；
 - 共用 CDN（支付宝 `alipayobjects.com`、Contentful `ctfassets.net` 等）不收录；
 - 校验域名 / CIDR 格式，被上级后缀覆盖的条目自动去重，IP 段自动合并；
 - **平台一一对应**：blackmatrix7、forecho 这类按客户端分别发布文件的上游，Surge 版只取对方的 Surge 文件、Shadowrocket 版只取对方的 Shadowrocket 文件、Clash 版只取对方的 Clash 文件；v2fly、RIPEstat 和手工条目不分平台，三个平台共用；

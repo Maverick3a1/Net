@@ -172,13 +172,11 @@
   },
 
   // ================================================================
-  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 AI_Reject，配 REJECT。
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，写进 Rules/Reject 里各平台共用的 Reject（AI 段），配 REJECT。
   // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
   // 目前全部来自 v2fly 的 @ads / @telemetry 标记（OpenAI 的 Datadog / Sentry / Qualtrics、Copilot 遥测）
   // ================================================================
   "reject": {
-    "name": "AI_Reject",
-    "description": "Ads, tracking and telemetry from the AI rules above",
     "domain_suffix": [],
     "domain": []
   }

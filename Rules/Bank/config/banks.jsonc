@@ -55,7 +55,7 @@
       // "hsbc" 是 .hsbc 顶级域，不是合法后缀规则
       "exclude": ["hsbc", "hsbc.com.cn", "hsbcqh.com.cn", "hsbcinsurance.com.cn"],
       // hsbcpb.com 汇丰私人银行、hsbckinetic.co.uk 汇丰英国商业银行 App（TLS 证书均属 HSBC Group）；
-      // hsbcdigital 是 HSBC 网银内嵌的 Qualtrics 问卷（会进 Bank_Reject）
+      // hsbcdigital 是 HSBC 网银内嵌的 Qualtrics 问卷（会进 Rules/Reject）
       // hsbc.hk 跳转到 hsbc.com.hk（证书属汇丰香港）
       "domain_suffix": ["hsbc.hk", "hsbcpb.com", "hsbckinetic.co.uk", "hsbcdigital.siteintercept.qualtrics.com"],
       // HSBC 自有的 Azure CDN 存储（来自 klchai/personal-rule）
@@ -288,7 +288,7 @@
       "sources": [],
       // 静态资源走支付宝共用 CDN（alipayobjects.com），不收录
       "domain_suffix": ["antbank.hk"],
-      // 蚂蚁银行自己的 CDN 和日志入口（来自 LeventLei/shadowrocket-rules；日志会进 Bank_Reject）
+      // 蚂蚁银行自己的 CDN 和日志入口（来自 LeventLei/shadowrocket-rules；日志会进 Rules/Reject）
       "domain": ["antbank-cdn.marmot-cloud.com", "ant-hkbank-linkd.cn-hongkong.log.aliyuncs.com"]
     },
 
@@ -318,14 +318,12 @@
   },
 
   // ================================================================
-  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，合并成一个 Bank_Reject，配 REJECT。
+  // 拒绝列表：从以上所有规则里拉出来的广告 / 跟踪 / 遥测条目，写进 Rules/Reject 里各平台共用的 Reject（Bank 段），配 REJECT。
   // 命中 v2fly_reject_attrs，或等于 / 属于下面域名的条目，会从各自的规则里移到这里。
   // 来自 forecho 的银行 App SDK。ThreatMetrix（online-metrix.net）、BioCatch（we-stats.com）、
   // AWS WAF、LivePerson 是风控 / 客服，银行会核对它们的出口 IP，不放进拒绝列表
   // ================================================================
   "reject": {
-    "name": "Bank_Reject",
-    "description": "Ads, tracking and telemetry from the bank rules above",
     "domain_suffix": [
       "app-measurement.com",
       "appsflyersdk.com",

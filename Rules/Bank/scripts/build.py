@@ -20,6 +20,11 @@ CLASH_DIR = ROOT / "Clash"
 SURGE_DIR = ROOT / "Surge"
 SHADOWROCKET_DIR = ROOT / "Shadowrocket"
 README = ROOT / "README.md"
+CATEGORY = ROOT.name
+
+# Shared Rules/Reject/<Platform>/Reject.* lists, one section per category
+sys.path.insert(0, str(ROOT.parent / "Reject" / "scripts"))
+import reject as shared_reject  # noqa: E402
 
 V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
 RIPE_PREFIXES = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{}"
@@ -607,16 +612,14 @@ def main():
     elif agg:
         warn(f"{agg['name']}: skipped because {', '.join(failed)} failed")
 
-    # Ads / tracking / telemetry pulled out of every entry, as one REJECT list per category
-    rej_cfg = cfg.get("reject")
-    if rej_cfg and not failed:
-        log(f"[{rej_cfg['name']}]")
-        rs, sections = combine(rejects)
-        log(f"  total: {len(surge_rules(rs['Surge']))} rules")
-        render(rej_cfg["name"], rej_cfg["description"], rs, sections)
-        built.append((rej_cfg["name"], rej_cfg["description"], rs))
-    elif rej_cfg:
-        warn(f"{rej_cfg['name']}: skipped because {', '.join(failed)} failed")
+    # Ads / tracking / telemetry pulled out of every entry go to the shared Rules/Reject lists,
+    # as this category's section; the other categories' sections are left alone.
+    if cfg.get("reject") is not None and not failed:
+        log(f"[Reject: {CATEGORY}]")
+        _, sections = combine(rejects)
+        shared_reject.update(CATEGORY, {p: [(n, d, surge_rules(part)) for n, d, part in sections[p]] for p in PLATFORMS}, log)
+    elif cfg.get("reject") is not None:
+        warn(f"Reject: {CATEGORY} section kept because {', '.join(failed)} failed")
 
     if not failed:
         update_readme(built)

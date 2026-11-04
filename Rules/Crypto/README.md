@@ -30,12 +30,11 @@ Claude 云端定时任务每周一 **北京时间 03:30** 自动运行：重新�
 | **Deribit** | Deribit | 2 | 5 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Deribit.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Deribit_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Deribit.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Deribit_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Deribit.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Deribit_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Deribit_IP.yaml) |
 | **Hyperliquid** | Hyperliquid | 1 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Hyperliquid.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Hyperliquid_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Hyperliquid.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Hyperliquid_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Hyperliquid.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Hyperliquid_Domain.yaml) |
 | **Crypto_All** | All exchanges above combined | 140 | 10 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_All_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_All_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All_IP.yaml) |
-| **Crypto_Reject** | Ads, tracking and telemetry from the exchange rules above | 4 | 0 | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_Reject_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_Reject.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_Reject_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_Reject.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_Reject_Domain.yaml) |
 <!-- RULES:END -->
 
 `Crypto_All` 是以上所有交易所的合集，一条规则全部覆盖。
 
-`Crypto_Reject` 是从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目：上游自己标记的（v2fly `@ads` / `@telemetry`），以及 [`config`](config) 里 `reject` 列出的域名。这些条目只出现在 `Crypto_Reject` 里，不再出现在各自的规则和 `Crypto_All` 里。`Crypto_Reject` 配 `REJECT`，放在 `Crypto_All` 前面。
+从以上规则里拉出来的**广告 / 跟踪 / 遥测**条目（上游自己标记的 v2fly `@ads` / `@telemetry`，以及 [`config`](config) 里 `reject` 列出的域名）不出现在各自的规则和 `Crypto_All` 里，而是写进 [`Rules/Reject`](../Reject) 里所有分类共用的 `Reject`（Crypto 段）。`Reject` 配 `REJECT`，放在 `Crypto_All` 前面。
 
 ## 文件格式
 
@@ -57,7 +56,7 @@ Claude 云端定时任务每周一 **北京时间 03:30** 自动运行：重新�
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_Reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Surge/Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Crypto_All.list,Crypto
 # 或者按交易所分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Surge/Binance.list,JP
@@ -69,7 +68,7 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Sur
 
 ```ini
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_Reject.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Shadowrocket/Reject.list,REJECT
 RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_All.list,Crypto
 # 也可以按交易所分开：
 # RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Binance.list,JP
@@ -83,12 +82,12 @@ RULE-SET,https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Sha
 
 ```yaml
 rule-providers:
-  Crypto_Reject:
+  Reject:
     type: http
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_Reject.yaml
-    path: ./ruleset/Crypto_Reject.yaml
+    url: https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Reject/Clash/Reject.yaml
+    path: ./ruleset/Reject.yaml
     interval: 86400
   Crypto_All:
     type: http
@@ -99,7 +98,7 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,Crypto_Reject,REJECT
+  - RULE-SET,Reject,REJECT
   - RULE-SET,Crypto_All,Crypto
 ```
 
@@ -107,7 +106,7 @@ rules:
 
 | 类型 | 来源 |
 | --- | --- |
-| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`binance`、`okx`、`bybit`、`gateio`、`huobi`、`kucoin`、`kraken`、`bitflyer`、`deribit`），去掉标记为 `@cn` 的条目；标记为 `@ads` / `@telemetry` 的放进 `Crypto_Reject` |
+| 域名 | [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)（`binance`、`okx`、`bybit`、`gateio`、`huobi`、`kucoin`、`kraken`、`bitflyer`、`deribit`），去掉标记为 `@cn` 的条目；标记为 `@ads` / `@telemetry` 的放进 `Reject` |
 | 域名 | [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)（`Binance`、`OKX`，按平台分别取 `rule/Surge`、`rule/Shadowrocket`、`rule/Clash`） |
 | 域名 | [`config/exchanges.jsonc`](config/exchanges.jsonc) 中手工维护的条目（v2fly 没有单独列表的交易所，以及从官网实际引用的资源域名中补充的 CDN / 区域站） |
 | 域名 | 对照 v2fly `category-cryptocurrency`、blackmatrix7、ACL4SSR、GeQ1an 和社区规则（[smllbboomm/Crypto-Rules](https://github.com/smllbboomm/Crypto-Rules)、[lyq3/proxy-rules](https://github.com/lyq3/proxy-rules) 等），以及 [crt.sh](https://crt.sh/) 证书透明度记录找出的遗漏；逐个核实证书 / 跳转 / 页面后才收录，停放或出售的同名域名、区块浏览器等第三方服务一律不收 |

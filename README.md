@@ -4,16 +4,17 @@
 
 ## 规则集
 
-| 目录 | 内容 | 合集 / 拒绝规则 |
+| 目录 | 内容 | 合集 |
 | --- | --- | --- |
-| [Rules/AI](Rules/AI) | 美国主流 AI 服务（OpenAI、Anthropic、xAI、Gemini、Perplexity、Copilot、Meta AI） | `AI_All`、`AI_Reject` |
-| [Rules/Bank](Rules/Bank) | 香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）和 Wise | `Bank_All`、`Bank_Reject` |
-| [Rules/Broker](Rules/Broker) | 互联网港美股券商（富途、老虎、长桥、盈透、嘉信等）、TradingView、券商共用 SDK / IP | `Broker_All`、`Broker_Reject` |
-| [Rules/Crypto](Rules/Crypto) | 全球主流加密货币交易所（Binance、OKX、Coinbase 等） | `Crypto_All`、`Crypto_Reject` |
+| [Rules/AI](Rules/AI) | 美国主流 AI 服务（OpenAI、Anthropic、xAI、Gemini、Perplexity、Copilot、Meta AI） | `AI_All` |
+| [Rules/Bank](Rules/Bank) | 香港银行（发钞行、本地 / 中资 / 外资零售银行、虚拟银行）和 Wise | `Bank_All` |
+| [Rules/Broker](Rules/Broker) | 互联网港美股券商（富途、老虎、长桥、盈透、嘉信等）、TradingView、券商共用 SDK / IP | `Broker_All` |
+| [Rules/Crypto](Rules/Crypto) | 全球主流加密货币交易所（Binance、OKX、Coinbase 等） | `Crypto_All` |
+| [Rules/Reject](Rules/Reject) | 从以上所有分类拉出来的广告 / 跟踪 / 遥测条目 | `Reject` |
 
 每个目录下都有 `Surge/`、`Shadowrocket/`（RULE-SET / DOMAIN-SET）和 `Clash/`（classical / domain / ipcidr）三套文件，合集规则统一以 `_All` 结尾，具体规则列表和用法见各目录的 README。
 
-每个分类另有一个 `<分类>_Reject`：从该分类所有规则里拉出来的广告 / 跟踪 / 遥测条目，配 `REJECT`，放在 `<分类>_All` 前面。
+各分类里的广告 / 跟踪 / 遥测条目统一放进 [`Rules/Reject`](Rules/Reject)：每个平台只有一个 `Reject` 文件（`Surge/Reject.list`、`Shadowrocket/Reject.list`、`Clash/Reject.yaml`），按分类分段，配 `REJECT`，放在各个 `_All` 前面。
 
 Claude 云端定时任务每周一凌晨（北京时间）分别处理一个目录：Bank 02:00、Broker 02:30、AI 03:00、Crypto 03:30。每个任务先运行该目录的 `scripts/build.py` 刷新上游，再搜索并核实新的域名，有变化就开 PR 到 `main`，合并后生效。任务的提示词保存在 claude.ai 的定时任务里，不在仓库中。新增规则目录需要另建一个对应的定时任务；`Rules/Personal` 没有 `build.py`，需要手动维护。
 
