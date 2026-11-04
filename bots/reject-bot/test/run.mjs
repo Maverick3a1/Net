@@ -144,7 +144,13 @@ let item = JSON.parse(kv.get(`item:${id}`));
 assert.deepEqual(item.verdict.candidates[1].suggestions.map((x) => x.target), ["AI/OpenAI", "Reject"]);
 assert.equal(item.verdict.candidates[3].decision.status, "skipped", "no suggestion -> nothing to pick");
 const kb = sent.filter((x) => x.method === "sendMessage").at(-1).body.reply_markup.inline_keyboard;
-assert.deepEqual(kb[1].map((b) => b.text), ["2 → AI/OpenAI", "2 → Reject", "跳过 2"]);
+assert(kb.every((row) => row.length === 1), "one button per row");
+assert.deepEqual(kb.map((row) => row[0].text), [
+  "1 → Reject", "跳过 1",
+  "2 → AI/OpenAI", "2 → Reject", "跳过 2",
+  "3 → Reject", "跳过 3",
+  "全部按首选（不含疑似）", "全部跳过",
+]);
 assert.deepEqual((await (await api("GET", "/api/pending")).json()).map((q) => q.id).includes(id), false, "judged items leave the queue");
 assert.equal((await (await api("POST", `/api/verdict/${id}`, { candidates: [] })).json()).error, "item is judged");
 
@@ -211,7 +217,7 @@ const sItem = JSON.parse(kv.get(`item:${sid}`));
 assert.deepEqual(sItem.verdict.candidates[1].suggestions.map((x) => [x.target, x.suspected]), [["Reject", false], ["Bank/BOCHK", true]]);
 const sMsg = sent.filter((x) => x.method === "sendMessage").at(-1).body;
 assert.match(sMsg.text, /疑似（未证实，由你决定）：Bank\/BOCHK（证书无法获取）/);
-assert.deepEqual(sMsg.reply_markup.inline_keyboard[0].map((b) => b.text), ["1 → Bank/BOCHK（疑似）", "跳过 1"]);
+assert.deepEqual(sMsg.reply_markup.inline_keyboard.slice(0, 2).map((row) => row.map((b) => b.text)), [["1 → Bank/BOCHK（疑似）"], ["跳过 1"]]);
 const commitsBefore = commits.length;
 await hook({ callback_query: { id: "q9", from: { id: OWNER }, data: `F:${sid}` } });
 let after = JSON.parse(kv.get(`item:${sid}`));

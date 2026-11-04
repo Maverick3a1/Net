@@ -404,25 +404,29 @@ function verdictText(item) {
   return lines.join("\n").slice(0, 4000);
 }
 
+// One button per row so long targets like "1 → Bank/StandardChartered（疑似）" are readable.
+// Telegram allows at most 100 buttons per message; leave room for the two bulk buttons.
+const MAX_BUTTONS = 98;
+
 function keyboard(item) {
   const rows = [];
   const open = item.verdict.candidates.map((c, i) => [c, i]).filter(([c]) => !c.decision);
-  for (const [c, i] of open.slice(0, 30)) {
-    rows.push([
+  for (const [c, i] of open) {
+    const group = [
       ...c.suggestions.map((s, j) => ({
         text: `${i + 1} → ${s.target}${s.suspected ? "（疑似）" : ""}`,
         callback_data: `p:${item.id}:${i}:${j}`,
       })),
       { text: `跳过 ${i + 1}`, callback_data: `s:${item.id}:${i}` },
-    ]);
+    ];
+    if (rows.length + group.length > MAX_BUTTONS) break;
+    for (const b of group) rows.push([b]);
   }
   if (open.length > 1) {
-    const row = [];
     if (open.some(([c]) => c.suggestions.length && !c.suggestions[0].suspected)) {
-      row.push({ text: "全部按首选（不含疑似）", callback_data: `F:${item.id}` });
+      rows.push([{ text: "全部按首选（不含疑似）", callback_data: `F:${item.id}` }]);
     }
-    row.push({ text: "全部跳过", callback_data: `S:${item.id}` });
-    rows.push(row);
+    rows.push([{ text: "全部跳过", callback_data: `S:${item.id}` }]);
   }
   return { inline_keyboard: rows };
 }
