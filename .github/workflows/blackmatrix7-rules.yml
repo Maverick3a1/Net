@@ -1,0 +1,60 @@
+name: BlackMatrix7Rules
+
+on:
+  schedule:
+    # 17:00 UTC = 01:00 Asia/Shanghai (UTC+8). GitHub cron is always UTC.
+    - cron: "0 17 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "BlackMatrix7Rules/config/**"
+      - "BlackMatrix7Rules/scripts/**"
+      - ".github/workflows/blackmatrix7-rules.yml"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: blackmatrix7-rules
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Generate rule sets
+        run: python BlackMatrix7Rules/scripts/build.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add BlackMatrix7Rules
+          if git diff --cached --quiet; then
+            echo "Rule sets unchanged."
+            exit 0
+          fi
+          git commit -m "chore: update BlackMatrix7Rules $(TZ=Asia/Shanghai date +'%Y-%m-%d')"
+          # Other writers (Claude routines, the Telegram bot) push to main too.
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
+
+      # GitHub disables scheduled workflows after 60 days without repo activity;
+      # re-enabling keeps the daily run alive.
+      - name: Keep schedule alive
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/blackmatrix7-rules.yml/enable"

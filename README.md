@@ -12,6 +12,8 @@
 | [Rules/Crypto](Rules/Crypto) | 全球主流加密货币交易所（Binance、OKX、Coinbase 等） | `Crypto_All` |
 | [Rules/Reject](Rules/Reject) | 从以上所有分类拉出来的广告 / 跟踪 / 遥测条目 | `Reject` |
 
+另有 [BlackMatrix7Rules](BlackMatrix7Rules)：按 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的规则组织方式，从上游自行生成的 17 个规则集（Advertising、Lan、Global、Google、Apple、Microsoft 等），由 GitHub Actions 每天北京时间 01:00 更新。
+
 每个目录下都有 `Surge/`、`Shadowrocket/`（RULE-SET / DOMAIN-SET）和 `Clash/`（classical / domain / ipcidr）三套文件，合集规则统一以 `_All` 结尾，具体规则列表和用法见各目录的 README。
 
 各分类里的广告 / 跟踪 / 遥测条目统一放进 [`Rules/Reject`](Rules/Reject)：每个平台只有一个 `Reject` 文件（`Surge/Reject.list`、`Shadowrocket/Reject.list`、`Clash/Reject.yaml`），按分类分段，配 `REJECT`，放在各个 `_All` 前面。也可以把域名的文字或截图发给 [Telegram 机器人](bots/reject-bot)：Claude 会建议每个域名加到 `Rules/Reject` 还是某个分类条目（如 `AI/OpenAI`），你点按钮确认后直接写入 `main`。

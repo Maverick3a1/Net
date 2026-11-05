@@ -1,0 +1,5769 @@
+{
+ "_comment": [
+  "按 blackmatrix7/ios_rule_script 的规则组织方式生成（不复制它生成好的规则文件）。",
+  "outputs：要发布到 BlackMatrix7Rules/<名称>/<平台>/ 的规则集；rulesets：所有规则集的数据来源、包含的子规则、排除的规则（含 outputs 间接依赖的）。",
+  "快照取自各规则集 README 的「数据来源」「子规则/排除规则」，2026-11-05。",
+  "merge：各规则集 README 徽章标明的合并方式（DOMAIN 并入 SUFFIX、SUFFIX 间合并、DOMAIN 并入 KEYWORD、IP 段合并）。"
+ ],
+ "outputs": [
+  "Lan",
+  "Advertising",
+  "PayPal",
+  "LinkedIn",
+  "WeChat",
+  "DouYin",
+  "TikTok",
+  "Spotify",
+  "YouTube",
+  "Reddit",
+  "Google",
+  "Apple",
+  "Microsoft",
+  "Xbox",
+  "SteamCN",
+  "Steam",
+  "Global"
+ ],
+ "rulesets": {
+  "115": {
+   "title": "🧸 115",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/115.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "12306": {
+   "title": "🧸 12306",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/12306.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "17173": {
+   "title": "🧸 17173",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17173.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "178": {
+   "title": "🧸 178",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/178.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "17zuoye": {
+   "title": "🧸 一起作业",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17zuoye.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "360": {
+   "title": "🧸 奇虎360",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Qihoo360.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "36kr": {
+   "title": "🧸 36氪",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/36kr.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "3dm": {
+   "title": "🧸 3dm",
+   "sources": [
+    "https://rules.kr328.app/3dm.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "3Type": {
+   "title": "🧸 3Type",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "4399": {
+   "title": "🧸 4399",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/4399.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/4399.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "4Paradigm": {
+   "title": "🧸 4Paradigm",
+   "sources": [
+    "https://rules.kr328.app/4paradigm.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "51Job": {
+   "title": "🧸 前程无忧",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/51Job.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "51nod": {
+   "title": "🧸 51nod",
+   "sources": [
+    "https://rules.kr328.app/51nod.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "56": {
+   "title": "🧸 56网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/56.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "58TongCheng": {
+   "title": "🧸 58同城",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/58TongCheng.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "6JianFang": {
+   "title": "🧸 六间房",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/6JianFang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "8btc": {
+   "title": "🧸 8btc",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/8btc.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ABC": {
+   "title": "🧸 农业银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ABC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AcFun": {
+   "title": "🧸 AcFun",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AcFun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AdGuardSDNSFilter": {
+   "title": "🧸 AdGuardSDNSFilter",
+   "sources": [
+    "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": false
+   }
+  },
+  "Advertising": {
+   "title": "🧸 去广告",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list",
+    "https://raw.githubusercontent.com/NobyDa/ND-AD/master/Surge/AD_Block.txt",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/AdRule.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/Advertising.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/LianXiangJia/LianXiangJia.list",
+    "https://raw.githubusercontent.com/scomper/surge-list/master/reject.list",
+    "https://raw.githubusercontent.com/scomper/surge-list/master/adblock.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list",
+    "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Custom/ad-domains.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Custom/video-ad.list",
+    "https://raw.githubusercontent.com/an0na/R/master/Filter/AdBlock.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/AdReject.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/Hijacking.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list",
+    "https://raw.githubusercontent.com/yjqiang/surge_scripts/main/modules/hupu/hupu.sgmodule",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/AdBlock.list"
+   ],
+   "include": [
+    "AdvertisingLite",
+    "Hijacking",
+    "Privacy"
+   ],
+   "exclude": [
+    "Direct"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AdvertisingLite": {
+   "title": "🧸 去广告精简版",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list",
+    "https://raw.githubusercontent.com/NobyDa/ND-AD/master/Surge/AD_Block.txt",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/AdRule.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/Advertising.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/LianXiangJia/LianXiangJia.list",
+    "https://raw.githubusercontent.com/yjqiang/surge_scripts/main/modules/hupu/hupu.sgmodule"
+   ],
+   "include": [],
+   "exclude": [
+    "Hijacking",
+    "Privacy"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AdvertisingMiTV": {
+   "title": "🧸 小米电视去广告",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": false,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": false
+   }
+  },
+  "AdvertisingTest": {
+   "title": "🧸 去广告测试版",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list",
+    "https://raw.githubusercontent.com/NobyDa/ND-AD/master/Surge/AD_Block.txt",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/AdRule.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/Advertising.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Advertising/LianXiangJia/LianXiangJia.list",
+    "https://raw.githubusercontent.com/scomper/surge-list/master/reject.list",
+    "https://raw.githubusercontent.com/scomper/surge-list/master/adblock.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list",
+    "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Custom/ad-domains.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Custom/video-ad.list",
+    "https://raw.githubusercontent.com/an0na/R/master/Filter/AdBlock.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/AdReject.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/Hijacking.list",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRuleTest.list",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/AdRuleTest.list",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/adaway.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/neohosts-full.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/AdBlock.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/antiAD-V4.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/NormalApp/AppAdBlock.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/social-media-filter.txt",
+    "https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/dns-filter.txt",
+    "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+    "https://raw.githubusercontent.com/yjqiang/surge_scripts/main/modules/hupu/hupu.sgmodule",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt",
+    "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
+    "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Adblock/Adblock.list",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/AdBlock.list"
+   ],
+   "include": [
+    "AdGuardSDNSFilter",
+    "Advertising",
+    "AdvertisingLite",
+    "AdvertisingMiTV",
+    "EasyPrivacy",
+    "Hijacking",
+    "Privacy"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Agora": {
+   "title": "🧸 声网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Agora.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AiQiCha": {
+   "title": "🧸 爱企查",
+   "sources": [
+    "https://rules.kr328.app/aiqicha.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AirChina": {
+   "title": "🧸 中国国航",
+   "sources": [
+    "https://rules.kr328.app/airchina.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "aiXcoder": {
+   "title": "🧸 aiXcoder",
+   "sources": [
+    "https://rules.kr328.app/aixcoder.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Ali213": {
+   "title": "🧸 游侠网",
+   "sources": [
+    "https://rules.kr328.app/ali213.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Alibaba": {
+   "title": "🧸 阿里巴巴",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Alibaba.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Alibaba.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Alibaba.yaml",
+    "https://ruleset.isagood.day/alibaba.conf"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AliPay": {
+   "title": "🧸 支付宝",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AliPay.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AmazonCN": {
+   "title": "🧸 AmazonCN",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Anjuke": {
+   "title": "🧸 安居客",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Anjuke.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AnTianKeJi": {
+   "title": "🧸 安天科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AnTianKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Antutu": {
+   "title": "🧸 安兔兔",
+   "sources": [
+    "https://rules.kr328.app/antutu.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Apifox": {
+   "title": "🧸 Apifox",
+   "sources": [
+    "https://rules.kr328.app/apifox.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Apple": {
+   "title": "🧸 Apple",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/AppStore/AppStore.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/TestFlight/TestFlight.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AppleNews.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AppleTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Apple.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Apple.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Services/Apple.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/Apple-proxy.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/AppleBlock/AppleBlock.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Apple.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleFirmware.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleHardware.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleMedia.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Apple.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AppleNews.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AppleTV.yaml"
+   ],
+   "include": [
+    "AppStore",
+    "AppleFirmware",
+    "AppleHardware",
+    "AppleMail",
+    "AppleMedia",
+    "AppleMusic",
+    "AppleNews",
+    "AppleProxy",
+    "AppleTV",
+    "FindMy",
+    "FitnessPlus",
+    "Siri",
+    "TestFlight",
+    "iCloud",
+    "iCloudPrivateRelay"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleDaily": {
+   "title": "🧸 AppleDaily",
+   "sources": [
+    "https://rules.kr328.app/appledaily.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleFirmware": {
+   "title": "🧸 AppleFirmware",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleFirmware.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AppleHardware": {
+   "title": "🧸 AppleHardware",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleHardware.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AppleMail": {
+   "title": "🧸 AppleMail",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleMedia": {
+   "title": "🧸 AppleMedia",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Apple/AppleMedia.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "AppleMusic": {
+   "title": "🧸 AppleMusic",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleNews": {
+   "title": "🧸 AppleNews",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AppleNews.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AppleNews.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleProxy": {
+   "title": "🧸 AppleProxy",
+   "sources": [
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/Apple-proxy.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/AppleBlock/AppleBlock.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppleTV": {
+   "title": "🧸 AppleTV",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AppleTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AppleTV.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "AppStore": {
+   "title": "🧸 AppStore",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/AppStore/AppStore.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Baidu": {
+   "title": "🧸 百度",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Baidu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiDu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BaiDuTieBa": {
+   "title": "🧸 百度贴吧",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "BaiFenDian": {
+   "title": "🧸 百分点",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiFenDian.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BaiShanYunKeJi": {
+   "title": "🧸 白山耘科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiShanYunKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BaoFengYingYin": {
+   "title": "🧸 暴风影音",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaoFengYingYin.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BeStore": {
+   "title": "🧸 良品铺子",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BeStore.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "BesTV": {
+   "title": "🧸 BesTV",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BesTV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "BianFeng": {
+   "title": "🧸 边锋网络",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BianFeng.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BiliBili": {
+   "title": "🧸 BiliBili",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BiliBili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml",
+    "https://ruleset.isagood.day/bilibili.conf"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Bing": {
+   "title": "🧸 必应",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "BOC": {
+   "title": "🧸 中国银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "BOCOM": {
+   "title": "🧸 交通银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOCOM.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Bootcss": {
+   "title": "🧸 Bootcss",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Bootcss.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ByteDance": {
+   "title": "🧸 字节跳动",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/ByteDance/ByteDance.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ByteDance.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ByteDance.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Douyin.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/ByteDance.yaml"
+   ],
+   "include": [
+    "DouYin"
+   ],
+   "exclude": [
+    "TikTok"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CaiNiao": {
+   "title": "🧸 菜鸟裹裹",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiNiao.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CaiXinChuanMei": {
+   "title": "🧸 财新传媒",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiXinChuanMei.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Camera360": {
+   "title": "🧸 Camera360",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Camera360.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CAS": {
+   "title": "🧸 中国科学院文献情报中心",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CAS.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CCB": {
+   "title": "🧸 建设银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCB.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CCTV": {
+   "title": "🧸 CCTV",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CCTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCTV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CEB": {
+   "title": "🧸 光大银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CEB.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CETV": {
+   "title": "🧸 中国教育电视台",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CETV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "CGB": {
+   "title": "🧸 广发银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CGB.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChengTongWangPan": {
+   "title": "🧸 城通网盘",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChengTongWangPan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "China": {
+   "title": "🧸 China",
+   "sources": [
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/CN.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/China/China.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Mainland.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/China.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Mainland.list"
+   ],
+   "include": [],
+   "exclude": [
+    "PayPal",
+    "Proxy",
+    "Steam",
+    "SteamCN"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": false
+   }
+  },
+  "ChinaASN": {
+   "title": "🧸 ChinaASN",
+   "sources": [
+    "https://raw.githubusercontent.com/missuo/ASN-China/main/ASN.China.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ChinaIPs": {
+   "title": "🧸 ChinaIPs",
+   "sources": [
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt",
+    "https://raw.githubusercontent.com/Hackl0us/GeoIP2-CN/release/CN-ip-cidr.txt",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/ChinaIP.list",
+    "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic%20IPs.yaml",
+    "https://raw.githubusercontent.com/missuo/ASN-China/main/IP.China.list"
+   ],
+   "include": [
+    "ChinaASN"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": false
+   }
+  },
+  "ChinaIPsBGP": {
+   "title": "🧸 ChinaIPsBGP",
+   "sources": [
+    "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": false,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": false
+   }
+  },
+  "ChinaMax": {
+   "title": "🧸 国内网站/IP合集",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/DiDi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiDi.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Meitu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PDD.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sina.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Weibo/Weibo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sina.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Baidu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiDu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/360.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/4399.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/4399.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Vip.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Xiaomi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BiliBili.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/ByteDance/ByteDance.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ByteDance.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ByteDance.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/CN.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/China/China.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Mainland.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/China.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt",
+    "https://raw.githubusercontent.com/Hackl0us/GeoIP2-CN/release/CN-ip-cidr.txt",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/ChinaIP.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CCTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Xunlei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/HuaWei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaWei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Tencent.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Tencent.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/DomesticMedia.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEase.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Netease.list",
+    "https://raw.githubusercontent.com/Mazetsz/ACL4SSR/master/Clash/NetEaseCloudMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NeteaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Youku.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/Domestic/iQiyi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iQIYI.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Douyu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouYu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Ximalaya.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiMaLaYa.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Alibaba.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Alibaba.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/115.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/12306.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17173.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/178.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17zuoye.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/36kr.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/51Job.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/56.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/58TongCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ABC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Agora.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AliPay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AnTianKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Anjuke.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOCOM.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiFenDian.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaoFengYingYin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BianFeng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Bootcss.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CAS.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CEB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CGB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CIBN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CKJR.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNKI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNNIC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CSDN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AcFun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiNiao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiXinChuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Camera360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaMobile.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaNews.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaTelecom.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaUnicom.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChuangKeTie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChunYou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DaMai.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DanDanZan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dandanplay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DangDang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dedao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Deepin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiSiFanShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DianCeWangKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingTalk.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingXiangYuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Domob.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouBan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/EastMoney.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Eleme.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FanFou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FeiZhu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengHuangWang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengXiaWangLuo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Fiio.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Funshion.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/6JianFang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GaoDe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GuiGuDongLi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HaiNanHangKong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HanYi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HeMa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HibyMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuYa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaShuTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HunanTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Hupu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ICBC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JiGuangTuiSong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianGuoYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianShu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JinJiangWenXue.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JingDong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JueJin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Keep.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KingSmith.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kingsoft.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KouDaiShiShang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Ku6.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuKeMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiDi100.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiShou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuangShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kugou%26Kuwo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LanZouYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeJu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Lenovo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LuDaShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LvMiLianChuang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Maocloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiTuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiZu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MiWu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Migu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MingLueZhaoHui.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mogujie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mojitianqi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NGAA.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OPPO.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OnePlus.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OuPeng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PPTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PSBC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PingAn.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QiNiuYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Qihoo360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QingCloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/RuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SF-Express.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMZDM.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShangHaiJuXiao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Shanling.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShenMa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiNongZhiKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sohu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SouFang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuNing.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuiShiChuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TCL.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiKang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiheMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Teambition.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianTianKanKan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianWeiChengXin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianYaForum.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TigerFintech.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TongCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/U17.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UCloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UPYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UnionPay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vancl.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vivo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanMeiShiJie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangSuKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangXinKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WenJuanXing.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WiFiMaster.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiamiMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XianYu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoGouKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoYuanKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XieCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueErSi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueQiu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YYeTs.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiChe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiXiaKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiZhiBo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouMengChuangXiang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouZan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Youku%26Tudou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YuanFuDao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YunFanJiaSu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZDNS.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhangYue.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYunZhong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongGuoShiHua.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongWeiShiJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongYuanYiShang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhuanZhuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/hpplay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iFlytek.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ifanr.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CMB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiShanYunKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiLianWangLuo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WeiZhiYunDong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/8btc.list",
+    "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChengTongWangPan.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DuoWan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanKaHuanJu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYinManKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiJiChaoXing.list",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cernet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cernet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/chinanet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/chinanet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cmcc.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cmcc6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cstnet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cstnet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/drpeng.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/drpeng6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/unicom.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/unicom6.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WoLai.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic%20IPs.yaml",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Douyin.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/Government-CN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/XunLei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iflytek.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iqiyi.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kingsoft.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kuaishou.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/LeTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Marketing.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PPTVPPLive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TapTap.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Wechat.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YYeTs.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEaseMusic.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongXingTongXun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Geely.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FangZhengDianZi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BeStore.list",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/CMedia.list",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Mainland.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Alibaba.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/ByteDance.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Douyu.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HuaWei.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iflytek.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iqiyi.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kingsoft.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kuaishou.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Marketing.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Meitu.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEase.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/PPTVPPLive.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TapTap.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Tencent.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TencentVideo.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xunlei.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YYeTs.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Youku.yaml",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E5%9B%BD%E5%86%85%E7%94%B5%E8%A7%86%E5%8F%B02023.m3u8",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E8%BD%AE%E6%92%AD_%E5%8D%8E%E6%95%B0.%E9%BB%91%E8%8E%93.NewTV.SiTV.CIBN.m3u",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E9%87%8D%E5%BA%86%E5%B9%BF%E7%94%B5cqccn.m3u",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BesTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CETV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMG.list",
+    "https://ruleset.isagood.day/alibaba.conf",
+    "https://ruleset.isagood.day/bilibili.conf",
+    "https://raw.githubusercontent.com/missuo/ASN-China/main/IP.China.list"
+   ],
+   "include": [
+    "115",
+    "12306",
+    "17173",
+    "178",
+    "17zuoye",
+    "360",
+    "36kr",
+    "3Type",
+    "3dm",
+    "4399",
+    "4Paradigm",
+    "51Job",
+    "51nod",
+    "56",
+    "58TongCheng",
+    "6JianFang",
+    "8btc",
+    "ABC",
+    "AcFun",
+    "Agora",
+    "AiQiCha",
+    "AirChina",
+    "Ali213",
+    "AliPay",
+    "Alibaba",
+    "AmazonCN",
+    "AnTianKeJi",
+    "Anjuke",
+    "Antutu",
+    "Apifox",
+    "BOC",
+    "BOCOM",
+    "BaiDuTieBa",
+    "BaiFenDian",
+    "BaiShanYunKeJi",
+    "Baidu",
+    "BaoFengYingYin",
+    "BeStore",
+    "BesTV",
+    "BianFeng",
+    "BiliBili",
+    "Bootcss",
+    "ByteDance",
+    "CAS",
+    "CCB",
+    "CCTV",
+    "CEB",
+    "CETV",
+    "CGB",
+    "CIBN",
+    "CKJR",
+    "CMB",
+    "CNKI",
+    "CNNIC",
+    "CSDN",
+    "CaiNiao",
+    "CaiXinChuanMei",
+    "Camera360",
+    "ChengTongWangPan",
+    "China",
+    "ChinaASN",
+    "ChinaIPs",
+    "ChinaIPsBGP",
+    "ChinaMedia",
+    "ChinaMobile",
+    "ChinaNews",
+    "ChinaNoMedia",
+    "ChinaTelecom",
+    "ChinaTest",
+    "ChinaUnicom",
+    "ChuangKeTie",
+    "ChunYou",
+    "Coolapk",
+    "DaMai",
+    "DanDanZan",
+    "Dandanplay",
+    "DangDang",
+    "Dedao",
+    "Deepin",
+    "DiDi",
+    "DiLianWangLuo",
+    "DiSiFanShi",
+    "DianCeWangKe",
+    "DingTalk",
+    "DingXiangYuan",
+    "Domob",
+    "DouBan",
+    "DouYin",
+    "Douyu",
+    "DuoWan",
+    "EastMoney",
+    "Eleme",
+    "FanFou",
+    "FangZhengDianZi",
+    "FeiZhu",
+    "FengHuangWang",
+    "FengXiaWangLuo",
+    "Fiio",
+    "Funshion",
+    "GaoDe",
+    "Geely",
+    "Gitee",
+    "GovCN",
+    "GuiGuDongLi",
+    "HaiNanHangKong",
+    "HanYi",
+    "HeMa",
+    "HibyMusic",
+    "Himalaya",
+    "Hpplay",
+    "HuYa",
+    "HuaShuTV",
+    "HuanJu",
+    "Huawei",
+    "HunanTV",
+    "Hupu",
+    "ICBC",
+    "IPTVMainland",
+    "JiGuangTuiSong",
+    "JianGuoYun",
+    "JianShu",
+    "JinJiangWenXue",
+    "JingDong",
+    "JueJin",
+    "Keep",
+    "KingSmith",
+    "Kingsoft",
+    "KouDaiShiShang",
+    "Ku6",
+    "KuKeMusic",
+    "KuaiDi100",
+    "KuaiShou",
+    "KuangShi",
+    "KugouKuwo",
+    "LanZouYun",
+    "LeJu",
+    "LeTV",
+    "Lenovo",
+    "LianMeng",
+    "LuDaShi",
+    "LvMiLianChuang",
+    "MOOMusic",
+    "Maocloud",
+    "Marketing",
+    "MeiTu",
+    "MeiTuan",
+    "MeiZu",
+    "MiWu",
+    "Migu",
+    "MingLueZhaoHui",
+    "Mogujie",
+    "Mojitianqi",
+    "NGA",
+    "NGAA",
+    "NetEase",
+    "NetEaseMusic",
+    "OPPO",
+    "OnePlus",
+    "OuPeng",
+    "PPTV",
+    "PSBC",
+    "Picacg",
+    "Pinduoduo",
+    "PingAn",
+    "QiNiuYun",
+    "QingCloud",
+    "Qyyjt",
+    "RuanMei",
+    "SFExpress",
+    "SMG",
+    "SMZDM",
+    "ShangHaiJuXiao",
+    "Shanling",
+    "ShenMa",
+    "ShiJiChaoXing",
+    "ShiNongZhiKe",
+    "Sina",
+    "Sohu",
+    "SouFang",
+    "Stripe",
+    "SuNing",
+    "SuiShiChuanMei",
+    "TCL",
+    "TaiKang",
+    "TaiheMusic",
+    "TapTap",
+    "Teambition",
+    "Tencent",
+    "TencentVideo",
+    "TianTianKanKan",
+    "TianWeiChengXin",
+    "TianYaForum",
+    "TigerFintech",
+    "TongCheng",
+    "U17",
+    "UC",
+    "UCloud",
+    "UPYun",
+    "UnionPay",
+    "Vancl",
+    "VipShop",
+    "Vivo",
+    "W3schools",
+    "WanKaHuanJu",
+    "WanMeiShiJie",
+    "Wanfang",
+    "WangSuKeJi",
+    "WangXinKeJi",
+    "WeChat",
+    "WeType",
+    "WeiZhiYunDong",
+    "Weibo",
+    "WenJuanXing",
+    "WiFiMaster",
+    "WoLai",
+    "Wteam",
+    "XiamiMusic",
+    "XianYu",
+    "XiaoGouKeJi",
+    "XiaoMi",
+    "XiaoYuanKeJi",
+    "XieCheng",
+    "XingKongWuXian",
+    "XueErSi",
+    "XueQiu",
+    "Xunlei",
+    "YYeTs",
+    "YiChe",
+    "YiXiaKeJi",
+    "YiZhiBo",
+    "YouMengChuangXiang",
+    "YouZan",
+    "Youku",
+    "YuanFuDao",
+    "YunFanJiaSu",
+    "ZDNS",
+    "ZhangYue",
+    "ZhiYinManKe",
+    "ZhiYunZhong",
+    "Zhihu",
+    "ZhongGuoShiHua",
+    "ZhongWeiShiJi",
+    "ZhongXingTongXun",
+    "ZhongYuanYiShang",
+    "ZhuanZhuan",
+    "aiXcoder",
+    "iFlytek",
+    "iQIYI",
+    "ifanr",
+    "zhanqi"
+   ],
+   "exclude": [
+    "Advertising",
+    "AdvertisingLite",
+    "AdvertisingMiTV",
+    "AdvertisingTest",
+    "Bing",
+    "Copilot",
+    "GitHub",
+    "Microsoft",
+    "MicrosoftEdge",
+    "OneDrive",
+    "PayPal",
+    "Proxy",
+    "Steam",
+    "SteamCN",
+    "Teams",
+    "TikTok",
+    "YouTube",
+    "YouTubeMusic"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaMaxNoIP": {
+   "title": "🧸 国内域名合集",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/DiDi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiDi.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Meitu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PDD.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sina.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Weibo/Weibo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sina.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Baidu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiDu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/360.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/4399.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/4399.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Vip.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Xiaomi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BiliBili.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/ByteDance/ByteDance.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ByteDance.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ByteDance.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/CN.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/China/China.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Mainland.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/China.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt",
+    "https://raw.githubusercontent.com/Hackl0us/GeoIP2-CN/release/CN-ip-cidr.txt",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/ChinaIP.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CCTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Xunlei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/HuaWei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaWei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Tencent.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Tencent.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/DomesticMedia.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEase.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Netease.list",
+    "https://raw.githubusercontent.com/Mazetsz/ACL4SSR/master/Clash/NetEaseCloudMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NeteaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Youku.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/Domestic/iQiyi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iQIYI.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Douyu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouYu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Ximalaya.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiMaLaYa.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Alibaba.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Alibaba.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/115.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/12306.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17173.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/178.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/17zuoye.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/36kr.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/51Job.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/56.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/58TongCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ABC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Agora.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AliPay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AnTianKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Anjuke.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BOCOM.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiFenDian.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaoFengYingYin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BianFeng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Bootcss.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CAS.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CEB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CGB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CIBN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CKJR.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNKI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNNIC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CSDN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/AcFun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiNiao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CaiXinChuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Camera360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaMobile.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaNews.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaTelecom.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaUnicom.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChuangKeTie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChunYou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DaMai.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DanDanZan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dandanplay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DangDang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dedao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Deepin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiSiFanShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DianCeWangKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingTalk.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingXiangYuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Domob.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouBan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/EastMoney.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Eleme.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FanFou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FeiZhu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengHuangWang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengXiaWangLuo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Fiio.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Funshion.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/6JianFang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GaoDe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GuiGuDongLi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HaiNanHangKong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HanYi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HeMa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HibyMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuYa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaShuTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HunanTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Hupu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ICBC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JiGuangTuiSong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianGuoYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianShu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JinJiangWenXue.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JingDong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JueJin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Keep.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KingSmith.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kingsoft.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KouDaiShiShang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Ku6.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuKeMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiDi100.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiShou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuangShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kugou%26Kuwo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LanZouYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeJu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Lenovo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LuDaShi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LvMiLianChuang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Maocloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiTuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiZu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MiWu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Migu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MingLueZhaoHui.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mogujie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mojitianqi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NGAA.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OPPO.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OnePlus.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OuPeng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PPTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PSBC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PingAn.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QiNiuYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Qihoo360.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QingCloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/RuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SF-Express.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMZDM.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShangHaiJuXiao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Shanling.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShenMa.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiNongZhiKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sohu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SouFang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuNing.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuiShiChuanMei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TCL.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiKang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiheMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Teambition.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianTianKanKan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianWeiChengXin.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianYaForum.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TigerFintech.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TongCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/U17.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UC.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UCloud.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UPYun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UnionPay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vancl.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vivo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanMeiShiJie.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangSuKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangXinKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WenJuanXing.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WiFiMaster.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiamiMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XianYu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoGouKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoYuanKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XieCheng.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueErSi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueQiu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YYeTs.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiChe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiXiaKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiZhiBo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouMengChuangXiang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouZan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Youku%26Tudou.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YuanFuDao.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YunFanJiaSu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZDNS.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhangYue.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYunZhong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongGuoShiHua.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongWeiShiJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongYuanYiShang.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhuanZhuan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/hpplay.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iFlytek.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ifanr.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CMB.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BaiShanYunKeJi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiLianWangLuo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WeiZhiYunDong.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/8btc.list",
+    "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChengTongWangPan.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DuoWan.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanKaHuanJu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYinManKe.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiJiChaoXing.list",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cernet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cernet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/chinanet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/chinanet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cmcc.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cmcc6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cstnet.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/cstnet6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/drpeng.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/drpeng6.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/unicom.txt",
+    "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/unicom6.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WoLai.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic%20IPs.yaml",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Douyin.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/Government-CN.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/XunLei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iflytek.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iqiyi.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kingsoft.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kuaishou.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/LeTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Marketing.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PPTVPPLive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TapTap.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Wechat.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YYeTs.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEaseMusic.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongXingTongXun.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Geely.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FangZhengDianZi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BeStore.list",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/CMedia.list",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Mainland.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Alibaba.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/ByteDance.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Douyu.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HuaWei.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iflytek.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iqiyi.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kingsoft.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kuaishou.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Marketing.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Meitu.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEase.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/PPTVPPLive.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TapTap.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Tencent.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TencentVideo.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xunlei.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YYeTs.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Youku.yaml",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E5%9B%BD%E5%86%85%E7%94%B5%E8%A7%86%E5%8F%B02023.m3u8",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E8%BD%AE%E6%92%AD_%E5%8D%8E%E6%95%B0.%E9%BB%91%E8%8E%93.NewTV.SiTV.CIBN.m3u",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E9%87%8D%E5%BA%86%E5%B9%BF%E7%94%B5cqccn.m3u",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BesTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CETV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMG.list",
+    "https://ruleset.isagood.day/alibaba.conf",
+    "https://ruleset.isagood.day/bilibili.conf",
+    "https://raw.githubusercontent.com/missuo/ASN-China/main/IP.China.list"
+   ],
+   "include": [
+    "115",
+    "12306",
+    "17173",
+    "178",
+    "17zuoye",
+    "360",
+    "36kr",
+    "3Type",
+    "3dm",
+    "4399",
+    "4Paradigm",
+    "51Job",
+    "51nod",
+    "56",
+    "58TongCheng",
+    "6JianFang",
+    "8btc",
+    "ABC",
+    "AcFun",
+    "Agora",
+    "AiQiCha",
+    "AirChina",
+    "Ali213",
+    "AliPay",
+    "Alibaba",
+    "AmazonCN",
+    "AnTianKeJi",
+    "Anjuke",
+    "Antutu",
+    "Apifox",
+    "BOC",
+    "BOCOM",
+    "BaiDuTieBa",
+    "BaiFenDian",
+    "BaiShanYunKeJi",
+    "Baidu",
+    "BaoFengYingYin",
+    "BeStore",
+    "BesTV",
+    "BianFeng",
+    "BiliBili",
+    "Bootcss",
+    "ByteDance",
+    "CAS",
+    "CCB",
+    "CCTV",
+    "CEB",
+    "CETV",
+    "CGB",
+    "CIBN",
+    "CKJR",
+    "CMB",
+    "CNKI",
+    "CNNIC",
+    "CSDN",
+    "CaiNiao",
+    "CaiXinChuanMei",
+    "Camera360",
+    "ChengTongWangPan",
+    "China",
+    "ChinaASN",
+    "ChinaIPs",
+    "ChinaIPsBGP",
+    "ChinaMax",
+    "ChinaMedia",
+    "ChinaMobile",
+    "ChinaNews",
+    "ChinaNoMedia",
+    "ChinaTelecom",
+    "ChinaTest",
+    "ChinaUnicom",
+    "ChuangKeTie",
+    "ChunYou",
+    "Coolapk",
+    "DaMai",
+    "DanDanZan",
+    "Dandanplay",
+    "DangDang",
+    "Dedao",
+    "Deepin",
+    "DiDi",
+    "DiLianWangLuo",
+    "DiSiFanShi",
+    "DianCeWangKe",
+    "DingTalk",
+    "DingXiangYuan",
+    "Domob",
+    "DouBan",
+    "DouYin",
+    "Douyu",
+    "DuoWan",
+    "EastMoney",
+    "Eleme",
+    "FanFou",
+    "FangZhengDianZi",
+    "FeiZhu",
+    "FengHuangWang",
+    "FengXiaWangLuo",
+    "Fiio",
+    "Funshion",
+    "GaoDe",
+    "Geely",
+    "Gitee",
+    "GovCN",
+    "GuiGuDongLi",
+    "HaiNanHangKong",
+    "HanYi",
+    "HeMa",
+    "HibyMusic",
+    "Himalaya",
+    "Hpplay",
+    "HuYa",
+    "HuaShuTV",
+    "HuanJu",
+    "Huawei",
+    "HunanTV",
+    "Hupu",
+    "ICBC",
+    "IPTVMainland",
+    "JiGuangTuiSong",
+    "JianGuoYun",
+    "JianShu",
+    "JinJiangWenXue",
+    "JingDong",
+    "JueJin",
+    "Keep",
+    "KingSmith",
+    "Kingsoft",
+    "KouDaiShiShang",
+    "Ku6",
+    "KuKeMusic",
+    "KuaiDi100",
+    "KuaiShou",
+    "KuangShi",
+    "KugouKuwo",
+    "LanZouYun",
+    "LeJu",
+    "LeTV",
+    "Lenovo",
+    "LianMeng",
+    "LuDaShi",
+    "LvMiLianChuang",
+    "MOOMusic",
+    "Maocloud",
+    "Marketing",
+    "MeiTu",
+    "MeiTuan",
+    "MeiZu",
+    "MiWu",
+    "Migu",
+    "MingLueZhaoHui",
+    "Mogujie",
+    "Mojitianqi",
+    "NGA",
+    "NGAA",
+    "NetEase",
+    "NetEaseMusic",
+    "OPPO",
+    "OnePlus",
+    "OuPeng",
+    "PPTV",
+    "PSBC",
+    "Picacg",
+    "Pinduoduo",
+    "PingAn",
+    "QiNiuYun",
+    "QingCloud",
+    "Qyyjt",
+    "RuanMei",
+    "SFExpress",
+    "SMG",
+    "SMZDM",
+    "ShangHaiJuXiao",
+    "Shanling",
+    "ShenMa",
+    "ShiJiChaoXing",
+    "ShiNongZhiKe",
+    "Sina",
+    "Sohu",
+    "SouFang",
+    "Stripe",
+    "SuNing",
+    "SuiShiChuanMei",
+    "TCL",
+    "TaiKang",
+    "TaiheMusic",
+    "TapTap",
+    "Teambition",
+    "Tencent",
+    "TencentVideo",
+    "TianTianKanKan",
+    "TianWeiChengXin",
+    "TianYaForum",
+    "TigerFintech",
+    "TongCheng",
+    "U17",
+    "UC",
+    "UCloud",
+    "UPYun",
+    "UnionPay",
+    "Vancl",
+    "VipShop",
+    "Vivo",
+    "W3schools",
+    "WanKaHuanJu",
+    "WanMeiShiJie",
+    "Wanfang",
+    "WangSuKeJi",
+    "WangXinKeJi",
+    "WeChat",
+    "WeType",
+    "WeiZhiYunDong",
+    "Weibo",
+    "WenJuanXing",
+    "WiFiMaster",
+    "WoLai",
+    "Wteam",
+    "XiamiMusic",
+    "XianYu",
+    "XiaoGouKeJi",
+    "XiaoMi",
+    "XiaoYuanKeJi",
+    "XieCheng",
+    "XingKongWuXian",
+    "XueErSi",
+    "XueQiu",
+    "Xunlei",
+    "YYeTs",
+    "YiChe",
+    "YiXiaKeJi",
+    "YiZhiBo",
+    "YouMengChuangXiang",
+    "YouZan",
+    "Youku",
+    "YuanFuDao",
+    "YunFanJiaSu",
+    "ZDNS",
+    "ZhangYue",
+    "ZhiYinManKe",
+    "ZhiYunZhong",
+    "Zhihu",
+    "ZhongGuoShiHua",
+    "ZhongWeiShiJi",
+    "ZhongXingTongXun",
+    "ZhongYuanYiShang",
+    "ZhuanZhuan",
+    "aiXcoder",
+    "iFlytek",
+    "iQIYI",
+    "ifanr",
+    "zhanqi"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ChinaMedia": {
+   "title": "🧸 ChinaMedia",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/BiliBili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CCTV.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CCTV.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/DomesticMedia.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/CMedia.list",
+    "https://ruleset.isagood.day/bilibili.conf"
+   ],
+   "include": [
+    "BiliBili",
+    "CCTV"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaMobile": {
+   "title": "🧸 中国移动",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaMobile.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaNews": {
+   "title": "🧸 中国新闻网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaNews.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaNoMedia": {
+   "title": "🧸 ChinaNoMedia",
+   "sources": [
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/CN.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/China/China.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Mainland.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/China.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Mainland.list"
+   ],
+   "include": [
+    "China"
+   ],
+   "exclude": [
+    "ChinaMedia"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaTelecom": {
+   "title": "🧸 中国电信",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaTelecom.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaTest": {
+   "title": "🧸 ChinaTest",
+   "sources": [
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/CN.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/China/China.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Mainland.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/China.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Mainland.list"
+   ],
+   "include": [
+    "China"
+   ],
+   "exclude": [
+    "PayPal",
+    "Proxy",
+    "ProxyLite",
+    "Steam",
+    "SteamCN"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChinaUnicom": {
+   "title": "🧸 中国联通",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChinaUnicom.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Chromecast": {
+   "title": "🧸 Chromecast",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChuangKeTie": {
+   "title": "🧸 创客贴",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChuangKeTie.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ChunYou": {
+   "title": "🧸 纯游",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ChunYou.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CIBN": {
+   "title": "🧸 CIBN互联网电视",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CIBN.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CKJR": {
+   "title": "🧸 创客匠人",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CKJR.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Claude": {
+   "title": "🧸 Claude",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "CMB": {
+   "title": "🧸 招商银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNKI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CMB.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CNKI": {
+   "title": "🧸 中国知网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNKI.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "CNNIC": {
+   "title": "🧸 中国互联网络信息中心",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CNNIC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Coolapk": {
+   "title": "🧸 Coolapk",
+   "sources": [
+    "https://rules.kr328.app/coolapk.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Copilot": {
+   "title": "🧸 Copilot",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "CSDN": {
+   "title": "🧸 CSDN",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/CSDN.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DaMai": {
+   "title": "🧸 红马传媒(大麦网)",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DaMai.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Dandanplay": {
+   "title": "🧸 弹弹Play",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dandanplay.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DanDanZan": {
+   "title": "🧸 蛋蛋赞",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DanDanZan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DangDang": {
+   "title": "🧸 当当",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DangDang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Dedao": {
+   "title": "🧸 得到",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Dedao.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Deepin": {
+   "title": "🧸 深度科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Deepin.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DianCeWangKe": {
+   "title": "🧸 点测网科",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DianCeWangKe.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DiDi": {
+   "title": "🧸 滴滴出行",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/DiDi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiDi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DiLianWangLuo": {
+   "title": "🧸 帝联网络",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiLianWangLuo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DingTalk": {
+   "title": "🧸 钉钉",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingTalk.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DingXiangYuan": {
+   "title": "🧸 丁香园",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DingXiangYuan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Direct": {
+   "title": "🧸 直连",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/WhiteList/WhiteList.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PublicDirectCDN.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DiSiFanShi": {
+   "title": "🧸 第四范式",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DiSiFanShi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Domob": {
+   "title": "🧸 多盟",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Domob.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DouBan": {
+   "title": "🧸 豆瓣",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouBan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DouYin": {
+   "title": "🧸 抖音",
+   "sources": [
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Douyin.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Douyu": {
+   "title": "🧸 斗鱼",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Douyu.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DouYu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Douyu.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "DuoWan": {
+   "title": "🧸 多玩",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/DuoWan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "EastMoney": {
+   "title": "🧸 东方财富",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/EastMoney.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "EasyPrivacy": {
+   "title": "🧸 EasyPrivacy",
+   "sources": [
+    "https://easylist-downloads.adblockplus.org/easyprivacy.txt"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": false
+   }
+  },
+  "Eleme": {
+   "title": "🧸 饿了么",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Eleme.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FanFou": {
+   "title": "🧸 饭否科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FanFou.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FangZhengDianZi": {
+   "title": "🧸 方正电子",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FangZhengDianZi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "FeiZhu": {
+   "title": "🧸 飞猪",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FeiZhu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FengHuangWang": {
+   "title": "🧸 凤凰网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengHuangWang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FengXiaWangLuo": {
+   "title": "🧸 凤侠网络",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/FengXiaWangLuo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Fiio": {
+   "title": "🧸 飞傲",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Fiio.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FindMy": {
+   "title": "🧸 查找",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "FitnessPlus": {
+   "title": "🧸 FitnessPlus",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Funshion": {
+   "title": "🧸 风行网",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Funshion.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "GaoDe": {
+   "title": "🧸 高德",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GaoDe.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Geely": {
+   "title": "🧸 吉利",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Geely.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Gitee": {
+   "title": "🧸 Gitee",
+   "sources": [
+    "https://rules.kr328.app/gitee.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "GitHub": {
+   "title": "🧸 GitHub",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Github.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/PROXY/Github.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Github.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Github.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Global": {
+   "title": "🧸 Global",
+   "sources": [
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Region/Global.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/BlackList/BlackList.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/foreign.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/Apple-proxy.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Proxy/Proxy.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Outside.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Proxy.yaml",
+    "https://ruleset.isagood.day/global_domain.conf"
+   ],
+   "include": [
+    "Proxy"
+   ],
+   "exclude": [
+    "AdvertisingLite",
+    "China",
+    "ChinaMaxNoIP"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Google": {
+   "title": "🧸 Google",
+   "sources": [
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/google.txt",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Google/Google.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Services/Google.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/PROXY/Google.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Google.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml"
+   ],
+   "include": [
+    "GoogleDrive",
+    "GoogleSearch",
+    "GoogleVoice"
+   ],
+   "exclude": [
+    "YouTube",
+    "YouTubeMusic"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "GoogleDrive": {
+   "title": "🧸 GoogleDrive",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "GoogleSearch": {
+   "title": "🧸 GoogleSearch",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "GoogleVoice": {
+   "title": "🧸 GoogleVoice",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "GovCN": {
+   "title": "🧸 GovernmentCN",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/Government-CN.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "GuiGuDongLi": {
+   "title": "🧸 硅谷动力",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/GuiGuDongLi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HaiNanHangKong": {
+   "title": "🧸 海南航空",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HaiNanHangKong.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HanYi": {
+   "title": "🧸 汉仪",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HanYi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HeMa": {
+   "title": "🧸 盒马",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HeMa.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HibyMusic": {
+   "title": "🧸 海贝音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HibyMusic.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Hijacking": {
+   "title": "🧸 反劫持",
+   "sources": [
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Advertising/Hijacking.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Himalaya": {
+   "title": "🧸 喜马拉雅",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Ximalaya.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiMaLaYa.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Hpplay": {
+   "title": "🧸 乐播投屏",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/hpplay.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HuanJu": {
+   "title": "🧸 欢聚时代",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HuaShuTV": {
+   "title": "🧸 华数TV",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaShuTV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Huawei": {
+   "title": "🧸 华为",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/HuaWei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuaWei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HuaWei.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HunanTV": {
+   "title": "🧸 湖南TV",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HunanTV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Hupu": {
+   "title": "🧸 虎扑",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Hupu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "HuYa": {
+   "title": "🧸 虎牙",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/HuYa.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ICBC": {
+   "title": "🧸 中国工商银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ICBC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "iCloud": {
+   "title": "🧸 iCloud",
+   "sources": [
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "iCloudPrivateRelay": {
+   "title": "🧸 iCloudPrivateRelay",
+   "sources": [
+    "https://rules.kr328.app/icloudprivaterelay.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ifanr": {
+   "title": "🧸 爱范儿",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ifanr.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "iFlytek": {
+   "title": "🧸 科大讯飞",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iFlytek.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iflytek.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iflytek.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "IPTVMainland": {
+   "title": "🧸 IPTV大陆",
+   "sources": [
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E5%9B%BD%E5%86%85%E7%94%B5%E8%A7%86%E5%8F%B02023.m3u8",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E8%BD%AE%E6%92%AD_%E5%8D%8E%E6%95%B0.%E9%BB%91%E8%8E%93.NewTV.SiTV.CIBN.m3u",
+    "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E9%87%8D%E5%BA%86%E5%B9%BF%E7%94%B5cqccn.m3u"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "iQIYI": {
+   "title": "🧸 爱奇艺",
+   "sources": [
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Media/Domestic/iQiyi.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/iQIYI.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Iqiyi.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Iqiyi.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JianGuoYun": {
+   "title": "🧸 坚果云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianGuoYun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JianShu": {
+   "title": "🧸 简书",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JianShu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JiGuangTuiSong": {
+   "title": "🧸 极光推送",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JiGuangTuiSong.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JingDong": {
+   "title": "🧸 京东",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JingDong.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JinJiangWenXue": {
+   "title": "🧸 晋江文学",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JinJiangWenXue.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "JueJin": {
+   "title": "🧸 掘金",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/JueJin.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Keep": {
+   "title": "🧸 Keep",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Keep.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KingSmith": {
+   "title": "🧸 金史密斯",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KingSmith.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Kingsoft": {
+   "title": "🧸 金山软件",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kingsoft.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kingsoft.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kingsoft.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KouDaiShiShang": {
+   "title": "🧸 口袋时尚",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KouDaiShiShang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Ku6": {
+   "title": "🧸 酷6",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Ku6.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KuaiDi100": {
+   "title": "🧸 快递100",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiDi100.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KuaiShou": {
+   "title": "🧸 快手",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuaiShou.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Kuaishou.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Kuaishou.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KuangShi": {
+   "title": "🧸 旷视",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuangShi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KugouKuwo": {
+   "title": "🧸 酷狗/酷我",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Kugou%26Kuwo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "KuKeMusic": {
+   "title": "🧸 库客音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/KuKeMusic.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Lan": {
+   "title": "🧸 本地局域网地址",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/LAN.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/LAN.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LanZouYun": {
+   "title": "🧸 蓝奏云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LanZouYun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LeJu": {
+   "title": "🧸 乐居",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeJu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Lenovo": {
+   "title": "🧸 联想",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Lenovo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LeTV": {
+   "title": "🧸 乐视",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LeTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/LeTV.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LianMeng": {
+   "title": "🧸 脸萌",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LinkedIn": {
+   "title": "🧸 LinkedIn",
+   "sources": [
+    "https://rules.kr328.app/linkedin@cn.yaml",
+    "https://rules.kr328.app/linkedin.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "LuDaShi": {
+   "title": "🧸 鲁大师",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LuDaShi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "LvMiLianChuang": {
+   "title": "🧸 绿米联创",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/LvMiLianChuang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Maocloud": {
+   "title": "🧸 猫云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Maocloud.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Marketing": {
+   "title": "🧸 思杰马克丁软件",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Marketing.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Marketing.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "MeiTu": {
+   "title": "🧸 美图",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Meitu.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Meitu.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MeiTuan": {
+   "title": "🧸 美团",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiTuan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MeiZu": {
+   "title": "🧸 魅族",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MeiZu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Microsoft": {
+   "title": "🧸 Microsoft",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OneDrive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Services/Microsoft.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Microsoft.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml",
+    "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/QuantumultX/rules/Microsoft.list"
+   ],
+   "include": [
+    "MicrosoftEdge",
+    "OneDrive",
+    "Teams"
+   ],
+   "exclude": [
+    "GitHub"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MicrosoftEdge": {
+   "title": "🧸 MicrosoftEdge",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Migu": {
+   "title": "🧸 咪咕",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Migu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MingLueZhaoHui": {
+   "title": "🧸 明略昭辉",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MingLueZhaoHui.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MiWu": {
+   "title": "🧸 米物",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/MiWu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Mogujie": {
+   "title": "🧸 蘑菇街",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mogujie.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Mojitianqi": {
+   "title": "🧸 墨迹天气",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Mojitianqi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "MOOMusic": {
+   "title": "🧸 MOO音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MOO.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "NetEase": {
+   "title": "🧸 网易",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEase.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Netease.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEase.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "NetEaseMusic": {
+   "title": "🧸 网易云音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/Mazetsz/ACL4SSR/master/Clash/NetEaseCloudMusic.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NeteaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEaseMusic.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "NGA": {
+   "title": "🧸 NGA",
+   "sources": [
+    "https://raw.githubusercontent.com/ameyukisora/Clash-Rule/master/provider/nga.yaml",
+    "https://rules.kr328.app/nga.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "NGAA": {
+   "title": "🧸 新流云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/NGAA.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "OneDrive": {
+   "title": "🧸 OneDrive",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OneDrive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "OnePlus": {
+   "title": "🧸 OnePlus",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OnePlus.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "OpenAI": {
+   "title": "🧸 OpenAI",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "OPPO": {
+   "title": "🧸 OPPO",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OPPO.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "OuPeng": {
+   "title": "🧸 欧朋浏览器",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/OuPeng.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "PayPal": {
+   "title": "🧸 PayPal",
+   "sources": [
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Optional/PayPal.list",
+    "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/develop/Rules/Services/Paypal.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/PROXY/PayPal.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/PayPal.yaml",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/PayPal.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Picacg": {
+   "title": "🧸 Picacg",
+   "sources": [
+    "https://rules.kr328.app/picacg.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Pinduoduo": {
+   "title": "🧸 拼多多",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PDD.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "PingAn": {
+   "title": "🧸 平安",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PingAn.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "PPTV": {
+   "title": "🧸 PPTV",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PPTV.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/PPTVPPLive.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/PPTVPPLive.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Privacy": {
+   "title": "🧸 隐私保护",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Proxy": {
+   "title": "🧸 Proxy",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/BlackList/BlackList.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list",
+    "https://raw.githubusercontent.com/Hackl0us/SS-Rule-Snippet/master/Rulesets/Surge/Basic/Apple-proxy.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Proxy/Proxy.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Outside.list",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt",
+    "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Proxy.yaml"
+   ],
+   "include": [],
+   "exclude": [
+    "Advertising",
+    "Claude",
+    "OpenAI"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ProxyLite": {
+   "title": "🧸 ProxyLite",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Outside.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Proxy.yaml"
+   ],
+   "include": [],
+   "exclude": [
+    "Advertising",
+    "AppStore",
+    "Apple",
+    "AppleDaily",
+    "AppleMail",
+    "AppleMusic",
+    "AppleNews",
+    "AppleProxy",
+    "AppleTV",
+    "China",
+    "ChinaIPs",
+    "Chromecast",
+    "Claude",
+    "FindMy",
+    "FitnessPlus",
+    "GitHub",
+    "Google",
+    "GoogleDrive",
+    "GoogleSearch",
+    "GoogleVoice",
+    "Microsoft",
+    "OneDrive",
+    "OpenAI",
+    "Siri",
+    "SystemOTA",
+    "Teams",
+    "TestFlight",
+    "YouTube",
+    "YouTubeMusic",
+    "iCloud",
+    "iCloudPrivateRelay"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "PSBC": {
+   "title": "🧸 中国邮政储蓄银行",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/PSBC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "QingCloud": {
+   "title": "🧸 青云QingCloud",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QingCloud.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "QiNiuYun": {
+   "title": "🧸 七牛云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/QiNiuYun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Qyyjt": {
+   "title": "🧸 Qyyjt",
+   "sources": [
+    "https://rules.kr328.app/qyyjt.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Reddit": {
+   "title": "🧸 Reddit",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/PROXY/Reddit.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Reddit.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Reddit.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Reddit.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "RuanMei": {
+   "title": "🧸 软媒",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/RuanMei.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SFExpress": {
+   "title": "🧸 顺丰速运",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SF-Express.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ShangHaiJuXiao": {
+   "title": "🧸 上海聚效",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShangHaiJuXiao.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Shanling": {
+   "title": "🧸 山灵音响",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Shanling.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ShenMa": {
+   "title": "🧸 神马",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShenMa.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ShiJiChaoXing": {
+   "title": "🧸 世纪超星",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiJiChaoXing.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ShiNongZhiKe": {
+   "title": "🧸 识农智能科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ShiNongZhiKe.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Sina": {
+   "title": "🧸 新浪",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sina.list",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Weibo/Weibo.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sina.list"
+   ],
+   "include": [
+    "Weibo"
+   ],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Siri": {
+   "title": "🧸 Siri",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SMG": {
+   "title": "🧸 SMG",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMG.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "SMZDM": {
+   "title": "🧸 什么值得买",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SMZDM.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Sohu": {
+   "title": "🧸 搜狐",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Sohu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SouFang": {
+   "title": "🧸 搜房",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SouFang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Spotify": {
+   "title": "🧸 Spotify",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Spotify.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Optional/Spotify.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Global-Services/Spotify.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Steam": {
+   "title": "🧸 Steam",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Game/Steam.list",
+    "https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Steam.yaml",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml"
+   ],
+   "include": [],
+   "exclude": [
+    "SteamCN"
+   ],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SteamCN": {
+   "title": "🧸 SteamCN",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Stripe": {
+   "title": "🧸 Stripe",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "SuiShiChuanMei": {
+   "title": "🧸 随视传媒",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuiShiChuanMei.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SuNing": {
+   "title": "🧸 苏宁",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/SuNing.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "SystemOTA": {
+   "title": "🧸 iOS系统升级",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/SystemOTA/SystemOTA.list",
+    "https://raw.githubusercontent.com/an0na/R/master/Filter/IOS_OTA.list",
+    "https://raw.githubusercontent.com/LuzMasonj/Quantumult/master/QuantumultX/Filter/BlockiOSServices.conf"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TaiheMusic": {
+   "title": "🧸 太合音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiheMusic.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TaiKang": {
+   "title": "🧸 泰康",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TaiKang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TapTap": {
+   "title": "🧸 TapTap",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TapTap.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TapTap.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "TCL": {
+   "title": "🧸 TCL",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TCL.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Teambition": {
+   "title": "🧸 Teambition",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Teambition.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Teams": {
+   "title": "🧸 Teams",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Tencent": {
+   "title": "🧸 腾讯",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Tencent.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Tencent.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Tencent.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TencentVideo": {
+   "title": "🧸 腾讯视频",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TencentVideo.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TencentVideo.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TestFlight": {
+   "title": "🧸 TestFlight",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/TestFlight/TestFlight.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TianTianKanKan": {
+   "title": "🧸 天天看看",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianTianKanKan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TianWeiChengXin": {
+   "title": "🧸 天威诚信",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianWeiChengXin.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TianYaForum": {
+   "title": "🧸 天涯社区",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TianYaForum.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TigerFintech": {
+   "title": "🧸 老虎证券",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TigerFintech.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TikTok": {
+   "title": "🧸 TikTok",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TikTok.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Global-Services/TikTok.list",
+    "https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TikTok.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "TongCheng": {
+   "title": "🧸 同程",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/TongCheng.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "U17": {
+   "title": "🧸 有妖气",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/U17.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "UC": {
+   "title": "🧸 UC",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UC.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "UCloud": {
+   "title": "🧸 优刻得",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UCloud.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "UnionPay": {
+   "title": "🧸 中国银联",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UnionPay.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "UPYun": {
+   "title": "🧸 又拍云",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/UPYun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Vancl": {
+   "title": "🧸 凡客",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vancl.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "VipShop": {
+   "title": "🧸 唯品会",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Vip.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Vivo": {
+   "title": "🧸 Vivo",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Vivo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "W3schools": {
+   "title": "🧸 W3schools",
+   "sources": [
+    "https://rules.kr328.app/w3schools.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Wanfang": {
+   "title": "🧸 Wanfang",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "WangSuKeJi": {
+   "title": "🧸 网宿科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangSuKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WangXinKeJi": {
+   "title": "🧸 网心科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WangXinKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WanKaHuanJu": {
+   "title": "🧸 玩咖欢聚",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanKaHuanJu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WanMeiShiJie": {
+   "title": "🧸 完美世界",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WanMeiShiJie.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WeChat": {
+   "title": "🧸 微信",
+   "sources": [
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/WeChat.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Wechat.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Wechat.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Weibo": {
+   "title": "🧸 微博",
+   "sources": [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/rule/Weibo/Weibo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WeiZhiYunDong": {
+   "title": "🧸 微至云动",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WeiZhiYunDong.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WenJuanXing": {
+   "title": "🧸 问卷星",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WenJuanXing.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WeType": {
+   "title": "🧸 微信输入法",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "WiFiMaster": {
+   "title": "🧸 WiFi万能钥匙",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WiFiMaster.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "WoLai": {
+   "title": "🧸 我来",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/WoLai.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Wteam": {
+   "title": "🧸 Wteam",
+   "sources": [
+    "https://rules.kr328.app/wteam-ads.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Xbox": {
+   "title": "🧸 Xbox",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Game/Xbox.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Xbox.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xbox.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XiamiMusic": {
+   "title": "🧸 虾米音乐",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiamiMusic.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XianYu": {
+   "title": "🧸 闲鱼",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XianYu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XiaoGouKeJi": {
+   "title": "🧸 小狗科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoGouKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XiaoMi": {
+   "title": "🧸 小米",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/MI.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Xiaomi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XiaoYuanKeJi": {
+   "title": "🧸 小源科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XiaoYuanKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XieCheng": {
+   "title": "🧸 携程",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XieCheng.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XingKongWuXian": {
+   "title": "🧸 XingKongWuXian",
+   "sources": [
+    "https://rules.kr328.app/xingkongwuxianmedia.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "XueErSi": {
+   "title": "🧸 学而思",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueErSi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "XueQiu": {
+   "title": "🧸 雪球",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/XueQiu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Xunlei": {
+   "title": "🧸 迅雷",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Xunlei.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Special/XunLei.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xunlei.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YiChe": {
+   "title": "🧸 易车",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiChe.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YiXiaKeJi": {
+   "title": "🧸 一下科技",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiXiaKeJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YiZhiBo": {
+   "title": "🧸 易直播",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YiZhiBo.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "Youku": {
+   "title": "🧸 优酷",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Youku.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/Youku%26Tudou.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Youku.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YouMengChuangXiang": {
+   "title": "🧸 游梦创想",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouMengChuangXiang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YouTube": {
+   "title": "🧸 YouTube",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list",
+    "https://raw.githubusercontent.com/GeQ1an/Rules/master/QuantumultX/Filter/Optional/YouTube.list",
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Global-Services/YouTube.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YouTubeMusic": {
+   "title": "🧸 YouTubeMusic",
+   "sources": [
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTubeMusic.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTubeMusic.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YouZan": {
+   "title": "🧸 有赞",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YouZan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YuanFuDao": {
+   "title": "🧸 猿辅导",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YuanFuDao.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YunFanJiaSu": {
+   "title": "🧸 云帆加速",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YunFanJiaSu.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "YYeTs": {
+   "title": "🧸 人人影视",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/YYeTs.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YYeTs.list",
+    "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YYeTs.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZDNS": {
+   "title": "🧸 国家工程研究中心",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZDNS.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhangYue": {
+   "title": "🧸 掌阅",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhangYue.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "zhanqi": {
+   "title": "🧸 战旗",
+   "sources": [
+    "https://rules.kr328.app/zhanqi.yaml"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "Zhihu": {
+   "title": "🧸 知乎",
+   "sources": [],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ZhiYinManKe": {
+   "title": "🧸 知音漫客",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYinManKe.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhiYunZhong": {
+   "title": "🧸 智云众",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhiYunZhong.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhongGuoShiHua": {
+   "title": "🧸 中国石化",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongGuoShiHua.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhongWeiShiJi": {
+   "title": "🧸 中维世纪",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongWeiShiJi.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhongXingTongXun": {
+   "title": "🧸 中兴通讯",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongXingTongXun.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": true,
+    "ip": true
+   }
+  },
+  "ZhongYuanYiShang": {
+   "title": "🧸 中元易尚",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhongYuanYiShang.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  },
+  "ZhuanZhuan": {
+   "title": "🧸 转转",
+   "sources": [
+    "https://raw.githubusercontent.com/LM-Firefly/Rules/master/Domestic-Services/ZhuanZhuan.list"
+   ],
+   "include": [],
+   "exclude": [],
+   "merge": {
+    "domain_into_suffix": true,
+    "suffix_into_suffix": true,
+    "domain_into_keyword": false,
+    "ip": true
+   }
+  }
+ }
+}

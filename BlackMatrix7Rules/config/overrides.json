@@ -1,0 +1,7 @@
+{
+  "_comment": "人工调整（Telegram 机器人「编辑广告」写入）：add 追加规则，remove 删除规则（等于或属于它的都删）。格式 TYPE,value。",
+  "Advertising": {
+    "add": [],
+    "remove": []
+  }
+}
