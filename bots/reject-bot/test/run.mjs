@@ -7,7 +7,7 @@ import { cpSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import worker from "../src/worker.js";
+import worker, { applyAdAnswers } from "../src/worker.js";
 import { MANUAL_PATH, REJECT_FILES, replaceManual, manualRules } from "../src/manual.js";
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -21,7 +21,8 @@ const QUEUE = {
   list: async ({ prefix }) => ({ keys: [...kv.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })), list_complete: true }),
 };
 const repo = {};
-for (const p of [MANUAL_PATH, ...REJECT_FILES.map((f) => f.path)]) repo[p] = readFileSync(join(REPO, p), "utf8");
+const OVERRIDES = "BlackMatrix7Rules/config/overrides.json";
+for (const p of [MANUAL_PATH, OVERRIDES, ...REJECT_FILES.map((f) => f.path)]) repo[p] = readFileSync(join(REPO, p), "utf8");
 let head = "c0";
 const commits = [];
 const sent = [];
@@ -88,6 +89,18 @@ const call = (method, path, body, headers = {}) =>
   worker.fetch(new Request("https://bot.example" + path, { method, headers, body: body && JSON.stringify(body) }), env);
 const hook = (update) => call("POST", "/telegram", update, { "x-telegram-bot-api-secret-token": "hook" });
 const api = (method, path, body) => call(method, path, body, { authorization: "Bearer rt" });
+let qn = 0;
+// Owner sends a message, then answers 「是厂商规则还是编辑广告？」 (mode: "vendor" | "ad" | null to leave it).
+async function send(message_id, text, mode = "vendor") {
+  await hook({ message: { message_id, chat: { id: 9 }, from: { id: OWNER }, text } });
+  const asked = sent.filter((x) => x.method === "sendMessage").at(-1);
+  assert.equal(asked.body.text, "是厂商规则还是编辑广告？");
+  const data = asked.body.reply_markup.inline_keyboard.map((r) => r[0].callback_data);
+  assert.deepEqual(data.map((d) => d.split(":")[2]), ["vendor", "ad"]);
+  const id = data[0].split(":")[1];
+  if (mode) await hook({ callback_query: { id: `m${++qn}`, from: { id: OWNER }, data: `m:${id}:${mode}` } });
+  return id;
+}
 
 // ---- auth
 assert.equal((await call("POST", "/telegram", {}, {})).status, 403);
@@ -98,15 +111,15 @@ assert.equal((await (await api("GET", "/api/pending")).json()).length, 0, "stran
 assert.equal(fires.length, 0, "strangers do not fire the routine");
 
 // ---- message -> fire -> pending
-const lastReply = () => sent.filter((s) => s.method === "sendMessage").at(-1).body.text;
-await hook({ message: { message_id: 2, chat: { id: 9 }, from: { id: OWNER }, text: "ads.example-track.com 和 t.example.net" } });
+const lastReply = () => sent.filter((s) => s.method === "editMessageText").at(-1).body.text;
+await send(2, "ads.example-track.com 和 t.example.net");
 assert.equal(fires.length, 1);
 assert.equal(fires[0].url, "https://api.anthropic.com/v1/claude_code/routines/trig_test/fire");
 assert.equal(fires[0].headers.authorization, "Bearer sk-test");
 assert.equal(fires[0].headers["anthropic-beta"], "experimental-cc-routine-2026-04-01");
 assert.match(lastReply(), /已通知 Claude/);
 // a second message before the run reads the queue rides along with it
-await hook({ message: { message_id: 3, chat: { id: 9 }, from: { id: OWNER }, text: "second.example.org" } });
+await send(3, "second.example.org");
 assert.equal(fires.length, 1, "batched into the pending run");
 const queue = await (await api("GET", "/api/pending")).json();
 assert.equal(queue.length, 2);
@@ -114,11 +127,11 @@ const id = queue[0].id;
 const id2 = queue[1].id;
 // once the run has read the queue, a new message fires a new run; a failed fire falls back
 fireStatus = 429;
-await hook({ message: { message_id: 4, chat: { id: 9 }, from: { id: OWNER }, text: "third.example.org" } });
+await send(4, "third.example.org");
 assert.equal(fires.length, 2);
 assert.match(lastReply(), /兜底时间处理：每天 23:00/);
 fireStatus = 200;
-await hook({ message: { message_id: 5, chat: { id: 9 }, from: { id: OWNER }, text: "fourth.example.org" } });
+await send(5, "fourth.example.org");
 assert.equal(fires.length, 3, "a failed fire does not block the next one");
 
 // ---- verdict: per-domain suggestions; bad values and bad targets are dropped
@@ -199,7 +212,7 @@ for (const f of REJECT_FILES) {
 console.log(`ok: ${commits.length} commits, ${fires.length} fires, ${sent.length} Telegram calls`);
 
 // ---- suspected suggestions: labeled, confirmed ones first, never picked by "全部按首选"
-await hook({ message: { message_id: 20, chat: { id: 9 }, from: { id: OWNER }, text: "bochk01.etdsinfo.com" } });
+await send(20, "bochk01.etdsinfo.com");
 const sid = (await (await api("GET", "/api/pending")).json()).at(-1).id;
 await api("POST", `/api/verdict/${sid}`, {
   summary: "疑似中银香港",
@@ -244,3 +257,48 @@ const old = JSON.parse(kv.get("item:old1"));
 assert.deepEqual(old.verdict.candidates.map((c) => c.decision.status), ["added", "skipped", "skipped"]);
 assert.equal(old.status, "done");
 console.log("ok: old items upgraded");
+
+// ---- 编辑广告
+// an unanswered message waits for the mode question and is not queued
+const firesBeforeAd = fires.length;
+const waitingId = await send(40, "nothing.example.com", null);
+assert.equal((await (await api("GET", "/api/pending")).json()).some((q) => q.id === waitingId), false);
+assert.equal(fires.length, firesBeforeAd, "no fire before the mode is chosen");
+await hook({ callback_query: { id: "x1", from: { id: 1 }, data: `m:${waitingId}:ad` } });
+assert.equal(JSON.parse(kv.get(`item:${waitingId}`)).status, "awaiting_mode", "strangers cannot answer");
+
+const adId = await send(41, "ads.example.com 和 sub.tracker.example", "ad");
+assert.match(sent.filter((x) => x.method === "editMessageText").at(-1).body.text, /→ 编辑广告（编号 .*）。已通知 Claude 去广告列表里查/);
+const q = (await (await api("GET", "/api/pending")).json()).find((x) => x.id === adId);
+assert.equal(q.mode, "ad");
+assert.equal((await (await api("POST", `/api/verdict/${adId}`, { candidates: [] })).json()).error, "item is 编辑广告; use /api/adcheck");
+await api("POST", `/api/adcheck/${adId}`, {
+  summary: "两条",
+  candidates: [
+    { type: "DOMAIN-SUFFIX", value: "ads.example.com", present: false },
+    { type: "DOMAIN", value: "sub.tracker.example", present: true, match: "DOMAIN-SUFFIX,tracker.example" },
+    { type: "DOMAIN", value: "not a domain", present: false },
+  ],
+});
+const adMsg = sent.filter((x) => x.method === "sendMessage").at(-1).body;
+assert.match(adMsg.text, /1\. DOMAIN-SUFFIX,ads\.example\.com\n   当前规则在广告列表中不存在，是否需要新增？/);
+assert.match(adMsg.text, /2\. DOMAIN,sub\.tracker\.example\n   当前规则在广告列表中已存在，是否需要删除？\n   列表里匹配的是 DOMAIN-SUFFIX,tracker\.example/);
+assert.deepEqual(adMsg.reply_markup.inline_keyboard.map((r) => r[0].text), ["新增 1", "不新增 1", "删除 2", "保留 2", "全部按上面的问题确认", "全部不改"]);
+
+const commitsBeforeAd = commits.length;
+await hook({ callback_query: { id: "a1", from: { id: OWNER }, data: `ad:${adId}:0:y` } });
+await hook({ callback_query: { id: "a2", from: { id: OWNER }, data: `ad:${adId}:1:y` } });
+assert.equal(commits.length, commitsBeforeAd + 2);
+assert.match(commits.at(-1).message, /^BlackMatrix7Rules: edit Advertising \(1 rule\)\n\n- remove DOMAIN-SUFFIX,tracker\.example/);
+let ov = JSON.parse(repo[OVERRIDES]).Advertising;
+assert.deepEqual(ov, { add: ["DOMAIN-SUFFIX,ads.example.com"], remove: ["DOMAIN-SUFFIX,tracker.example"] });
+const adItem = JSON.parse(kv.get(`item:${adId}`));
+assert.equal(adItem.status, "done");
+assert.match(sent.filter((x) => x.method === "editMessageText").at(-1).body.text, /→ 已删除（c\d+，Actions 重新生成后生效）/);
+
+// answering the opposite way later undoes the earlier override instead of stacking both
+const undo = applyAdAnswers(repo[OVERRIDES], [{ type: "DOMAIN-SUFFIX", value: "ads.example.com", present: true, match: { type: "DOMAIN-SUFFIX", value: "ads.example.com" } }]);
+assert.deepEqual(JSON.parse(undo.text).Advertising, { add: [], remove: ["DOMAIN-SUFFIX,tracker.example"] });
+assert.equal(applyAdAnswers(undo.text, [{ type: "DOMAIN", value: "x.example", present: false }]).changed.size, 1);
+assert.equal(applyAdAnswers(repo[OVERRIDES], [{ type: "DOMAIN-SUFFIX", value: "ads.example.com", present: false }]).changed.size, 0, "already added");
+console.log("ok: 编辑广告");

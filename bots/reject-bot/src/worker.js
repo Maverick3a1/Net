@@ -1,11 +1,16 @@
-// Telegram bot for adding domains to this repo's rule lists. You send text or a screenshot;
-// the "Reject 待办判断" Claude routine (fired through its API trigger) suggests which lists
-// each domain belongs in; you pick one per domain with the buttons.
+// Telegram bot for this repo's rule lists. Every message first asks 「是厂商规则还是编辑广告？」.
 //
+// 厂商规则: the "Reject 待办判断" Claude routine (fired through its API trigger) suggests which
+// list each domain belongs in; you pick one per domain with the buttons.
 //   Reject target        -> the Worker commits it to Rules/Reject (Manual section) right away.
 //   <Category>/<Entry>   -> e.g. AI/OpenAI, Bank/HSBC: queued as "approved" and the routine is
 //                           fired again; it edits that category's config, runs build.py and
 //                           pushes to main, then reports back through /api/applied.
+//
+// 编辑广告: the routine checks each rule against BlackMatrix7Rules' Advertising list
+// (/api/adcheck); the bot asks whether to delete the ones that are there and add the ones that
+// are not, and commits your answer to BlackMatrix7Rules/config/overrides.json. That push makes
+// the BlackMatrix7Rules workflow regenerate the list.
 //
 // Routes
 //   POST /telegram              Telegram webhook (checked with WEBHOOK_SECRET)
@@ -14,6 +19,7 @@
 //   POST /api/verdict/:id       the routine's suggestions for an item  (Bearer ROUTINE_TOKEN)
 //   GET  /api/approved          category additions you confirmed       (Bearer ROUTINE_TOKEN)
 //   POST /api/applied/:id/:i    the routine's result for one of those  (Bearer ROUTINE_TOKEN)
+//   POST /api/adcheck/:id       advertising-list lookup for an item    (Bearer ROUTINE_TOKEN)
 //   POST /api/setup             register the webhook and commands      (Bearer ROUTINE_TOKEN)
 
 import { MANUAL_PATH, REJECT_FILES, applyEntries, cleanCandidate, ruleOf } from "./manual.js";
@@ -31,6 +37,13 @@ const STATUS_TEXT = {
   skipped: () => "→ 已跳过",
 };
 const FINAL = new Set(["added", "existing", "applied", "failed", "skipped"]);
+const OVERRIDES_PATH = "BlackMatrix7Rules/config/overrides.json";
+const AD_LIST = "Advertising";
+const ASK_MODE = "是厂商规则还是编辑广告？";
+const AD_QUESTION = {
+  true: "当前规则在广告列表中已存在，是否需要删除？",
+  false: "当前规则在广告列表中不存在，是否需要新增？",
+};
 
 export default {
   async fetch(req, env) {
@@ -48,6 +61,8 @@ export default {
         if (req.method === "GET" && m) return await photo(env, m[1]);
         m = path.match(/^\/api\/verdict\/([a-z0-9]+)$/);
         if (req.method === "POST" && m) return json(await verdict(env, m[1], await req.json()));
+        m = path.match(/^\/api\/adcheck\/([a-z0-9]+)$/);
+        if (req.method === "POST" && m) return json(await adcheck(env, m[1], await req.json()));
         m = path.match(/^\/api\/applied\/([a-z0-9]+)\/(\d+)$/);
         if (req.method === "POST" && m) return json(await applied(env, m[1], Number(m[2]), await req.json()));
         if (req.method === "POST" && path === "/api/setup") return json(await setup(env, url.origin));
@@ -88,6 +103,7 @@ const getItem = async (env, id) => upgrade(JSON.parse((await env.QUEUE.get(`item
 // Items judged by the first version (verdict: reject|unsure|keep, decision: "added"...) still
 // sit in KV for up to 30 days; read them in the current shape.
 function upgrade(item) {
+  if (item && !item.mode && item.status !== "awaiting_mode") item.mode = "vendor";
   if (!item || !item.verdict) return item;
   for (const c of item.verdict.candidates) {
     if (!c.suggestions) c.suggestions = c.verdict === "keep" ? [] : [{ target: "Reject", note: "" }];
@@ -146,17 +162,22 @@ async function onMessage(env, msg) {
 
   if (/^\/(start|help)\b/.test(text)) {
     return reply(
-      "把域名的文字或截图发给我。Claude 会判断每个域名适合加到哪个列表：" +
+      `把域名的文字或截图发给我，我会先问你「${ASK_MODE}」\n\n` +
+        "· 编辑广告：Claude 去 BlackMatrix7Rules 的 Advertising 列表里查，已存在的问你要不要删除，" +
+        "不存在的问你要不要新增；你确认后写入 BlackMatrix7Rules/config/overrides.json，GitHub Actions 随即重新生成。\n\n" +
+        "· 厂商规则：Claude 会判断每个域名适合加到哪个列表：" +
         "Rules/Reject（广告 / 跟踪 / 遥测），或者 AI / Bank / Broker / Crypto 里的某一家（例如 AI/OpenAI）。" +
         "你点按钮选定后才会写入：Reject 立即提交；分类厂商由 Claude 改配置、重新生成规则后推送到 main。" +
         `通知 Claude 失败的消息会在兜底时间处理：${env.JUDGE_SCHEDULE || "按计划"}。\n\n/pending 查看还在排队的条数`,
     );
   }
   if (/^\/pending\b/.test(text)) {
-    const n = (await pending(env)).length;
+    const items = await allItems(env);
+    const waiting = items.filter((i) => i.status === "awaiting_mode").length;
+    const n = items.filter((i) => i.status === "pending").length;
     const a = (await approved(env)).length;
-    if (!n && !a) return reply("没有排队中的消息。");
-    return reply(`等 Claude 判断：${n} 条；已确认、等 Claude 写入分类：${a} 条。`);
+    if (!n && !a && !waiting) return reply("没有排队中的消息。");
+    return reply(`等你选择类型：${waiting} 条；等 Claude 判断：${n} 条；已确认、等 Claude 写入分类：${a} 条。`);
   }
 
   const photoId = msg.photo
@@ -167,27 +188,61 @@ async function onMessage(env, msg) {
   if (!text.trim() && !photoId) return reply("只支持文字或图片。");
 
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
-  await putItem(env, {
+  const item = {
     id,
-    status: "pending",
+    status: "awaiting_mode",
     created: new Date().toISOString(),
     chat_id: msg.chat.id,
     message_id: msg.message_id,
     text,
     photo_file_id: photoId,
+  };
+  const asked = await tg(env, "sendMessage", {
+    chat_id: msg.chat.id,
+    reply_to_message_id: msg.message_id,
+    text: ASK_MODE,
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: "厂商规则", callback_data: `m:${id}:vendor` }],
+        [{ text: "编辑广告", callback_data: `m:${id}:ad` }],
+      ],
+    },
   });
+  item.mode_message_id = asked.message_id;
+  await putItem(env, item);
+}
+
+// m:<id>:vendor|ad — answer to 「是厂商规则还是编辑广告？」: queue the item and fire the routine.
+async function onMode(env, cq, id, mode) {
+  const item = await getItem(env, id);
+  const answer = (text) => tg(env, "answerCallbackQuery", { callback_query_id: cq.id, text });
+  if (!item) return answer("这条记录已过期或不存在。");
+  if (item.status !== "awaiting_mode") return answer("已经选过了。");
+  if (mode !== "vendor" && mode !== "ad") return answer("未知选项。");
+  item.mode = mode;
+  item.status = "pending";
+  await putItem(env, item);
   const fired = await maybeFire(env);
-  return reply(
+  const label = mode === "ad" ? "编辑广告" : "厂商规则";
+  const what = mode === "ad" ? "去广告列表里查" : "判断";
+  const status =
     fired === "failed" || fired === "unconfigured"
-      ? `已收到（编号 ${id}）。没能立即通知 Claude，会在兜底时间处理：${env.JUDGE_SCHEDULE || "按计划"}。`
-      : `已收到（编号 ${id}），已通知 Claude 判断，通常几分钟内回复。`,
-  );
+      ? `没能立即通知 Claude，会在兜底时间处理：${env.JUDGE_SCHEDULE || "按计划"}。`
+      : `已通知 Claude ${what}，通常几分钟内回复。`;
+  await tg(env, "editMessageText", {
+    chat_id: item.chat_id,
+    message_id: item.mode_message_id,
+    text: `${ASK_MODE}\n→ ${label}（编号 ${id}）。${status}`,
+  });
+  return answer(label);
 }
 
 // callback_data: p:<id>:<i>:<j> pick suggestion j for candidate i · s:<id>:<i> skip one
 //                F:<id> pick every open candidate's first suggestion · S:<id> skip all
 async function onButton(env, cq) {
   const [op, id, a, b] = (cq.data || "").split(":");
+  if (op === "m") return onMode(env, cq, id, a);
+  if (op === "ad" || op === "AD") return onAdButton(env, cq, op, id, a);
   const item = await getItem(env, id);
   const answer = (text) => tg(env, "answerCallbackQuery", { callback_query_id: cq.id, text });
   if (!item || !item.verdict) return answer("这条记录已过期或不存在。");
@@ -285,7 +340,7 @@ async function maybeFire(env) {
 async function pending(env) {
   return (await allItems(env))
     .filter((i) => i.status === "pending")
-    .map((i) => ({ id: i.id, created: i.created, text: i.text, has_photo: Boolean(i.photo_file_id) }));
+    .map((i) => ({ id: i.id, created: i.created, mode: i.mode || "vendor", text: i.text, has_photo: Boolean(i.photo_file_id) }));
 }
 
 async function approved(env) {
@@ -320,6 +375,7 @@ async function verdict(env, id, body) {
   const item = await getItem(env, id);
   if (!item) return { error: "unknown item" };
   if (item.status !== "pending") return { error: `item is ${item.status}` };
+  if (item.mode === "ad") return { error: "item is 编辑广告; use /api/adcheck" };
   const seen = new Set();
   const candidates = [];
   for (const c of body.candidates || []) {
@@ -367,6 +423,165 @@ async function applied(env, id, index, body) {
   await putItem(env, item);
   await refreshVerdictMessage(env, item);
   return { ok: true };
+}
+
+// ------------------------------------------------------------------ 编辑广告
+
+// body: {summary, candidates: [{type, value, present: bool, match?: "TYPE,value", note?}]}
+// present: the rule (or a broader one, given as match) is in the Advertising list now.
+async function adcheck(env, id, body) {
+  const item = await getItem(env, id);
+  if (!item) return { error: "unknown item" };
+  if (item.status !== "pending") return { error: `item is ${item.status}` };
+  if (item.mode !== "ad") return { error: "item is not 编辑广告" };
+  const seen = new Set();
+  const candidates = [];
+  for (const c of body.candidates || []) {
+    const clean = cleanCandidate(c.type, c.value);
+    if (!clean || seen.has(ruleOf(clean))) continue;
+    seen.add(ruleOf(clean));
+    const present = c.present === true;
+    let match = null;
+    if (present) {
+      const [mt, ...mv] = String(c.match || ruleOf(clean)).split(",");
+      match = cleanCandidate(mt, mv.join(","));
+      if (!match) continue; // can't delete what we can't name
+    }
+    candidates.push({ ...clean, present, match, note: String(c.note || "").slice(0, 200) });
+  }
+  item.ad = { summary: String(body.summary || "").slice(0, 800), candidates, at: new Date().toISOString() };
+  item.status = candidates.length ? "judged" : "done";
+  const sent = await tg(env, "sendMessage", {
+    chat_id: item.chat_id,
+    reply_to_message_id: item.message_id,
+    text: adText(item),
+    reply_markup: adKeyboard(item),
+  });
+  item.ad_message_id = sent.message_id;
+  await putItem(env, item);
+  return { ok: true, candidates: candidates.length };
+}
+
+// ad:<id>:<i>:y|n · AD:<id>:y|n (all open ones)
+async function onAdButton(env, cq, op, id, a) {
+  const item = await getItem(env, id);
+  const answer = (text) => tg(env, "answerCallbackQuery", { callback_query_id: cq.id, text });
+  if (!item || !item.ad) return answer("这条记录已过期或不存在。");
+  const yes = (op === "ad" ? cq.data.split(":")[3] : a) === "y";
+  const cands = item.ad.candidates;
+  const picked = op === "ad" ? [cands[Number(a)]].filter((c) => c && !c.decision) : cands.filter((c) => !c.decision);
+  if (!picked.length) return answer("没有需要处理的条目。");
+  let note = "已保持不变";
+  if (yes) {
+    const res = await commitOverrides(env, picked, item.id);
+    for (const c of picked) c.decision = { status: "done", commit: res.commit, changed: res.changed.has(c) };
+    note = res.commit ? `已提交（${res.commit.slice(0, 7)}），Actions 正在重新生成` : "配置里已经是这样了";
+  } else {
+    for (const c of picked) c.decision = { status: "kept" };
+  }
+  if (cands.every((c) => c.decision)) item.status = "done";
+  await putItem(env, item);
+  await tg(env, "editMessageText", {
+    chat_id: item.chat_id,
+    message_id: item.ad_message_id,
+    text: adText(item),
+    reply_markup: adKeyboard(item),
+  });
+  return answer(note);
+}
+
+function adText(item) {
+  const v = item.ad;
+  const lines = [`编辑广告（编号 ${item.id}）`];
+  if (v.summary) lines.push(v.summary);
+  if (!v.candidates.length) lines.push("", "没有找到规则。");
+  v.candidates.forEach((c, i) => {
+    lines.push("", `${i + 1}. ${c.type},${c.value}`);
+    lines.push(`   ${AD_QUESTION[c.present]}`);
+    if (c.present && ruleOf(c.match) !== ruleOf(c)) {
+      lines.push(`   列表里匹配的是 ${ruleOf(c.match)}，删除会去掉它（以及它下面的所有规则）。`);
+    }
+    if (c.note) lines.push(`   ${c.note}`);
+    if (c.decision) {
+      const done = c.present ? "已删除" : "已新增";
+      lines.push(
+        c.decision.status === "kept"
+          ? `   → ${c.present ? "保留" : "不新增"}`
+          : `   → ${done}${c.decision.commit ? `（${c.decision.commit.slice(0, 7)}，Actions 重新生成后生效）` : "（配置里已经是这样）"}`,
+      );
+    }
+  });
+  return lines.join("\n").slice(0, 4000);
+}
+
+function adKeyboard(item) {
+  const rows = [];
+  const open = item.ad.candidates.map((c, i) => [c, i]).filter(([c]) => !c.decision);
+  for (const [c, i] of open.slice(0, 48)) {
+    rows.push([{ text: `${c.present ? "删除" : "新增"} ${i + 1}`, callback_data: `ad:${item.id}:${i}:y` }]);
+    rows.push([{ text: `${c.present ? "保留" : "不新增"} ${i + 1}`, callback_data: `ad:${item.id}:${i}:n` }]);
+  }
+  if (open.length > 1) {
+    rows.push([{ text: "全部按上面的问题确认", callback_data: `AD:${item.id}:y` }]);
+    rows.push([{ text: "全部不改", callback_data: `AD:${item.id}:n` }]);
+  }
+  return { inline_keyboard: rows };
+}
+
+/** Pure: apply 新增 / 删除 answers to overrides.json; returns {text, changed:Set<candidate>}. */
+export function applyAdAnswers(text, picked) {
+  const ov = JSON.parse(text);
+  const entry = (ov[AD_LIST] = ov[AD_LIST] || {});
+  entry.add = entry.add || [];
+  entry.remove = entry.remove || [];
+  const changed = new Set();
+  for (const c of picked) {
+    const rule = c.present ? ruleOf(c.match) : ruleOf(c);
+    const [to, from] = c.present ? [entry.remove, entry.add] : [entry.add, entry.remove];
+    const before = to.length + from.length;
+    const i = from.indexOf(rule);
+    if (i !== -1) from.splice(i, 1); // undo an earlier opposite answer
+    else if (!to.includes(rule)) to.push(rule);
+    if (to.length + from.length !== before) changed.add(c);
+  }
+  return { text: JSON.stringify(ov, null, 2) + "\n", changed };
+}
+
+async function commitOverrides(env, picked, itemId) {
+  const branch = env.GITHUB_BRANCH || "main";
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const ref = await gh(env, `/git/ref/heads/${branch}`);
+    if (ref.status !== 200) throw new Error(`github ref: ${ref.status}`);
+    const head = ref.data.object.sha;
+    const r = await gh(env, `/contents/${OVERRIDES_PATH}?ref=${head}`);
+    if (r.status !== 200) throw new Error(`github read ${OVERRIDES_PATH}: ${r.status}`);
+    const { text, changed } = applyAdAnswers(decodeBase64(r.data.content), picked);
+    if (!changed.size) return { commit: null, changed };
+    const commit = await gh(env, `/git/commits/${head}`);
+    const tree = await gh(env, "/git/trees", {
+      method: "POST",
+      body: JSON.stringify({
+        base_tree: commit.data.tree.sha,
+        tree: [{ path: OVERRIDES_PATH, mode: "100644", type: "blob", content: text }],
+      }),
+    });
+    const lines = [...changed].map((c) => `- ${c.present ? "remove" : "add"} ${c.present ? ruleOf(c.match) : ruleOf(c)}`);
+    const message =
+      `BlackMatrix7Rules: edit ${AD_LIST} (${changed.size} ${changed.size === 1 ? "rule" : "rules"})\n\n` +
+      lines.join("\n") +
+      `\n\nConfirmed via the Telegram bot (编辑广告, telegram:${itemId}).`;
+    const created = await gh(env, "/git/commits", {
+      method: "POST",
+      body: JSON.stringify({ message, tree: tree.data.sha, parents: [head] }),
+    });
+    const moved = await gh(env, `/git/refs/heads/${branch}`, {
+      method: "PATCH",
+      body: JSON.stringify({ sha: created.data.sha, force: false }),
+    });
+    if (moved.status === 200) return { commit: created.data.sha, changed };
+    if (moved.status !== 422) throw new Error(`github update ref: ${moved.status}`);
+  }
+  throw new Error("github: branch kept moving, gave up");
 }
 
 async function setup(env, origin) {

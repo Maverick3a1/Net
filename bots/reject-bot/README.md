@@ -1,23 +1,32 @@
 # reject-bot
 
-把域名的文字或截图发给这个 Telegram 机器人，Claude 会告诉你每个域名适合加到哪个列表：
+把域名的文字或截图发给这个 Telegram 机器人。它先问你 **「是厂商规则还是编辑广告？」**：
 
-- **Reject**：广告 / 跟踪 / 遥测，写进 [`Rules/Reject`](../../Rules/Reject) 的 `Manual` 段；
-- **某个分类条目**：例如 `AI/OpenAI`、`Bank/HSBC`、`Broker/Futu`、`Crypto/Binance`，写进对应分类的 `config`，并重新生成规则。
+- **厂商规则**：Claude 告诉你每个域名适合加到哪个列表——
+  - **Reject**：广告 / 跟踪 / 遥测，写进 [`Rules/Reject`](../../Rules/Reject) 的 `Manual` 段；
+  - **某个分类条目**：例如 `AI/OpenAI`、`Bank/HSBC`、`Broker/Futu`、`Crypto/Binance`，写进对应分类的 `config`，并重新生成规则。
+- **编辑广告**：Claude 去 [`BlackMatrix7Rules`](../../BlackMatrix7Rules) 的 Advertising 广告列表里查每条规则——
+  - 已存在：问你「当前规则在广告列表中已存在，是否需要删除？」
+  - 不存在：问你「当前规则在广告列表中不存在，是否需要新增？」
 
-你在 Telegram 里点按钮选定后才会写入，都直接进 `main`。
+  你确认后写进 [`BlackMatrix7Rules/config/overrides.json`](../../BlackMatrix7Rules/config/overrides.json)，这次推送会让 GitHub Actions 立即重新生成广告列表。
+
+你在 Telegram 里点按钮确认后才会写入，都直接进 `main`。
 
 ## 怎么工作
 
 ```
-你 ──文字 / 截图──▶ Worker（存进 KV，回复「已收到」，并通过 API 触发云端任务）
+你 ──文字 / 截图──▶ Worker（存进 KV，问「是厂商规则还是编辑广告？」）
+你点「厂商规则」或「编辑广告」──▶ Worker 排队，并通过 API 触发云端任务
                        ▲   │
        GET /api/pending │   │ POST /api/verdict/<id>（每个域名的建议目标）
                        │   ▼
             Claude 云端任务「Reject 待办判断」（收到消息就触发，每天 23:00 兜底一次）
                            │
 Worker ──每个域名的建议 + 按钮（1 → AI/OpenAI、1 → Reject、跳过 1 …）──▶ 你
-你点按钮：
+编辑广告：任务查广告列表后 POST /api/adcheck/<id>；Worker 对每条规则问「新增？」或「删除？」，
+         你点确认 ──▶ Worker 提交 BlackMatrix7Rules/config/overrides.json ──▶ Actions 重新生成
+厂商规则，你点按钮：
   → Reject        Worker 立即用 GitHub API 提交 manual.json 和三个 Reject 文件
   → 分类/条目     Worker 记为「已确认」并再次触发云端任务；任务读 GET /api/approved，
                   改该分类的 config、运行 build.py、推送到 main，
@@ -31,6 +40,8 @@ Worker ──每个域名的建议 + 按钮（1 → AI/OpenAI、1 → Reject、�
 - 证据不足但有迹象的（例如主机名像某家银行、但证书拿不到），也会给出建议，标成「疑似（未证实，由你决定）」，按钮带「（疑似）」，并写明缺了什么证据。「全部按首选」不会选疑似的，要你单独点。
 - 已经收录的不会重复添加：Reject 显示「已存在」，分类显示「已收录，无需修改」。
 - 分类写入仍受各分类自己的规则约束（过宽后缀、内地券商等会被拒绝，并在消息上写明原因）。写入时 `build.py` 会顺带刷新该分类的上游数据，一起提交。
+- 编辑广告里，如果列表里匹配到的是更宽的上级规则（例如你发 `a.tracker.com`，列表里是 `DOMAIN-SUFFIX,tracker.com`），消息会写明，删除会去掉那条上级规则以及它下面的所有规则。先确认「新增」后又确认「删除」同一条（或反过来）时，会撤销之前那次调整，不会两条都留着。
+- 没选「厂商规则 / 编辑广告」的消息不会进队列，也不会触发云端任务；`/pending` 里会显示有几条在等你选。
 - 排队的消息 30 天后自动过期。
 - 各分类的 `build.py` 和 `python3 Rules/Reject/scripts/reject.py` 都会按 `manual.json` 重新生成 `Manual` 段，所以要删掉 Reject 里的某条，改 `manual.json` 再运行 `reject.py` 就行。
 
