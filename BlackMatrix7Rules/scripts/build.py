@@ -550,7 +550,8 @@ def main(argv):
         written = render(name, title, rules)
         log(f"[{name}] {total} rules, {written} files changed")
         stats.append((name, title, total))
-    update_readme(stats)
+    if not argv:
+        update_readme(stats)  # a partial run would drop the other rule sets' rows
     if failed and len(failed) == len(urls):
         sys.exit("every source failed")
 
