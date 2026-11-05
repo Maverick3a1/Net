@@ -186,6 +186,9 @@ def parse_typed(line):
     if kind in LOGICAL:
         body = strip_logical(rest)
         return (kind, body) if body else None
+    if kind == "USER-AGENT":
+        value = rest.split(",")[0].strip()  # never contains a comma; the rest is a policy (group)
+        return (kind, value) if value else None
     if kind in FREE_TEXT:
         parts = rest.split(",")
         while len(parts) > 1 and parts[-1].strip().lower() in POLICIES | {"no-resolve"}:
@@ -285,8 +288,11 @@ def parents(domain):
 class Matcher:
     """Answers "is this rule equal to, or inside, one of these rules?" (for excludes / removes)."""
 
-    def __init__(self, rules):
+    def __init__(self, rules, keywords=False):
         self.exact = set(rules)
+        # keywords=True (comparison only): a DOMAIN-KEYWORD contained in a domain also matches it
+        kws = [v for t, v in rules if t == "DOMAIN-KEYWORD"] if keywords else []
+        self.kw_re = re.compile("|".join(re.escape(k) for k in kws)) if kws else None
         self.suffixes = {v for t, v in rules if t == "DOMAIN-SUFFIX"}
         self.nets = [ipaddress.ip_network(v) for t, v in rules if t in ("IP-CIDR", "IP-CIDR6")]
 
@@ -295,6 +301,8 @@ class Matcher:
         if rule in self.exact:
             return True
         if t in ("DOMAIN", "DOMAIN-SUFFIX"):
+            if self.kw_re and self.kw_re.search(v):
+                return True
             return v in self.suffixes or any(p in self.suffixes for p in parents(v))
         if t in ("IP-CIDR", "IP-CIDR6") and self.nets:
             net = ipaddress.ip_network(v)
@@ -550,6 +558,129 @@ def update_readme(stats):
         log("updated README.md")
 
 
+# ------------------------------------------------------------------ comparison with blackmatrix7
+
+BM7_RULE = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/{0}/{1}"
+LOG_DIR = ROOT / "logs"
+LOG_KEEP_DAYS = 30
+SAMPLE = 30
+
+
+def fetch_bm7(name):
+    """blackmatrix7's published Surge rules for a rule set: (rules, updated) or (None, error)."""
+    last = None
+    for fname in (f"{name}_All.list", f"{name}.list"):  # small sets only have <name>.list (complete)
+        try:
+            text = fetch(BM7_RULE.format(name, fname))
+        except Exception as exc:  # noqa: BLE001
+            last = exc
+            continue
+        m = re.search(r"^# UPDATED: (.+)$", text, re.M)
+        rules = set()
+        for line in text.splitlines():
+            if line.strip() and not line.startswith("#"):
+                r = parse_typed(line.strip())
+                if r:
+                    rules.add(r)
+        return rules, (m.group(1).strip() if m else "?")
+    return None, str(last)
+
+
+def type_counts(rules):
+    out = {}
+    for t, _ in rules:
+        out[t] = out.get(t, 0) + 1
+    return out
+
+
+def compare_one(name, ours, theirs):
+    common = ours & theirs
+    only_theirs = theirs - ours
+    only_ours = ours - theirs
+    # A rule missing on one side may still be matched there by a broader rule (DOMAIN under a
+    # DOMAIN-SUFFIX, a subnet inside a bigger range); count those separately.
+    m_ours, m_theirs = Matcher(ours, keywords=True), Matcher(theirs, keywords=True)
+    theirs_uncovered = sorted((r for r in only_theirs if not m_ours.covers(r)), key=sort_key)
+    ours_uncovered = sorted((r for r in only_ours if not m_theirs.covers(r)), key=sort_key)
+    return {
+        "name": name,
+        "ours": len(ours),
+        "theirs": len(theirs),
+        "common": len(common),
+        "only_theirs": len(only_theirs),
+        "only_ours": len(only_ours),
+        "theirs_uncovered": theirs_uncovered,
+        "ours_uncovered": ours_uncovered,
+        "types": (type_counts(ours), type_counts(theirs)),
+    }
+
+
+def write_compare_log(results, failed_sources):
+    now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
+    day = now.strftime("%Y-%m-%d")
+    lines = [
+        f"# 与 blackmatrix7 的差异 · {day}",
+        "",
+        f"生成时间：{now.strftime('%Y-%m-%d %H:%M:%S')}（北京时间）。比较对象：blackmatrix7 当前发布的 Surge 规则"
+        "（有 `_All.list` 用它，否则用 `<名称>.list`），按规则逐条比较（忽略 no-resolve 和顺序）。",
+        "",
+        "- **只有我们有 / 只有它有**：对方文件里没有这一条完全相同的规则。",
+        "- **其中未被覆盖**：对方也没有能匹配它的更宽的规则（上级 DOMAIN-SUFFIX、包含在域名里的 DOMAIN-KEYWORD、包含它的 IP 段），也就是真正的行为差异。",
+        "",
+        "| 规则集 | 我们 | blackmatrix7 | 相同 | 只有我们有 | 其中未被覆盖 | 只有它有 | 其中未被覆盖 | 它的更新时间 |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    details = []
+    for r in results:
+        if "error" in r:
+            lines.append(f"| {r['name']} | {r['ours']} | 读取失败 | | | | | | {r['error'][:60]} |")
+            continue
+        lines.append(
+            f"| [{r['name']}](#{r['name'].lower()}) | {r['ours']} | {r['theirs']} | {r['common']} "
+            f"| {r['only_ours']} | {len(r['ours_uncovered'])} | {r['only_theirs']} | {len(r['theirs_uncovered'])} | {r['updated']} |"
+        )
+        ours_t, theirs_t = r["types"]
+        types = sorted(set(ours_t) | set(theirs_t), key=lambda t: TYPE_ORDER.index(t) if t in TYPE_ORDER else 99)
+        details += ["", f"## {r['name']}", ""]
+        details.append("按类型（我们 / blackmatrix7）：" + "，".join(f"{t} {ours_t.get(t, 0)} / {theirs_t.get(t, 0)}" for t in types))
+        for label, items in (("只有 blackmatrix7 有、我们也没覆盖到的", r["theirs_uncovered"]),
+                             ("只有我们有、blackmatrix7 也没覆盖到的", r["ours_uncovered"])):
+            if not items:
+                continue
+            shown = items[:SAMPLE]
+            more = f"（共 {len(items)} 条，列出前 {len(shown)} 条）" if len(items) > len(shown) else f"（共 {len(items)} 条）"
+            details += ["", f"**{label}**{more}：", "", "```"] + [f"{t},{v}" for t, v in shown] + ["```"]
+    if failed_sources:
+        details += ["", "## 本次没能下载的上游", "", "这些来源缺了，是差异的原因之一：", ""]
+        details += [f"- {u}" for u in sorted(failed_sources)]
+    LOG_DIR.mkdir(exist_ok=True)
+    path = LOG_DIR / f"{day}.md"
+    path.write_text("\n".join(lines + details) + "\n")
+    log(f"wrote {path.relative_to(ROOT)}")
+    cutoff = (now - datetime.timedelta(days=LOG_KEEP_DAYS)).strftime("%Y-%m-%d")
+    for old in LOG_DIR.glob("????-??-??.md"):
+        if old.stem < cutoff:
+            old.unlink()
+            log(f"removed {old.relative_to(ROOT)} (older than {LOG_KEEP_DAYS} days)")
+
+
+def compare_all(names, graph, failed_sources):
+    with concurrent.futures.ThreadPoolExecutor(WORKERS) as pool:
+        fetched = dict(zip(names, pool.map(fetch_bm7, names)))
+    results = []
+    for name in names:
+        ours = graph.rules(name)
+        theirs, info = fetched[name]
+        if theirs is None:
+            results.append({"name": name, "ours": len(ours), "error": info})
+            warn(f"compare: could not read blackmatrix7's {name}: {info}")
+            continue
+        r = compare_one(name, ours, theirs)
+        r["updated"] = info
+        results.append(r)
+    write_compare_log(results, failed_sources)
+
+
 # ------------------------------------------------------------------ main
 
 
@@ -591,6 +722,7 @@ def main(argv):
         stats.append((name, title, total))
     if not argv:
         update_readme(stats)  # a partial run would drop the other rule sets' rows
+        compare_all(outputs, graph, failed)  # logs/<date>.md: differences from blackmatrix7
     if failed and len(failed) == len(urls):
         sys.exit("every source failed")
 
