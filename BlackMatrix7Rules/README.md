@@ -63,11 +63,18 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 
 支持的上游格式：Surge / Quantumult X / Clash classical 规则、Clash payload（domain / ipcidr）、DOMAIN-SET、纯域名列表、hosts、AdBlock `||domain^`、sgmodule 的 `[Rule]`、m3u / URL 列表（取主机名），以及 `v2fly:<列表名>`（v2fly/domain-list-community，跟随 `include:`）。
 
+**移除无法解析的域名**：只对 blackmatrix7 标了这一项的规则集做（我们的 17 个里只有 Advertising），只在 GitHub Actions 上查询，本机运行只沿用上次的结果、不发 DNS 请求（`BM7_DNS=1` 可强制开启，`BM7_DNS=0` 强制关闭）。
+
+- 只有 NXDOMAIN（域名不存在）才算解析不到；超时、SERVFAIL、拒绝都算「未知」，不会删。NXDOMAIN 还要换另一家解析器（Google ↔ Cloudflare）再确认一次。
+- 连续两次运行都不存在才删除；后来又能解析了会自动加回。
+- 结果存在 [`state/dns-Advertising.tsv`](state)。每次只查新出现的、当前不存在的，以及按哈希分到当天的七分之一（每个域名每周复查一次），所以除了第一次要查全部约 30 万个，之后每天大约 4–5 万次；文件只在状态变化时改动。
+- 某次查询里超过 60% 的应答都是不存在（样本至少 200 个），视为解析器异常，这次结果整体不采用。
+- 每次查询多少、删了多少，写在差异日志的「移除无法解析的域名」一节。
+
 **防误删**：某个规则集一次缩水到上次的一半以下（通常是上游挂了），保留上次的文件，并在 Actions 里给出警告。单个上游下载失败时跳过它、继续生成。
 
 ## 和 blackmatrix7 的已知差异
 
-- 不做「移除无法解析的域名」（每天几十万次 DNS 查询），所以条目会比它多一些（例如 DouYin）。
 - blackmatrix7 的生成器不开源，它会丢掉一部分上游的 `DOMAIN-KEYWORD`（如过于宽泛的 `usage`、`logger`），筛选标准没有公开；这里照上游保留。
 - URL-REGEX 按上游原样保留，不改写成 `https?:\/\/` 的形式。
 - `rules.kr328.app` 已经停止解析（2026-11-05 起在 GitHub Actions 上也解析不到），依赖它的 22 个来源都缺了，主要影响 Global 排除的国内规则；`ruleset.isagood.day` 在部分网络下也访问不到。

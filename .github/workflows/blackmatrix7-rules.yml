@@ -23,7 +23,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # the first run queries every Advertising domain (~300k DNS lookups, a few minutes)
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
 
@@ -31,6 +32,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Test DNS check (offline, fake resolver on 127.0.0.1)
+        run: python BlackMatrix7Rules/scripts/test_dnscheck.py
+
+      # GITHUB_ACTIONS=true turns the DNS check on (it is off on other machines).
       - name: Generate rule sets
         run: python BlackMatrix7Rules/scripts/build.py
 

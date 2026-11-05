@@ -10,18 +10,22 @@ processing its READMEs describe:
   suffix · DOMAIN merged into DOMAIN-KEYWORD · IP-CIDR(6) collapsed · MITM hostnames
   derived from URL-REGEX and merged
 
-Which merges apply comes from each rule set's README badges (config "merge"). Known gaps:
-it does not remove domains that fail to resolve (blackmatrix7 does; that needs hundreds of
-thousands of DNS lookups a day), it does not rewrite URL-REGEX patterns, and blackmatrix7's
-closed generator drops some upstream DOMAIN-KEYWORD rules by criteria it does not publish.
+Which merges apply comes from each rule set's README badges (config "merge"). Rule sets
+marked 移除无法解析的域名 (Advertising) drop domains that no longer exist: see dnscheck.py.
+DNS checks only run on GitHub Actions (or with BM7_DNS=1); elsewhere the last results in
+state/ are applied without querying. Known gaps: it does not rewrite URL-REGEX patterns, and
+blackmatrix7's closed generator drops some upstream DOMAIN-KEYWORD rules by criteria it does
+not publish.
 
 Output: BlackMatrix7Rules/<Name>/<Surge|Shadowrocket|Clash>/<files>, same file variants as
 blackmatrix7. config/overrides.json adds or removes rules by hand (the Telegram bot's
 "编辑广告"). Python 3.9+ standard library only.
 """
 
+import asyncio
 import concurrent.futures
 import datetime
+import os
 import ipaddress
 import json
 import re
@@ -31,9 +35,13 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import dnscheck  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config" / "rulesets.json"
 OVERRIDES = ROOT / "config" / "overrides.json"
+STATE_DIR = ROOT / "state"
 README = ROOT / "README.md"
 REPO = "https://github.com/Maverick3a1/Net"
 RAW = "https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules"
@@ -348,6 +356,7 @@ class Graph:
         self.overrides = overrides
         self.done = {}
         self.stack = []
+        self.published = {}  # outputs after removing unresolvable domains (for the comparison)
 
     def rules(self, name):
         if name in self.done:
@@ -615,7 +624,7 @@ def compare_one(name, ours, theirs):
     }
 
 
-def write_compare_log(results, failed_sources):
+def write_compare_log(results, failed_sources, dns):
     now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
     day = now.strftime("%Y-%m-%d")
     lines = [
@@ -650,6 +659,17 @@ def write_compare_log(results, failed_sources):
             shown = items[:SAMPLE]
             more = f"（共 {len(items)} 条，列出前 {len(shown)} 条）" if len(items) > len(shown) else f"（共 {len(items)} 条）"
             details += ["", f"**{label}**{more}：", "", "```"] + [f"{t},{v}" for t, v in shown] + ["```"]
+    if dns:
+        details += ["", "## 移除无法解析的域名", ""]
+        for name, d in dns.items():
+            if d.get("queried"):
+                note = "" if d.get("applied", True) else "（这次 NXDOMAIN 比例异常，结果没有采用）"
+                details.append(
+                    f"- {name}：本次查询 {d['queried']} 个域名，有应答 {d['answered']}，其中不存在 {d['nx']}，"
+                    f"无应答 {d['errors']}{note}；连续两次不存在、已移除 {d['removed']} 个。"
+                )
+            else:
+                details.append(f"- {name}：本次没有查询（只在 GitHub Actions 上查询），沿用上次结果，已移除 {d['removed']} 个。")
     if failed_sources:
         details += ["", "## 本次没能下载的上游", "", "这些来源缺了，是差异的原因之一：", ""]
         details += [f"- {u}" for u in sorted(failed_sources)]
@@ -664,12 +684,12 @@ def write_compare_log(results, failed_sources):
             log(f"removed {old.relative_to(ROOT)} (older than {LOG_KEEP_DAYS} days)")
 
 
-def compare_all(names, graph, failed_sources):
+def compare_all(names, graph, failed_sources, dns=None):
     with concurrent.futures.ThreadPoolExecutor(WORKERS) as pool:
         fetched = dict(zip(names, pool.map(fetch_bm7, names)))
     results = []
     for name in names:
-        ours = graph.rules(name)
+        ours = graph.published.get(name) or graph.rules(name)
         theirs, info = fetched[name]
         if theirs is None:
             results.append({"name": name, "ours": len(ours), "error": info})
@@ -678,10 +698,40 @@ def compare_all(names, graph, failed_sources):
         r = compare_one(name, ours, theirs)
         r["updated"] = info
         results.append(r)
-    write_compare_log(results, failed_sources)
+    write_compare_log(results, failed_sources, dns or {})
 
 
 # ------------------------------------------------------------------ main
+
+
+def dns_enabled():
+    flag = os.environ.get("BM7_DNS")
+    if flag is not None:
+        return flag == "1"
+    return os.environ.get("GITHUB_ACTIONS") == "true"
+
+
+def drop_unresolvable(name, rules):
+    """Remove domains confirmed missing (see dnscheck). Returns (rules, summary)."""
+    path = STATE_DIR / f"dns-{name}.tsv"
+    state = dnscheck.load_state(path)
+    names = {v for t, v in rules if t in ("DOMAIN", "DOMAIN-SUFFIX") and not as_net(v)}
+    summary = {"queried": 0}
+    if dns_enabled():
+        todo = dnscheck.due(names, state, datetime.date.today().toordinal())
+        log(f"  DNS: checking {len(todo)} of {len(names)} domains")
+        results = asyncio.run(dnscheck.check(todo))
+        summary = dnscheck.update(state, names, results)
+        if not summary["applied"]:
+            warn(f"{name}: {summary['nx']} of {summary['answered']} answered NXDOMAIN; looks wrong, ignoring this DNS run")
+        elif summary["errors"] > 0.2 * max(1, summary["queried"]):
+            warn(f"{name}: {summary['errors']} of {summary['queried']} DNS queries got no answer")
+        dnscheck.save_state(path, state)
+    gone = dnscheck.dead(state) & names
+    kept = {r for r in rules if not (r[0] in ("DOMAIN", "DOMAIN-SUFFIX") and r[1] in gone)}
+    summary["removed"] = len(gone)
+    log(f"  DNS: {len(gone)} domains removed as unresolvable" + ("" if summary["queried"] else " (saved results, no queries this run)"))
+    return kept, summary
 
 
 def needed(cfg, names):
@@ -706,9 +756,12 @@ def main(argv):
     log(f"fetched {len(texts)}/{len(urls)} sources")
 
     graph = Graph(cfg, texts, overrides)
-    stats, problems = [], 0
+    stats, problems, dns = [], 0, {}
     for name in outputs:
         rules = graph.rules(name)
+        if cfg["rulesets"][name].get("merge", {}).get("remove_unresolvable"):
+            rules, dns[name] = drop_unresolvable(name, rules)
+            graph.published[name] = rules
         total = len(rules)
         prev = previous_total(name)
         title = cfg["rulesets"][name]["title"]
@@ -722,7 +775,7 @@ def main(argv):
         stats.append((name, title, total))
     if not argv:
         update_readme(stats)  # a partial run would drop the other rule sets' rows
-        compare_all(outputs, graph, failed)  # logs/<date>.md: differences from blackmatrix7
+        compare_all(outputs, graph, failed, dns)  # logs/<date>.md: differences from blackmatrix7
     if failed and len(failed) == len(urls):
         sys.exit("every source failed")
 
