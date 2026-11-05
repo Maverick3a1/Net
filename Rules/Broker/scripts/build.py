@@ -617,6 +617,8 @@ def update_readme(entries):
     ]
     for name, desc, rs_by in entries:
         rs = rs_by["Surge"]
+        if not surge_rules(rs):
+            continue  # empty entry (e.g. a shared bucket nothing was added to yet): no files to link
         domains = len(rs.suffix) + len(rs.full) + len(rs.keyword)
         surge = f"[RULE-SET]({base}/Surge/{name}.list) · [DOMAIN-SET]({base}/Surge/{name}_Domain.list)"
         shadowrocket = (
