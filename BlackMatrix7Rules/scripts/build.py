@@ -94,10 +94,49 @@ def fetch(url):
     raise RuntimeError(f"{url}: {last}")
 
 
+V2FLY_RAW = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/{}"
+
+
+def fetch_v2fly(name, seen=None):
+    """A v2fly domain-list-community list as Surge rule lines, following include: lines.
+
+    Plain / domain: lines are suffixes, full: is an exact host, keyword: a keyword; regexp: is
+    skipped (not portable). Attributes (@cn, @ads ...) are ignored: the whole list is used."""
+    seen = seen if seen is not None else set()
+    if name in seen:
+        return []
+    seen.add(name)
+    out = []
+    for raw in fetch(V2FLY_RAW.format(name)).splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        value = line.split()[0]
+        kind, _, rest = value.partition(":")
+        if not rest:
+            kind, rest = "domain", value
+        if kind == "include":
+            out += fetch_v2fly(rest, seen)
+        elif kind == "domain":
+            out.append(f"DOMAIN-SUFFIX,{rest}")
+        elif kind == "full":
+            out.append(f"DOMAIN,{rest}")
+        elif kind == "keyword":
+            out.append(f"DOMAIN-KEYWORD,{rest}")
+    return out
+
+
+def fetch_source(url):
+    """A source is a URL, or "v2fly:<list>" for a v2fly domain-list-community list."""
+    if url.startswith("v2fly:"):
+        return "\n".join(fetch_v2fly(url[6:]))
+    return fetch(url)
+
+
 def fetch_all(urls):
     texts, failed = {}, []
     with concurrent.futures.ThreadPoolExecutor(WORKERS) as pool:
-        futures = {pool.submit(fetch, u): u for u in urls}
+        futures = {pool.submit(fetch_source, u): u for u in urls}
         for f in concurrent.futures.as_completed(futures):
             u = futures[f]
             try:

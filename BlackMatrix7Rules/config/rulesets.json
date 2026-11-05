@@ -3,7 +3,8 @@
   "按 blackmatrix7/ios_rule_script 的规则组织方式生成（不复制它生成好的规则文件）。",
   "outputs：要发布到 BlackMatrix7Rules/<名称>/<平台>/ 的规则集；rulesets：所有规则集的数据来源、包含的子规则、排除的规则（含 outputs 间接依赖的）。",
   "快照取自各规则集 README 的「数据来源」「子规则/排除规则」，2026-11-05。",
-  "merge：各规则集 README 徽章标明的合并方式（DOMAIN 并入 SUFFIX、SUFFIX 间合并、DOMAIN 并入 KEYWORD、IP 段合并）。"
+  "merge：各规则集 README 徽章标明的合并方式（DOMAIN 并入 SUFFIX、SUFFIX 间合并、DOMAIN 并入 KEYWORD、IP 段合并）。",
+  "sources 里写 v2fly:<列表名> 表示 v2fly/domain-list-community 的 data/<列表名>（跟随 include:）。replaced 记录被替换掉的原始来源及原因。"
  ],
  "outputs": [
   "Lan",
@@ -3870,8 +3871,7 @@
   "LinkedIn": {
    "title": "🧸 LinkedIn",
    "sources": [
-    "https://rules.kr328.app/linkedin@cn.yaml",
-    "https://rules.kr328.app/linkedin.yaml"
+    "v2fly:linkedin"
    ],
    "include": [],
    "exclude": [],
@@ -3880,6 +3880,13 @@
     "suffix_into_suffix": true,
     "domain_into_keyword": true,
     "ip": true
+   },
+   "replaced": {
+    "sources": [
+     "https://rules.kr328.app/linkedin@cn.yaml",
+     "https://rules.kr328.app/linkedin.yaml"
+    ],
+    "why": "rules.kr328.app 已停止解析（2026-11-05），改用 v2fly 的 linkedin 列表"
    }
   },
   "LuDaShi": {
