@@ -323,7 +323,10 @@
       "name": "BankShared",
       "description": "银行 App 共用的第三方服务（风控 / 反欺诈 / 应用加固 / 客服 SDK）",
       "sources": [],
-      "domain_suffix": [],
+      "domain_suffix": [
+        // 来自 Telegram 机器人（用户确认）：Zimperium 移动应用防护（zDefend/zShield）SDK 的 CDN，证书 *.zimperium.com，经 Cloudflare；Reject 及各分类均未收录
+        "zimperium.com"
+      ],
       "domain": []
     }
   ],

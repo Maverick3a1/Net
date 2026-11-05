@@ -37,7 +37,8 @@ Claude 云端定时任务每周一 **北京时间 02:00** 自动运行：重新�
 | **Fusion** | Fusion Bank 富融银行 | 1 | 0 | [RULE-SET](Surge/Fusion.list) · [DOMAIN-SET](Surge/Fusion_Domain.list) | [RULE-SET](Shadowrocket/Fusion.list) · [DOMAIN-SET](Shadowrocket/Fusion_Domain.list) | [classical](Clash/Fusion.yaml) · [domain](Clash/Fusion_Domain.yaml) |
 | **AntBank** | Ant Bank (Hong Kong) 蚂蚁银行（香港） | 2 | 0 | [RULE-SET](Surge/AntBank.list) · [DOMAIN-SET](Surge/AntBank_Domain.list) | [RULE-SET](Shadowrocket/AntBank.list) · [DOMAIN-SET](Shadowrocket/AntBank_Domain.list) | [classical](Clash/AntBank.yaml) · [domain](Clash/AntBank_Domain.yaml) |
 | **Wise** | Wise（原 TransferWise） | 4 | 0 | [RULE-SET](Surge/Wise.list) · [DOMAIN-SET](Surge/Wise_Domain.list) | [RULE-SET](Shadowrocket/Wise.list) · [DOMAIN-SET](Shadowrocket/Wise_Domain.list) | [classical](Clash/Wise.yaml) · [domain](Clash/Wise_Domain.yaml) |
-| **Bank_All** | All banks above combined | 120 | 59 | [RULE-SET](Surge/Bank_All.list) · [DOMAIN-SET](Surge/Bank_All_Domain.list) | [RULE-SET](Shadowrocket/Bank_All.list) · [DOMAIN-SET](Shadowrocket/Bank_All_Domain.list) | [classical](Clash/Bank_All.yaml) · [domain](Clash/Bank_All_Domain.yaml) · [ipcidr](Clash/Bank_All_IP.yaml) |
+| **BankShared** | 银行 App 共用的第三方服务（风控 / 反欺诈 / 应用加固 / 客服 SDK） | 1 | 0 | [RULE-SET](Surge/BankShared.list) · [DOMAIN-SET](Surge/BankShared_Domain.list) | [RULE-SET](Shadowrocket/BankShared.list) · [DOMAIN-SET](Shadowrocket/BankShared_Domain.list) | [classical](Clash/BankShared.yaml) · [domain](Clash/BankShared_Domain.yaml) |
+| **Bank_All** | All banks above combined | 121 | 59 | [RULE-SET](Surge/Bank_All.list) · [DOMAIN-SET](Surge/Bank_All_Domain.list) | [RULE-SET](Shadowrocket/Bank_All.list) · [DOMAIN-SET](Shadowrocket/Bank_All_Domain.list) | [classical](Clash/Bank_All.yaml) · [domain](Clash/Bank_All_Domain.yaml) · [ipcidr](Clash/Bank_All_IP.yaml) |
 <!-- RULES:END -->
 
 `Bank_All` 是以上所有银行（含 Wise）的合集，一条规则全部覆盖。

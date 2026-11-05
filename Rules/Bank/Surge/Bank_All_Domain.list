@@ -1,8 +1,8 @@
 # NAME: Bank_All
 # DESC: All banks above combined
 # FORMAT: Surge DOMAIN-SET
-# UPDATED: 2026-11-04 09:40:00 UTC
-# DOMAIN-SUFFIX: 106
+# UPDATED: 2026-11-05 10:21:43 UTC
+# DOMAIN-SUFFIX: 107
 # DOMAIN: 14
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
@@ -267,3 +267,9 @@ antbank-cdn.marmot-cloud.com
 .wise.com
 daw291njkc3ao.cloudfront.net
 dq8dwmysp7hk1.cloudfront.net
+
+# ============================================================
+# BankShared
+# 银行 App 共用的第三方服务（风控 / 反欺诈 / 应用加固 / 客服 SDK）
+# ============================================================
+.zimperium.com
