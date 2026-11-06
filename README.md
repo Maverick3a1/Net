@@ -2,9 +2,7 @@
 
 自用的 Clash / Surge / Shadowrocket 分流规则集和 Surge 模块。
 
-## 规则集
-
-### 分类合集
+## 分类合集
 
 每个分类只发布一个合集规则集（`<分类>_All`），各厂商在文件里分段，不再单独发布。
 
@@ -18,11 +16,7 @@
 
 每个目录下都有三套文件：`Surge/`、`Shadowrocket/`（RULE-SET / DOMAIN-SET）和 `Clash/`（classical / domain / ipcidr）。具体用法见各目录的 README。
 
-### BlackMatrix7Rules
-
-[BlackMatrix7Rules](BlackMatrix7Rules)：按 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的规则组织方式，从上游自行生成的 17 个规则集（Advertising、Lan、Global、Google、Apple、Microsoft 等），由 GitHub Actions 每天北京时间 01:00 更新。
-
-## 使用方法
+### 使用方法
 
 raw 地址格式：
 
@@ -34,7 +28,7 @@ https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/<分类>/Clash/<分
 
 规则顺序：`Reject` 配 `REJECT`，放在所有 `_All` 前面。`Reject` 每个平台只有一个文件（`Surge/Reject.list`、`Shadowrocket/Reject.list`、`Clash/Reject.yaml`），按分类分段。
 
-## 更新方式
+### 更新方式
 
 | 目录 | 方式 | 时间（北京时间） |
 | --- | --- | --- |
@@ -44,7 +38,6 @@ https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/<分类>/Clash/<分
 | Rules/Crypto | Claude 云端定时任务 | 每周一 03:30 |
 | Rules/Reject | 随各分类构建更新；`Manual` 段由 Telegram 机器人写入 | — |
 | Rules/Personal | 手动维护（没有 `build.py`） | — |
-| BlackMatrix7Rules | GitHub Actions | 每天 01:00 |
 
 每个定时任务先运行该目录的 `scripts/build.py` 刷新上游，再搜索并核实新的域名，有变化就开 PR 到 `main`，合并后生效。任务的提示词保存在 claude.ai 的定时任务里，不在仓库中；新增规则目录需要另建一个对应的定时任务。
 
@@ -63,6 +56,17 @@ https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/<分类>/Clash/<分
 ### Telegram 机器人
 
 把域名的文字或截图发给 [Telegram 机器人](bots/reject-bot)：Claude 会建议每个域名加到 `Rules/Reject` 还是某个分类的条目（如 `AI` 里的 `OpenAI` 段），也可以编辑 BlackMatrix7Rules 的广告列表。你点按钮确认后直接写入 `main`。
+
+## BlackMatrix7Rules
+
+[BlackMatrix7Rules](BlackMatrix7Rules)：按 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 的规则组织方式，从上游自行生成的 17 个规则集（Advertising、Lan、Global、Google、Apple、Microsoft 等），由 GitHub Actions 每天北京时间 01:00 更新。
+
+
+### 更新方式
+
+| 目录 | 方式 | 时间（北京时间） |
+| --- | --- | --- |
+| BlackMatrix7Rules | GitHub Actions | 每天 01:00 |
 
 ## Surge 模块
 
