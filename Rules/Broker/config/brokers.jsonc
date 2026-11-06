@@ -366,7 +366,7 @@
   // ================================================================
   "aggregate": {
     "name": "Broker_All",
-    "description": "All brokers above combined"
+    "description": "港美股券商、TradingView 和券商共用 SDK / IP 合集"
   },
 
   // ================================================================

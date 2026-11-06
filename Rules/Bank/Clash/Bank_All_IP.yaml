@@ -1,5 +1,5 @@
 # NAME: Bank_All
-# DESC: All banks above combined
+# DESC: 香港银行和 Wise 合集
 # FORMAT: Clash rule-provider, behavior: ipcidr
 # UPDATED: 2026-10-30 07:48:07 UTC
 # DOMAIN-SUFFIX: 87

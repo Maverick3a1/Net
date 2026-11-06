@@ -1,5 +1,5 @@
 # NAME: Broker_All
-# DESC: All brokers above combined
+# DESC: 港美股券商、TradingView 和券商共用 SDK / IP 合集
 # FORMAT: Clash rule-provider, behavior: ipcidr
 # UPDATED: 2026-11-02 16:43:03 UTC
 # DOMAIN-SUFFIX: 192

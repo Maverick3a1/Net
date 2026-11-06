@@ -7,8 +7,6 @@
 - 用它各规则集 README 里公开的「数据来源」「子规则」「排除规则」和合并方式（快照存在 [`config/rulesets.json`](config/rulesets.json)）；
 - 每次运行都直接从这些上游下载、解析、合并、去重，再按它的文件格式输出。
 
-GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-rules.yml)）每天 **北京时间 01:00** 运行一次；`config/` 或 `scripts/` 有改动推送到 `main` 时也会立即重新生成。
-
 ## 规则列表
 
 <!-- RULES:START -->
@@ -33,7 +31,7 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 | **Global** | 🧸 Global | 29024 | [All](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Surge/Global_All.list) · [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Surge/Global.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Surge/Global_Domain.list) | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Shadowrocket/Global.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Shadowrocket/Global_Domain.list) | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Clash/Global_Classical.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/BlackMatrix7Rules/Global/Clash/Global_Domain.yaml) |
 <!-- RULES:END -->
 
-## 文件
+## 文件格式
 
 每个规则集一个目录：`BlackMatrix7Rules/<名称>/<平台>/<文件>`，文件和 blackmatrix7 同名同用法。
 
@@ -51,7 +49,11 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 
 和 blackmatrix7 一样：Clash 不含 URL-REGEX、USER-AGENT 和 AND / OR / NOT 规则；Shadowrocket 不含 AND / OR / NOT，IPv6 段写成 `IP-CIDR`。
 
-## 处理方式
+## 生成方式
+
+GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-rules.yml)）每天 **北京时间 01:00** 运行一次；`config/` 或 `scripts/` 有改动推送到 `main` 时也会立即重新生成。
+
+### 合并规则
 
 对每个规则集：合并它的所有数据来源和子规则 → 去掉排除规则里有的（相同，或属于排除规则里的 `DOMAIN-SUFFIX` / IP 段）→ 应用 [`config/overrides.json`](config/overrides.json) 的人工调整 → 按该规则集徽章标明的方式合并：
 
@@ -63,7 +65,9 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 
 支持的上游格式：Surge / Quantumult X / Clash classical 规则、Clash payload（domain / ipcidr）、DOMAIN-SET、纯域名列表、hosts、AdBlock `||domain^`、sgmodule 的 `[Rule]`、m3u / URL 列表（取主机名），以及 `v2fly:<列表名>`（v2fly/domain-list-community，跟随 `include:`）。
 
-**移除无法解析的域名**：只对 blackmatrix7 标了这一项的规则集做（我们的 17 个里只有 Advertising），只在 GitHub Actions 上查询，本机运行只沿用上次的结果、不发 DNS 请求（`BM7_DNS=1` 可强制开启，`BM7_DNS=0` 强制关闭）。
+### 移除无法解析的域名
+
+只对 blackmatrix7 标了这一项的规则集做（我们的 17 个里只有 Advertising），只在 GitHub Actions 上查询，本机运行只沿用上次的结果、不发 DNS 请求（`BM7_DNS=1` 可强制开启，`BM7_DNS=0` 强制关闭）。
 
 - 只有 NXDOMAIN（域名不存在）才算解析不到；超时、SERVFAIL、拒绝都算「未知」，不会删。NXDOMAIN 还要换另一家解析器（Google ↔ Cloudflare）再确认一次。
 - 连续两次运行都不存在才删除；后来又能解析了会自动加回。
@@ -71,16 +75,20 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 - 某次查询里超过 60% 的应答都是不存在（样本至少 200 个），视为解析器异常，这次结果整体不采用。
 - 每次查询多少、删了多少，写在差异日志的「移除无法解析的域名」一节。
 
-**防误删**：某个规则集一次缩水到上次的一半以下（通常是上游挂了），保留上次的文件，并在 Actions 里给出警告。单个上游下载失败时跳过它、继续生成。
+### 防误删
 
-## 和 blackmatrix7 的已知差异
+某个规则集一次缩水到上次的一半以下（通常是上游挂了），保留上次的文件，并在 Actions 里给出警告。单个上游下载失败时跳过它、继续生成。
+
+## 与 blackmatrix7 的差异
+
+### 已知差异
 
 - blackmatrix7 的生成器不开源，它会丢掉一部分上游的 `DOMAIN-KEYWORD`（如过于宽泛的 `usage`、`logger`），筛选标准没有公开；这里照上游保留。
 - URL-REGEX 按上游原样保留，不改写成 `https?:\/\/` 的形式。
 - `rules.kr328.app` 已经停止解析（2026-11-05 起在 GitHub Actions 上也解析不到），依赖它的 22 个来源都缺了，主要影响 Global 排除的国内规则；`ruleset.isagood.day` 在部分网络下也访问不到。
 - LinkedIn 原本只有两个 `rules.kr328.app` 来源，已换成 v2fly 的 `linkedin` 列表（`config/rulesets.json` 里写作 `v2fly:linkedin`，原来源记在 `replaced`）。
 
-## 与 blackmatrix7 的差异日志
+### 差异日志
 
 每次全量生成后，会下载 blackmatrix7 当前发布的 Surge 规则（有 `_All.list` 用它，否则用 `<名称>.list`），和刚生成的结果逐条比较，写进 [`logs/<日期>.md`](logs)（同一天多次运行覆盖当天的文件，只保留最近 30 天）：
 
@@ -89,11 +97,13 @@ GitHub Actions（[`blackmatrix7-rules.yml`](../.github/workflows/blackmatrix7-ru
 - 每个规则集按类型的条数对比，以及双方各自未被覆盖的规则（最多列 30 条）；
 - 本次没能下载的上游，以及 blackmatrix7 那边规则的更新时间。
 
-## 人工调整（编辑广告）
+## 维护
+
+### 人工调整（编辑广告）
 
 [`config/overrides.json`](config/overrides.json) 里按规则集写 `add`（追加）和 `remove`（删除，等于它或属于它的规则都会删掉），每条形如 `DOMAIN-SUFFIX,example.com`。目前只给 Advertising 用：通过 [Telegram 机器人](../bots/reject-bot) 选「编辑广告」并确认后写入，推送后 Actions 会立即重新生成。
 
-## 本地运行
+### 本地运行
 
 ```bash
 python3 BlackMatrix7Rules/scripts/build.py              # 全部

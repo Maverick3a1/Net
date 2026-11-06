@@ -483,12 +483,23 @@ def render(name, description, rs_by, sections_by=None):
         write_if_changed(path, header(name, description, fmt, rs_by[platform], "#"), body)
 
 
-def previous_count(name):
-    body = body_of(SURGE_DIR / f"{name}.list")
-    return sum(1 for l in body if is_rule(l)) if body else 0
+def previous_count(agg_name, name):
+    """Rules under `name`'s section banner in the existing aggregate Surge list (0 if absent)."""
+    body = body_of(SURGE_DIR / f"{agg_name}.list") or []
+    banner = "# " + "=" * 60
+    count, current = 0, None
+    for prev, line in zip([""] + body, body):
+        if prev == banner and line.startswith("# "):
+            current = line[2:]
+        elif current == name and is_rule(line):
+            count += 1
+    return count
 
 
 # ---------------------------------------------------------------- README
+
+
+README_LABEL = "交易所"
 
 
 # Any raw ruleset link, whatever repo/subdir it currently points at.
@@ -531,24 +542,37 @@ def update_readme(entries):
     slug = repo_slug()
     subdir = repo_subdir()
     base = f"https://raw.githubusercontent.com/{slug}/main" + (f"/{subdir}" if subdir else "")
+    p = f"{base}/" if base else ""
+
+    def surge_of(rs):
+        return rs["Surge"] if isinstance(rs, dict) else rs
+
+    def counts(rs):
+        rs = surge_of(rs)
+        return len(rs.suffix) + len(rs.full) + len(rs.keyword), len(rs.nets)
+
+    # entries = every member, then the aggregate last; only the aggregate has files.
+    n, _, agg = entries[-1]
+    members = [e for e in entries[:-1] if surge_rules(surge_of(e[2]))]
+    clash = f"[classical]({p}Clash/{n}.yaml) · [domain]({p}Clash/{n}_Domain.yaml)"
+    if (agg["Clash"] if isinstance(agg, dict) else agg).nets:
+        clash += f" · [ipcidr]({p}Clash/{n}_IP.yaml)"
+    domains, nets = counts(agg)
     rows = [
-        "| Ruleset | Description | Domains | IP | Surge | Shadowrocket | Clash |",
-        "| --- | --- | ---: | ---: | --- | --- | --- |",
+        "| 平台 | 规则文件 |",
+        "| --- | --- |",
+        f"| Surge | [RULE-SET]({p}Surge/{n}.list) · [DOMAIN-SET]({p}Surge/{n}_Domain.list) |",
+        f"| Shadowrocket | [RULE-SET]({p}Shadowrocket/{n}.list) · [DOMAIN-SET]({p}Shadowrocket/{n}_Domain.list) |",
+        f"| Clash / mihomo | {clash} |",
+        "",
+        f"`{n}` 共 {domains} 条域名规则、{nets} 个 IP 段，收录以下 {len(members)} 个{README_LABEL}：",
+        "",
+        f"| {README_LABEL} | 说明 | 域名 | IP |",
+        "| --- | --- | ---: | ---: |",
     ]
-    for name, desc, rs_by in entries:
-        rs = rs_by["Surge"]
-        if not surge_rules(rs):
-            continue  # empty entry (e.g. a shared bucket nothing was added to yet): no files to link
-        domains = len(rs.suffix) + len(rs.full) + len(rs.keyword)
-        surge = f"[RULE-SET]({base}/Surge/{name}.list) · [DOMAIN-SET]({base}/Surge/{name}_Domain.list)"
-        shadowrocket = (
-            f"[RULE-SET]({base}/Shadowrocket/{name}.list)"
-            f" · [DOMAIN-SET]({base}/Shadowrocket/{name}_Domain.list)"
-        )
-        clash = f"[classical]({base}/Clash/{name}.yaml) · [domain]({base}/Clash/{name}_Domain.yaml)"
-        if rs_by["Clash"].nets:
-            clash += f" · [ipcidr]({base}/Clash/{name}_IP.yaml)"
-        rows.append(f"| **{name}** | {desc} | {domains} | {len(rs.nets)} | {surge} | {shadowrocket} | {clash} |")
+    for name, desc, rs in members:
+        d, i = counts(rs)
+        rows.append(f"| {name} | {desc} | {d} | {i} |")
     block = "<!-- RULES:START -->\n" + "\n".join(rows) + "\n<!-- RULES:END -->"
     text = README.read_text()
     new = re.sub(r"<!-- RULES:START -->.*?<!-- RULES:END -->", block, text, flags=re.S)
@@ -584,17 +608,16 @@ def main():
         try:
             rs, rej = build_exchange(exchange, cfg)
         except SourceError as exc:
-            warn(f"{name}: {exc}; keeping previous ruleset")
+            warn(f"{name}: {exc}; keeping previous aggregate")
             failed.append(name)
             continue
-        prev = previous_count(name)
+        prev = previous_count(cfg["aggregate"]["name"], name)
         new = len(surge_rules(rs["Surge"]))
         if prev and new < prev * MIN_KEEP_RATIO:
-            warn(f"{name}: shrank from {prev} to {new} rules; keeping previous ruleset")
+            warn(f"{name}: shrank from {prev} to {new} rules; keeping previous aggregate")
             failed.append(name)
             continue
         log(f"  total: {new} rules")
-        render(name, exchange["description"], rs)
         built.append((name, exchange["description"], rs))
         rejects.append((name, exchange["description"], rej))
 

@@ -168,7 +168,7 @@
   // ================================================================
   "aggregate": {
     "name": "AI_All",
-    "description": "All vendors above combined"
+    "description": "OpenAI、Anthropic、xAI、Gemini 等 AI 服务合集"
   },
 
   // ================================================================
