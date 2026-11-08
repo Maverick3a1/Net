@@ -80,7 +80,8 @@
         {"type": "asn", "asn": 24396}
       ],
       // bocgroup.com 返回中银香港自己的 EV 证书；boccc.com.hk 是中银信用卡（CT 证书 O=中银香港）
-      "domain_suffix": ["bochk.com", "bochk.com.hk", "bocgroup.com", "boccc.com.hk"],
+      // ftcwifi.com：crt.sh 中 EV 证书 O=Bank of China (Hong Kong) Ltd，NS 与 bochk.com 相同（imsbiz.com），主机解析到中银香港自有网段 202.127.168.0/21
+      "domain_suffix": ["bochk.com", "bochk.com.hk", "bocgroup.com", "boccc.com.hk", "ftcwifi.com"],
       "domain": [
         // 来自 Telegram 机器人（用户确认）：经济通 ETNet（AS9906）的主机，名称含 bochk，疑似中银香港 App 的股票行情服务；根域 etdsinfo.com 属 ETNet，未收录
         "bochk01.etdsinfo.com",
@@ -132,14 +133,16 @@
       "name": "DahSing",
       "description": "Dah Sing Bank 大新银行",
       "sources": [],
-      "domain_suffix": ["dahsing.com"]
+      // dahsing.com.hk 301 跳转到 www.dahsing.com（来自 LingJingMaster/Shadowrocket-Rules）
+      "domain_suffix": ["dahsing.com", "dahsing.com.hk"]
     },
     {
       "name": "CNCBI",
       "description": "China CITIC Bank International 中信银行（国际）",
       "sources": [],
       // cncbintl.com 的证书 O=China CITIC Bank International（CT 记录）
-      "domain_suffix": ["cncbinternational.com", "cncbintl.com"]
+      // cncbinternational2.com：crt.sh 中 EV / OV 证书 O=China CITIC Bank International Limited（移动设备管理 / 应用网关）
+      "domain_suffix": ["cncbinternational.com", "cncbintl.com", "cncbinternational2.com"]
     },
     {
       "name": "CMBWingLung",
@@ -242,7 +245,8 @@
         {"type": "forecho", "list": "Bank", "conf": "zabank"}
       ],
       // zaticdn.com 是众安自有 CDN
-      "domain_suffix": ["za.group", "zabank.com.hk", "zaticdn.com"]
+      // zabank.com 302 跳转到 bank.za.group（来自 javievv/proxy-rules）
+      "domain_suffix": ["za.group", "zabank.com.hk", "zaticdn.com", "zabank.com"]
     },
     {
       "name": "Mox",
@@ -310,6 +314,8 @@
         // Transferwise-est（目前没有宣告网段，有了会自动收录）
         {"type": "asn", "asn": 208550}
       ],
+      // tw.ee：crt.sh 中 OV 证书 O=WISE PAYMENTS LIMITED，301 跳转到 transferwise.com
+      "domain_suffix": ["tw.ee"],
       // wise.com 首页引用的 Wise 自有 CloudFront 分发（logo 等静态资源）
       "domain": ["dq8dwmysp7hk1.cloudfront.net", "daw291njkc3ao.cloudfront.net"]
     },

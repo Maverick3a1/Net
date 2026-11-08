@@ -1,8 +1,8 @@
 # NAME: Bank_All
 # DESC: 香港银行和 Wise 合集
 # FORMAT: Shadowrocket RULE-SET
-# UPDATED: 2026-11-05 10:21:43 UTC
-# DOMAIN-SUFFIX: 107
+# UPDATED: 2026-11-08 19:14:21 UTC
+# DOMAIN-SUFFIX: 112
 # DOMAIN: 14
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
@@ -122,6 +122,7 @@ IP-CIDR,206.42.120.0/23,no-resolve
 # ============================================================
 DOMAIN-SUFFIX,bocgroup.com
 DOMAIN-SUFFIX,bochk.com
+DOMAIN-SUFFIX,ftcwifi.com
 DOMAIN-SUFFIX,boccc.com.hk
 DOMAIN-SUFFIX,bochk.com.hk
 DOMAIN,bochk01.etdsinfo.com
@@ -170,12 +171,14 @@ IP-CIDR,192.193.134.0/24,no-resolve
 # Dah Sing Bank 大新银行
 # ============================================================
 DOMAIN-SUFFIX,dahsing.com
+DOMAIN-SUFFIX,dahsing.com.hk
 
 # ============================================================
 # CNCBI
 # China CITIC Bank International 中信银行（国际）
 # ============================================================
 DOMAIN-SUFFIX,cncbinternational.com
+DOMAIN-SUFFIX,cncbinternational2.com
 DOMAIN-SUFFIX,cncbintl.com
 
 # ============================================================
@@ -265,6 +268,7 @@ IP-CIDR6,2407:880:9f00::/48,no-resolve
 # ZABank
 # ZA Bank 众安银行
 # ============================================================
+DOMAIN-SUFFIX,zabank.com
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zaticdn.com
 DOMAIN-SUFFIX,za.group
@@ -324,6 +328,7 @@ DOMAIN,antbank-cdn.marmot-cloud.com
 # ============================================================
 DOMAIN-SUFFIX,transferwise.com
 DOMAIN-SUFFIX,wise.com
+DOMAIN-SUFFIX,tw.ee
 DOMAIN,daw291njkc3ao.cloudfront.net
 DOMAIN,dq8dwmysp7hk1.cloudfront.net
 

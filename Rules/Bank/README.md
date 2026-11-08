@@ -11,19 +11,19 @@
 | Shadowrocket | [RULE-SET](Shadowrocket/Bank_All.list) · [DOMAIN-SET](Shadowrocket/Bank_All_Domain.list) |
 | Clash / mihomo | [classical](Clash/Bank_All.yaml) · [domain](Clash/Bank_All_Domain.yaml) · [ipcidr](Clash/Bank_All_IP.yaml) |
 
-`Bank_All` 共 121 条域名规则、59 个 IP 段，收录以下 29 个银行：
+`Bank_All` 共 126 条域名规则、59 个 IP 段，收录以下 29 个银行：
 
 | 银行 | 说明 | 域名 | IP |
 | --- | --- | ---: | ---: |
 | HSBC | HSBC 汇丰银行（香港） | 53 | 6 |
 | StandardChartered | Standard Chartered 渣打银行（香港） | 5 | 34 |
-| BOCHK | Bank of China (Hong Kong) 中银香港 | 6 | 1 |
+| BOCHK | Bank of China (Hong Kong) 中银香港 | 7 | 1 |
 | HangSeng | Hang Seng Bank 恒生银行 | 2 | 0 |
 | BEA | The Bank of East Asia 东亚银行 | 3 | 0 |
 | DBS | DBS Bank (Hong Kong) 星展银行（香港） | 2 | 2 |
 | Citibank | Citibank (Hong Kong) 花旗银行（香港） | 2 | 6 |
-| DahSing | Dah Sing Bank 大新银行 | 1 | 0 |
-| CNCBI | China CITIC Bank International 中信银行（国际） | 2 | 0 |
+| DahSing | Dah Sing Bank 大新银行 | 2 | 0 |
+| CNCBI | China CITIC Bank International 中信银行（国际） | 3 | 0 |
 | CMBWingLung | CMB Wing Lung Bank 招商永隆银行 | 2 | 0 |
 | ICBCAsia | ICBC (Asia) 工银亚洲 | 5 | 2 |
 | CCBAsia | China Construction Bank (Asia) 建行亚洲 | 3 | 2 |
@@ -34,7 +34,7 @@
 | ShacomBank | Shanghai Commercial Bank 上海商业银行 | 2 | 0 |
 | ChongHing | Chong Hing Bank 创兴银行 | 1 | 0 |
 | BoComHK | Bank of Communications (Hong Kong) 交通银行（香港） | 2 | 2 |
-| ZABank | ZA Bank 众安银行 | 5 | 0 |
+| ZABank | ZA Bank 众安银行 | 6 | 0 |
 | Mox | Mox Bank | 2 | 0 |
 | WeLab | WeLab Bank 汇立银行 | 1 | 0 |
 | Livi | livi bank 理慧银行 | 2 | 0 |
@@ -42,7 +42,7 @@
 | PAOB | Ping An OneConnect Bank 平安壹账通银行 | 2 | 0 |
 | Fusion | Fusion Bank 富融银行 | 1 | 0 |
 | AntBank | Ant Bank (Hong Kong) 蚂蚁银行（香港） | 2 | 0 |
-| Wise | Wise（原 TransferWise） | 4 | 0 |
+| Wise | Wise（原 TransferWise） | 5 | 0 |
 | BankShared | 银行 App 共用的第三方服务（风控 / 反欺诈 / 应用加固 / 客服 SDK） | 1 | 0 |
 <!-- RULES:END -->
 
