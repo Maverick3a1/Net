@@ -1,8 +1,8 @@
 # NAME: Bank_All
 # DESC: 香港银行和 Wise 合集
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-11-05 10:21:43 UTC
-# DOMAIN-SUFFIX: 107
+# UPDATED: 2026-11-08 19:14:21 UTC
+# DOMAIN-SUFFIX: 112
 # DOMAIN: 14
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 53
@@ -82,6 +82,7 @@ standchartbank.tt.omtrdc.net
 # ============================================================
 .bocgroup.com
 .bochk.com
+.ftcwifi.com
 .boccc.com.hk
 .bochk.com.hk
 bochk01.etdsinfo.com
@@ -121,12 +122,14 @@ bochk02.etdsinfo.com
 # Dah Sing Bank 大新银行
 # ============================================================
 .dahsing.com
+.dahsing.com.hk
 
 # ============================================================
 # CNCBI
 # China CITIC Bank International 中信银行（国际）
 # ============================================================
 .cncbinternational.com
+.cncbinternational2.com
 .cncbintl.com
 
 # ============================================================
@@ -206,6 +209,7 @@ myebankasia.icbc.com.cn
 # ZABank
 # ZA Bank 众安银行
 # ============================================================
+.zabank.com
 .zajourney.com
 .zaticdn.com
 .za.group
@@ -265,6 +269,7 @@ antbank-cdn.marmot-cloud.com
 # ============================================================
 .transferwise.com
 .wise.com
+.tw.ee
 daw291njkc3ao.cloudfront.net
 dq8dwmysp7hk1.cloudfront.net
 
