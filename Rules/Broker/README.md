@@ -11,25 +11,25 @@
 | Shadowrocket | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Shadowrocket/Broker_All_Domain.list) |
 | Clash / mihomo | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Broker/Clash/Broker_All_IP.yaml) |
 
-`Broker_All` 共 233 条域名规则、95 个 IP 段，收录以下 17 个券商：
+`Broker_All` 共 283 条域名规则、95 个 IP 段，收录以下 17 个券商：
 
 | 券商 | 说明 | 域名 | IP |
 | --- | --- | ---: | ---: |
-| Futu | 富途证券: 富途牛牛, moomoo | 52 | 0 |
-| Tiger | 老虎证券: Tiger Trade, Tiger Brokers | 37 | 0 |
+| Futu | 富途证券: 富途牛牛, moomoo | 55 | 0 |
+| Tiger | 老虎证券: Tiger Trade, Tiger Brokers | 49 | 0 |
 | Longbridge | 长桥证券: Longbridge, LongPort | 15 | 0 |
 | uSMART | 盈立证券: uSMART | 24 | 0 |
-| Valuable | 华盛证券: 华盛通, Valuable | 7 | 0 |
+| Valuable | 华盛证券: 华盛通, Valuable | 8 | 0 |
 | Snowball | 雪盈证券 Snowball Securities | 4 | 0 |
 | Eddid | 艾德证券: Eddid ONE | 5 | 0 |
 | HuataiIntl | 华泰国际: 涨乐全球通 | 2 | 0 |
 | Fosun | 复星国际证券: 复星恒利, 复星财富 | 4 | 0 |
 | ZR | 卓锐证券 Sharp Point | 2 | 0 |
 | Webull | 微牛 Webull | 27 | 0 |
-| IBKR | 盈透证券 Interactive Brokers | 26 | 13 |
-| Schwab | 嘉信理财 Charles Schwab, thinkorswim | 14 | 17 |
+| IBKR | 盈透证券 Interactive Brokers | 41 | 13 |
+| Schwab | 嘉信理财 Charles Schwab, thinkorswim | 31 | 17 |
 | Firstrade | 第一证券 Firstrade | 3 | 0 |
-| Robinhood | Robinhood | 4 | 2 |
+| Robinhood | Robinhood | 6 | 2 |
 | TradingView | TradingView 图表 / 行情 | 4 | 0 |
 | BrokerShared | 券商 App 共用 SDK 域名和云服务器 IP | 3 | 63 |
 <!-- RULES:END -->
