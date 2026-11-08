@@ -1,9 +1,9 @@
 # NAME: AI_All
 # DESC: OpenAI、Anthropic、xAI、Gemini 等 AI 服务合集
 # FORMAT: Clash rule-provider, behavior: classical
-# UPDATED: 2026-11-04 03:17:23 UTC
-# DOMAIN-SUFFIX: 82
-# DOMAIN: 40
+# UPDATED: 2026-11-08 19:01:37 UTC
+# DOMAIN-SUFFIX: 83
+# DOMAIN: 41
 # DOMAIN-KEYWORD: 1
 # IP-CIDR: 3
 # IP-CIDR6: 2
@@ -70,6 +70,7 @@ payload:
   # ============================================================
   - 'DOMAIN-SUFFIX,x.ai'
   - 'DOMAIN-SUFFIX,grok.com'
+  - 'DOMAIN-SUFFIX,grokbot.com'
   - 'DOMAIN-SUFFIX,grokipedia.com'
   - 'DOMAIN-SUFFIX,grok.x.com'
   - 'IP-CIDR,31.207.0.0/24,no-resolve'
@@ -156,6 +157,7 @@ payload:
   - 'DOMAIN-SUFFIX,githubcopilot.com'
   - 'DOMAIN-SUFFIX,copilot.microsoft.com'
   - 'DOMAIN-SUFFIX,copilot.cloud.microsoft'
+  - 'DOMAIN,production-copilot-host-westus.webpubsub.azure.com'
   - 'DOMAIN,edgeservices.bing.com'
   - 'DOMAIN,sydney.bing.com'
   - 'DOMAIN,copilot-reports.github.com'
