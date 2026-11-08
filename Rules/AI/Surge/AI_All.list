@@ -1,9 +1,9 @@
 # NAME: AI_All
 # DESC: OpenAI、Anthropic、xAI、Gemini 等 AI 服务合集
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-11-08 19:01:37 UTC
-# DOMAIN-SUFFIX: 83
-# DOMAIN: 41
+# UPDATED: 2026-11-08 19:09:19 UTC
+# DOMAIN-SUFFIX: 93
+# DOMAIN: 54
 # DOMAIN-KEYWORD: 1
 # IP-CIDR: 3
 # IP-CIDR6: 2
@@ -23,6 +23,7 @@ DOMAIN-SUFFIX,oaistatsig.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,openai.fm
 DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net
 DOMAIN-SUFFIX,openai.org
 DOMAIN-SUFFIX,chatgpt.site
@@ -71,6 +72,7 @@ DOMAIN-SUFFIX,x.ai
 DOMAIN-SUFFIX,grok.com
 DOMAIN-SUFFIX,grokbot.com
 DOMAIN-SUFFIX,grokipedia.com
+DOMAIN-SUFFIX,grokusercontent.com
 DOMAIN-SUFFIX,grok.x.com
 IP-CIDR,31.207.0.0/24,no-resolve
 
@@ -79,6 +81,7 @@ IP-CIDR,31.207.0.0/24,no-resolve
 # Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity
 # ============================================================
 DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,geminicli.com
 DOMAIN-SUFFIX,aistudio.google.com
 DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,flow.google.com
@@ -100,9 +103,14 @@ DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
 DOMAIN-SUFFIX,gemini.gstatic.com
 DOMAIN-SUFFIX,opal.withgoogle.com
 DOMAIN-SUFFIX,stitch.withgoogle.com
+DOMAIN-SUFFIX,ai.dev
 DOMAIN-SUFFIX,antigravity-unleash.goog
 DOMAIN-SUFFIX,opal.goog
+DOMAIN-SUFFIX,ai.google
+DOMAIN-SUFFIX,aistudio.google
 DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,gemini.app.google
+DOMAIN-SUFFIX,codeassist.google
 DOMAIN-SUFFIX,deepmind.google
 DOMAIN-SUFFIX,flow.google
 DOMAIN-SUFFIX,gemini.google
@@ -121,20 +129,29 @@ DOMAIN,alkalimakersuite-pa.clients6.google.com
 DOMAIN,appsgenaiserver-pa.clients6.google.com
 DOMAIN,geminiweb-pa.clients6.google.com
 DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
+DOMAIN,gemini.cloud.google.com
 DOMAIN,notebooklm.cloud.google.com
+DOMAIN,mixboard.google.com
 DOMAIN,aiplatform.googleapis.com
 DOMAIN,alkalimakersuite-pa.googleapis.com
 DOMAIN,antigravity.googleapis.com
 DOMAIN,antigravity-pa.googleapis.com
 DOMAIN,appsgenaiserver-pa.googleapis.com
+DOMAIN,businessaicode.googleapis.com
 DOMAIN,cloudaicompanion.googleapis.com
 DOMAIN,cloudcode-pa.googleapis.com
 DOMAIN,daily-cloudcode-pa.googleapis.com
+DOMAIN,discoveryengine.googleapis.com
+DOMAIN,eu-discoveryengine.googleapis.com
 DOMAIN,jetski-webchannel.googleapis.com
 DOMAIN,jetski-webchannel-pa.googleapis.com
 DOMAIN,jules.googleapis.com
+DOMAIN,aiplatform.mtls.googleapis.com
 DOMAIN,notebooklm.googleapis.com
 DOMAIN,notebooklm-pa.googleapis.com
+DOMAIN,aiplatform.eu.rep.googleapis.com
+DOMAIN,aiplatform.us.rep.googleapis.com
+DOMAIN,us-discoveryengine.googleapis.com
 DOMAIN,webchannel-robinfrontend-pa.googleapis.com
 DOMAIN,ai.google.dev
 
@@ -152,6 +169,7 @@ DOMAIN,pplx-res.cloudinary.com
 # Copilot
 # Microsoft Copilot and GitHub Copilot
 # ============================================================
+DOMAIN-SUFFIX,copilot.ai
 DOMAIN-SUFFIX,copilot.com
 DOMAIN-SUFFIX,githubcopilot.com
 DOMAIN-SUFFIX,copilot.microsoft.com
@@ -162,6 +180,8 @@ DOMAIN,sydney.bing.com
 DOMAIN,copilot-reports.github.com
 DOMAIN,copilot-workspace.githubnext.com
 DOMAIN,copilot-proxy.githubusercontent.com
+DOMAIN,origin-tracker.githubusercontent.com
+DOMAIN,copilotstudio.microsoft.com
 DOMAIN,copilotprodattachments.blob.core.windows.net
 
 # ============================================================
@@ -170,5 +190,8 @@ DOMAIN,copilotprodattachments.blob.core.windows.net
 # ============================================================
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,llama.com
+DOMAIN-SUFFIX,ai.meta.com
 DOMAIN-SUFFIX,metaaiusercontent.com
 DOMAIN-SUFFIX,metaaivm.com
+DOMAIN,llama.developer.meta.com
+DOMAIN,llama.meta.com
