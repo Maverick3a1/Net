@@ -11,17 +11,17 @@
 | Shadowrocket | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Shadowrocket/AI_All_Domain.list) |
 | Clash / mihomo | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/AI/Clash/AI_All_IP.yaml) |
 
-`AI_All` 共 123 条域名规则、5 个 IP 段，收录以下 7 个厂商：
+`AI_All` 共 148 条域名规则、5 个 IP 段，收录以下 7 个厂商：
 
 | 厂商 | 说明 | 域名 | IP |
 | --- | --- | ---: | ---: |
-| OpenAI | OpenAI: ChatGPT, Sora, Codex, OpenAI API | 22 | 0 |
+| OpenAI | OpenAI: ChatGPT, Sora, Codex, OpenAI API | 23 | 0 |
 | Anthropic | Anthropic: Claude, Claude Code, Claude API | 19 | 4 |
-| xAI | xAI: Grok, Grok API | 4 | 1 |
-| Gemini | Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity | 59 | 0 |
+| xAI | xAI: Grok, Grok API | 6 | 1 |
+| Gemini | Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity | 74 | 0 |
 | Perplexity | Perplexity AI | 5 | 0 |
-| Copilot | Microsoft Copilot and GitHub Copilot | 10 | 0 |
-| MetaAI | Meta AI and Llama | 4 | 0 |
+| Copilot | Microsoft Copilot and GitHub Copilot | 14 | 0 |
+| MetaAI | Meta AI and Llama | 7 | 0 |
 <!-- RULES:END -->
 
 ## 使用方法

@@ -1,9 +1,9 @@
 # NAME: AI_All
 # DESC: OpenAI、Anthropic、xAI、Gemini 等 AI 服务合集
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-04 03:17:23 UTC
-# DOMAIN-SUFFIX: 82
-# DOMAIN: 40
+# UPDATED: 2026-11-08 19:09:19 UTC
+# DOMAIN-SUFFIX: 93
+# DOMAIN: 54
 # DOMAIN-KEYWORD: 1
 # IP-CIDR: 3
 # IP-CIDR6: 2
@@ -24,6 +24,7 @@ payload:
   - '+.oaiusercontent.com'
   - '+.openai.com'
   - '+.sora.com'
+  - '+.openai.fm'
   - '+.openai.com.cdn.cloudflare.net'
   - '+.openai.org'
   - '+.chatgpt.site'
@@ -65,7 +66,9 @@ payload:
   # ============================================================
   - '+.x.ai'
   - '+.grok.com'
+  - '+.grokbot.com'
   - '+.grokipedia.com'
+  - '+.grokusercontent.com'
   - '+.grok.x.com'
 
   # ============================================================
@@ -73,6 +76,7 @@ payload:
   # Google: Gemini, AI Studio, NotebookLM, DeepMind, Jules, Antigravity
   # ============================================================
   - '+.deepmind.com'
+  - '+.geminicli.com'
   - '+.aistudio.google.com'
   - '+.bard.google.com'
   - '+.flow.google.com'
@@ -94,9 +98,14 @@ payload:
   - '+.gemini.gstatic.com'
   - '+.opal.withgoogle.com'
   - '+.stitch.withgoogle.com'
+  - '+.ai.dev'
   - '+.antigravity-unleash.goog'
   - '+.opal.goog'
+  - '+.ai.google'
+  - '+.aistudio.google'
   - '+.antigravity.google'
+  - '+.gemini.app.google'
+  - '+.codeassist.google'
   - '+.deepmind.google'
   - '+.flow.google'
   - '+.gemini.google'
@@ -115,20 +124,29 @@ payload:
   - 'appsgenaiserver-pa.clients6.google.com'
   - 'geminiweb-pa.clients6.google.com'
   - 'webchannel-alkalimakersuite-pa.clients6.google.com'
+  - 'gemini.cloud.google.com'
   - 'notebooklm.cloud.google.com'
+  - 'mixboard.google.com'
   - 'aiplatform.googleapis.com'
   - 'alkalimakersuite-pa.googleapis.com'
   - 'antigravity.googleapis.com'
   - 'antigravity-pa.googleapis.com'
   - 'appsgenaiserver-pa.googleapis.com'
+  - 'businessaicode.googleapis.com'
   - 'cloudaicompanion.googleapis.com'
   - 'cloudcode-pa.googleapis.com'
   - 'daily-cloudcode-pa.googleapis.com'
+  - 'discoveryengine.googleapis.com'
+  - 'eu-discoveryengine.googleapis.com'
   - 'jetski-webchannel.googleapis.com'
   - 'jetski-webchannel-pa.googleapis.com'
   - 'jules.googleapis.com'
+  - 'aiplatform.mtls.googleapis.com'
   - 'notebooklm.googleapis.com'
   - 'notebooklm-pa.googleapis.com'
+  - 'aiplatform.eu.rep.googleapis.com'
+  - 'aiplatform.us.rep.googleapis.com'
+  - 'us-discoveryengine.googleapis.com'
   - 'webchannel-robinfrontend-pa.googleapis.com'
   - 'ai.google.dev'
 
@@ -146,15 +164,19 @@ payload:
   # Copilot
   # Microsoft Copilot and GitHub Copilot
   # ============================================================
+  - '+.copilot.ai'
   - '+.copilot.com'
   - '+.githubcopilot.com'
   - '+.copilot.microsoft.com'
   - '+.copilot.cloud.microsoft'
+  - 'production-copilot-host-westus.webpubsub.azure.com'
   - 'edgeservices.bing.com'
   - 'sydney.bing.com'
   - 'copilot-reports.github.com'
   - 'copilot-workspace.githubnext.com'
   - 'copilot-proxy.githubusercontent.com'
+  - 'origin-tracker.githubusercontent.com'
+  - 'copilotstudio.microsoft.com'
   - 'copilotprodattachments.blob.core.windows.net'
 
   # ============================================================
@@ -163,5 +185,8 @@ payload:
   # ============================================================
   - '+.meta.ai'
   - '+.llama.com'
+  - '+.ai.meta.com'
   - '+.metaaiusercontent.com'
   - '+.metaaivm.com'
+  - 'llama.developer.meta.com'
+  - 'llama.meta.com'
