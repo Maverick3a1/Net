@@ -46,7 +46,8 @@
         {"type": "blackmatrix7", "list": "Binance"}
       ],
       // 币安土耳其（CT 证书 O=Binance）
-      "domain_suffix": ["binance.tr"]
+      // binance.th 是 Binance TH（泰国，页面为币安官网）；binance.bh 是 Binance Bahrain（巴林经济发展局公告 "Binance.bh goes live in Bahrain"）
+      "domain_suffix": ["binance.bh", "binance.th", "binance.tr"]
     },
 
     // ================================================================
@@ -58,7 +59,9 @@
       "sources": [
         {"type": "v2fly", "list": "okx"},
         {"type": "blackmatrix7", "list": "OKX"}
-      ]
+      ],
+      // okcoin.com 是 OKX 旗下的 Okcoin，页面为并入 OKX 品牌的官方公告
+      "domain_suffix": ["okcoin.com"]
     },
 
     // ================================================================
@@ -73,8 +76,11 @@
       // Bybit 各地区站点（土耳其、印尼、哈萨克斯坦、格鲁吉亚），页面均为 Bybit 官网
       "domain_suffix": [
         "bybit-tr.com",
+        // Bybit EU（MiCAR 牌照站点，页面为 Bybit EU 官网）；bybit.nl 跳转到 www.bybit.eu
+        "bybit.eu",
         "bybit.id",
         "bybit.kz",
+        "bybit.nl",
         "bybit.tr",
         "bybitgeorgia.ge"
       ]
@@ -108,6 +114,9 @@
       "sources": [],
       "domain_suffix": [
         "bitget.com",
+        // bitget.cloud / bitget.fit 是 Bitget 的镜像站（页面均为 Bitget 官网，bitget.cloud 也托管官方 API 文档）
+        "bitget.cloud",
+        "bitget.fit",
         "bitget.site",
         "bitgetapp.com",
         "bitgetapps.com",
@@ -143,7 +152,8 @@
         {"type": "v2fly", "list": "gateio"}
       ],
       // gate.hk 是 Gate.HK；gateio.ws 是 Gate 的 WebSocket API；gate.ac 是 Gate 的镜像域名
-      "domain_suffix": ["gate.ac", "gate.hk", "gateio.ws"]
+      // gate.us 跳转到 www.gate.com/en-us（Gate US）；gatechain.io 是 Gate 自有公链 Gate Chain 官网
+      "domain_suffix": ["gate.ac", "gate.hk", "gate.us", "gatechain.io", "gateio.ws"]
     },
 
     // ================================================================
@@ -156,6 +166,8 @@
       "domain_suffix": [
         "mexc.com",
         "mexc.co",
+        // MEXC 镜像站（页面为 MEXC 官网）
+        "mexc.fm",
         "mexcsensors.com"
       ]
     },
@@ -182,6 +194,8 @@
       ],
       "domain_suffix": [
         "kucoin.club",
+        // KuCoin EU（跳转到 www.kucoin.com/en-eu）
+        "kucoin.eu",
         "kucoin.th",
         "kucoin.tr",
         "kucoinauth.cloud",
@@ -202,9 +216,12 @@
         {"type": "asn", "asn": 1072}
       ],
       // cryptofacilities.com 是 Kraken Futures 前身 Crypto Facilities（CT 证书 O=Payward, Inc.）
+      // breakoutprop.com 是 Kraken 旗下自营交易平台 Breakout（CT 证书 O=Payward, Inc.）；krakenfx.com 跳转到 www.kraken.com
       "domain_suffix": [
+        "breakoutprop.com",
         "cryptofacilities.com",
         "krak.app",
+        "krakenfx.com",
         "payward.com"
       ]
     },
@@ -323,6 +340,8 @@
       "description": "Hyperliquid",
       "sources": [],
       "domain_suffix": [
+        // Hyperliquid 基金会 Hyper Foundation 官网（页面链接到 Hyperliquid）
+        "hyperfoundation.org",
         "hyperliquid.xyz"
       ]
     }

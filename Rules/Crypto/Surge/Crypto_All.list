@@ -1,8 +1,8 @@
 # NAME: Crypto_All
 # DESC: 主流加密货币交易所合集
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-11-04 03:39:14 UTC
-# DOMAIN-SUFFIX: 137
+# UPDATED: 2026-11-08 19:40:34 UTC
+# DOMAIN-SUFFIX: 151
 # DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
@@ -14,6 +14,7 @@
 # ============================================================
 DOMAIN-SUFFIX,bnbzh.ac
 DOMAIN-SUFFIX,binancezh.be
+DOMAIN-SUFFIX,binance.bh
 DOMAIN-SUFFIX,binancezh.biz
 DOMAIN-SUFFIX,bnappweb.black
 DOMAIN-SUFFIX,binance.cc
@@ -55,6 +56,7 @@ DOMAIN-SUFFIX,bnbchain.org
 DOMAIN-SUFFIX,binancezh.pro
 DOMAIN-SUFFIX,binancezh.sh
 DOMAIN-SUFFIX,bmwweb.solutions
+DOMAIN-SUFFIX,binance.th
 DOMAIN-SUFFIX,binancezh.top
 DOMAIN-SUFFIX,binance.tr
 DOMAIN-SUFFIX,binance.us
@@ -66,6 +68,7 @@ DOMAIN-SUFFIX,binance.vision
 # ============================================================
 DOMAIN-SUFFIX,okx.ac
 DOMAIN-SUFFIX,okx.cab
+DOMAIN-SUFFIX,okcoin.com
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx.com
@@ -92,11 +95,13 @@ DOMAIN-SUFFIX,bycbe.com
 DOMAIN-SUFFIX,bycsi.com
 DOMAIN-SUFFIX,byd3c3.com
 DOMAIN-SUFFIX,bytick.com
+DOMAIN-SUFFIX,bybit.eu
 DOMAIN-SUFFIX,bybitgeorgia.ge
 DOMAIN-SUFFIX,bybit.id
 DOMAIN-SUFFIX,bymj.io
 DOMAIN-SUFFIX,bybit.kz
 DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bybit.nl
 DOMAIN-SUFFIX,bybit.tr
 DOMAIN,bybit-exchange.github.io
 DOMAIN,bybit.ada.support
@@ -114,11 +119,13 @@ DOMAIN-SUFFIX,base.org
 # Bitget
 # Bitget
 # ============================================================
+DOMAIN-SUFFIX,bitget.cloud
 DOMAIN-SUFFIX,bgbstatic.com
 DOMAIN-SUFFIX,bgstatic.com
 DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bitgetapp.com
 DOMAIN-SUFFIX,bitgetapps.com
+DOMAIN-SUFFIX,bitget.fit
 DOMAIN-SUFFIX,bitget.site
 
 # ============================================================
@@ -138,10 +145,12 @@ DOMAIN-SUFFIX,gateimg.com
 DOMAIN-SUFFIX,gate.hk
 DOMAIN-SUFFIX,gate.io
 DOMAIN-SUFFIX,gateapi.io
+DOMAIN-SUFFIX,gatechain.io
 DOMAIN-SUFFIX,gateio.live
 DOMAIN-SUFFIX,gatedata.org
 DOMAIN-SUFFIX,gateio.services
 DOMAIN-SUFFIX,gate.tv
+DOMAIN-SUFFIX,gate.us
 DOMAIN-SUFFIX,gateio.ws
 
 # ============================================================
@@ -150,6 +159,7 @@ DOMAIN-SUFFIX,gateio.ws
 # ============================================================
 DOMAIN-SUFFIX,mexc.co
 DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,mexc.fm
 
 # ============================================================
 # HTX
@@ -174,6 +184,7 @@ DOMAIN-SUFFIX,kucoinauth.cloud
 DOMAIN-SUFFIX,kucoin.club
 DOMAIN-SUFFIX,kucoin.com
 DOMAIN-SUFFIX,staticimg.com
+DOMAIN-SUFFIX,kucoin.eu
 DOMAIN-SUFFIX,kucoin.plus
 DOMAIN-SUFFIX,kucoin.th
 DOMAIN-SUFFIX,kucoin.tr
@@ -183,8 +194,10 @@ DOMAIN-SUFFIX,kucoin.tr
 # Kraken, Kraken Pro
 # ============================================================
 DOMAIN-SUFFIX,krak.app
+DOMAIN-SUFFIX,breakoutprop.com
 DOMAIN-SUFFIX,cryptofacilities.com
 DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,krakenfx.com
 DOMAIN-SUFFIX,payward.com
 DOMAIN-SUFFIX,kraken.onl
 IP-CIDR,67.208.234.0/24,no-resolve
@@ -256,4 +269,5 @@ IP-CIDR,194.28.45.0/24,no-resolve
 # Hyperliquid
 # Hyperliquid
 # ============================================================
+DOMAIN-SUFFIX,hyperfoundation.org
 DOMAIN-SUFFIX,hyperliquid.xyz
