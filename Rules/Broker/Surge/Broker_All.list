@@ -1,8 +1,8 @@
 # NAME: Broker_All
 # DESC: 港美股券商、TradingView 和券商共用 SDK / IP 合集
 # FORMAT: Surge RULE-SET
-# UPDATED: 2026-11-04 03:13:46 UTC
-# DOMAIN-SUFFIX: 227
+# UPDATED: 2026-11-08 18:46:11 UTC
+# DOMAIN-SUFFIX: 277
 # DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 95
@@ -12,6 +12,7 @@
 # Futu
 # 富途证券: 富途牛牛, moomoo
 # ============================================================
+DOMAIN-SUFFIX,moomoo.ca
 DOMAIN-SUFFIX,futu.cn
 DOMAIN-SUFFIX,futubull.cn
 DOMAIN-SUFFIX,ftesop.com
@@ -29,6 +30,7 @@ DOMAIN-SUFFIX,futu8.com
 DOMAIN-SUFFIX,futu9.com
 DOMAIN-SUFFIX,futuau.com
 DOMAIN-SUFFIX,futubos.com
+DOMAIN-SUFFIX,futubull.com
 DOMAIN-SUFFIX,futuchain.com
 DOMAIN-SUFFIX,futuclearing.com
 DOMAIN-SUFFIX,futucrypto.com
@@ -64,6 +66,7 @@ DOMAIN-SUFFIX,panthertrade.com
 DOMAIN-SUFFIX,moomoo.com.hk
 DOMAIN-SUFFIX,futu.hk
 DOMAIN-SUFFIX,futu.link
+DOMAIN-SUFFIX,futuoa.net
 
 # ============================================================
 # Tiger
@@ -75,6 +78,7 @@ DOMAIN-SUFFIX,skytigris.cn
 DOMAIN-SUFFIX,tigerbbs.cn
 DOMAIN-SUFFIX,tigertcp.cn
 DOMAIN-SUFFIX,zhijianfengyi.cn
+DOMAIN-SUFFIX,atigrdive.com
 DOMAIN-SUFFIX,atigrpulse.com
 DOMAIN-SUFFIX,atigrzen.com
 DOMAIN-SUFFIX,etasphere.com
@@ -85,22 +89,33 @@ DOMAIN-SUFFIX,iotaskyty.com
 DOMAIN-SUFFIX,itiger.com
 DOMAIN-SUFFIX,itigergrowth.com
 DOMAIN-SUFFIX,itigergrowtha.com
+DOMAIN-SUFFIX,itigertech.com
 DOMAIN-SUFFIX,itigertrader.com
 DOMAIN-SUFFIX,itigerup.com
+DOMAIN-SUFFIX,itradeup.com
 DOMAIN-SUFFIX,laohu8.com
+DOMAIN-SUFFIX,marsco.com
+DOMAIN-SUFFIX,mydigiuc.com
+DOMAIN-SUFFIX,skytigris.com
 DOMAIN-SUFFIX,tbdesk.com
 DOMAIN-SUFFIX,thetigerbrokers.com
 DOMAIN-SUFFIX,tigerbbs.com
 DOMAIN-SUFFIX,tigerbrokers.com
+DOMAIN-SUFFIX,tigeresop.com
 DOMAIN-SUFFIX,tigerfintech.com
 DOMAIN-SUFFIX,tigerhkgo.com
+DOMAIN-SUFFIX,tigermarketb.com
+DOMAIN-SUFFIX,tigermarketd.com
+DOMAIN-SUFFIX,tigermarketl.com
 DOMAIN-SUFFIX,tigersecurities.com
 DOMAIN-SUFFIX,tigrdw.com
 DOMAIN-SUFFIX,tigrgood.com
 DOMAIN-SUFFIX,tigrwd.com
 DOMAIN-SUFFIX,tradeup.com
+DOMAIN-SUFFIX,upfintecham.com
 DOMAIN-SUFFIX,xiaohu8.com
 DOMAIN-SUFFIX,zhijianfengyi.com
+DOMAIN-SUFFIX,ttm.financial
 DOMAIN-SUFFIX,tigerbrokers.com.hk
 DOMAIN-SUFFIX,tigr.link
 DOMAIN-SUFFIX,tigerbrokers.net
@@ -161,6 +176,7 @@ DOMAIN,yxzq.udesk.cn
 # 华盛证券: 华盛通, Valuable
 # ============================================================
 DOMAIN-SUFFIX,vbkr.cn
+DOMAIN-SUFFIX,aul711.com
 DOMAIN-SUFFIX,hstong.com
 DOMAIN-SUFFIX,vbkhk.com
 DOMAIN-SUFFIX,vbkr.com
@@ -250,24 +266,39 @@ DOMAIN-SUFFIX,ibkr.com.au
 DOMAIN-SUFFIX,interactivebrokers.com.au
 DOMAIN-SUFFIX,ibkr.ca
 DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,ibkr.ch
 DOMAIN-SUFFIX,interactivebrokers.ch
 DOMAIN-SUFFIX,clientam.com
 DOMAIN-SUFFIX,ibkr.com
 DOMAIN-SUFFIX,ibkr-svc.com
 DOMAIN-SUFFIX,ibkrguides.com
 DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,ibtweet.com
+DOMAIN-SUFFIX,ibtws.com
+DOMAIN-SUFFIX,interactiveadvisors.com
 DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,interactivebrokers.de
+DOMAIN-SUFFIX,interactivebrokers.ee
+DOMAIN-SUFFIX,interactivebrokers.es
 DOMAIN-SUFFIX,ibkr.eu
 DOMAIN-SUFFIX,interactivebrokers.eu
+DOMAIN-SUFFIX,interactivebrokers.fr
 DOMAIN-SUFFIX,ibkr.com.hk
 DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,interactivebrokers.hu
 DOMAIN-SUFFIX,ibkr.ie
 DOMAIN-SUFFIX,interactivebrokers.ie
 DOMAIN-SUFFIX,ibkr.co.in
 DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,ibkr.in
+DOMAIN-SUFFIX,ibkr.info
+DOMAIN-SUFFIX,interactivebrokers.it
 DOMAIN-SUFFIX,interactivebrokers.co.jp
+DOMAIN-SUFFIX,ibkr.jp
+DOMAIN-SUFFIX,interactivebrokers.lu
 DOMAIN-SUFFIX,ibkr.com.sg
 DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,ibkr.sg
 DOMAIN-SUFFIX,interactivebrokers.sg
 DOMAIN-SUFFIX,ibkr.co.uk
 DOMAIN-SUFFIX,interactivebrokers.co.uk
@@ -292,16 +323,33 @@ IP-CIDR,217.192.86.0/24,no-resolve
 # ============================================================
 DOMAIN-SUFFIX,schwab.com.cn
 DOMAIN-SUFFIX,aboutschwab.com
+DOMAIN-SUFFIX,advisorclient.com
+DOMAIN-SUFFIX,advisorservices.com
+DOMAIN-SUFFIX,ameritrade.com
+DOMAIN-SUFFIX,equiview.com
 DOMAIN-SUFFIX,schwab.com
+DOMAIN-SUFFIX,schwabadvisorcenter.com
+DOMAIN-SUFFIX,schwabapi.com
 DOMAIN-SUFFIX,schwabassetmanagement.com
 DOMAIN-SUFFIX,schwabbank.com
 DOMAIN-SUFFIX,schwabcdn.com
+DOMAIN-SUFFIX,schwabglobaltrade.com
+DOMAIN-SUFFIX,schwabhsba.com
 DOMAIN-SUFFIX,schwabimg.com
 DOMAIN-SUFFIX,schwabinstitutional.com
+DOMAIN-SUFFIX,schwabnetwork.com
+DOMAIN-SUFFIX,schwabpcra.com
 DOMAIN-SUFFIX,schwabplan.com
+DOMAIN-SUFFIX,schwabpt.com
+DOMAIN-SUFFIX,schwabretirementcenter.com
+DOMAIN-SUFFIX,schwabrt.com
+DOMAIN-SUFFIX,schwabworkplaceservices.com
+DOMAIN-SUFFIX,streetsmartcentral.com
+DOMAIN-SUFFIX,tdainstitutional.com
 DOMAIN-SUFFIX,tdameritrade.com
 DOMAIN-SUFFIX,thinkorswim.com
 DOMAIN-SUFFIX,schwab.com.hk
+DOMAIN-SUFFIX,tdameritrade.com.hk
 DOMAIN-SUFFIX,schwab.com.sg
 DOMAIN-SUFFIX,schwab.co.uk
 IP-CIDR,74.114.36.0/24,no-resolve
@@ -336,8 +384,10 @@ DOMAIN-SUFFIX,firstrade.net
 # ============================================================
 DOMAIN-SUFFIX,aboutrobinhood.com
 DOMAIN-SUFFIX,robinhood.com
+DOMAIN-SUFFIX,sherwoodmedia.com
 DOMAIN-SUFFIX,rhinternal.net
 DOMAIN-SUFFIX,robinhood.net
+DOMAIN-SUFFIX,sherwood.news
 IP-CIDR,134.195.0.0/23,no-resolve
 IP-CIDR,134.195.2.0/24,no-resolve
 

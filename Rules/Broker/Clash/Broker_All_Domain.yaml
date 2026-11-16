@@ -1,8 +1,8 @@
 # NAME: Broker_All
 # DESC: 港美股券商、TradingView 和券商共用 SDK / IP 合集
 # FORMAT: Clash rule-provider, behavior: domain
-# UPDATED: 2026-11-04 03:13:46 UTC
-# DOMAIN-SUFFIX: 227
+# UPDATED: 2026-11-08 18:46:11 UTC
+# DOMAIN-SUFFIX: 277
 # DOMAIN: 6
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 95
@@ -13,6 +13,7 @@ payload:
   # Futu
   # 富途证券: 富途牛牛, moomoo
   # ============================================================
+  - '+.moomoo.ca'
   - '+.futu.cn'
   - '+.futubull.cn'
   - '+.ftesop.com'
@@ -30,6 +31,7 @@ payload:
   - '+.futu9.com'
   - '+.futuau.com'
   - '+.futubos.com'
+  - '+.futubull.com'
   - '+.futuchain.com'
   - '+.futuclearing.com'
   - '+.futucrypto.com'
@@ -65,6 +67,7 @@ payload:
   - '+.moomoo.com.hk'
   - '+.futu.hk'
   - '+.futu.link'
+  - '+.futuoa.net'
 
   # ============================================================
   # Tiger
@@ -76,6 +79,7 @@ payload:
   - '+.tigerbbs.cn'
   - '+.tigertcp.cn'
   - '+.zhijianfengyi.cn'
+  - '+.atigrdive.com'
   - '+.atigrpulse.com'
   - '+.atigrzen.com'
   - '+.etasphere.com'
@@ -86,22 +90,33 @@ payload:
   - '+.itiger.com'
   - '+.itigergrowth.com'
   - '+.itigergrowtha.com'
+  - '+.itigertech.com'
   - '+.itigertrader.com'
   - '+.itigerup.com'
+  - '+.itradeup.com'
   - '+.laohu8.com'
+  - '+.marsco.com'
+  - '+.mydigiuc.com'
+  - '+.skytigris.com'
   - '+.tbdesk.com'
   - '+.thetigerbrokers.com'
   - '+.tigerbbs.com'
   - '+.tigerbrokers.com'
+  - '+.tigeresop.com'
   - '+.tigerfintech.com'
   - '+.tigerhkgo.com'
+  - '+.tigermarketb.com'
+  - '+.tigermarketd.com'
+  - '+.tigermarketl.com'
   - '+.tigersecurities.com'
   - '+.tigrdw.com'
   - '+.tigrgood.com'
   - '+.tigrwd.com'
   - '+.tradeup.com'
+  - '+.upfintecham.com'
   - '+.xiaohu8.com'
   - '+.zhijianfengyi.com'
+  - '+.ttm.financial'
   - '+.tigerbrokers.com.hk'
   - '+.tigr.link'
   - '+.tigerbrokers.net'
@@ -162,6 +177,7 @@ payload:
   # 华盛证券: 华盛通, Valuable
   # ============================================================
   - '+.vbkr.cn'
+  - '+.aul711.com'
   - '+.hstong.com'
   - '+.vbkhk.com'
   - '+.vbkr.com'
@@ -251,24 +267,39 @@ payload:
   - '+.interactivebrokers.com.au'
   - '+.ibkr.ca'
   - '+.interactivebrokers.ca'
+  - '+.ibkr.ch'
   - '+.interactivebrokers.ch'
   - '+.clientam.com'
   - '+.ibkr.com'
   - '+.ibkr-svc.com'
   - '+.ibkrguides.com'
   - '+.ibllc.com'
+  - '+.ibtweet.com'
+  - '+.ibtws.com'
+  - '+.interactiveadvisors.com'
   - '+.interactivebrokers.com'
+  - '+.interactivebrokers.de'
+  - '+.interactivebrokers.ee'
+  - '+.interactivebrokers.es'
   - '+.ibkr.eu'
   - '+.interactivebrokers.eu'
+  - '+.interactivebrokers.fr'
   - '+.ibkr.com.hk'
   - '+.interactivebrokers.com.hk'
+  - '+.interactivebrokers.hu'
   - '+.ibkr.ie'
   - '+.interactivebrokers.ie'
   - '+.ibkr.co.in'
   - '+.interactivebrokers.co.in'
+  - '+.ibkr.in'
+  - '+.ibkr.info'
+  - '+.interactivebrokers.it'
   - '+.interactivebrokers.co.jp'
+  - '+.ibkr.jp'
+  - '+.interactivebrokers.lu'
   - '+.ibkr.com.sg'
   - '+.interactivebrokers.com.sg'
+  - '+.ibkr.sg'
   - '+.interactivebrokers.sg'
   - '+.ibkr.co.uk'
   - '+.interactivebrokers.co.uk'
@@ -280,16 +311,33 @@ payload:
   # ============================================================
   - '+.schwab.com.cn'
   - '+.aboutschwab.com'
+  - '+.advisorclient.com'
+  - '+.advisorservices.com'
+  - '+.ameritrade.com'
+  - '+.equiview.com'
   - '+.schwab.com'
+  - '+.schwabadvisorcenter.com'
+  - '+.schwabapi.com'
   - '+.schwabassetmanagement.com'
   - '+.schwabbank.com'
   - '+.schwabcdn.com'
+  - '+.schwabglobaltrade.com'
+  - '+.schwabhsba.com'
   - '+.schwabimg.com'
   - '+.schwabinstitutional.com'
+  - '+.schwabnetwork.com'
+  - '+.schwabpcra.com'
   - '+.schwabplan.com'
+  - '+.schwabpt.com'
+  - '+.schwabretirementcenter.com'
+  - '+.schwabrt.com'
+  - '+.schwabworkplaceservices.com'
+  - '+.streetsmartcentral.com'
+  - '+.tdainstitutional.com'
   - '+.tdameritrade.com'
   - '+.thinkorswim.com'
   - '+.schwab.com.hk'
+  - '+.tdameritrade.com.hk'
   - '+.schwab.com.sg'
   - '+.schwab.co.uk'
 
@@ -307,8 +355,10 @@ payload:
   # ============================================================
   - '+.aboutrobinhood.com'
   - '+.robinhood.com'
+  - '+.sherwoodmedia.com'
   - '+.rhinternal.net'
   - '+.robinhood.net'
+  - '+.sherwood.news'
 
   # ============================================================
   # TradingView

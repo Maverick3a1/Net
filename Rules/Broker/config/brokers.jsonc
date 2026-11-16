@@ -60,7 +60,13 @@
         "moomooapp.com",
         "moomoobull.com",
         "moomoocn.com",
-        "panthertrade.com"
+        "panthertrade.com",
+        // moomoo 加拿大站（301 跳转到 www.moomoo.com/ca/）
+        "moomoo.ca",
+        // 北京富途网络科技官网（www 的 OV 证书 O=深圳市富途网络科技有限公司，与 futunn.com 相同）
+        "futubull.com",
+        // 富途 OA（CT 中 OV 证书 O=Futu Network Technology Limited）
+        "futuoa.net"
       ]
     },
 
@@ -91,7 +97,25 @@
         "tigertrader.app",
         "tigrdw.com",
         "tigrgood.com",
-        "tigrwd.com"
+        "tigrwd.com",
+        // 以下均出现在老虎自有的多域名证书（www.tigerbrokers.com.au / www.tigertrader.app）的 SAN 中，
+        // 与 tigerbrokers.com.au、iotaskyt.com、tradeup.com 等已收录域名共用一张证书：
+        // atigrdive / mydigiuc 是老虎证券官网镜像，itigertech 是账户中心，itradeup 跳转到 tradeup.com，
+        // marsco.com 是 TradeUP Securities（原 Marsco，老虎美国清算券商），tigeresop 是老虎 ESOP，
+        // ttm.financial 是老虎社区 To The Moon，upfintecham 是 UP Fintech 资管（wealth 子域），
+        // skytigris / tigermarketb / tigermarketd / tigermarketl 为 App 接口和行情子域
+        "atigrdive.com",
+        "itigertech.com",
+        "itradeup.com",
+        "marsco.com",
+        "mydigiuc.com",
+        "skytigris.com",
+        "tigeresop.com",
+        "tigermarketb.com",
+        "tigermarketd.com",
+        "tigermarketl.com",
+        "ttm.financial",
+        "upfintecham.com"
       ]
     },
 
@@ -159,7 +183,9 @@
         "vclbrokers.com",
         "hstong.com",
         "valuable.com.hk",
-        "vbkr.com"
+        "vbkr.com",
+        // 华盛证券中央编号 AUL711（OV 证书 O=Valuable Capital Limited，指向华盛的 AWS 香港负载均衡）
+        "aul711.com"
       ]
     },
 
@@ -282,7 +308,25 @@
         "clientam.com",
         "ibkr-svc.com",
         "interactivebrokers.ch",
-        "interactivebrokers.sg"
+        "interactivebrokers.sg",
+        // 以下证书 O=IBG LLC（盈透集团）：各地区站点（跳转到 interactivebrokers.eu / .ie / .co.jp / .com.sg / .co.in），
+        // ibtws.com（TWS，跳转到 interactivebrokers.com.hk）、ibkr.info、ibtweet.com
+        "ibkr.ch",
+        "ibkr.in",
+        "ibkr.info",
+        "ibkr.jp",
+        "ibkr.sg",
+        "ibtweet.com",
+        "ibtws.com",
+        "interactivebrokers.de",
+        "interactivebrokers.ee",
+        "interactivebrokers.es",
+        "interactivebrokers.fr",
+        "interactivebrokers.hu",
+        "interactivebrokers.it",
+        "interactivebrokers.lu",
+        // Interactive Advisors（证书 O=Covestor Limited，盈透子公司；ibkr.interactiveadvisors.com 在盈透主站证书 SAN 中）
+        "interactiveadvisors.com"
       ],
       // 盈透的加密货币交易由 Paxos 托管
       "domain": ["ibkr.paxosclients.com"]
@@ -304,7 +348,29 @@
         "schwabbank.com",
         "schwabimg.com",
         "schwabinstitutional.com",
-        "tdameritrade.com"
+        "tdameritrade.com",
+        // 以下 CT / 现网证书 O=Charles Schwab & Co.：ameritrade.com、schwabhsba.com 跳转到 schwab.com，
+        // tdameritrade.com.hk 跳转到 schwab.com.hk；schwabapi.com 是 Trader API；
+        // 顾问平台（advisorservices / schwabadvisorcenter / tdainstitutional / advisorclient / schwabpt / streetsmartcentral）、
+        // 退休与员工计划（schwabrt / schwabretirementcenter / schwabworkplaceservices / schwabpcra / equiview）、
+        // 国际交易 schwabglobaltrade、财经频道 schwabnetwork
+        "advisorclient.com",
+        "advisorservices.com",
+        "ameritrade.com",
+        "equiview.com",
+        "schwabadvisorcenter.com",
+        "schwabapi.com",
+        "schwabglobaltrade.com",
+        "schwabhsba.com",
+        "schwabnetwork.com",
+        "schwabpcra.com",
+        "schwabpt.com",
+        "schwabretirementcenter.com",
+        "schwabrt.com",
+        "schwabworkplaceservices.com",
+        "streetsmartcentral.com",
+        "tdainstitutional.com",
+        "tdameritrade.com.hk"
       ]
     },
 
@@ -332,7 +398,10 @@
         "aboutrobinhood.com",
         "rhinternal.net",
         "robinhood.com",
-        "robinhood.net"
+        "robinhood.net",
+        // Robinhood 旗下 Sherwood Media（与 robinhood.com 共用同一张证书）
+        "sherwood.news",
+        "sherwoodmedia.com"
       ]
     },
 
