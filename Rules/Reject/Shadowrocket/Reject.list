@@ -12,6 +12,13 @@ DOMAIN,o33249.ingest.sentry.io
 DOMAIN,o33249.ingest.us.sentry.io
 
 # ============================================================
+# AI / Anthropic
+# Anthropic: Claude, Claude Code, Claude API
+# ============================================================
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN,o1158394.ingest.us.sentry.io
+
+# ============================================================
 # AI / Copilot
 # Microsoft Copilot and GitHub Copilot
 # ============================================================

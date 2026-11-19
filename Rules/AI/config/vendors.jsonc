@@ -49,6 +49,8 @@
       ],
       // 替代上游 regexp：chatgpt-async-webps-prod-*.webpubsub.azure.com
       "domain_keyword": ["chatgpt-async-webps-prod-"],
+      // openai.fm：OpenAI 官方 TTS 演示站（developers.openai.com/showcase/openai-fm 列出），NS 为 Azure DNS（与 openai.com 相同）
+      "domain_suffix": ["openai.fm"],
       // OpenAI 登录用的 Arkose 人机验证专用主机（blackmatrix7 / ACL4SSR 等社区规则长期收录）
       "domain": ["openai-api.arkoselabs.com"]
     },
@@ -82,7 +84,10 @@
         {"type": "v2fly", "list": "xai"},
         // xAI 自有 ASN
         {"type": "asn", "asn": 400297}
-      ]
+      ],
+      // grokusercontent.com：grok.com 页面直接引用 assets. / artifacts. / mcp-sandbox.grokusercontent.com，
+      // 且与 grok.com 使用同一组 Cloudflare NS（cartman / robin）
+      "domain_suffix": ["grokusercontent.com"]
     },
 
     // ================================================================
@@ -96,11 +101,38 @@
         {"type": "v2fly", "list": "google-deepmind"}
       ],
       // opal.withgoogle.com 跳转到 opal.google，opal.goog 用 Google 的 NS 和证书
-      "domain_suffix": ["opal.withgoogle.com", "opal.goog"],
+      // ai.dev、aistudio.google 跳转到 aistudio.google.com，NS 为 googledomains
+      // geminicli.com：Gemini CLI 官网，NS 为 googledomains；codeassist.google：Gemini Code Assist，Google NS，跳转到 Google 文档
+      // gemini.app.google：Gemini App 链接域（gemini.google.com 页面引用），Google NS；ai.google：Google AI 官网，Google NS
+      "domain_suffix": [
+        "opal.withgoogle.com",
+        "opal.goog",
+        "ai.dev",
+        "aistudio.google",
+        "geminicli.com",
+        "codeassist.google",
+        "gemini.app.google",
+        "ai.google"
+      ],
       // Google AI 产品的专用主机（google.com / googleapis.com 整段太宽，只收主机）：
       // Antigravity、Jules、AI Studio、Vertex AI、Gemini、NotebookLM 企业版
+      // 2026-11 新增：
+      //   aiplatform.{us,eu}.rep / aiplatform.mtls：Vertex AI 的区域 / mTLS 端点（us/eu.rep 有独立 DNS 记录）
+      //   discoveryengine / us- / eu-discoveryengine：Gemini Enterprise 的 API（Google Cloud 文档）
+      //   businessaicode：Gemini Code Assist 企业版 API（Google Cloud 审计日志文档）
+      //   gemini.cloud.google.com：跳转到 Cloud 控制台的 Gemini Cloud Assist
+      //   mixboard.google.com：Google Labs 的 AI 产品 Mixboard
       "domain": [
         "aiplatform.googleapis.com",
+        "aiplatform.eu.rep.googleapis.com",
+        "aiplatform.mtls.googleapis.com",
+        "aiplatform.us.rep.googleapis.com",
+        "businessaicode.googleapis.com",
+        "discoveryengine.googleapis.com",
+        "eu-discoveryengine.googleapis.com",
+        "gemini.cloud.google.com",
+        "mixboard.google.com",
+        "us-discoveryengine.googleapis.com",
         "alkalimakersuite-pa.googleapis.com",
         "antigravity.google.com",
         "jetski-webchannel-pa.googleapis.com",
@@ -134,13 +166,19 @@
       ],
       // Microsoft Copilot（v2fly 没有单独列表，手工维护）
       // copilot.com 证书 O=Microsoft Corporation
+      // copilot.ai 跳转到 copilot.com，NS 为 Azure DNS
       "domain_suffix": [
         "copilot.com",
+        "copilot.ai",
         "copilot.microsoft.com",
         "copilot.cloud.microsoft"
       ],
+      // origin-tracker.githubusercontent.com：GitHub Copilot allowlist 文档列出（公共代码匹配）
+      // copilotstudio.microsoft.com：Microsoft Copilot Studio
       "domain": [
         "copilot-reports.github.com",
+        "origin-tracker.githubusercontent.com",
+        "copilotstudio.microsoft.com",
         "sydney.bing.com",
         "edgeservices.bing.com"
       ]
@@ -158,7 +196,14 @@
         "meta.ai",
         "llama.com",
         "metaaiusercontent.com",
-        "metaaivm.com"
+        "metaaivm.com",
+        // ai.meta.com：Meta AI 官网（AI at Meta），NS 为 ns.facebook.com
+        "ai.meta.com"
+      ],
+      // Llama 开发者站，跳转到 dev.meta.ai，NS 为 ns.facebook.com
+      "domain": [
+        "llama.meta.com",
+        "llama.developer.meta.com"
       ]
     }
   ],
