@@ -1,8 +1,8 @@
 # NAME: Crypto_All
 # DESC: 主流加密货币交易所合集
 # FORMAT: Shadowrocket DOMAIN-SET
-# UPDATED: 2026-11-04 03:39:14 UTC
-# DOMAIN-SUFFIX: 137
+# UPDATED: 2026-11-08 19:40:34 UTC
+# DOMAIN-SUFFIX: 151
 # DOMAIN: 3
 # DOMAIN-KEYWORD: 0
 # IP-CIDR: 10
@@ -14,6 +14,7 @@
 # ============================================================
 .bnbzh.ac
 .binancezh.be
+.binance.bh
 .binancezh.biz
 .bnappweb.black
 .binance.cc
@@ -55,6 +56,7 @@
 .binancezh.pro
 .binancezh.sh
 .bmwweb.solutions
+.binance.th
 .binancezh.top
 .binance.tr
 .binance.us
@@ -66,6 +68,7 @@
 # ============================================================
 .okx.ac
 .okx.cab
+.okcoin.com
 .okex.com
 .oklink.com
 .okx.com
@@ -92,11 +95,13 @@
 .bycsi.com
 .byd3c3.com
 .bytick.com
+.bybit.eu
 .bybitgeorgia.ge
 .bybit.id
 .bymj.io
 .bybit.kz
 .byapps.net
+.bybit.nl
 .bybit.tr
 bybit-exchange.github.io
 bybit.ada.support
@@ -114,11 +119,13 @@ bybit.ada.support
 # Bitget
 # Bitget
 # ============================================================
+.bitget.cloud
 .bgbstatic.com
 .bgstatic.com
 .bitget.com
 .bitgetapp.com
 .bitgetapps.com
+.bitget.fit
 .bitget.site
 
 # ============================================================
@@ -138,10 +145,12 @@ bybit.ada.support
 .gate.hk
 .gate.io
 .gateapi.io
+.gatechain.io
 .gateio.live
 .gatedata.org
 .gateio.services
 .gate.tv
+.gate.us
 .gateio.ws
 
 # ============================================================
@@ -150,6 +159,7 @@ bybit.ada.support
 # ============================================================
 .mexc.co
 .mexc.com
+.mexc.fm
 
 # ============================================================
 # HTX
@@ -174,6 +184,7 @@ bybit.ada.support
 .kucoin.club
 .kucoin.com
 .staticimg.com
+.kucoin.eu
 .kucoin.plus
 .kucoin.th
 .kucoin.tr
@@ -183,8 +194,10 @@ bybit.ada.support
 # Kraken, Kraken Pro
 # ============================================================
 .krak.app
+.breakoutprop.com
 .cryptofacilities.com
 .kraken.com
+.krakenfx.com
 .payward.com
 .kraken.onl
 
@@ -246,4 +259,5 @@ deribit.cdn.prismic.io
 # Hyperliquid
 # Hyperliquid
 # ============================================================
+.hyperfoundation.org
 .hyperliquid.xyz

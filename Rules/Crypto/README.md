@@ -11,21 +11,21 @@
 | Shadowrocket | [RULE-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_All.list) · [DOMAIN-SET](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Shadowrocket/Crypto_All_Domain.list) |
 | Clash / mihomo | [classical](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All.yaml) · [domain](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All_Domain.yaml) · [ipcidr](https://raw.githubusercontent.com/Maverick3a1/Net/main/Rules/Crypto/Clash/Crypto_All_IP.yaml) |
 
-`Crypto_All` 共 140 条域名规则、10 个 IP 段，收录以下 20 个交易所：
+`Crypto_All` 共 154 条域名规则、10 个 IP 段，收录以下 20 个交易所：
 
 | 交易所 | 说明 | 域名 | IP |
 | --- | --- | ---: | ---: |
-| Binance | Binance, Binance.US, BNB Chain | 47 | 0 |
-| OKX | OKX (formerly OKEx), OKX Wallet, X Layer | 10 | 0 |
-| Bybit | Bybit | 21 | 0 |
+| Binance | Binance, Binance.US, BNB Chain | 49 | 0 |
+| OKX | OKX (formerly OKEx), OKX Wallet, X Layer | 11 | 0 |
+| Bybit | Bybit | 23 | 0 |
 | Coinbase | Coinbase, Coinbase Advanced, Base App (Coinbase Wallet) | 4 | 0 |
-| Bitget | Bitget | 6 | 0 |
+| Bitget | Bitget | 8 | 0 |
 | Upbit | Upbit (Dunamu) | 2 | 0 |
-| Gate | Gate (Gate.com, Gate.io) | 11 | 0 |
-| MEXC | MEXC | 2 | 0 |
+| Gate | Gate (Gate.com, Gate.io) | 13 | 0 |
+| MEXC | MEXC | 3 | 0 |
 | HTX | HTX (formerly Huobi) | 10 | 0 |
-| KuCoin | KuCoin, KuCoin TH, KuCoin TR | 7 | 0 |
-| Kraken | Kraken, Kraken Pro | 5 | 3 |
+| KuCoin | KuCoin, KuCoin TH, KuCoin TR | 8 | 0 |
+| Kraken | Kraken, Kraken Pro | 7 | 3 |
 | CryptoCom | Crypto.com App and Exchange | 1 | 0 |
 | Bithumb | Bithumb | 2 | 0 |
 | BingX | BingX (formerly Bingbon) | 3 | 0 |
@@ -34,7 +34,7 @@
 | Gemini | Gemini Exchange (not Google Gemini) | 1 | 2 |
 | bitFlyer | bitFlyer | 2 | 0 |
 | Deribit | Deribit | 2 | 5 |
-| Hyperliquid | Hyperliquid | 1 | 0 |
+| Hyperliquid | Hyperliquid | 2 | 0 |
 <!-- RULES:END -->
 
 ## 使用方法
